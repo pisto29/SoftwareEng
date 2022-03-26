@@ -2,105 +2,113 @@ package Entity;
 // Your First Program
 
 class Personaggio {
-    public String NomePersonaggio;
-    public int PS;
-    public int AttaccoPersonaggio;
-    public int DifesaPersonaggio;
-    public int AttaccoSpecialePersonaggio;
-    public int DifesaSpecialePersonaggio;
-    public int VelocitàPersonaggio;
-    public boolean AbilitazioneAttacco;
-
-
-    public Personaggio(String NomePersonaggio, int PS, int AttaccoPersonaggio,  int DifesaPersonaggio, int AttaccoSpecialePersonaggio, int DifesaSpecialePersonaggio, int VelocitàPersonaggio, boolean AbilitazioneAttacco){
-        
-        this.AttaccoPersonaggio = AttaccoPersonaggio;
-        this.DifesaPersonaggio = DifesaPersonaggio;
-        this.AttaccoSpecialePersonaggio = AttaccoSpecialePersonaggio;
-        this.DifesaSpecialePersonaggio = DifesaSpecialePersonaggio;
-        this.VelocitàPersonaggio = VelocitàPersonaggio;
-        this.AbilitazioneAttacco = AbilitazioneAttacco; 
-
-
+    private String nomePersonaggio;
+    private int pS;
+    private int attaccoPersonaggio;
+    private int difesaPersonaggio;
+    private int attaccoSpecialePersonaggio;
+    private int difesaSpecialePersonaggio;
+    private int velocitàPersonaggio;
+    private boolean abilitazioneAttacco;
+    
+    
+    public Personaggio(String nomePersonaggio, int pS, int attaccoPersonaggio, int difesaPersonaggio,
+            int attaccoSpecialePersonaggio, int difesaSpecialePersonaggio, int velocitàPersonaggio,
+            boolean abilitazioneAttacco) {
+        this.nomePersonaggio = nomePersonaggio;
+        this.pS = pS;
+        this.attaccoPersonaggio = attaccoPersonaggio;
+        this.difesaPersonaggio = difesaPersonaggio;
+        this.attaccoSpecialePersonaggio = attaccoSpecialePersonaggio;
+        this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
+        this.velocitàPersonaggio = velocitàPersonaggio;
+        this.abilitazioneAttacco = abilitazioneAttacco;
     }
 
 
-    public String getNomePersonaggio(){return this.NomePersonaggio;}
+    public String getNomePersonaggio() {
+        return nomePersonaggio;
+    }
 
 
     public void setNomePersonaggio(String nomePersonaggio) {
-        NomePersonaggio = nomePersonaggio;
+        this.nomePersonaggio = nomePersonaggio;
     }
 
 
-    public int getPS() {
-        return this.PS;
+    public int getpS() {
+        return pS;
     }
 
 
-    public void setPS(int PS) {
-        this.PS = PS;
+    public void setpS(int pS) {
+        this.pS = pS;
     }
 
 
     public int getAttaccoPersonaggio() {
-        return AttaccoPersonaggio;
+        return attaccoPersonaggio;
     }
 
 
-    public void setAttaccoPersonaggio(int AttaccoPersonaggio) {
-        this.AttaccoPersonaggio = AttaccoPersonaggio;
+    public void setAttaccoPersonaggio(int attaccoPersonaggio) {
+        this.attaccoPersonaggio = attaccoPersonaggio;
     }
 
 
     public int getDifesaPersonaggio() {
-        return DifesaPersonaggio;
+        return difesaPersonaggio;
     }
 
 
-    public void setDifesaPersonaggio(int DifesaPersonaggio) {
-        this.DifesaPersonaggio = DifesaPersonaggio;
+    public void setDifesaPersonaggio(int difesaPersonaggio) {
+        this.difesaPersonaggio = difesaPersonaggio;
     }
 
 
     public int getAttaccoSpecialePersonaggio() {
-        return AttaccoSpecialePersonaggio;
+        return attaccoSpecialePersonaggio;
     }
 
 
-    public void setAttaccoSpecialePersonaggio(int AttaccoSpecialePersonaggio) {
-        this.AttaccoSpecialePersonaggio = AttaccoSpecialePersonaggio;
+    public void setAttaccoSpecialePersonaggio(int attaccoSpecialePersonaggio) {
+        this.attaccoSpecialePersonaggio = attaccoSpecialePersonaggio;
     }
 
 
     public int getDifesaSpecialePersonaggio() {
-        return DifesaSpecialePersonaggio;
+        return difesaSpecialePersonaggio;
     }
 
 
-    public void setDifesaSpecialePersonaggio(int DifesaSpecialePersonaggio) {
-        this.DifesaSpecialePersonaggio = DifesaSpecialePersonaggio;
+    public void setDifesaSpecialePersonaggio(int difesaSpecialePersonaggio) {
+        this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
     }
 
 
     public int getVelocitàPersonaggio() {
-        return VelocitàPersonaggio;
+        return velocitàPersonaggio;
     }
 
 
-    public void setVelocitàPersonaggio(int VelocitàPersonaggio) {
-        this.VelocitàPersonaggio = VelocitàPersonaggio;
+    public void setVelocitàPersonaggio(int velocitàPersonaggio) {
+        this.velocitàPersonaggio = velocitàPersonaggio;
     }
 
 
     public boolean isAbilitazioneAttacco() {
-        return AbilitazioneAttacco;
+        return abilitazioneAttacco;
     }
 
 
-    public void setAbilitazioneAttacco(boolean AbilitazioneAttacco) {
-        this.AbilitazioneAttacco = AbilitazioneAttacco;
+    public void setAbilitazioneAttacco(boolean abilitazioneAttacco) {
+        this.abilitazioneAttacco = abilitazioneAttacco;
     }
+
+    
+
+
+
     
 
 }
