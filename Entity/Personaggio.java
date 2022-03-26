@@ -10,6 +10,7 @@ class Personaggio {
     private int difesaSpecialePersonaggio;
     private int velocitàPersonaggio;
     private boolean abilitazioneAttacco;
+    private RuoloState ruolo;
     
     
     public Personaggio(String nomePersonaggio, int pS, int attaccoPersonaggio, int difesaPersonaggio,
@@ -105,7 +106,10 @@ class Personaggio {
         this.abilitazioneAttacco = abilitazioneAttacco;
     }
 
-    
+    public void difendi( int danno,Tipo tipo, Tipologia tipologia){
+        int dannoSubito=this.ruolo.Difendi(this, danno, tipo, tipologia);
+        this.setpS(this.pS-dannoSubito);
+    }
 
 
 
