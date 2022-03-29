@@ -1,6 +1,7 @@
 package Entity;
 // Your First Program
 
+
 class Personaggio {
     private String nomePersonaggio;
     private int pS;
@@ -11,6 +12,7 @@ class Personaggio {
     private int velocitàPersonaggio;
     private boolean abilitazioneAttacco;
     private RuoloState ruolo;
+    private Mossa[] mossas;
     
     
     public Personaggio(String nomePersonaggio, int pS, int attaccoPersonaggio, int difesaPersonaggio,
@@ -106,10 +108,25 @@ class Personaggio {
         this.abilitazioneAttacco = abilitazioneAttacco;
     }
 
-    public void difendi( int danno,Tipo tipo, Tipologia tipologia){
+
+
+    public void Attacca(String IDmossa){
+        int pos=0;
+        int i=0;
+        for (Mossa mossa : mossas) {
+            if (mossa.getNomeMossa()==IDmossa)
+            pos=i;
+            i++;
+        }
+        this.ruolo.Attacca(this,mossas[i] );
+    }
+
+
+
+   /*  public void difendi( int danno,Tipo tipo, Tipologia tipologia){
         int dannoSubito=this.ruolo.Difendi(this, danno, tipo, tipologia);
         this.setpS(this.pS-dannoSubito);
-    }
+    }*/
 
 
 

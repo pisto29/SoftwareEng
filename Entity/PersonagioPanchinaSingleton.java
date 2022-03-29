@@ -8,12 +8,7 @@ public class PersonagioPanchinaSingleton implements RuoloState {
         
     }
 
-    @Override
-    public int Difendi(Personaggio P1,int danno, Tipo tipo, Tipologia tipologia) {
-        // TODO Auto-generated method stub
-        return 0;
-        
-    }
+  
 
     @Override
     public void Sostituzione() {
