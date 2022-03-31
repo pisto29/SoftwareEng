@@ -2,7 +2,7 @@ package Entity;
 // Your First Program
 
 
-class Personaggio {
+public class Personaggio {
     private String nomePersonaggio;
     private int pS;
     private int attaccoPersonaggio;
@@ -13,11 +13,14 @@ class Personaggio {
     private boolean abilitazioneAttacco;
     private RuoloState ruolo;
     private Mossa[] mossas;
+    private Tipo[] tipos;
     
     
+
+
     public Personaggio(String nomePersonaggio, int pS, int attaccoPersonaggio, int difesaPersonaggio,
             int attaccoSpecialePersonaggio, int difesaSpecialePersonaggio, int velocitàPersonaggio,
-            boolean abilitazioneAttacco) {
+            boolean abilitazioneAttacco, RuoloState ruolo, Mossa[] mossas, Tipo[] tipos) {
         this.nomePersonaggio = nomePersonaggio;
         this.pS = pS;
         this.attaccoPersonaggio = attaccoPersonaggio;
@@ -26,7 +29,11 @@ class Personaggio {
         this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
         this.velocitàPersonaggio = velocitàPersonaggio;
         this.abilitazioneAttacco = abilitazioneAttacco;
+        this.ruolo = ruolo;
+        this.mossas = mossas;
+        this.tipos = tipos;
     }
+
 
 
     public String getNomePersonaggio() {
@@ -34,9 +41,13 @@ class Personaggio {
     }
 
 
+
+
     public void setNomePersonaggio(String nomePersonaggio) {
         this.nomePersonaggio = nomePersonaggio;
     }
+
+
 
 
     public int getpS() {
@@ -44,9 +55,13 @@ class Personaggio {
     }
 
 
+
+
     public void setpS(int pS) {
         this.pS = pS;
     }
+
+
 
 
     public int getAttaccoPersonaggio() {
@@ -54,9 +69,13 @@ class Personaggio {
     }
 
 
+
+
     public void setAttaccoPersonaggio(int attaccoPersonaggio) {
         this.attaccoPersonaggio = attaccoPersonaggio;
     }
+
+
 
 
     public int getDifesaPersonaggio() {
@@ -64,9 +83,13 @@ class Personaggio {
     }
 
 
+
+
     public void setDifesaPersonaggio(int difesaPersonaggio) {
         this.difesaPersonaggio = difesaPersonaggio;
     }
+
+
 
 
     public int getAttaccoSpecialePersonaggio() {
@@ -74,9 +97,13 @@ class Personaggio {
     }
 
 
+
+
     public void setAttaccoSpecialePersonaggio(int attaccoSpecialePersonaggio) {
         this.attaccoSpecialePersonaggio = attaccoSpecialePersonaggio;
     }
+
+
 
 
     public int getDifesaSpecialePersonaggio() {
@@ -84,9 +111,13 @@ class Personaggio {
     }
 
 
+
+
     public void setDifesaSpecialePersonaggio(int difesaSpecialePersonaggio) {
         this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
     }
+
+
 
 
     public int getVelocitàPersonaggio() {
@@ -94,9 +125,13 @@ class Personaggio {
     }
 
 
+
+
     public void setVelocitàPersonaggio(int velocitàPersonaggio) {
         this.velocitàPersonaggio = velocitàPersonaggio;
     }
+
+
 
 
     public boolean isAbilitazioneAttacco() {
@@ -104,11 +139,55 @@ class Personaggio {
     }
 
 
+
+
     public void setAbilitazioneAttacco(boolean abilitazioneAttacco) {
         this.abilitazioneAttacco = abilitazioneAttacco;
     }
 
 
+
+
+    public RuoloState getRuolo() {
+        return ruolo;
+    }
+
+
+
+
+    public void setRuolo(RuoloState ruolo) {
+        this.ruolo = ruolo;
+    }
+
+
+
+
+    public Mossa[] getMossas() {
+        return mossas;
+    }
+
+
+
+
+    public void setMossas(Mossa[] mossas) {
+        this.mossas = mossas;
+    }
+
+
+
+
+    public Tipo[] getTipos() {
+        return tipos;
+    }
+
+
+
+
+    public void setTipos(Tipo[] tipos) {
+        this.tipos = tipos;
+    }
+
+    
 
     public void Attacca(String IDmossa){
         int pos=0;
