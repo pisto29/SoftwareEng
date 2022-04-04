@@ -30,28 +30,62 @@ public class Turno {
         this.fase = fase;
     }
 
-    private int CalcolaAttacco(Personaggio p1,Personaggio p2, Mossa m){
-        int D;
-        int mod;
-        float eff1 = m.getTipo().getEfficacia(p2.getTipos()[0]);
-        float eff2 = m.getTipo().getEfficacia(p2.getTipos()[1]);
-        
+//------------------------------------------------------------------------------------------------------------------------------
     
-        if(m.isCritico() == true) 
-            mod = 2;
-        else
-            mod = 1;
+    private int CalcolaAttacco(Personaggio p1,Personaggio p2, Mossa m){
         
-        mod =  mod * (int) eff1 * (int) eff2;
-        //COMPLETARE CALCOLO MOD
-        if(m.getTipologia()==Tipologia.Fisico)
-            D = (22*m.getDanno()*p1.getAttaccoPersonaggio())/50*p2.getDifesaPersonaggio();
-            D = D + 2;
-            D = D * mod;
+        float danno;
+        float attacco;
+        float difesa;
 
-        return D;
+        if(m.getTipologia() == Tipologia.Fisico){
+
+            attacco = p1.getAttaccoPersonaggio();
+            difesa = p2.getDifesaPersonaggio();
+        }
+        else{
+
+            attacco = p1.getAttaccoSpecialePersonaggio();
+            difesa = p2.getDifesaSpecialePersonaggio();
+
+        }
+
+        danno = (22 * m.getDanno() * attacco / (50 * difesa)) + 2;
+        danno = danno * this.CalcoloModificatore(m, p1, p2);
+        
+        return (int) danno;
+    }
+
+    private float CalcoloModificatore(Mossa m, Personaggio p1, Personaggio p2){
+
+        float modificatore = 1;
+        float efficacia = m.getTipo().getEfficacia(p2.getTipos()[0]) * m.getTipo().getEfficacia(p2.getTipos()[1]) ;
+        
+        if(m.isCritico()) 
+            modificatore = modificatore * 2f;
+        
+        if(IsStab(m, p1))
+            modificatore = modificatore * 1.33f;
+        
+        modificatore = modificatore * efficacia;
+
+        return modificatore;
     }
     
+
+    private boolean IsStab(Mossa m, Personaggio p1){
+        boolean stab = false;
+        for(int i = 0 ; i < 2 ; i++){
+            if(m.getTipo() == p1.getTipos()[i])
+             stab = true; 
+        }
+  
+        return stab;
+    }
+
+
+
+
     public void EseguiAttacco(Personaggio p, Mossa m){
 
     }

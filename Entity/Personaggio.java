@@ -37,6 +37,7 @@ public class Personaggio {
 
 
     public String getNomePersonaggio() {
+
         return nomePersonaggio;
     }
 
@@ -44,6 +45,7 @@ public class Personaggio {
 
 
     public void setNomePersonaggio(String nomePersonaggio) {
+
         this.nomePersonaggio = nomePersonaggio;
     }
 
@@ -51,6 +53,7 @@ public class Personaggio {
 
 
     public int getpS() {
+
         return pS;
     }
 
@@ -58,6 +61,7 @@ public class Personaggio {
 
 
     public void setpS(int pS) {
+
         this.pS = pS;
     }
 
@@ -65,13 +69,15 @@ public class Personaggio {
 
 
     public int getAttaccoPersonaggio() {
-        return attaccoPersonaggio;
+
+        return (int) this.ruolo.getAttacco(this.attaccoPersonaggio);
     }
 
 
 
 
     public void setAttaccoPersonaggio(int attaccoPersonaggio) {
+
         this.attaccoPersonaggio = attaccoPersonaggio;
     }
 
@@ -79,7 +85,8 @@ public class Personaggio {
 
 
     public int getDifesaPersonaggio() {
-        return difesaPersonaggio;
+
+        return (int) this.ruolo.getDifesa(this.difesaPersonaggio);
     }
 
 
@@ -93,7 +100,8 @@ public class Personaggio {
 
 
     public int getAttaccoSpecialePersonaggio() {
-        return attaccoSpecialePersonaggio;
+
+        return (int) this.ruolo.getAttaccoSpecile(this.attaccoSpecialePersonaggio);
     }
 
 
@@ -107,13 +115,15 @@ public class Personaggio {
 
 
     public int getDifesaSpecialePersonaggio() {
-        return difesaSpecialePersonaggio;
+
+        return (int) this.ruolo.getDifesaSpeciale(this.difesaSpecialePersonaggio);
     }
 
 
 
 
     public void setDifesaSpecialePersonaggio(int difesaSpecialePersonaggio) {
+
         this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
     }
 
@@ -121,13 +131,15 @@ public class Personaggio {
 
 
     public int getVelocitàPersonaggio() {
-        return velocitàPersonaggio;
+
+        return (int) this.ruolo.getVelocita(this.velocitàPersonaggio);
     }
 
 
 
 
     public void setVelocitàPersonaggio(int velocitàPersonaggio) {
+
         this.velocitàPersonaggio = velocitàPersonaggio;
     }
 
@@ -135,6 +147,7 @@ public class Personaggio {
 
 
     public boolean isAbilitazioneAttacco() {
+
         return abilitazioneAttacco;
     }
 
@@ -142,6 +155,7 @@ public class Personaggio {
 
 
     public void setAbilitazioneAttacco(boolean abilitazioneAttacco) {
+
         this.abilitazioneAttacco = abilitazioneAttacco;
     }
 
@@ -149,6 +163,7 @@ public class Personaggio {
 
 
     public RuoloState getRuolo() {
+
         return ruolo;
     }
 
@@ -156,6 +171,7 @@ public class Personaggio {
 
 
     public void setRuolo(RuoloState ruolo) {
+
         this.ruolo = ruolo;
     }
 
@@ -163,6 +179,7 @@ public class Personaggio {
 
 
     public Mossa[] getMossas() {
+
         return mossas;
     }
 
@@ -170,6 +187,7 @@ public class Personaggio {
 
 
     public void setMossas(Mossa[] mossas) {
+
         this.mossas = mossas;
     }
 
@@ -177,6 +195,7 @@ public class Personaggio {
 
 
     public Tipo[] getTipos() {
+
         return tipos;
     }
 
@@ -184,12 +203,14 @@ public class Personaggio {
 
 
     public void setTipos(Tipo[] tipos) {
+
         this.tipos = tipos;
     }
 
     
 
     public void Attacca(String IDmossa){
+        
         int pos=0;
         int i=0;
         for (Mossa mossa : mossas) {
