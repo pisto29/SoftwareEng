@@ -228,7 +228,9 @@ public class Personaggio {
         this.setpS(this.pS-dannoSubito);
     }*/
 
-
+    public void Sostituzione(){
+        this.ruolo.Sostituzione(this);
+    }
 
     
 

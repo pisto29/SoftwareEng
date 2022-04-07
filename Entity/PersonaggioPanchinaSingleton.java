@@ -1,33 +1,35 @@
 package Entity;
 
-public class KoSingleton implements RuoloState {
-    private static KoSingleton istanza;
-  
+public class PersonaggioPanchinaSingleton implements RuoloState {
+ private static PersonaggioPanchinaSingleton istanza;
+
+    public PersonaggioPanchinaSingleton() {
+}
 
 
-
-  
-
-
-
-    public KoSingleton() {
-    }
-
-  public static KoSingleton getIstanza() {
-    if(istanza==null){istanza=new KoSingleton();}
-    return istanza;
-    }
 
     @Override
     public void Attacca(Personaggio P1, Mossa mossa) {
         // TODO Auto-generated method stub
         
     }
+   
+  
 
- 
+    public static PersonaggioPanchinaSingleton getIstanza() {
+         if(istanza==null){istanza=new PersonaggioPanchinaSingleton();}
+     return istanza;
+    }
+
+
+
+   
+
+
 
     @Override
     public void Sostituzione(Personaggio P1) {
+        P1.setRuolo(PersonaggioAttivoSingleton.getIstanza());
         // TODO Auto-generated method stub
         
     }
@@ -71,5 +73,9 @@ public class KoSingleton implements RuoloState {
         // TODO Auto-generated method stub
         return 0;
     }
+
+   
+
+
     
 }
