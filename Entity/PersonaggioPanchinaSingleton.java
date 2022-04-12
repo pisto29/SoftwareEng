@@ -74,6 +74,62 @@ public class PersonaggioPanchinaSingleton implements RuoloState {
         return 0;
     }
 
+
+
+    @Override
+    public void aggiungiMoltiplicatoreAttacco(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    @Override
+    public void aggiungiMoltiplicatoreAttaccoSpeciale(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    @Override
+    public void aggiungiMoltiplicatoreDifesa(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    @Override
+    public void aggiungiMoltiplicatoreDifesaSpeciale(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    @Override
+    public void aggiungiMoltiplicatoreVelocita(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    @Override
+    public void AbiltaAttacco() {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    @Override
+    public void DisabiltaAttacco() {
+        // TODO Auto-generated method stub
+        
+    }
+
    
 
 

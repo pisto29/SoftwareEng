@@ -9,5 +9,13 @@ public interface RuoloState {
     public float getAttaccoSpecile(int attaccospecialeOriginale);
     public float getDifesaSpeciale(int difesaspecialeOriginale);
     public float getVelocita(int velocitaOriginale);
+    public void aggiungiMoltiplicatoreAttacco(float moltiplicatore);
+    public void aggiungiMoltiplicatoreAttaccoSpeciale(float moltiplicatore);
+    public void aggiungiMoltiplicatoreDifesa(float moltiplicatore);
+    public void aggiungiMoltiplicatoreDifesaSpeciale(float moltiplicatore);
+    public void aggiungiMoltiplicatoreVelocita(float moltiplicatore);
+    public void AbiltaAttacco();
+    public void DisabiltaAttacco();
+
    
 }

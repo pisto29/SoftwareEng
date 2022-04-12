@@ -61,7 +61,7 @@ public class Turno {
         float modificatore = 1;
         float efficacia = m.getTipo().getEfficacia(p2.getTipos()[0]) * m.getTipo().getEfficacia(p2.getTipos()[1]) ;
         
-        if(m.isCritico()) 
+        if(m.CheckCritico()) 
             modificatore = modificatore * 2f;
         
         if(IsStab(m, p1))

@@ -8,7 +8,6 @@ public class Mossa {
     private int danno;
     private int pp;
     private float percentualeCritico;
-    private boolean critico;
     private int precisione;
     private Personaggio bersaglio;
     private float percentualeAttivazzioneEffetto;
@@ -17,13 +16,12 @@ public class Mossa {
     private Random random;
     
 
-    public Mossa(String nomeMossa, int danno, int pp, float percentualeCritico, boolean critico, int precisione,
+    public Mossa(String nomeMossa, int danno, int pp, float percentualeCritico, int precisione,
             Personaggio bersaglio, float percentualeAttivazzioneEffetto, Tipo tipo, Tipologia tipologia) {
         this.nomeMossa = nomeMossa;
         this.danno = danno;
         this.pp = pp;
         this.percentualeCritico = percentualeCritico;
-        this.critico = critico;
         this.precisione = precisione;
         this.bersaglio = bersaglio;
         this.percentualeAttivazzioneEffetto = percentualeAttivazzioneEffetto;
@@ -70,16 +68,6 @@ public class Mossa {
 
     public void setPercentualeCritico(float percentualeCritico) {
         this.percentualeCritico = percentualeCritico;
-    }
-
-
-    public boolean isCritico() {
-        return critico;
-    }
-
-
-    public void setCritico(boolean critico) {
-        this.critico = critico;
     }
 
 
@@ -132,10 +120,14 @@ public class Mossa {
         this.tipologia = tipologia;
     }
     
-    public void CheckCritico(){
+    public boolean CheckCritico(){
+
         int check = random.nextInt(100);
+
         if (check < percentualeCritico)
-            setCritico(true);
+            return true;
+        else
+        return false;
     }
 
     public void ApplicaEffettoMossa(){

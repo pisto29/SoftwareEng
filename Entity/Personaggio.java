@@ -10,7 +10,7 @@ public class Personaggio {
     private int attaccoSpecialePersonaggio;
     private int difesaSpecialePersonaggio;
     private int velocitàPersonaggio;
-    private boolean abilitazioneAttacco;
+    
     private RuoloState ruolo;
     private Mossa[] mossas;
     private Tipo[] tipos;
@@ -20,7 +20,7 @@ public class Personaggio {
 
     public Personaggio(String nomePersonaggio, int pS, int attaccoPersonaggio, int difesaPersonaggio,
             int attaccoSpecialePersonaggio, int difesaSpecialePersonaggio, int velocitàPersonaggio,
-            boolean abilitazioneAttacco, RuoloState ruolo, Mossa[] mossas, Tipo[] tipos) {
+            RuoloState ruolo, Mossa[] mossas, Tipo[] tipos) {
         this.nomePersonaggio = nomePersonaggio;
         this.pS = pS;
         this.attaccoPersonaggio = attaccoPersonaggio;
@@ -28,7 +28,6 @@ public class Personaggio {
         this.attaccoSpecialePersonaggio = attaccoSpecialePersonaggio;
         this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
         this.velocitàPersonaggio = velocitàPersonaggio;
-        this.abilitazioneAttacco = abilitazioneAttacco;
         this.ruolo = ruolo;
         this.mossas = mossas;
         this.tipos = tipos;
@@ -146,21 +145,6 @@ public class Personaggio {
 
 
 
-    public boolean isAbilitazioneAttacco() {
-
-        return abilitazioneAttacco;
-    }
-
-
-
-
-    public void setAbilitazioneAttacco(boolean abilitazioneAttacco) {
-
-        this.abilitazioneAttacco = abilitazioneAttacco;
-    }
-
-
-
 
     public RuoloState getRuolo() {
 
@@ -223,15 +207,58 @@ public class Personaggio {
 
 
 
-   /*  public void difendi( int danno,Tipo tipo, Tipologia tipologia){
-        int dannoSubito=this.ruolo.Difendi(this, danno, tipo, tipologia);
-        this.setpS(this.pS-dannoSubito);
-    }*/
-
     public void Sostituzione(){
         this.ruolo.Sostituzione(this);
     }
 
     
+    public void aggiungiMoltiplicatoreAttacco(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        this.ruolo.aggiungiMoltiplicatoreAttacco(moltiplicatore);
+    }
+
+
+
+    
+    public void aggiungiMoltiplicatoreAttaccoSpeciale(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        this.ruolo.aggiungiMoltiplicatoreAttaccoSpeciale(moltiplicatore);
+    }
+
+
+
+    
+    public void aggiungiMoltiplicatoreDifesa(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        this.ruolo.aggiungiMoltiplicatoreDifesa(moltiplicatore);
+    }
+
+
+
+    
+    public void aggiungiMoltiplicatoreDifesaSpeciale(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        this.ruolo.aggiungiMoltiplicatoreDifesaSpeciale(moltiplicatore);
+        
+    }
+
+
+
+    public void aggiungiMoltiplicatoreVelocita(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        this.ruolo.aggiungiMoltiplicatoreVelocita(moltiplicatore);
+        
+    }
+
+    public void AbiltaAttacco() {
+        
+        this.ruolo.AbiltaAttacco();
+    }
+    
+    
+    public void DisabiltaAttacco() {
+        
+        this.ruolo.DisabiltaAttacco();
+    }
 
 }

@@ -3,13 +3,6 @@ package Entity;
 public class KoSingleton implements RuoloState {
     private static KoSingleton istanza;
   
-
-
-
-  
-
-
-
     public KoSingleton() {
     }
 
@@ -70,6 +63,48 @@ public class KoSingleton implements RuoloState {
     public float getVelocita(int velocitaOriginale) {
         // TODO Auto-generated method stub
         return 0;
+    }
+
+    @Override
+    public void aggiungiMoltiplicatoreAttacco(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void aggiungiMoltiplicatoreAttaccoSpeciale(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void aggiungiMoltiplicatoreDifesa(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void aggiungiMoltiplicatoreDifesaSpeciale(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void aggiungiMoltiplicatoreVelocita(float moltiplicatore) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void AbiltaAttacco() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void DisabiltaAttacco() {
+        // TODO Auto-generated method stub
+        
     }
     
 }
