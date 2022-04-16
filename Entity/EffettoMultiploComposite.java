@@ -31,7 +31,7 @@ public class EffettoMultiploComposite implements EffettoComposite{
     @Override
     public EffettoComposite getChild(int a) {
         // TODO Auto-generated method stub
-        return this.effetti[a];
+        return this.effetti.get(a);
     }
     
 }

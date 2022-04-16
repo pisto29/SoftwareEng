@@ -38,7 +38,7 @@ public class EffettoModificaAttaccoSpeciale implements EffettoComposite{
     @Override
     public EffettoComposite getChild(int a) {
         // TODO Auto-generated method stub
-        return 0;
+        return this;
     }
     
     
