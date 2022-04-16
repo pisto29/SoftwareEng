@@ -9,6 +9,24 @@ public class EffettoAnnullaMossa implements EffettoComposite {
 
     }
 
+    @Override
+    public void Add(EffettoComposite e) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void Remove(EffettoComposite e) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public int getChild(int a) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
     
     
 }
