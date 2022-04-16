@@ -22,7 +22,7 @@ public class EffettoAnnullaMossa implements EffettoComposite {
     }
 
     @Override
-    public int getChild(int a) {
+    public EffettoComposite getChild(int a) {
         // TODO Auto-generated method stub
         return 0;
     }

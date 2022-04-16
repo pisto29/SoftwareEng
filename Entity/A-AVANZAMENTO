@@ -3,9 +3,10 @@ G2:  BESTEMMIE, MODIFICA DI SSD E UML--- ULTIMARE L'ATTACCO DEL PERSONAGGIO
 G3: AUTOLOADER?, CLASSE TIPO, MODIFICA E IMPLEMENTAZIONE PARZIALE CLASSE MOSSA, VEDERE SE NEL MODIFICATORE VA INSERITO STAB RNG,
     FARE REFACTORING METODO CALCOLAATTACCO CLASSE TURNO, COMPLETARE CALCOLOMODIFICATORE IN CALCOLAATTACCO
 G4: FATTORIZZATO E COMPLETATO METODO CALCOLAATTACCO, AGGIUNTI METODI CLACOLAMODIFICATORE E ISSTAB, MODIFICATI METODI GET DI PERSONAGGIO PERSONAGGIO 
-    PER CONSIDERARE I MOLTIPLICATORI
+    PER CONSIDERARE I MOLTIPLICATORI.
 G5: MATTIA DI GIOVANNI 
 G6: modifica classi state con inserimento del meccanismo di sostituzione
 G7: modificato metodo CheckCritico() e tolto attributo critico alla classe MOSSA, rimozione classi effettuBuff e effettoDebuff, inserimento classi 
     EffettoModificaAttacco EffettoModificaAttSpeciale EffettoModificaDifesa EffettoModificaDifSpeciale EffettoModificaVelocità, applicazzione di abilità
-    dirottata su personaggio, ultimate effetti abilità, mancano effettoComposite e gli status 
+    dirottata su personaggio, ultimate effetti abilità, mancano effettoComposite e gli status.
+G8: completato effetti abilita e effettoComposite, fare effetto status.
