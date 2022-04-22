@@ -10,3 +10,6 @@ G7: modificato metodo CheckCritico() e tolto attributo critico alla classe MOSSA
     EffettoModificaAttacco EffettoModificaAttSpeciale EffettoModificaDifesa EffettoModificaDifSpeciale EffettoModificaVelocità, applicazzione di abilità
     dirottata su personaggio, ultimate effetti abilità, mancano effettoComposite e gli status.
 G8: completato effetti abilita e effettoComposite, fare effetto status.
+G9: Fatta classe Avvelenamento,Paralisi,Sonno (non è più singleton perchè si deve tener conto dei turni di sonno che ogni personaggio passa
+), aggiunto il metodo EffettoApplicazione. IL CAMBIAMENTO DI STRATEGIO NON è DELEGATO AL PERSONAGGIO IN SE MA AL CLIENT STESSO
+QUINDI AD ESEMPIO SARà UNA MOSSA A SETTARE LO STATUS DEL PERSONAGGIO. NON è NECESSARIA LA CLASSE NO STATUS

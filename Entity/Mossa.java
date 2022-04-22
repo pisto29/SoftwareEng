@@ -13,7 +13,7 @@ public class Mossa {
     private float percentualeAttivazzioneEffetto;
     private Tipo tipo;
     private Tipologia tipologia;
-    private Random random;
+   
     
 
     public Mossa(String nomeMossa, int danno, int pp, float percentualeCritico, int precisione,
@@ -27,7 +27,7 @@ public class Mossa {
         this.percentualeAttivazzioneEffetto = percentualeAttivazzioneEffetto;
         this.tipo = tipo;
         this.tipologia = tipologia;
-        this.random = new Random();    
+         
     }
 
     
@@ -122,7 +122,7 @@ public class Mossa {
     
     public boolean CheckCritico(){
 
-        int check = random.nextInt(100);
+        int check = new Random().nextInt(100);
 
         if (check < percentualeCritico)
             return true;

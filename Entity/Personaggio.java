@@ -14,8 +14,12 @@ public class Personaggio {
     private RuoloState ruolo;
     private Mossa[] mossas;
     private Tipo[] tipos;
+    private StatusStrategy status;
     
     
+
+
+  
 
 
     public Personaggio(String nomePersonaggio, int pS, int attaccoPersonaggio, int difesaPersonaggio,
@@ -31,6 +35,7 @@ public class Personaggio {
         this.ruolo = ruolo;
         this.mossas = mossas;
         this.tipos = tipos;
+        this.status=null;
     }
 
 
@@ -48,6 +53,15 @@ public class Personaggio {
         this.nomePersonaggio = nomePersonaggio;
     }
 
+  public StatusStrategy getStatus() {
+        return status;
+    }
+
+
+
+    public void setStatus(StatusStrategy status) {
+        this.status = status;
+    }
 
 
 
@@ -260,5 +274,10 @@ public class Personaggio {
         
         this.ruolo.DisabiltaAttacco();
     }
-
+   
+    public void attivastatus(){
+        if(this.status!=null){
+            this.status.Attivazione(this);
+        }
+    }
 }
