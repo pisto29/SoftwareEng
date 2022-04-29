@@ -43,5 +43,50 @@ public EffettoComposite createEffettoAnnullaMossa(int id_effetto){
              
             }
 }
+    public EffettoComposite createEffettoModificaDifesa(int id_effetto){
+            if(effetti.containsKey(id_effetto))return effetti.get(id_effetto);
+            else{
+               EffettoModificaDifesa effetto=new EffettoModificaDifesa(1f,id_effetto);
+               //EFFETTO DA CREARE TRAMITE LETTURA DA FILE O DB VALIDO PER TUTTI GLI EFFETTI
+               effetti.put(id_effetto, effetto);
+               return effetto;}
+}
+
+    public EffettoComposite createEffettoModificaDifesaSpeciale(int id_effetto){
+            if(effetti.containsKey(id_effetto))return effetti.get(id_effetto);
+            else{
+               EffettoModificaDifesaSpeciale effetto=new EffettoModificaDifesaSpeciale(1f,id_effetto);
+               //EFFETTO DA CREARE TRAMITE LETTURA DA FILE O DB VALIDO PER TUTTI GLI EFFETTI
+               effetti.put(id_effetto, effetto);
+               return effetto;}
+}
+    public EffettoComposite createEffettoModificaVelocità(int id_effetto){
+            if(effetti.containsKey(id_effetto))return effetti.get(id_effetto);
+            else{
+               EffettoModificaVelocità effetto=new EffettoModificaVelocità(1f,id_effetto);
+               //EFFETTO DA CREARE TRAMITE LETTURA DA FILE O DB VALIDO PER TUTTI GLI EFFETTI
+               effetti.put(id_effetto, effetto);
+               return effetto;}
+}
+
+    public EffettoComposite createEffettoStatus(int id_effetto){
+            if(effetti.containsKey(id_effetto))return effetti.get(id_effetto);
+            else{
+               EffettoStatus effetto = new EffettoStatus(id_effetto);
+               //EFFETTO DA CREARE TRAMITE LETTURA DA FILE O DB VALIDO PER TUTTI GLI EFFETTI
+               effetti.put(id_effetto, effetto);
+               return effetto;
+            }
+    }
+
+    public EffettoComposite EffettoMultiploComposite createEffettoMultiploComposite(int id_effetto){
+            if(effetti.containsKey(id_effetto))return effetti.get(id_effetto);
+            else{
+               EffettoMultiploComposite effetto = new EffettoMultiploComposite(id_effetto);
+               //EFFETTO DA CREARE TRAMITE LETTURA DA FILE O DB VALIDO PER TUTTI GLI EFFETTI
+               effetti.put(id_effetto, effetto);
+               return effetto;
+            }
+    }
 
 }

@@ -13,4 +13,4 @@ G8: completato effetti abilita e effettoComposite, fare effetto status.
 G9: Fatta classe Avvelenamento,Paralisi,Sonno (non è più singleton perchè si deve tener conto dei turni di sonno che ogni personaggio passa
 ), aggiunto il metodo EffettoApplicazione. IL CAMBIAMENTO DI STRATEGIO NON è DELEGATO AL PERSONAGGIO IN SE MA AL CLIENT STESSO
 QUINDI AD ESEMPIO SARà UNA MOSSA A SETTARE LO STATUS DEL PERSONAGGIO. NON è NECESSARIA LA CLASSE NO STATUS
-G10:
+G10: flyweight effetto factory 
