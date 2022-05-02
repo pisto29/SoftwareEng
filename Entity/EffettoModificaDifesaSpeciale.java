@@ -3,9 +3,11 @@ package Entity;
 public class EffettoModificaDifesaSpeciale implements EffettoComposite{
     
     private float moltiplicatore;
+    private int id;
 
-    public EffettoModificaDifesaSpeciale(float moltiplicatore) {
+    public EffettoModificaDifesaSpeciale(float moltiplicatore, int id) {
         this.moltiplicatore = moltiplicatore;
+        this.id = id;
     }
 
     public float getMoltiplicatore() {

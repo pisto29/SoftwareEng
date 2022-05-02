@@ -4,8 +4,13 @@ import java.util.*;
 
 public class EffettoMultiploComposite implements EffettoComposite{
 
-
+    private int id;
     private ArrayList <EffettoComposite> effetti;
+
+    public EffettoMultiploComposite(int id, ArrayList<EffettoComposite> effetti) {
+        this.id = id;
+        this.effetti = effetti;
+    }
 
     @Override
     public void ApplicaEffetto(Personaggio p1) {

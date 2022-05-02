@@ -3,11 +3,12 @@ package Entity;
 public class AbilitàMonouso implements Abilità{
 
     private boolean attivata;
-    private EffettoComposite effetto;
+    private EffettoComposite effetti_self;
+    private EffettoComposite effetti;
     
     @Override
-    public void Attivazzione() {
-        // TODO Auto-generated method stub
+    public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio) {
+        //TODO Auto-generated method stub
         
     }
     

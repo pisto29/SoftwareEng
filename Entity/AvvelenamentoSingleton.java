@@ -5,9 +5,14 @@ public class AvvelenamentoSingleton implements StatusStrategy {
     public AvvelenamentoSingleton() {
     }
     public static AvvelenamentoSingleton getIstanza() {
-        if(istanza==null){istanza=new AvvelenamentoSingleton();}
+        
+        if(istanza==null){
+
+            istanza=new AvvelenamentoSingleton();
+        }
      return istanza;
     }
+
     @Override
     public void Attivazione(Personaggio p1) {
         if(this.checkAttivazione())

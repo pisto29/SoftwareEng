@@ -2,6 +2,6 @@ package Entity;
 
 public interface Abilità {
     
-    public void Attivazzione();
+    public void Attivazione(Personaggio utilizzatore,Personaggio bersaglio);
     
 }

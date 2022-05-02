@@ -7,6 +7,14 @@ public class PersonaggioPanchinaSingleton implements RuoloState {
 }
 
 
+public static PersonaggioPanchinaSingleton getIstanza() {
+
+    if(istanza==null) {
+
+        istanza=new PersonaggioPanchinaSingleton();
+    }
+     return istanza;
+}
 
     @Override
     public void Attacca(Personaggio P1, Mossa mossa) {
@@ -15,16 +23,6 @@ public class PersonaggioPanchinaSingleton implements RuoloState {
     }
    
   
-
-    public static PersonaggioPanchinaSingleton getIstanza() {
-         if(istanza==null){istanza=new PersonaggioPanchinaSingleton();}
-     return istanza;
-    }
-
-
-
-   
-
 
 
     @Override
@@ -130,7 +128,6 @@ public class PersonaggioPanchinaSingleton implements RuoloState {
         
     }
 
-   
 
 
     

@@ -134,12 +134,15 @@ public class Mossa {
 
     }
 
-    public void CheckEffetto(){
+    public boolean CheckEffetto(){
+        int check = new Random().nextInt(100);
 
+        if (check < percentualeAttivazzioneEffetto)
+            return true;
+        else
+        return false;
     }
     
 
 
-
-    
 }

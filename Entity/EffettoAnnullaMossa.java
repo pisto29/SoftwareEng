@@ -2,6 +2,8 @@ package Entity;
 
 public class EffettoAnnullaMossa implements EffettoComposite {
 private int id;
+
+
     public EffettoAnnullaMossa(int id) {
     this.id = id;
 }

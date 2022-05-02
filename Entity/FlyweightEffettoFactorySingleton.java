@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class FlyweightEffettoFactorySingleton {
     private HashMap<Integer,EffettoComposite > effetti;
+    private static FlyweightEffettoFactorySingleton istanza;
    // private ArrayList <EffettoComposite> effetti;
 /*public EffettoComposite createEffettoAnnullaMossa(int id_effetto){
    
@@ -13,6 +14,16 @@ public class FlyweightEffettoFactorySingleton {
         return effettoComposite;
    }
 }*/
+
+public static FlyweightEffettoFactorySingleton getIstanza() {
+
+   if(istanza==null) {
+
+       istanza=new FlyweightEffettoFactorySingleton();
+   }
+return istanza;
+}
+
 public EffettoComposite createEffettoAnnullaMossa(int id_effetto){
     if(effetti.containsKey(id_effetto))return effetti.get(id_effetto);
     else{
@@ -63,7 +74,7 @@ public EffettoComposite createEffettoAnnullaMossa(int id_effetto){
     public EffettoComposite createEffettoModificaVelocità(int id_effetto){
             if(effetti.containsKey(id_effetto))return effetti.get(id_effetto);
             else{
-               EffettoModificaVelocità effetto=new EffettoModificaVelocità(1f,id_effetto);
+               EffettoModificaVelocita effetto=new EffettoModificaVelocita(1f,id_effetto);
                //EFFETTO DA CREARE TRAMITE LETTURA DA FILE O DB VALIDO PER TUTTI GLI EFFETTI
                effetti.put(id_effetto, effetto);
                return effetto;}
@@ -79,10 +90,12 @@ public EffettoComposite createEffettoAnnullaMossa(int id_effetto){
             }
     }
 
-    public EffettoComposite EffettoMultiploComposite createEffettoMultiploComposite(int id_effetto){
-            if(effetti.containsKey(id_effetto))return effetti.get(id_effetto);
+    public EffettoComposite  createEffettoMultiploComposite(int id_effetto){
+      ArrayList <EffettoComposite> eff= new ArrayList<>();
+            if(effetti.containsKey(id_effetto))
+            return effetti.get(id_effetto);
             else{
-               EffettoMultiploComposite effetto = new EffettoMultiploComposite(id_effetto);
+               EffettoMultiploComposite effetto = new EffettoMultiploComposite(id_effetto, eff);
                //EFFETTO DA CREARE TRAMITE LETTURA DA FILE O DB VALIDO PER TUTTI GLI EFFETTI
                effetti.put(id_effetto, effetto);
                return effetto;

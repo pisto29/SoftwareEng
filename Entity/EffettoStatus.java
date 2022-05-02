@@ -2,6 +2,13 @@ package Entity;
 
 public class EffettoStatus implements EffettoComposite {
 
+    
+    private int id;
+
+    public EffettoStatus(int id) {
+        this.id = id;
+    }
+
     @Override
     public void ApplicaEffetto(Personaggio p1) {
         // TODO Auto-generated method stub

@@ -3,9 +3,12 @@ package Entity;
 public class EffettoModificaVelocita implements EffettoComposite{
     
     private float moltiplicatore;
-
-    public EffettoModificaVelocita(float moltiplicatore) {
+    private int id;
+    
+    
+    public EffettoModificaVelocita(float moltiplicatore, int id) {
         this.moltiplicatore = moltiplicatore;
+        this.id = id;
     }
 
     public float getMoltiplicatore() {

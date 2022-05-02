@@ -1,8 +1,18 @@
 package Entity;
 import java.util.*;
 public class ParalisiSingleton implements StatusStrategy {
+    private static ParalisiSingleton istanza;
 
     public ParalisiSingleton() {
+    }
+
+    public static ParalisiSingleton getIstanza() {
+
+        if(istanza==null) {
+
+            istanza=new ParalisiSingleton();
+        }
+     return istanza;
     }
 
     @Override

@@ -11,6 +11,8 @@ G7: modificato metodo CheckCritico() e tolto attributo critico alla classe MOSSA
     dirottata su personaggio, ultimate effetti abilità, mancano effettoComposite e gli status.
 G8: completato effetti abilita e effettoComposite, fare effetto status.
 G9: Fatta classe Avvelenamento,Paralisi,Sonno (non è più singleton perchè si deve tener conto dei turni di sonno che ogni personaggio passa
-), aggiunto il metodo EffettoApplicazione. IL CAMBIAMENTO DI STRATEGIO NON è DELEGATO AL PERSONAGGIO IN SE MA AL CLIENT STESSO
-QUINDI AD ESEMPIO SARà UNA MOSSA A SETTARE LO STATUS DEL PERSONAGGIO. NON è NECESSARIA LA CLASSE NO STATUS
+    ), aggiunto il metodo EffettoApplicazione. IL CAMBIAMENTO DI STRATEGIO NON è DELEGATO AL PERSONAGGIO IN SE MA AL CLIENT STESSO
+    QUINDI AD ESEMPIO SARà UNA MOSSA A SETTARE LO STATUS DEL PERSONAGGIO. NON è NECESSARIA LA CLASSE NO STATUS
 G10: flyweight effetto factory greedy juicy aggiungere costruttori e id alle classi effetto
+G11: inserimento costruttori delle classi effetto, inserimento variabile istanza per le classi singleton, completata classw TipoFactorySingleton,
+     metodo CheckEffetto() della classe mossa completato, CLASSE ABILITà AGGIUNTA DISTINZIONE TRA EFFETTI SULL'AVVERSARIO E SU SE STESSI 

@@ -11,7 +11,9 @@ private static PersonaggioAttivoSingleton istanza;
     private boolean abilitazioneAttacco;
 
     public static PersonaggioAttivoSingleton getIstanza() {
-        if(istanza==null){istanza=new PersonaggioAttivoSingleton(1,1,1,1,1,true);}
+        if(istanza==null){
+            istanza=new PersonaggioAttivoSingleton(1,1,1,1,1,true);
+        }
      return istanza;
     }
     

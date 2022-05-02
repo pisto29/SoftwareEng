@@ -5,8 +5,9 @@ public class AbilitàMulituso implements Abilità {
     private EffettoComposite effetto;
     
     @Override
-    public void Attivazzione() {
+    public void Attivazione() {
         // TODO Auto-generated method stub
+        
         
     }
     
