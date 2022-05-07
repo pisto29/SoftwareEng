@@ -15,6 +15,7 @@ public class Personaggio {
     private Mossa[] mossas;
     private Tipo[] tipos;
     private StatusStrategy status;
+    private Abilità abilità;
     
     
 
@@ -22,9 +23,21 @@ public class Personaggio {
   
 
 
+    public Abilità getAbilità() {
+        return abilità;
+    }
+
+
+
+    public void setAbilità(Abilità abilità) {
+        this.abilità = abilità;
+    }
+
+
+
     public Personaggio(String nomePersonaggio, int pS, int attaccoPersonaggio, int difesaPersonaggio,
             int attaccoSpecialePersonaggio, int difesaSpecialePersonaggio, int velocitàPersonaggio,
-            RuoloState ruolo, Mossa[] mossas, Tipo[] tipos) {
+            RuoloState ruolo, Mossa[] mossas, Tipo[] tipos, Abilità abilità) {
         this.nomePersonaggio = nomePersonaggio;
         this.pS = pS;
         this.attaccoPersonaggio = attaccoPersonaggio;
@@ -36,6 +49,7 @@ public class Personaggio {
         this.mossas = mossas;
         this.tipos = tipos;
         this.status=null;
+        this.abilità=abilità;
     }
 
 
