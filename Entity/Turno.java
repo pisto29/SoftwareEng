@@ -32,7 +32,7 @@ public class Turno {
 
 //------------------------------------------------------------------------------------------------------------------------------
     
-    private int CalcolaAttacco(Personaggio p1,Personaggio p2, Mossa m){
+    /*private int CalcolaAttacco(Personaggio p1,Personaggio p2, Mossa m){
         
         float danno;
         float attacco;
@@ -82,7 +82,7 @@ public class Turno {
   
         return stab;
     }
-
+      */
 
 
 

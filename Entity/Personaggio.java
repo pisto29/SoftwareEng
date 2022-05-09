@@ -3,6 +3,7 @@ package Entity;
 
 
 public class Personaggio {
+
     private String nomePersonaggio;
     private int pS;
     private int attaccoPersonaggio;
@@ -221,7 +222,7 @@ public class Personaggio {
 
     
 
-    public void Attacca(String IDmossa){
+    public void Attacca(String IDmossa, Personaggio p2){
         
         int pos=0;
         int i=0;
@@ -230,7 +231,7 @@ public class Personaggio {
             pos=i;
             i++;
         }
-        this.ruolo.Attacca(this,mossas[i] );
+        this.ruolo.Attacca(this,mossas[i], p2 );
     }
 
 

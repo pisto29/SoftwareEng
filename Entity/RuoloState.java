@@ -2,7 +2,7 @@ package Entity;
 
 public interface RuoloState {
 
-    public void Attacca(Personaggio P1, Mossa mossa);
+    public void Attacca(Personaggio P1, Mossa mossa, Personaggio p2);
     public void Sostituzione(Personaggio P1);
     public float getAttacco(int attaccoOriginale);
     public float getDifesa(int difesaOriginale);

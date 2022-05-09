@@ -12,7 +12,7 @@ public class KoSingleton implements RuoloState {
     }
 
     @Override
-    public void Attacca(Personaggio P1, Mossa mossa) {
+    public void Attacca(Personaggio P1, Mossa mossa, Personaggio p2) {
         // TODO Auto-generated method stub
         
     }

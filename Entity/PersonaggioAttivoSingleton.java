@@ -29,10 +29,55 @@ private static PersonaggioAttivoSingleton istanza;
 
 
 
-    @Override
-    public void Attacca(Personaggio P1, Mossa mossa) {
-        // TODO Auto-generated method stub
+    private float CalcoloModificatore(Mossa m, Personaggio p1, Personaggio p2){
+
+        float modificatore = 1;
+        float efficacia = m.getTipo().getEfficacia(p2.getTipos()[0]) * m.getTipo().getEfficacia(p2.getTipos()[1]) ;
         
+        if(m.CheckCritico()) 
+            modificatore = modificatore * 2f;
+        
+        if(IsStab(m, p1))
+            modificatore = modificatore * 1.33f;
+        
+        modificatore = modificatore * efficacia;
+
+        return modificatore;
+    }
+
+    private boolean IsStab(Mossa m, Personaggio p1){
+        boolean stab = false;
+        for(int i = 0 ; i < 2 ; i++){
+            if(m.getTipo() == p1.getTipos()[i])
+             stab = true; 
+        }
+  
+        return stab;
+    }
+
+    
+    @Override
+    public void Attacca(Personaggio p1, Mossa m, Personaggio p2 ) {
+        float danno;
+        float attacco;
+        float difesa;
+
+        if(m.getTipologia() == Tipologia.Fisico){
+
+            attacco = p1.getAttaccoPersonaggio();
+            difesa = p2.getDifesaPersonaggio();
+        }
+        else{
+
+            attacco = p1.getAttaccoSpecialePersonaggio();
+            difesa = p2.getDifesaSpecialePersonaggio();
+
+        }
+
+        danno = (22 * m.getDanno() * attacco / (50 * difesa)) + 2;
+        danno = danno * this.CalcoloModificatore(m, p1, p2);
+        
+        //return (int) danno;
     }
 
    
