@@ -18,3 +18,5 @@ G11: inserimento costruttori delle classi effetto, inserimento variabile istanza
      metodo CheckEffetto() della classe mossa completato, CLASSE ABILITà AGGIUNTA DISTINZIONE TRA EFFETTI SULL'AVVERSARIO E SU SE STESSI 
 G12: inserimento fasi enum, classe abilità monouso e multiuso, FARE IL PATTERN STRATEGY PER TURNO
 G13: inserimento iterfaccia turno creazione classi Mossa_Cambio, Cambio_Cambio, Mossa_MOssa, Mossa_Strumento, Strumento_Strumento, Cambio_strumento, spostamento metodi privati da Turno a PersongaggioAttivo
+G13: implementazione pattern strategy per esecuzioneTurno con strategy complete del tipo MossaMossa, che corrispondono ad azione g1 e azione g2
+testare creazione di classi tramite nome

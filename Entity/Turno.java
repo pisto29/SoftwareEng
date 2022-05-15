@@ -1,8 +1,15 @@
 package Entity;
 
+import java.util.ArrayList;
+
 public class Turno {
     private int numturno;
     private Fase fase;
+    private ArrayList <Personaggio> Personaggi;
+    private ArrayList <Mossa> mosse;
+    private ArrayList <Strumento> strumenti;
+    private ArrayList <Personaggio> sostituzioni;
+    private EsecuzioneTurno esecuzione;
 
     
     public Turno(int numturno, Fase fase) {
@@ -29,7 +36,24 @@ public class Turno {
     public void setFase(Fase fase) {
         this.fase = fase;
     }
-
+    public void setMossaG1(Mossa m){
+        this.mosse.add(0, m);
+    }
+    public void setMossaG2(Mossa m){
+        this.mosse.add(1, m);
+    }
+    public void setSostituzioneg1(Personaggio p){
+        this.sostituzioni.add(0, p);
+    }
+    public void setSostituzioneg2(Personaggio p){
+        this.sostituzioni.add(1, p);
+    }
+    public void setStrumentoG1(Strumento s){
+        this.strumenti.add(0, s);
+    }
+    public void setStrumentoG2(Strumento s){
+        this.strumenti.add(1, s);
+    }
 //------------------------------------------------------------------------------------------------------------------------------
     
     /*private int CalcolaAttacco(Personaggio p1,Personaggio p2, Mossa m){
@@ -89,6 +113,16 @@ public class Turno {
     public void EseguiAttacco(Personaggio p, Mossa m){
 
     }
+    public void checkVelocità(){}
+    public void checkAbilità(){}
+    public void checkKo(){}
+    private void arraySwap(){
+      
+    }
+    private void swap(ArrayList a) throws ClassNotFoundException{
+      String s=a.get(0).getClass().getName();
+      Class c= Class.forName(s);
+      //c=c.newInstance();
 
-
+    }
 }
