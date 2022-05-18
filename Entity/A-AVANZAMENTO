@@ -20,4 +20,4 @@ G12: inserimento fasi enum, classe abilità monouso e multiuso, FARE IL PATTERN 
 G13: inserimento iterfaccia turno creazione classi Mossa_Cambio, Cambio_Cambio, Mossa_MOssa, Mossa_Strumento, Strumento_Strumento, Cambio_strumento, spostamento metodi privati da Turno a PersongaggioAttivo
 G13: implementazione pattern strategy per esecuzioneTurno con strategy complete del tipo MossaMossa, che corrispondono ad azione g1 e azione g2
 testare creazione di classi tramite nome
-G14: Utilizzo di Collections per lo swipe degli elementi, realizzazione chekc velocità
+G14: Utilizzo di Collections per lo swipe degli elementi, realizzazione chekc velocità, Prova Prova Prova rgergerger
