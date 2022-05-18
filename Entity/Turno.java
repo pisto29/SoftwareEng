@@ -1,6 +1,8 @@
 package Entity;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Turno {
     private int numturno;
@@ -113,16 +115,28 @@ public class Turno {
     public void EseguiAttacco(Personaggio p, Mossa m){
 
     }
-    public void checkVelocità(){}
+    public void checkVelocità(){
+        if(this.Personaggi.get(0).getVelocitàPersonaggio()<this.Personaggi.get(1).getVelocitàPersonaggio()){
+            this.arraySwap();
+        }
+    }
     public void checkAbilità(){}
     public void checkKo(){}
     private void arraySwap(){
+        Collections.swap(this.Personaggi, 0, 1);
+        Collections.swap(this.mosse, 0, 1);
       
     }
-    private void swap(ArrayList a) throws ClassNotFoundException{
-      String s=a.get(0).getClass().getName();
-      Class c= Class.forName(s);
-      //c=c.newInstance();
+  
+
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        Turno t= new Turno(1, Fase.Post_azione);
+        ArrayList <Integer> a= new ArrayList<>();
+        a.add(0, 0);
+        a.add(1, 1);
+        t.swapList(a);
+        System.out.print("Nome classe "+a.get(0));
+
 
     }
 }
