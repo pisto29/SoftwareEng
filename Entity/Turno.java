@@ -19,25 +19,7 @@ public class Turno {
         this.fase = fase;
     }
 
-
-    public int getNumturno() {
-        return numturno;
-    }
-
-
-    public void setNumturno(int numturno) {
-        this.numturno = numturno;
-    }
-
-
-    public Fase getFase() {
-        return fase;
-    }
-
-
-    public void setFase(Fase fase) {
-        this.fase = fase;
-    }
+  
     public void setMossaG1(Mossa m){
         this.mosse.add(0, m);
     }
@@ -120,23 +102,111 @@ public class Turno {
             this.arraySwap();
         }
     }
-    public void checkAbilità(){}
-    public void checkKo(){}
+    public Boolean checkAbilità( Personaggio p){
+
+        if (this.fase == p.getAbilità().getFase_attivazione())
+            return true;
+        else
+            return false;
+    }
+
+    public Boolean checkKo(Personaggio p){
+        
+        if (p.getpS() == 0)
+            return true;
+        else
+            return false;
+    }
+
     private void arraySwap(){
         Collections.swap(this.Personaggi, 0, 1);
         Collections.swap(this.mosse, 0, 1);
       
     }
+
+
+
+    public int getNumturno() {
+        return numturno;
+    }
+
+
+
+    public void setNumturno(int numturno) {
+        this.numturno = numturno;
+    }
+
+
+
+    public Fase getFase() {
+        return fase;
+    }
+
+
+
+    public void setFase(Fase fase) {
+        this.fase = fase;
+    }
+
+
+
+    public ArrayList<Personaggio> getPersonaggi() {
+        return Personaggi;
+    }
+
+
+
+    public void setPersonaggi(ArrayList<Personaggio> personaggi) {
+        Personaggi = personaggi;
+    }
+
+
+
+    public ArrayList<Mossa> getMosse() {
+        return mosse;
+    }
+
+
+
+    public void setMosse(ArrayList<Mossa> mosse) {
+        this.mosse = mosse;
+    }
+
+
+
+    public ArrayList<Strumento> getStrumenti() {
+        return strumenti;
+    }
+
+
+
+    public void setStrumenti(ArrayList<Strumento> strumenti) {
+        this.strumenti = strumenti;
+    }
+
+
+
+    public ArrayList<Personaggio> getSostituzioni() {
+        return sostituzioni;
+    }
+
+
+
+    public void setSostituzioni(ArrayList<Personaggio> sostituzioni) {
+        this.sostituzioni = sostituzioni;
+    }
+
+
+
+    public EsecuzioneTurno getEsecuzione() {
+        return esecuzione;
+    }
+
+
+
+    public void setEsecuzione(EsecuzioneTurno esecuzione) {
+        this.esecuzione = esecuzione;
+    }
   
 
-    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        Turno t= new Turno(1, Fase.Post_azione);
-        ArrayList <Integer> a= new ArrayList<>();
-        a.add(0, 0);
-        a.add(1, 1);
-        t.swapList(a);
-        System.out.print("Nome classe "+a.get(0));
-
-
-    }
 }
