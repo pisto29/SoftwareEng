@@ -10,10 +10,6 @@ public interface Abilità {
 
     public Fase getFase_attivazione();
 
-    //hghgjkb
-
-    public void a();
-
-    public void b();
+   
 
 }

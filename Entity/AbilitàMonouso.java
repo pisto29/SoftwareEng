@@ -50,9 +50,10 @@ public class AbilitàMonouso implements Abilità{
     
     @Override
     public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio) {
+        if(this.attivata){
         this.effetti_self.ApplicaEffetto(utilizzatore);
         this.effetti.ApplicaEffetto(bersaglio);
-        this.attivata=false;
+        this.attivata=false;}
         
     }
     

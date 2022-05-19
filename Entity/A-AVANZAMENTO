@@ -22,4 +22,5 @@ G13: implementazione pattern strategy per esecuzioneTurno con strategy complete 
 testare creazione di classi tramite nome
 G14: Utilizzo di Collections per lo swipe degli elementi, realizzazione chekc velocità,
 G15: esecuzione MossaMossa.
-
+G16: Negli status è stata inserita la fase di attivazione, modifica dei metodi attivaabilità in turno, aggiunto il numero massimo di attivazioni
+per turno per le abilità multiuso

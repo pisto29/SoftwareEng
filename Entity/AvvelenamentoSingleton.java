@@ -14,8 +14,8 @@ public class AvvelenamentoSingleton implements StatusStrategy {
     }
 
     @Override
-    public void Attivazione(Personaggio p1) {
-        if(this.checkAttivazione())
+    public void Attivazione(Personaggio p1, Fase f) {
+        if(this.checkAttivazione()&& f.equals(Fase.Fine_Turno))
         p1.setpS(p1.getpS()-(p1.getpS()/8));
         
     }
@@ -29,5 +29,6 @@ public class AvvelenamentoSingleton implements StatusStrategy {
         // TODO Auto-generated method stub
         
     }
+   
     
 }

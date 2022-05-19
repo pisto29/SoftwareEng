@@ -8,7 +8,7 @@ public class Turno {
     private int numturno;
     private Fase fase;
     private ArrayList <Personaggio> Personaggi;
-    private ArrayList <Mossa> mosse;
+    private ArrayList <String> mosse;
     private ArrayList <Strumento> strumenti;
     private ArrayList <Personaggio> sostituzioni;
     private EsecuzioneTurno esecuzione;
@@ -20,10 +20,10 @@ public class Turno {
     }
 
   
-    public void setMossaG1(Mossa m){
+    public void setMossaG1(String m){
         this.mosse.add(0, m);
     }
-    public void setMossaG2(Mossa m){
+    public void setMossaG2(String m){
         this.mosse.add(1, m);
     }
     public void setSostituzioneg1(Personaggio p){
@@ -94,25 +94,32 @@ public class Turno {
 
 
 
-    public void EseguiAttacco(Personaggio p, Mossa m){
-
+    public void EseguiAttacco(int utilizzatore, int bersaglio){
+        this.Personaggi.get(utilizzatore).Attacca(this.mosse.get(utilizzatore), this.Personaggi.get(bersaglio));
     }
+
+
     public void checkVelocità(){
         if(this.Personaggi.get(0).getVelocitàPersonaggio()<this.Personaggi.get(1).getVelocitàPersonaggio()){
             this.arraySwap();
         }
     }
-    public Boolean checkAbilità( Personaggio p){
+    public void EseguiAbilità( int utilizzatore, int bersaglio){
 
-        if (this.fase == p.getAbilità().getFase_attivazione())
-            return true;
-        else
-            return false;
+        if (this.fase == this.Personaggi.get(utilizzatore).getAbilità().getFase_attivazione())
+        this.Personaggi.get(utilizzatore).getAbilità().Attivazione(Personaggi.get(utilizzatore), Personaggi.get(bersaglio));
+
+
+        
     }
 
-    public Boolean checkKo(Personaggio p){
+    public void checkStatus(int Personaggio){
+        this.Personaggi.get(Personaggio).attivastatus(this.fase);
+    }
+
+    public Boolean checkKo(int Personaggio){
         
-        if (p.getpS() == 0)
+        if (Personaggi.get(Personaggio).getpS() == 0)
             return true;
         else
             return false;
@@ -162,13 +169,13 @@ public class Turno {
 
 
 
-    public ArrayList<Mossa> getMosse() {
+    public ArrayList<String> getMosse() {
         return mosse;
     }
 
 
 
-    public void setMosse(ArrayList<Mossa> mosse) {
+    public void setMosse(ArrayList<String> mosse) {
         this.mosse = mosse;
     }
 

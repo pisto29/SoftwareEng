@@ -16,9 +16,9 @@ public class ParalisiSingleton implements StatusStrategy {
     }
 
     @Override
-    public void Attivazione(Personaggio P1) {
+    public void Attivazione(Personaggio P1, Fase f) {
         // TODO Auto-generated method stub
-        if(this.checkAttivazione())
+        if(this.checkAttivazione()&&f.equals(Fase.Pre_azione))
         P1.DisabiltaAttacco();
     }
 

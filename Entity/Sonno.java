@@ -12,10 +12,11 @@ private int durataMassima;
 }
 
     @Override
-    public void Attivazione(Personaggio P1) {
+    public void Attivazione(Personaggio P1, Fase f) {
         // TODO Auto-generated method stub
+        if(f.equals(Fase.Pre_azione))
         if(this.checkAttivazione()) this.durataSonno=+this.durataSonno;
-        else ;
+        else{P1.setStatus(null);P1.AbiltaAttacco();} ;
         
     }
 

@@ -290,9 +290,9 @@ public class Personaggio {
         this.ruolo.DisabiltaAttacco();
     }
    
-    public void attivastatus(){
+    public void attivastatus(Fase f){
         if(this.status!=null){
-            this.status.Attivazione(this);
+            this.status.Attivazione(this,f);
         }
     }
 }
