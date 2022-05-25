@@ -16,11 +16,7 @@ public static PersonaggioPanchinaSingleton getIstanza() {
      return istanza;
 }
 
-    @Override
-    public void Attacca(Personaggio P1, Mossa mossa, Personaggio p2) {
-        // TODO Auto-generated method stub
-        
-    }
+  
    
   
 
@@ -126,6 +122,27 @@ public static PersonaggioPanchinaSingleton getIstanza() {
     public void DisabiltaAttacco() {
         // TODO Auto-generated method stub
         
+    }
+
+
+    @Override
+    public void Attacca(Personaggio P1, Mossa mossa) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    @Override
+    public void Difendi(Personaggio P1, Mossa mossa, float danno) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    @Override
+    public PersonaggioAttivoImplementator getImplementator() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 

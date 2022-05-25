@@ -222,7 +222,7 @@ public class Personaggio {
 
     
 
-    public void Attacca(String IDmossa, Personaggio p2){
+    public void Attacca(String IDmossa){
         
         int pos=0;
         int i=0;
@@ -231,10 +231,16 @@ public class Personaggio {
             pos=i;
             i++;
         }
-        this.ruolo.Attacca(this,mossas[i], p2 );
+        this.ruolo.Attacca(this,mossas[i]);
     }
 
+    public void Difendi(float danno, Mossa m){
+        this.ruolo.Difendi(this, m, danno);
+    }
 
+    public PersonaggioAttivoImplementator getImplementator(){
+        return this.ruolo.getImplementator();
+    }
 
     public void Sostituzione(){
         this.ruolo.Sostituzione(this);

@@ -2,7 +2,8 @@ package Entity;
 
 public interface RuoloState {
 
-    public void Attacca(Personaggio P1, Mossa mossa, Personaggio p2);
+    public void Attacca(Personaggio P1, Mossa mossa);
+    public void Difendi(Personaggio P1, Mossa mossa, float danno);
     public void Sostituzione(Personaggio P1);
     public float getAttacco(int attaccoOriginale);
     public float getDifesa(int difesaOriginale);
@@ -16,6 +17,7 @@ public interface RuoloState {
     public void aggiungiMoltiplicatoreVelocita(float moltiplicatore);
     public void AbiltaAttacco();
     public void DisabiltaAttacco();
+    public PersonaggioAttivoImplementator getImplementator();
 
    
 }

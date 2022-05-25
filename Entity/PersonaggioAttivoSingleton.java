@@ -9,7 +9,7 @@ private static PersonaggioAttivoSingleton istanza;
     private float moltiplicatoreDifSpec;
     private float moltiplicatoreVelocita; 
     private boolean abilitazioneAttacco;
-
+    private PersonaggioAttivoImplementator implementator;
     public static PersonaggioAttivoSingleton getIstanza() {
         if(istanza==null){
             istanza=new PersonaggioAttivoSingleton(1,1,1,1,1,true);
@@ -56,7 +56,7 @@ private static PersonaggioAttivoSingleton istanza;
     }
 
     
-    @Override
+   /* @Override ATTACCA REINDIRIZZATO ALL IMPLEMENTATOR
     public void Attacca(Personaggio p1, Mossa m, Personaggio p2 ) {
         float danno;
         float attacco;
@@ -76,11 +76,18 @@ private static PersonaggioAttivoSingleton istanza;
 
         danno = (22 * m.getDanno() * attacco / (50 * difesa)) + 2;
         danno = danno * this.CalcoloModificatore(m, p1, p2);
-        
+        p2.setpS(p2.getpS()-(int) danno);
         //return (int) danno;
+    }*/
+    @Override 
+    public void Attacca(Personaggio p1, Mossa m) {
+        this.implementator.attacca(p1, m);
     }
-
    
+    @Override 
+    public void Difendi(Personaggio p1, Mossa m, float danno) {
+        this.implementator.difendi(danno, m, p1);
+    }
 
     @Override
     public void Sostituzione(Personaggio P1) {
@@ -236,6 +243,12 @@ public void AbiltaAttacco() {
 public void DisabiltaAttacco() {
     // TODO Auto-generated method stub
     abilitazioneAttacco = false;
+}
+
+@Override
+public PersonaggioAttivoImplementator getImplementator() {
+    // TODO Auto-generated method stub
+    return this.implementator;
 }
 
     
