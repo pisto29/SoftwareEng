@@ -10,7 +10,6 @@ public interface Abilità {
 
     public Fase getFase_attivazione();
 
-   //gjhgjkgjkgkjgik
-   //provaprovaprova
-
+   
+    
 }
