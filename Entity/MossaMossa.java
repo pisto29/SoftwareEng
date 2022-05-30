@@ -6,6 +6,8 @@ public class MossaMossa implements EsecuzioneTurno {
     
     public void esecuzione(Turno t){
         t.checkVelocità();
+        this.setImplementators(t);
+        //prova
         t.EseguiAbilità(0, 1);
         t.EseguiAbilità(1, 0);
         if(t.checkKo(0)||t.checkKo(1))t.setFase(Fase.Fine_Turno);
@@ -47,5 +49,11 @@ public class MossaMossa implements EsecuzioneTurno {
 
 
 
+    }
+
+    private void setImplementators(Turno t){
+        t.getPersonaggi().get(0).setImplementator(attaccanteBridge.getIstanza());
+        t.getPersonaggi().get(1).setImplementator(difensoreBridge.getIstanza());
+        
     }
 }
