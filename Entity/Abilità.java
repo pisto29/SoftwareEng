@@ -10,6 +10,9 @@ public interface Abilità {
 
     public Fase getFase_attivazione();
 
+    public EffettoComposite getEffetti();
+    public EffettoComposite getEffetti_self();
+
    
     
 }
