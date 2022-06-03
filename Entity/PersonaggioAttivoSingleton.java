@@ -9,6 +9,7 @@ private static PersonaggioAttivoSingleton istanza;
     private float moltiplicatoreDifSpec;
     private float moltiplicatoreVelocita; 
     private boolean abilitazioneAttacco;
+    private int priorità;
     private PersonaggioAttivoImplementator implementator;
     public static PersonaggioAttivoSingleton getIstanza() {
         if(istanza==null){
@@ -25,6 +26,7 @@ private static PersonaggioAttivoSingleton istanza;
         this.moltiplicatoreDifSpec = moltiplicatoreDifSpec;
         this.moltiplicatoreVelocita = moltiplicatoreVelocita;
         this.abilitazioneAttacco = abilitazioneAttacco;
+        this.priorità=0;
     }
 
 
@@ -80,8 +82,8 @@ private static PersonaggioAttivoSingleton istanza;
         //return (int) danno;
     }*/
     @Override 
-    public void Attacca(Personaggio p1, Mossa m) {
-        this.implementator.attacca(p1, m);
+    public float Attacca(Personaggio p1, Mossa m) {
+        return this.implementator.attacca(p1, m);
     }
    
     @Override 
@@ -254,6 +256,14 @@ public PersonaggioAttivoImplementator getImplementator() {
 @Override
 public void setImplementator(PersonaggioAttivoImplementator implementator) {
     this.implementator=implementator;
+}
+
+public int getPriorità() {
+    return priorità;
+}
+
+public void setPriorità(int priorità) {
+    this.priorità = priorità;
 }
 
     

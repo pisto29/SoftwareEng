@@ -126,8 +126,9 @@ public static PersonaggioPanchinaSingleton getIstanza() {
 
 
     @Override
-    public void Attacca(Personaggio P1, Mossa mossa) {
+    public float Attacca(Personaggio P1, Mossa mossa) {
         // TODO Auto-generated method stub
+        return 0;
         
     }
 
@@ -148,6 +149,20 @@ public static PersonaggioPanchinaSingleton getIstanza() {
 
     @Override
     public void setImplementator(PersonaggioAttivoImplementator implementator) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    @Override
+    public int getPriorità() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+
+    @Override
+    public void setPriorità(int p) {
         // TODO Auto-generated method stub
         
     }

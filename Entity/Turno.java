@@ -3,11 +3,13 @@ package Entity;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Random;
 
 public class Turno {
     private int numturno;
     private Fase fase;
-    private ArrayList <Personaggio> Personaggi;
+    private Personaggio p1;
+    private Personaggio p2;
     private ArrayList <String> mosse;
     private ArrayList <Strumento> strumenti;
     private ArrayList <Personaggio> sostituzioni;
@@ -94,42 +96,90 @@ public class Turno {
 
 
 
-    public void EseguiAttacco(int utilizzatore, int bersaglio){
-        this.Personaggi.get(utilizzatore).Attacca(this.mosse.get(utilizzatore), this.Personaggi.get(bersaglio));
+    public void EseguiAttaccoP1(){
+       float danno=this.p1.Attacca(this.mosse.get(0));
+       Mossa m1=null;
+       for (Mossa m : this.p1.getMossas()) {
+           if(m.getNomeMossa().equals(this.getMosse().get(0)))
+           m1=m;
+       }
+        p2.Difendi(danno, m1);
     }
 
-
-    public void checkVelocità(){
-        if(this.Personaggi.get(0).getVelocitàPersonaggio()<this.Personaggi.get(1).getVelocitàPersonaggio()){
-            this.arraySwap();
+    public void EseguiAttaccoP2(){
+        float danno=this.p2.Attacca(this.mosse.get(1));
+        Mossa m1=null;
+        for (Mossa m : this.p1.getMossas()) {
+            if(m.getNomeMossa().equals(this.getMosse().get(1)))
+            m1=m;
         }
-    }
-    public void EseguiAbilità( int utilizzatore, int bersaglio){
+         p1.Difendi(danno, m1);
+     }
 
-        if (this.fase == this.Personaggi.get(utilizzatore).getAbilità().getFase_attivazione())
-        this.Personaggi.get(utilizzatore).getAbilità().Attivazione(Personaggi.get(utilizzatore), Personaggi.get(bersaglio));
+
+    public boolean checkVelocità(){
+       if(p1.getVelocitàPersonaggio()>p2.getVelocitàPersonaggio()){
+          return true;
+       }
+       else {
+           if(p1.getVelocitàPersonaggio()==p2.getVelocitàPersonaggio()){
+               Random r=new Random();
+               if(r.nextInt(100)<50){
+                return true;
+               }
+               else{
+                return false;
+               }
+           }
+           else{return false;}
+       }
+    }
+    public void EseguiAbilitàP1(){
+
+        if (this.fase == this.p1.getAbilità().getFase_attivazione())
+        this.p1.getAbilità().Attivazione(this.p1,this.p2);
+
+
+        
+    }
+    public void EseguiAbilitàP2(){
+
+        if (this.fase == this.p2.getAbilità().getFase_attivazione())
+        this.p2.getAbilità().Attivazione(this.p2,this.p1);
 
 
         
     }
 
-    public void checkStatus(int Personaggio){
-        this.Personaggi.get(Personaggio).attivastatus(this.fase);
+    public void checkStatusP1(){
+        this.p1.attivastatus(this.fase);
+    }
+    public void checkStatusP2(){
+        this.p2.attivastatus(this.fase);
     }
 
-    public Boolean checkKo(int Personaggio){
+    public Boolean checkKoP1(){
         
-        if (Personaggi.get(Personaggio).getpS() == 0)
+        if (p1.getpS() == 0)
             return true;
         else
             return false;
     }
 
+    public Boolean checkKoP2(){
+        
+        if (p2.getpS() == 0)
+            return true;
+        else
+            return false;
+    }
+
+  /*Array eliminati
     private void arraySwap(){
         Collections.swap(this.Personaggi, 0, 1);
         Collections.swap(this.mosse, 0, 1);
       
-    }
+    }*/
 
 
 
@@ -157,15 +207,7 @@ public class Turno {
 
 
 
-    public ArrayList<Personaggio> getPersonaggi() {
-        return Personaggi;
-    }
-
-
-
-    public void setPersonaggi(ArrayList<Personaggio> personaggi) {
-        Personaggi = personaggi;
-    }
+  
 
 
 
@@ -213,6 +255,26 @@ public class Turno {
 
     public void setEsecuzione(EsecuzioneTurno esecuzione) {
         this.esecuzione = esecuzione;
+    }
+
+
+    public Personaggio getP1() {
+        return p1;
+    }
+
+
+    public void setP1(Personaggio p1) {
+        this.p1 = p1;
+    }
+
+
+    public Personaggio getP2() {
+        return p2;
+    }
+
+
+    public void setP2(Personaggio p2) {
+        this.p2 = p2;
     }
   
 

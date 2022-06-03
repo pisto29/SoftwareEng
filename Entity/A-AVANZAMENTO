@@ -27,3 +27,6 @@ per turno per le abilità multiuso
 G17: aggiunta di bridge a personaggio attivo con attaccante e difensore, aggiungere bridge ad abilità e 
 G18: rimosso numero esecuzioni massime per turno ad abilità, implementato abilità bridge, implmentata la possibilità di modificare
 l implementazione del personaggio attivo, attaccanteBridge e difensoreBridge sono singleton juicy
+G19:eliminato array personaggi attivi e ineriti singoli attributi perchè e una combinazione che funge solo quando attaccanto entrambi
+l ordine ora si può definire direttamente controllando le velocità, la classe MossaMossa è stata aggiustata,
+IL CONCETTO DI PRIORITà è SUPERFLUO E VA TOLTO IN G20  CONTINUARE Mossacambio
