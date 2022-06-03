@@ -146,6 +146,13 @@ public static PersonaggioPanchinaSingleton getIstanza() {
     }
 
 
+    @Override
+    public void setImplementator(PersonaggioAttivoImplementator implementator) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
 
     
 }

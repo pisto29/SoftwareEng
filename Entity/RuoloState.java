@@ -18,6 +18,7 @@ public interface RuoloState {
     public void AbiltaAttacco();
     public void DisabiltaAttacco();
     public PersonaggioAttivoImplementator getImplementator();
+    public void setImplementator(PersonaggioAttivoImplementator implementator);
 
    
 }

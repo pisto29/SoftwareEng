@@ -25,3 +25,5 @@ G15: esecuzione MossaMossa.
 G16: Negli status è stata inserita la fase di attivazione, modifica dei metodi attivaabilità in turno, aggiunto il numero massimo di attivazioni
 per turno per le abilità multiuso
 G17: aggiunta di bridge a personaggio attivo con attaccante e difensore, aggiungere bridge ad abilità e 
+G18: rimosso numero esecuzioni massime per turno ad abilità, implementato abilità bridge, implmentata la possibilità di modificare
+l implementazione del personaggio attivo, attaccanteBridge e difensoreBridge sono singleton juicy

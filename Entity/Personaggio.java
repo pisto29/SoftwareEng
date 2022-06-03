@@ -301,4 +301,8 @@ public class Personaggio {
             this.status.Attivazione(this,f);
         }
     }
+
+    public void setImplementator(PersonaggioAttivoImplementator implementator){
+        this.ruolo.setImplementator(implementator);
+    }
 }

@@ -251,5 +251,10 @@ public PersonaggioAttivoImplementator getImplementator() {
     return this.implementator;
 }
 
+@Override
+public void setImplementator(PersonaggioAttivoImplementator implementator) {
+    this.implementator=implementator;
+}
+
     
 }

@@ -1,7 +1,11 @@
 package Entity;
 
 public class attaccanteBridge implements PersonaggioAttivoImplementator {
-
+ private static attaccanteBridge istanza;
+ public static attaccanteBridge getIstanza(){
+     if(istanza==null){istanza=new attaccanteBridge();}
+     return istanza;
+ }
     @Override
     public float attacca(Personaggio p1, Mossa m) {
         float attacco=0;

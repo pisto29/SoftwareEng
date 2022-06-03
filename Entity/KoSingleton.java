@@ -120,5 +120,11 @@ public class KoSingleton implements RuoloState {
         // TODO Auto-generated method stub
         return null;
     }
+
+    @Override
+    public void setImplementator(PersonaggioAttivoImplementator implementator) {
+        // TODO Auto-generated method stub
+        
+    }
     
 }

@@ -46,14 +46,23 @@ public class AbilitàMonouso implements Abilità{
     private EffettoComposite effetti_self;
     private EffettoComposite effetti;
     private Fase fase_attivazione; 
-
+    private AbilitàImplementator implementator;
     
+    public AbilitàMonouso(boolean attivata, EffettoComposite effetti_self, EffettoComposite effetti,
+            Fase fase_attivazione, AbilitàImplementator implementator) {
+        this.attivata = attivata;
+        this.effetti_self = effetti_self;
+        this.effetti = effetti;
+        this.fase_attivazione = fase_attivazione;
+        this.implementator = implementator;
+    }
+
+
     @Override
     public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio) {
-        if(this.attivata){
-        this.effetti_self.ApplicaEffetto(utilizzatore);
-        this.effetti.ApplicaEffetto(bersaglio);
-        this.attivata=false;}
+        if(!this.attivata){
+        this.implementator.ApplicaEffetto(utilizzatore, bersaglio);
+        this.attivata=true;}
         
     }
     

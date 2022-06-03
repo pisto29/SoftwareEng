@@ -3,7 +3,11 @@ package Entity;
 import java.util.Random;
 
 public class difensoreBridge implements PersonaggioAttivoImplementator  {
-
+    private static difensoreBridge istanza;
+    public static difensoreBridge getIstanza(){
+        if(istanza==null){istanza=new difensoreBridge();}
+        return istanza;
+    }
     @Override
     public float attacca(Personaggio p1, Mossa m) {
         // TODO Auto-generated method stub
