@@ -174,6 +174,21 @@ public class Turno {
             return false;
     }
 
+    public void FineTurnoKo(){
+        if( this.checkKoP1()||this.checkKoP2())this.setFase(Fase.Fine_Turno);
+        }
+
+    public void sostituiscip1(){
+        p1.Sostituzione();
+        this.p1=this.sostituzioni.get(0);
+        this.p1.Sostituzione();
+    }
+
+    public void sostituiscip2(){
+        p2.Sostituzione();
+        this.p2=this.sostituzioni.get(1);
+        this.p2.Sostituzione();
+    }
   /*Array eliminati
     private void arraySwap(){
         Collections.swap(this.Personaggi, 0, 1);

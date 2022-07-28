@@ -60,14 +60,14 @@ this.implementatorManager.setattaccante(t.getP1());
 this.implementatorManager.setDifensore(t.getP2());
 t.EseguiAbilitàP1();
 t.EseguiAbilitàP2();
-this.checkKo(t);
+t.FineTurnoKo();
 if(!t.getFase().equals(Fase.Fine_Turno)){
     t.setFase(Fase.Pre_azione); 
     t.EseguiAbilitàP1();
     t.EseguiAbilitàP2();
     t.checkStatusP1();
     t.EseguiAttaccoP1();
-this.checkKo(t);
+    t.FineTurnoKo();
 }
 if(!t.getFase().equals(Fase.Fine_Turno)){
     t.setFase(Fase.Post_azione); 
@@ -75,7 +75,7 @@ if(!t.getFase().equals(Fase.Fine_Turno)){
     t.EseguiAbilitàP2();
     t.checkStatusP1();
     t.checkStatusP2();
-this.checkKo(t);
+    t.FineTurnoKo();
 }
 if(!t.getFase().equals(Fase.Fine_Turno)){
     t.setFase(Fase.Pre_azione); 
@@ -83,7 +83,7 @@ if(!t.getFase().equals(Fase.Fine_Turno)){
     t.EseguiAbilitàP2();
     t.checkStatusP2();
     t.EseguiAttaccoP2();
-this.checkKo(t);
+    t.FineTurnoKo();
 }
 if(!t.getFase().equals(Fase.Fine_Turno)){
     t.setFase(Fase.Post_azione); 
@@ -91,7 +91,7 @@ if(!t.getFase().equals(Fase.Fine_Turno)){
     t.EseguiAbilitàP2();
     t.checkStatusP1();
     t.checkStatusP2();
-this.checkKo(t);}
+    t.FineTurnoKo();}
 t.setFase(Fase.Fine_Turno);
 if(!t.checkKoP1())t.EseguiAbilitàP1();
 if(!t.checkKoP2())t.EseguiAbilitàP2();
@@ -106,14 +106,14 @@ private void P2(Turno t){
     this.implementatorManager.setDifensore(t.getP1());
     t.EseguiAbilitàP2();
     t.EseguiAbilitàP1();
-    this.checkKo(t);
+    t.FineTurnoKo();
     if(!t.getFase().equals(Fase.Fine_Turno)){
         t.setFase(Fase.Pre_azione); 
         t.EseguiAbilitàP2();
         t.EseguiAbilitàP1();
         t.checkStatusP2();
         t.EseguiAttaccoP2();
-    this.checkKo(t);
+        t.FineTurnoKo();
     }
     if(!t.getFase().equals(Fase.Fine_Turno)){
         t.setFase(Fase.Post_azione); 
@@ -121,7 +121,7 @@ private void P2(Turno t){
         t.EseguiAbilitàP1();
         t.checkStatusP2();
         t.checkStatusP1();
-    this.checkKo(t);
+        t.FineTurnoKo();
     }
     if(!t.getFase().equals(Fase.Fine_Turno)){
         t.setFase(Fase.Pre_azione); 
@@ -129,7 +129,7 @@ private void P2(Turno t){
         t.EseguiAbilitàP1();
         t.checkStatusP1();
         t.EseguiAttaccoP1();
-    this.checkKo(t);
+        t.FineTurnoKo();
     }
     if(!t.getFase().equals(Fase.Fine_Turno)){
         t.setFase(Fase.Post_azione); 
@@ -137,7 +137,7 @@ private void P2(Turno t){
         t.EseguiAbilitàP1();
         t.checkStatusP2();
         t.checkStatusP1();
-    this.checkKo(t);}
+    t.FineTurnoKo();}
     t.setFase(Fase.Fine_Turno); 
     if(!t.checkKoP2())t.EseguiAbilitàP2();
     if(!t.checkKoP1())t.EseguiAbilitàP1();
@@ -148,7 +148,5 @@ private void P2(Turno t){
     }
 
 
-private void checkKo(Turno t){
-if( t.checkKoP1()||t.checkKoP2())t.setFase(Fase.Fine_Turno);
-}
+
 }

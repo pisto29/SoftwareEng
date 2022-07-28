@@ -5,6 +5,7 @@ public class AbilitàMonouso implements Abilità{
     private boolean attivata;
     public boolean isAttivata() {
         return attivata;
+       
     }
 
 
