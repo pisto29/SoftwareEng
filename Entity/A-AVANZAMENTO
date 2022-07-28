@@ -31,3 +31,4 @@ G19:eliminato array personaggi attivi e ineriti singoli attributi perchè e una 
 l ordine ora si può definire direttamente controllando le velocità, la classe MossaMossa è stata aggiustata,
 IL CONCETTO DI PRIORITà è SUPERFLUO E VA TOLTO IN G20  CONTINUARE Mossacambio
 G20: MossaMossa fatta, MossaCambio fatta, CambioMossa fatta, CambioCambio fatta.
+G21: Inserire ps e pp totali e disponibili a mossa e personaggio, aggiungere effetto revitalizzante, completare strategie turni 
