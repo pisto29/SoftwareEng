@@ -294,5 +294,12 @@ public class Turno {
         this.p2 = p2;
     }
   
+    public void utilizzaStrumentoP1(){
+        this.getStrumenti().get(0).UtilizzaStrumento(this.p1);
+    }
+
+    public void utilizzaStrumentoP2(){
+        this.getStrumenti().get(0).UtilizzaStrumento(this.p2);
+    }
 
 }

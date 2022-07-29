@@ -5,7 +5,7 @@ public class CambioCambio implements EsecuzioneTurno{
         t.sostituiscip1();
         t.sostituiscip2();
        if(t.checkVelocità()) this.p1(t);
-       else this.P2(t);
+        else this.P2(t);
 
     } 
 
@@ -14,10 +14,10 @@ public class CambioCambio implements EsecuzioneTurno{
         t.EseguiAbilitàP2();
         t.FineTurnoKo();
         t.setFase(Fase.Fine_Turno);
-if(!t.checkKoP1())t.EseguiAbilitàP1();
-if(!t.checkKoP2())t.EseguiAbilitàP2();
-if(!t.checkKoP1())t.checkStatusP1();
-if(!t.checkKoP2())t.checkStatusP2();
+        if(!t.checkKoP1())t.EseguiAbilitàP1();
+        if(!t.checkKoP2())t.EseguiAbilitàP2();
+        if(!t.checkKoP1())t.checkStatusP1();
+        if(!t.checkKoP2())t.checkStatusP2();
     }
 
     private void P2(Turno t){
@@ -25,9 +25,9 @@ if(!t.checkKoP2())t.checkStatusP2();
         t.EseguiAbilitàP1();
         t.FineTurnoKo();
         t.setFase(Fase.Fine_Turno);
-if(!t.checkKoP2())t.EseguiAbilitàP2();
-if(!t.checkKoP1())t.EseguiAbilitàP1();
-if(!t.checkKoP2())t.checkStatusP2();
-if(!t.checkKoP1())t.checkStatusP1();
+        if(!t.checkKoP2())t.EseguiAbilitàP2();
+        if(!t.checkKoP1())t.EseguiAbilitàP1();
+        if(!t.checkKoP2())t.checkStatusP2();
+        if(!t.checkKoP1())t.checkStatusP1();
     }
 }
