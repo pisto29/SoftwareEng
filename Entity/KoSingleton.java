@@ -17,8 +17,7 @@ public class KoSingleton implements RuoloState {
 
     @Override
     public void Sostituzione(Personaggio P1) {
-        // TODO Auto-generated method stub
-        
+        P1.setRuolo(PersonaggioPanchinaSingleton.getIstanza());
     }
 
 

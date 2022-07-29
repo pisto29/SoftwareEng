@@ -1,10 +1,13 @@
 package Entity;
 
-public class EffettoRimozioneStatus implements EffettoStrumento {
 
+
+public class EffettoRimozioneStatus implements EffettoStrumento {
+    private StatusStrategy StatusCura;
     @Override
-    public void EffettoStrumento(Personaggio P) {
-        // TODO Auto-generated method stub
+    public void ApplicaEffettoStrumento(Personaggio P) {
+        if(P.getStatus().getNome()==this.StatusCura.getNome())
+        P.setStatus(null);
         
     }
     

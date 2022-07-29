@@ -104,6 +104,7 @@ public class Turno {
            m1=m;
        }
         p2.Difendi(danno, m1);
+        if(m1.CheckEffetto())m1.ApplicaEffettoMossa(this.p1,this.p2);
     }
 
     public void EseguiAttaccoP2(){
@@ -114,6 +115,7 @@ public class Turno {
             m1=m;
         }
          p1.Difendi(danno, m1);
+         if(m1.CheckEffetto())m1.ApplicaEffettoMossa(this.p2,this.p1);
      }
 
 

@@ -3,12 +3,13 @@ import java.util.*;
 public class Sonno implements StatusStrategy {
 private int durataSonno;
 private int durataMassima;
-
+private String Nome;
    
 
     public Sonno() {
     this.durataSonno = 0;
     this.durataMassima = 3;
+    this.Nome="sonno";
 }
 
     @Override
@@ -38,6 +39,12 @@ private int durataMassima;
         // TODO Auto-generated method stub
         p1.DisabiltaAttacco();
         
+    }
+
+    @Override
+    public String getNome() {
+        // TODO Auto-generated method stub
+        return this.Nome;
     }
     
 }

@@ -13,11 +13,13 @@ public class Mossa {
     private float percentualeAttivazzioneEffetto;
     private Tipo tipo;
     private Tipologia tipologia;
-   
+    private EffettoComposite effetti_self;
+    private EffettoComposite effetti;
     
 
     public Mossa(String nomeMossa, int danno, int pp, float percentualeCritico, int precisione,
-            Personaggio bersaglio, float percentualeAttivazzioneEffetto, Tipo tipo, Tipologia tipologia) {
+            Personaggio bersaglio, float percentualeAttivazzioneEffetto, Tipo tipo, Tipologia tipologia,
+            EffettoComposite effetti_self,EffettoComposite effetti) {
         this.nomeMossa = nomeMossa;
         this.danno = danno;
         this.pp = pp;
@@ -27,6 +29,8 @@ public class Mossa {
         this.percentualeAttivazzioneEffetto = percentualeAttivazzioneEffetto;
         this.tipo = tipo;
         this.tipologia = tipologia;
+        this.effetti_self=effetti_self;
+        this.effetti=effetti;
          
     }
 
@@ -130,8 +134,9 @@ public class Mossa {
         return false;
     }
 
-    public void ApplicaEffettoMossa(){
-
+    public void ApplicaEffettoMossa(Personaggio utilizzatore, Personaggio bersaglio){
+        this.effetti_self.ApplicaEffetto(utilizzatore);
+        this.effetti.ApplicaEffetto(bersaglio);
     }
 
     public boolean CheckEffetto(){
@@ -141,6 +146,26 @@ public class Mossa {
             return true;
         else
         return false;
+    }
+
+
+    public EffettoComposite getEffetti_self() {
+        return effetti_self;
+    }
+
+
+    public void setEffetti_self(EffettoComposite effetti_self) {
+        this.effetti_self = effetti_self;
+    }
+
+
+    public EffettoComposite getEffetti() {
+        return effetti;
+    }
+
+
+    public void setEffetti(EffettoComposite effetti) {
+        this.effetti = effetti;
     }
     
 

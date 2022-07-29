@@ -2,8 +2,9 @@ package Entity;
 import java.util.*;
 public class ParalisiSingleton implements StatusStrategy {
     private static ParalisiSingleton istanza;
-
+    private String Nome;
     public ParalisiSingleton() {
+        this.Nome="paralisi";
     }
 
     public static ParalisiSingleton getIstanza() {
@@ -33,6 +34,12 @@ public class ParalisiSingleton implements StatusStrategy {
     public void EffettoApplicazione(Personaggio P1) {
         P1.aggiungiMoltiplicatoreVelocita(0.25f);
         
+    }
+
+    @Override
+    public String getNome() {
+        // TODO Auto-generated method stub
+        return this.Nome;
     }
     
 }

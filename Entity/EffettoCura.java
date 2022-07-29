@@ -4,7 +4,7 @@ public class EffettoCura implements EffettoStrumento {
 
     private int PS;
     @Override
-    public void EffettoStrumento(Personaggio P) {
+    public void ApplicaEffettoStrumento(Personaggio P) {
         // TODO Auto-generated method stub
         P.setpS(P.getpS()+this.PS);
         

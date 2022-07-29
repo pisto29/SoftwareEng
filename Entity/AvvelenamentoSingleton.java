@@ -2,7 +2,9 @@ package Entity;
 
 public class AvvelenamentoSingleton implements StatusStrategy {
     private static AvvelenamentoSingleton istanza;
+    private String Nome;
     public AvvelenamentoSingleton() {
+        this.Nome="Avvelenamento";
     }
     public static AvvelenamentoSingleton getIstanza() {
         
@@ -28,6 +30,11 @@ public class AvvelenamentoSingleton implements StatusStrategy {
     public void EffettoApplicazione(Personaggio P1) {
         // TODO Auto-generated method stub
         
+    }
+    @Override
+    public String getNome() {
+        // TODO Auto-generated method stub
+        return this.Nome;
     }
    
     
