@@ -224,11 +224,11 @@ public class Personaggio {
 
     public float Attacca(String IDmossa){
         
-        int pos=0;
+       
         int i=0;
         for (Mossa mossa : mossas) {
             if (mossa.getNomeMossa()==IDmossa)
-            pos=i;
+            
             i++;
         }
       return  this.ruolo.Attacca(this,mossas[i]);

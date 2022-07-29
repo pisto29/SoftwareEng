@@ -38,5 +38,21 @@ public class EffettoMultiploComposite implements EffettoComposite{
         // TODO Auto-generated method stub
         return this.effetti.get(a);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<EffettoComposite> getEffetti() {
+        return effetti;
+    }
+
+    public void setEffetti(ArrayList<EffettoComposite> effetti) {
+        this.effetti = effetti;
+    }
     
 }

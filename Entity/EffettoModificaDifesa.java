@@ -44,5 +44,13 @@ public class EffettoModificaDifesa implements EffettoComposite {
         // TODO Auto-generated method stub
         return this;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
 }
