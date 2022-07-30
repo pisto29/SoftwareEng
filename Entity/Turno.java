@@ -1,5 +1,6 @@
 package Entity;
 
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -93,7 +94,7 @@ public class Turno {
       */
 
 
-
+    public void esecuzione(){this.esecuzione.esecuzione(this);}
     public void EseguiAttaccoP1(){
        float danno=this.p1.Attacca(this.mosse.get(0));
        Mossa m1=null;
