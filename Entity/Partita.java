@@ -86,23 +86,24 @@ else{
     }
     return strat;
  }
+ 
  public boolean WinG1(){
     boolean vittoria=true;
-  for(Personaggio p:  this.player1.getSquadra().getPersonaggios()){
-    if(!p.getRuolo().getClass().getSimpleName().equals("KoSingleton"))
-    vittoria=false;
-    
-  }
-return vittoria;
+    if(this.player1.getSquadra().checkKOSquadra()){
+        vittoria = false;
+    }
+    return vittoria;
+  
  }
+ 
  public boolean WinG2(){
     boolean vittoria=true;
-  for(Personaggio p:  this.player2.getSquadra().getPersonaggios()){
-    if(!p.getRuolo().getClass().getSimpleName().equals("KoSingleton"))
-    vittoria=false;
+    if(this.player2.getSquadra().checkKOSquadra()){
+        vittoria = false;
+    }
     
-  }
-return vittoria;
+    return vittoria;
+    
  }
 
  private void avanzaturno(){

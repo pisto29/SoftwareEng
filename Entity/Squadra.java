@@ -30,6 +30,18 @@ public class Squadra {
     public void setStrumentos(ArrayList<Strumento> strumentos) {
         this.strumentos = strumentos;
     }
+
+    public boolean checkKOSquadra(){
+
+        for(Personaggio p:  this.personaggios){
+            if(!p.getRuolo().getClass().getSimpleName().equals("KoSingleton"))
+            return false;
+            
+          }
+        return true;
+
+        
+    }
  
     
 }

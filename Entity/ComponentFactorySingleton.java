@@ -11,5 +11,9 @@ public class ComponentFactorySingleton {
         }
      return istanza;
     }
+
+    public Mossa CreateMossa(int id_mossa){
+        
+    }
     
 }
