@@ -4,11 +4,17 @@ public class EffettoModificaVelocita implements EffettoComposite{
     
     private float moltiplicatore;
     private int id;
-    
+    private String msg;
     
     public EffettoModificaVelocita(float moltiplicatore, int id) {
         this.moltiplicatore = moltiplicatore;
         this.id = id;
+        if(this.moltiplicatore>1){
+            this.msg = "aumenta la sua Velocità";
+        }
+        else{
+            this.msg="diminuisce la sua Velocità";
+        }
     }
 
     public float getMoltiplicatore() {
@@ -23,6 +29,7 @@ public class EffettoModificaVelocita implements EffettoComposite{
     public void ApplicaEffetto(Personaggio p1) {
         // TODO Auto-generated method stub
         p1.aggiungiMoltiplicatoreVelocita(moltiplicatore);
+        System.out.println(p1.getNomePersonaggio()+", "+this.msg);
     }
 
     @Override

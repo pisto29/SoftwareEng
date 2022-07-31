@@ -15,9 +15,16 @@ private String Nome;
     @Override
     public void Attivazione(Personaggio P1, Fase f) {
         // TODO Auto-generated method stub
+        //System.out.println(P1.getNomePersonaggio()+" si è addormentato ");
         if(f.equals(Fase.Pre_azione))
-        if(this.checkAttivazione()) this.durataSonno=+this.durataSonno;
-        else{P1.setStatus(null);P1.AbiltaAttacco();} ;
+        if(this.checkAttivazione()){
+            this.durataSonno=+this.durataSonno;
+            System.out.println(P1.getNomePersonaggio()+" sta dormendo, non può attaccare");
+        } 
+        else{
+            P1.setStatus(null);
+            System.out.println(P1.getNomePersonaggio()+" si è svegliato!");
+            P1.AbiltaAttacco();} 
         
     }
 

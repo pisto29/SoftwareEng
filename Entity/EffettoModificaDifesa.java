@@ -4,12 +4,18 @@ public class EffettoModificaDifesa implements EffettoComposite {
     
     private float moltiplicatore;
     private int id;
-
+    private String msg;
     
    
     public EffettoModificaDifesa(float moltiplicatore, int id) {
         this.moltiplicatore = moltiplicatore;
         this.id = id;
+        if(this.moltiplicatore>1){
+            this.msg = "aumenta la sua Difesa";
+        }
+        else{
+            this.msg="diminuisce la sua Difesa";
+        }
     }
 
     public float getMoltiplicatore() {
@@ -24,6 +30,7 @@ public class EffettoModificaDifesa implements EffettoComposite {
     public void ApplicaEffetto(Personaggio p1) {
         // TODO Auto-generated method stub
         p1.aggiungiMoltiplicatoreDifesa(moltiplicatore);
+        System.out.println(p1.getNomePersonaggio()+", "+this.msg);
         
     }
 

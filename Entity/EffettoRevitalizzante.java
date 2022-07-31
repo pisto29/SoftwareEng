@@ -16,6 +16,7 @@ public void setPs(int ps) {
        if(P.getRuolo().getClass().getSimpleName().equals("KoSingleton"))
        P.setpS(this.ps);
        P.Sostituzione();
+       System.out.println(P.getNomePersonaggio()+" ha recuperato "+this.ps+" PS");
         
     }
     

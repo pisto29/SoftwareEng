@@ -4,10 +4,17 @@ public class EffettoModificaAttaccoSpeciale implements EffettoComposite{
     
     private float moltiplicatore;
     private int id;
+    private String msg;
 
     public EffettoModificaAttaccoSpeciale(float moltiplicatore, int id) {
         this.moltiplicatore = moltiplicatore;
         this.id = id;
+        if(this.moltiplicatore>1){
+            this.msg = "aumenta il suo Attacco Speciale";
+        }
+        else{
+            this.msg="diminuisce il suo Attacco Speciale";
+        }
     }
 
     public int getId() {
@@ -30,6 +37,7 @@ public class EffettoModificaAttaccoSpeciale implements EffettoComposite{
     public void ApplicaEffetto(Personaggio p1) {
         // TODO Auto-generated method stub
         p1.aggiungiMoltiplicatoreAttaccoSpeciale(moltiplicatore);
+        System.out.println(p1.getNomePersonaggio()+", "+this.msg);
         
     }
 
