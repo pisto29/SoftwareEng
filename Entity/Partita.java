@@ -3,12 +3,16 @@ package Entity;
 public class Partita {
     Giocatore player1;
     Giocatore player2;
- private Turno t;
- public Partita(Giocatore player1, Giocatore player2) {
+    private Turno t;
+    public Partita(Giocatore player1, Giocatore player2) {
     this.player1 = player1;
     this.player2 = player2;
     Turno t= new Turno(0, Fase.Inizio_turno);
 }
+
+
+
+
 public boolean gioca(String m1, String m2, Personaggio p1, Personaggio p2, Strumento s1, Strumento s2){
     String strat="";
     if(m1!=null){
@@ -110,4 +114,46 @@ else{
     Turno t= new Turno(this.t.getNumturno()+1, Fase.Inizio_turno);
     this.t=t;
  }
+
+
+
+
+public Giocatore getPlayer1() {
+    return player1;
+}
+
+
+
+
+public void setPlayer1(Giocatore player1) {
+    this.player1 = player1;
+}
+
+
+
+
+public Giocatore getPlayer2() {
+    return player2;
+}
+
+
+
+
+public void setPlayer2(Giocatore player2) {
+    this.player2 = player2;
+}
+
+
+
+
+public Turno getT() {
+    return t;
+}
+
+
+
+
+public void setT(Turno t) {
+    this.t = t;
+}
 }
