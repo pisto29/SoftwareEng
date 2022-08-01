@@ -156,4 +156,16 @@ public Turno getT() {
 public void setT(Turno t) {
     this.t = t;
 }
+
+public void CambioPerKoP1(Personaggio P){
+    t.setSostituzioneg1(P);
+    t.sostituiscip1();
+
+}
+
+public void CambioPerKoP2(Personaggio P){
+    t.setSostituzioneg2(P);
+    t.sostituiscip2();
+
+}
 }

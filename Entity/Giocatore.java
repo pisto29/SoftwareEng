@@ -16,6 +16,10 @@ public class Giocatore {
         this.matchmaking = matchmaking;
     }
 
+    public Giocatore(){
+
+    }
+
     public String getNome() {
         return nome;
     }
@@ -56,20 +60,7 @@ public class Giocatore {
         this.matchmaking = matchmaking;
     }
     
-    public int GetInput(){
-        
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Scegli un'azione:");
-        System.out.println("1) ATTACCA");
-        System.out.println("2) SOSTITUZIONE");
-        System.out.println("3) STRUMENTO");
-        int scelta = scanner.nextInt();
-        scanner.close();
-        if(scelta<1||scelta>3){
-            System.out.println("Scelta non valida insersici un valore tra 1 e 3");
-            GetInput();
-        }
-        return scelta;
+    
 
-    }
+  
 }

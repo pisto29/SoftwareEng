@@ -45,6 +45,8 @@ public class difensoreBridge implements PersonaggioAttivoImplementator  {
         p1.setpS(p1.getpS()-d);
         if(p1.getpS()<0)p1.setpS(0);
 
+        //if(p1.getpS==0)p1.setRuolo(KoSingleton);
+
         
     }
 

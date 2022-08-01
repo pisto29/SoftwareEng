@@ -34,3 +34,4 @@ G20: MossaMossa fatta, MossaCambio fatta, CambioMossa fatta, CambioCambio fatta.
 G21: strumento revitalizzante, rimozione status, aggiunte abilità alle mosse, si possono aggiungere ps a quelli totali non esiste piu un limite superiore, termitane classi combinazioni turno che contengono gli strumenti
 G22: partita, aggiungere messaggio output a mosse effetti status, fare il main, fare i file
 G23: aggiunti messaggi output a effetti abilità,status,strumenti juicy
+G24: MAIN, View, CambioPerKo
