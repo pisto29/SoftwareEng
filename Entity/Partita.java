@@ -166,6 +166,8 @@ public void CambioPerKoP1(Personaggio P){
 public void CambioPerKoP2(Personaggio P){
     t.setSostituzioneg2(P);
     t.sostituiscip2();
+   
+}
+}
 
-}
-}
+//aaa
