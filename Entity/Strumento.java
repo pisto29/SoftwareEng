@@ -4,10 +4,10 @@ public class Strumento {
     
     private String nomeStrumento;
     private EffettoStrumento effetto;
-   
-    public Strumento(String nomeStrumento, EffettoStrumento effetto) {
+    private int idEffetto;
+    public Strumento(String nomeStrumento, int idEffetto) {
         this.nomeStrumento = nomeStrumento;
-        this.effetto = effetto;
+        this.idEffetto = idEffetto;
     }
 
     public void UtilizzaStrumento(Personaggio P){
