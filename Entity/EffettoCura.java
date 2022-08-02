@@ -6,9 +6,14 @@ public class EffettoCura implements EffettoStrumento {
     @Override
     public void ApplicaEffettoStrumento(Personaggio P) {
         // TODO Auto-generated method stub
-        P.setpS(P.getpS()+this.PS);
-        System.out.println(P.getNomePersonaggio()+" ha recuperato "+this.PS+" PS");
+        //P.setpS(P.getpS()+this.PS);
+        //System.out.println(P.getNomePersonaggio()+" ha recuperato "+this.PS+" PS");
+        System.out.println("ciao");
         
+        
+    }
+    public int getPS() {
+        return PS;
     }
 
     

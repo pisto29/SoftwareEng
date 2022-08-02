@@ -1,11 +1,16 @@
 package Entity;
 
+import java.io.FileNotFoundException;
+
+import Foundation.builder;
+
 public class Strumento {
     
     private String nomeStrumento;
     private EffettoStrumento effetto;
-    private int idEffetto;
-    public Strumento(String nomeStrumento, int idEffetto) {
+    private String idEffetto;
+    public Strumento(String nomeStrumento, String idEffetto) {
+        System.out.println(idEffetto);
         this.nomeStrumento = nomeStrumento;
         this.idEffetto = idEffetto;
     }
@@ -26,8 +31,13 @@ public class Strumento {
         return effetto;
     }
 
-    public void setEffetto(EffettoStrumento effetto) {
-        this.effetto = effetto;
+    public void setEffetto() {
+        try {
+            this.effetto = builder.CreaEffettoStrumento(this.idEffetto);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     } 
     
 }
