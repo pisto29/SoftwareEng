@@ -2,10 +2,11 @@ package Entity;
 
 public class EffettoAnnullaMossa implements EffettoComposite {
 private int id;
-
+private String messaggio;
 
     public EffettoAnnullaMossa(int id) {
     this.id = id;
+    messaggio=" la mossa avversaria è stata bloccata";
 }
 
     public int getId() {
@@ -19,7 +20,7 @@ public void setId(int id) {
     public void ApplicaEffetto(Personaggio p1){
 
         p1.DisabiltaAttacco();
-        
+        System.out.println(this.messaggio);
 
     }
 
