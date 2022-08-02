@@ -1,2 +1,7 @@
+<<<<<<< HEAD
+.vscode/settings.json
+gson-2.8.2.jar
+=======
 .vscode/tasks.json
 .vscode/settings.json
+>>>>>>> 638ae7c43be703296de16cfe66b5b13e4b99fea7
