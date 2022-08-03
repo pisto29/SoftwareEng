@@ -91,6 +91,6 @@ public class builder {
       System.out.println(t.getNomeTipo());
       System.out.println(t.getEfficacia("Roccia"));
        //aaaaaaa
-      
+      //prova
     }
 }
