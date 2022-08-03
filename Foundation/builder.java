@@ -90,7 +90,7 @@ public class builder {
       Tipo t= builder.CreaTipo("Normale");
       System.out.println(t.getNomeTipo());
       System.out.println(t.getEfficacia("Roccia"));
-       
+       //aaaaaaa
       
     }
 }
