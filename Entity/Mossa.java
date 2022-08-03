@@ -7,25 +7,26 @@ public class Mossa {
     private String nomeMossa;
     private int danno;
     private int pp;
-    private float percentualeCritico;
+    private int percentualeCritico;
     private int precisione;
-    private Personaggio bersaglio;
-    private float percentualeAttivazzioneEffetto;
+    private int percentualeAttivazzioneEffetto;
+    private String idTipo;
     private Tipo tipo;
     private Tipologia tipologia;
+    private String idEffettiSelf;
     private EffettoComposite effetti_self;
+    private String idEffetti;
     private EffettoComposite effetti;
     
 
-    public Mossa(String nomeMossa, int danno, int pp, float percentualeCritico, int precisione,
-            Personaggio bersaglio, float percentualeAttivazzioneEffetto, Tipo tipo, Tipologia tipologia,
+    public Mossa(String nomeMossa, int danno, int pp, int percentualeCritico, int precisione,
+             int percentualeAttivazzioneEffetto, Tipo tipo, Tipologia tipologia,
             EffettoComposite effetti_self,EffettoComposite effetti) {
         this.nomeMossa = nomeMossa;
         this.danno = danno;
         this.pp = pp;
         this.percentualeCritico = percentualeCritico;
         this.precisione = precisione;
-        this.bersaglio = bersaglio;
         this.percentualeAttivazzioneEffetto = percentualeAttivazzioneEffetto;
         this.tipo = tipo;
         this.tipologia = tipologia;
@@ -65,12 +66,12 @@ public class Mossa {
     }
 
 
-    public float getPercentualeCritico() {
+    public int getPercentualeCritico() {
         return percentualeCritico;
     }
 
 
-    public void setPercentualeCritico(float percentualeCritico) {
+    public void setPercentualeCritico(int percentualeCritico) {
         this.percentualeCritico = percentualeCritico;
     }
 
@@ -85,22 +86,15 @@ public class Mossa {
     }
 
 
-    public Personaggio getBersaglio() {
-        return bersaglio;
-    }
+   
 
 
-    public void setBersaglio(Personaggio bersaglio) {
-        this.bersaglio = bersaglio;
-    }
-
-
-    public float getPercentualeAttivazzioneEffetto() {
+    public int getPercentualeAttivazzioneEffetto() {
         return percentualeAttivazzioneEffetto;
     }
 
 
-    public void setPercentualeAttivazzioneEffetto(float percentualeAttivazzioneEffetto) {
+    public void setPercentualeAttivazzioneEffetto(int percentualeAttivazzioneEffetto) {
         this.percentualeAttivazzioneEffetto = percentualeAttivazzioneEffetto;
     }
 

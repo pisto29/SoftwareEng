@@ -9,6 +9,18 @@ public class Strumento {
     private String nomeStrumento;
     private EffettoStrumento effetto;
     private String idEffetto;
+    public Strumento(Strumento s) {
+        this.nomeStrumento=s.nomeStrumento;
+        this.idEffetto=s.idEffetto;
+        try {
+            System.out.println("crea effetto");
+            this.effetto=builder.CreaEffettoStrumento(s.idEffetto);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     public Strumento(String nomeStrumento, String idEffetto) {
         System.out.println(idEffetto);
         this.nomeStrumento = nomeStrumento;
@@ -31,13 +43,8 @@ public class Strumento {
         return effetto;
     }
 
-    public void setEffetto() {
-        try {
-            this.effetto = builder.CreaEffettoStrumento(this.idEffetto);
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public void setEffetto(EffettoStrumento E) {
+        this.effetto=E;
     } 
     
 }

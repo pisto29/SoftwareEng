@@ -1,0 +1,14 @@
+{
+    "nomeMossa":"azione",
+    "danno":"40",
+    "pp":"30",
+    "percentualeCritico":"33",
+    "precisione":"90",
+    "percentualeAttivazioneEffetto":"0",
+    "IdTipo":"Normale",
+    "tipologia":"Fisico",
+    "idEffettiSelf":"NoEffetto",
+    "idEffetti":"NoEffetto"
+
+
+}

@@ -4,9 +4,9 @@ import java.util.HashMap;
 
 public class Tipo {
     private String nomeTipo;
-    private HashMap<Tipo, Float> efficacia;
+    private HashMap<String, Float> efficacia;
 
-    public Tipo(String nomeTipo, HashMap<Tipo, Float> efficacia) {
+    public Tipo(String nomeTipo, HashMap<String, Float> efficacia) {
         this.nomeTipo = nomeTipo;
         this.efficacia = efficacia;
     }
@@ -19,11 +19,11 @@ public class Tipo {
         this.nomeTipo = nomeTipo;
     }
 
-    public float getEfficacia(Tipo t){
+    public float getEfficacia(String t){
         return efficacia.get(t);
     }
 
-    public void setEfficacia(HashMap<Tipo, Float> efficacia) {
+    public void setEfficacia(HashMap<String, Float> efficacia) {
         this.efficacia = efficacia;
     }
 
