@@ -36,3 +36,5 @@ G22: partita, aggiungere messaggio output a mosse effetti status, fare il main, 
 G23: aggiunti messaggi output a effetti abilità,status,strumenti juicy
 G24: MAIN, View, CambioPerKo
 G25:builder, json, creaStrumento, creaEffettoStrumento
+G26:Mossa le percentuali float cambiate in int ed è stato eliminato attributo bersaglio perché non necessario, vanno cambiate tipologie degli id effetti, finire Builder per Abilità
+        

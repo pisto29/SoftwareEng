@@ -1,0 +1,4 @@
+{
+    "idEffetto" : "EffettoMultiplo_1",
+    "idEffetti" : ["EffettoModificaAttacco_1","EffettoModificaAttaccoSpeciale_1"]
+}

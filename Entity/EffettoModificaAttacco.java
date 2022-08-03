@@ -3,19 +3,19 @@ package Entity;
 public class EffettoModificaAttacco implements EffettoComposite {
     
     private float moltiplicatore;
-    private int id;
+    private String id;
     private String msg;
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public EffettoModificaAttacco(float moltiplicatore,int id) {
+    public EffettoModificaAttacco(float moltiplicatore,String id) {
         this.moltiplicatore = moltiplicatore;
         this.id=id;
         if(this.moltiplicatore>1){
@@ -38,8 +38,9 @@ public class EffettoModificaAttacco implements EffettoComposite {
     @Override
     public void ApplicaEffetto(Personaggio p1) {
         // TODO Auto-generated method stub
-        p1.aggiungiMoltiplicatoreAttacco(moltiplicatore);
-        System.out.println(p1.getNomePersonaggio()+", "+this.msg);
+        //p1.aggiungiMoltiplicatoreAttacco(moltiplicatore);
+        //System.out.println(p1.getNomePersonaggio()+", "+this.msg);
+        System.out.println(this.moltiplicatore);
         
     }
 

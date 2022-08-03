@@ -31,7 +31,7 @@ private static PersonaggioAttivoSingleton istanza;
 
 
 
-    private float CalcoloModificatore(Mossa m, Personaggio p1, Personaggio p2){
+    /*private float CalcoloModificatore(Mossa m, Personaggio p1, Personaggio p2){
 
         float modificatore = 1;
         float efficacia = m.getTipo().getEfficacia(p2.getTipos()[0]) * m.getTipo().getEfficacia(p2.getTipos()[1]) ;
@@ -45,7 +45,7 @@ private static PersonaggioAttivoSingleton istanza;
         modificatore = modificatore * efficacia;
 
         return modificatore;
-    }
+    }*/
 
     private boolean IsStab(Mossa m, Personaggio p1){
         boolean stab = false;
