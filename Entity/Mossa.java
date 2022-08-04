@@ -1,5 +1,6 @@
 package Entity;
 
+import java.io.FileNotFoundException;
 import  java.util.*;
 
 public class Mossa {
@@ -21,7 +22,7 @@ public class Mossa {
 
     public Mossa(String nomeMossa, int danno, int pp, int percentualeCritico, int precisione,
              int percentualeAttivazzioneEffetto, Tipo tipo, Tipologia tipologia,
-            EffettoComposite effetti_self,EffettoComposite effetti) {
+            EffettoComposite effetti_self,EffettoComposite effetti, String idTipo, String idEffetti, String idEffettiSelf) {
         this.nomeMossa = nomeMossa;
         this.danno = danno;
         this.pp = pp;
@@ -30,9 +31,28 @@ public class Mossa {
         this.percentualeAttivazzioneEffetto = percentualeAttivazzioneEffetto;
         this.tipo = tipo;
         this.tipologia = tipologia;
-        this.effetti_self=effetti_self;
-        this.effetti=effetti;
+        this.effetti_self= effetti_self;
+        this.effetti= effetti;
+        this.idTipo = idTipo;
+        this.idEffetti = idEffetti;
+        this.idEffettiSelf = idEffettiSelf;
          
+    }
+
+    public Mossa(Mossa m) throws FileNotFoundException {
+        this.nomeMossa = m.getNomeMossa();
+        this.danno = m.getDanno();
+        this.pp = m.getPp();
+        this.percentualeCritico = m.getPercentualeCritico();
+        this.precisione = m.getPrecisione();
+        this.percentualeAttivazzioneEffetto = m.getPercentualeAttivazzioneEffetto();
+        this.tipologia = m.getTipologia();
+        this.idTipo = m.getIdTipo();
+        this.idEffetti = m.getIdEffetti();
+        this.idEffettiSelf = m.getIdEffettiSelf();
+        this.effetti = FlyweightEffettoFactorySingleton.getIstanza().createEffetto(this.idEffetti);
+        this.effetti_self = FlyweightEffettoFactorySingleton.getIstanza().createEffetto(this.idEffettiSelf);
+        this.tipo = TipoFactorySingleton.getIstanza().Create(this.idTipo);
     }
 
     
@@ -160,6 +180,30 @@ public class Mossa {
 
     public void setEffetti(EffettoComposite effetti) {
         this.effetti = effetti;
+    }
+
+    public String getIdTipo() {
+        return idTipo;
+    }
+
+    public void setIdTipo(String idTipo) {
+        this.idTipo = idTipo;
+    }
+
+    public String getIdEffettiSelf() {
+        return idEffettiSelf;
+    }
+
+    public void setIdEffettiSelf(String idEffettiSelf) {
+        this.idEffettiSelf = idEffettiSelf;
+    }
+
+    public String getIdEffetti() {
+        return idEffetti;
+    }
+
+    public void setIdEffetti(String idEffetti) {
+        this.idEffetti = idEffetti;
     }
     
 

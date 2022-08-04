@@ -18,6 +18,17 @@ public class EffettoModificaDifesa implements EffettoComposite {
         }
     }
 
+    public EffettoModificaDifesa(EffettoModificaDifesa effetto) {
+        this.moltiplicatore = effetto.getMoltiplicatore();
+        this.id = effetto.getId();
+        if(this.moltiplicatore>1){
+            this.msg = "aumenta la sua Difesa";
+        }
+        else{
+            this.msg="diminuisce la sua Difesa";
+        }
+    }
+
     public float getMoltiplicatore() {
         return moltiplicatore;
     }

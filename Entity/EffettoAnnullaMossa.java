@@ -8,6 +8,10 @@ private String messaggio;
     this.id = id;
     messaggio=" la mossa avversaria è stata bloccata";
 }
+    public EffettoAnnullaMossa(EffettoAnnullaMossa effetto){
+        this.id = effetto.getId();
+        messaggio=" la mossa avversaria è stata bloccata";
+    }
 
     public String getId() {
     return id;

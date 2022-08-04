@@ -11,16 +11,6 @@ import java.lang.reflect.Type;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import Entity.Strumento;
-import Entity.Tipo;
-import Entity.main;
-import Entity.EffettoStrumento;
-import Entity.Mossa;
-import Entity.EffettoComposite;
-import Entity.EffettoCura;
-import Entity.EffettoMultiploComposite;
-import Entity.EffettoRevitalizzante;
-import Entity.EffettoRimozioneStatus;
 import Entity.*;
 
 public class builder {
@@ -40,7 +30,7 @@ public class builder {
         
         BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/mosse/"+id+".json"));
         
-        Mossa m=gson.fromJson(br, Mossa.class);
+        Mossa m= new Mossa(gson.fromJson(br, Mossa.class));
         
         return m;
        
@@ -104,32 +94,35 @@ public class builder {
                     String effetto = nomeEffetto.split("_")[0];
                     switch(effetto){
                         case "EffettoAnnullaMossa":
-                        E = gson.fromJson(br2, EffettoAnnullaMossa.class);
+                        E = new EffettoAnnullaMossa( gson.fromJson(br2, EffettoAnnullaMossa.class));
                         A.Add(E);
                         break;
 
                         case "EffettoModificaAttacco":
-                        E = gson.fromJson(br2, EffettoModificaAttacco.class);
+                        E = new EffettoModificaAttacco(gson.fromJson(br2, EffettoModificaAttacco.class));
                         A.Add(E);
                         break;
 
                         case "EffettoModificaAttaccoSpeciale":
-                        E = gson.fromJson(br2, EffettoModificaAttaccoSpeciale.class);
+                        E = new EffettoModificaAttaccoSpeciale(gson.fromJson(br2, EffettoModificaAttaccoSpeciale.class));
                         A.Add(E);
                         break;
 
                         case "EffettoModificaDifesa":
-                        E = gson.fromJson(br2, EffettoModificaDifesa.class);
+                        E = new EffettoModificaDifesa(gson.fromJson(br2, EffettoModificaDifesa.class));
                         A.Add(E);
                         break;
+
                         case "EffettoModificaDifesaSpeciale":
-                        E = gson.fromJson(br2, EffettoModificaDifesaSpeciale.class);
+                        E = new EffettoModificaDifesaSpeciale(gson.fromJson(br2, EffettoModificaDifesaSpeciale.class));
                         A.Add(E);
                         break;
+
                         case "EffettoModificaVelocita":
-                        E = gson.fromJson(br2, EffettoModificaVelocita.class);
+                        E = new EffettoModificaVelocita(gson.fromJson(br2, EffettoModificaVelocita.class));
                         A.Add(E);
                         break;
+
                         case "EffettoStatus":
                         E =new EffettoStatus( gson.fromJson(br2, EffettoStatus.class));
                         
@@ -149,32 +142,33 @@ public class builder {
             String effetto = idEffettoMossa.split("_")[0];
                     switch(effetto){
                         case "EffettoAnnullaMossa":
-                        E = gson.fromJson(br2, EffettoAnnullaMossa.class);
+                        E = new EffettoAnnullaMossa( gson.fromJson(br2, EffettoAnnullaMossa.class));
                         break;
 
                         case "EffettoModificaAttacco":
-                        E = gson.fromJson(br2, EffettoModificaAttacco.class);
+                        E = new EffettoModificaAttacco(gson.fromJson(br2, EffettoModificaAttacco.class));
                         break;
 
                         case "EffettoModificaAttaccoSpeciale":
-                        E = gson.fromJson(br2, EffettoModificaAttaccoSpeciale.class);
+                        E = new EffettoModificaAttaccoSpeciale(gson.fromJson(br2, EffettoModificaAttaccoSpeciale.class));
                         break;
+
                         case "EffettoModificaDifesa":
-                        E = gson.fromJson(br2, EffettoModificaDifesa.class);
-                        
+                        E = new EffettoModificaDifesa(gson.fromJson(br2, EffettoModificaDifesa.class));
                         break;
+
                         case "EffettoModificaDifesaSpeciale":
-                        E = gson.fromJson(br2, EffettoModificaDifesaSpeciale.class);
-                        
+                        E = new EffettoModificaDifesaSpeciale(gson.fromJson(br2, EffettoModificaDifesaSpeciale.class));
                         break;
+
                         case "EffettoModificaVelocita":
-                        E = gson.fromJson(br2, EffettoModificaVelocita.class);
-                        
+                        E = new EffettoModificaVelocita(gson.fromJson(br2, EffettoModificaVelocita.class));
                         break;
+
                         case "EffettoStatus":
-                        E = new EffettoStatus(gson.fromJson(br2, EffettoStatus.class));
-                       
+                        E =new EffettoStatus( gson.fromJson(br2, EffettoStatus.class));
                         break;
+
                         case "NoEffetto":
                         E = gson.fromJson(br2, NoEffetto.class);
                        
@@ -187,13 +181,22 @@ public class builder {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-       //Mossa a= builder.CreaMossa("azione");
+      /* Mossa a= builder.CreaMossa("azione");
       Tipo t= builder.CreaTipo("Normale");
       System.out.println(t.getNomeTipo());
       System.out.println(t.getEfficacia("Roccia"));
       EffettoComposite EM = builder.CreaEffettoComposite("EffettoStatus_1");
-      EM.ApplicaEffetto(null);
-       //aaaaaaa
-      //prova
+      EM.ApplicaEffetto(null); */
+      Mossa m= builder.CreaMossa("Tuononda");
+      System.out.println(m.getDanno());
+      System.out.println(m.getNomeMossa());
+      System.out.println(m.getIdEffetti());
+      System.out.println(m.getIdTipo());
+      System.out.println(m.getPercentualeAttivazzioneEffetto());
+      System.out.println(m.getPercentualeCritico());
+      System.out.println(m.getPp());
+      System.out.println(m.getPrecisione());
+
+      
     }
 }

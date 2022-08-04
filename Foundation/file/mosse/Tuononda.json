@@ -1,0 +1,12 @@
+{
+    "nomeMossa":"Tuononda",
+    "danno":"0",
+    "pp":"10",
+    "percentualeCritico":"0",
+    "precisione":"90",
+    "percentualeAttivazzioneEffetto":"100",
+    "idTipo":"Elettro",
+    "tipologia":"Speciale",
+    "idEffettiSelf":"NoEffetto",
+    "idEffetti":"EffettoStatus_paralisi"
+}

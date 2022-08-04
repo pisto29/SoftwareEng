@@ -16,6 +16,16 @@ public class EffettoModificaAttaccoSpeciale implements EffettoComposite{
             this.msg="diminuisce il suo Attacco Speciale";
         }
     }
+    public EffettoModificaAttaccoSpeciale(EffettoModificaAttaccoSpeciale effeto) {
+        this.moltiplicatore = effeto.getMoltiplicatore();
+        this.id = effeto.getId();
+        if(this.moltiplicatore>1){
+            this.msg = "aumenta il suo Attacco Speciale";
+        }
+        else{
+            this.msg="diminuisce il suo Attacco Speciale";
+        }
+    }
 
     public String getId() {
         return id;

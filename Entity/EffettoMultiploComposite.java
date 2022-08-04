@@ -4,13 +4,13 @@ import java.util.*;
 
 public class EffettoMultiploComposite implements EffettoComposite{
 
-    private int id;
+    private String id;
     private ArrayList <EffettoComposite> effetti;
     private String[] idEffetti;
 
     
 
-    public EffettoMultiploComposite(int id, ArrayList<EffettoComposite> effetti, String[] idEffetti) {
+    public EffettoMultiploComposite(String id, ArrayList<EffettoComposite> effetti, String[] idEffetti) {
         this.id = id;
         this.effetti = effetti;
         this.idEffetti = idEffetti;
@@ -48,11 +48,11 @@ public class EffettoMultiploComposite implements EffettoComposite{
         return this.effetti.get(a);
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

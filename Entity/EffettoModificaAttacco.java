@@ -26,6 +26,17 @@ public class EffettoModificaAttacco implements EffettoComposite {
         }
 
     }
+    public EffettoModificaAttacco(EffettoModificaAttacco effetto){
+        this.id = effetto.getId();
+        this.moltiplicatore = effetto.getMoltiplicatore();
+        if(this.moltiplicatore>1){
+            this.msg = "aumenta il suo attacco";
+        }
+        else{
+            this.msg="diminuisce il suo attacco";
+        }
+
+    }
 
     public float getMoltiplicatore() {
         return moltiplicatore;

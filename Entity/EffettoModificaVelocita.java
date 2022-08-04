@@ -17,6 +17,17 @@ public class EffettoModificaVelocita implements EffettoComposite{
         }
     }
 
+    public EffettoModificaVelocita(EffettoModificaVelocita effetto) {
+        this.moltiplicatore = effetto.getMoltiplicatore();
+        this.id = effetto.getId();
+        if(this.moltiplicatore>1){
+            this.msg = "aumenta la sua Velocità";
+        }
+        else{
+            this.msg="diminuisce la sua Velocità";
+        }
+    }
+
     public float getMoltiplicatore() {
         return moltiplicatore;
     }

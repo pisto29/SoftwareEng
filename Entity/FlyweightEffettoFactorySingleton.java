@@ -1,13 +1,19 @@
 package Entity;
 import Foundation.*;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FlyweightEffettoFactorySingleton {
-    private HashMap<String,EffettoComposite > effetti;
+
+   private HashMap<String,EffettoComposite > effetti;
     private static FlyweightEffettoFactorySingleton istanza;
    // private ArrayList <EffettoComposite> effetti;
 
+   private FlyweightEffettoFactorySingleton(){
+      this.effetti = new HashMap<>();
+   }
 
 public static FlyweightEffettoFactorySingleton getIstanza() {
 
@@ -18,15 +24,17 @@ public static FlyweightEffettoFactorySingleton getIstanza() {
 return istanza;
 }
 
-public EffettoComposite createEffettoAnnullaMossa(String id_effetto){
+public EffettoComposite createEffetto(String id_effetto) throws FileNotFoundException{
    
  if( this.effetti.containsKey(id_effetto)){
-   return this.effetti.get(id_effetto)
+   return this.effetti.get(id_effetto);
  }
- else{
-builder.CreaEffettoComposite(id_effetto);
+ else{ 
+  EffettoComposite E= builder.CreaEffettoComposite(id_effetto);
+  this.effetti.put(id_effetto, E);
+  return E;
+ }
 
- }
    }
 }
 /* 
@@ -108,4 +116,4 @@ public EffettoComposite createEffettoAnnullaMossa(int id_effetto){
             }
     }*/
 
-}
+
