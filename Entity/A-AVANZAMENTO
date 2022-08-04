@@ -37,4 +37,5 @@ G23: aggiunti messaggi output a effetti abilità,status,strumenti juicy
 G24: MAIN, View, CambioPerKo
 G25:builder, json, creaStrumento, creaEffettoStrumento
 G26:Mossa le percentuali float cambiate in int ed è stato eliminato attributo bersaglio perché non necessario, vanno cambiate tipologie degli id effetti, finire Builder per Abilità
-        
+G27:effettoComposite aggiunto metodo getId() necessario per la factory, gli status sono creati all interno di effettostatus,
+    la factory che crea gli effetti ha ora un singolo metodo,      

@@ -6,5 +6,6 @@ public interface EffettoComposite {
     public void Add(EffettoComposite e);
     public void Remove(EffettoComposite e);
     public EffettoComposite getChild(int a);
+    public String getId();
     
 }

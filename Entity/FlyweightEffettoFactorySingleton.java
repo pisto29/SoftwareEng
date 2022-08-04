@@ -1,19 +1,13 @@
 package Entity;
-
+import Foundation.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FlyweightEffettoFactorySingleton {
-    private HashMap<Integer,EffettoComposite > effetti;
+    private HashMap<String,EffettoComposite > effetti;
     private static FlyweightEffettoFactorySingleton istanza;
    // private ArrayList <EffettoComposite> effetti;
-/*public EffettoComposite createEffettoAnnullaMossa(int id_effetto){
-   
-   for (EffettoComposite effettoComposite : effetti) {
-        if(effettoComposite.getId()==id_effetto)
-        return effettoComposite;
-   }
-}*/
+
 
 public static FlyweightEffettoFactorySingleton getIstanza() {
 
@@ -24,6 +18,18 @@ public static FlyweightEffettoFactorySingleton getIstanza() {
 return istanza;
 }
 
+public EffettoComposite createEffettoAnnullaMossa(String id_effetto){
+   
+ if( this.effetti.containsKey(id_effetto)){
+   return this.effetti.get(id_effetto)
+ }
+ else{
+builder.CreaEffettoComposite(id_effetto);
+
+ }
+   }
+}
+/* 
 public EffettoComposite createEffettoAnnullaMossa(int id_effetto){
     if(effetti.containsKey(id_effetto))return effetti.get(id_effetto);
     else{
@@ -100,6 +106,6 @@ public EffettoComposite createEffettoAnnullaMossa(int id_effetto){
                effetti.put(id_effetto, effetto);
                return effetto;
             }
-    }
+    }*/
 
 }

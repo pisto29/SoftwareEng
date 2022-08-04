@@ -1,19 +1,19 @@
 package Entity;
 
 public class EffettoAnnullaMossa implements EffettoComposite {
-private int id;
+private String id;
 private String messaggio;
 
-    public EffettoAnnullaMossa(int id) {
+    public EffettoAnnullaMossa(String id) {
     this.id = id;
     messaggio=" la mossa avversaria è stata bloccata";
 }
 
-    public int getId() {
+    public String getId() {
     return id;
 }
 
-public void setId(int id) {
+public void setId(String id) {
     this.id = id;
 }
 

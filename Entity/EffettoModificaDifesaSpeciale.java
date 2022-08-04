@@ -3,10 +3,10 @@ package Entity;
 public class EffettoModificaDifesaSpeciale implements EffettoComposite{
     
     private float moltiplicatore;
-    private int id;
+    private String id;
     private String msg;
 
-    public EffettoModificaDifesaSpeciale(float moltiplicatore, int id) {
+    public EffettoModificaDifesaSpeciale(float moltiplicatore, String id) {
         this.moltiplicatore = moltiplicatore;
         this.id = id;
         if(this.moltiplicatore>1){
@@ -51,11 +51,11 @@ public class EffettoModificaDifesaSpeciale implements EffettoComposite{
         return this;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     

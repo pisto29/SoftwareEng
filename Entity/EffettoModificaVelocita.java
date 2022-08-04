@@ -3,10 +3,10 @@ package Entity;
 public class EffettoModificaVelocita implements EffettoComposite{
     
     private float moltiplicatore;
-    private int id;
+    private String id;
     private String msg;
     
-    public EffettoModificaVelocita(float moltiplicatore, int id) {
+    public EffettoModificaVelocita(float moltiplicatore, String id) {
         this.moltiplicatore = moltiplicatore;
         this.id = id;
         if(this.moltiplicatore>1){
@@ -50,11 +50,11 @@ public class EffettoModificaVelocita implements EffettoComposite{
         return this;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     

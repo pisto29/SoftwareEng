@@ -117,6 +117,28 @@ public class builder {
                         E = gson.fromJson(br2, EffettoModificaAttaccoSpeciale.class);
                         A.Add(E);
                         break;
+
+                        case "EffettoModificaDifesa":
+                        E = gson.fromJson(br2, EffettoModificaDifesa.class);
+                        A.Add(E);
+                        break;
+                        case "EffettoModificaDifesaSpeciale":
+                        E = gson.fromJson(br2, EffettoModificaDifesaSpeciale.class);
+                        A.Add(E);
+                        break;
+                        case "EffettoModificaVelocita":
+                        E = gson.fromJson(br2, EffettoModificaVelocita.class);
+                        A.Add(E);
+                        break;
+                        case "EffettoStatus":
+                        E =new EffettoStatus( gson.fromJson(br2, EffettoStatus.class));
+                        
+                        A.Add(E);
+                        break;
+                        case "NoEffetto":
+                        E = gson.fromJson(br2, NoEffetto.class);
+                        A.Add(E);
+                        break;
                     }
                     
                 }
@@ -137,6 +159,26 @@ public class builder {
                         case "EffettoModificaAttaccoSpeciale":
                         E = gson.fromJson(br2, EffettoModificaAttaccoSpeciale.class);
                         break;
+                        case "EffettoModificaDifesa":
+                        E = gson.fromJson(br2, EffettoModificaDifesa.class);
+                        
+                        break;
+                        case "EffettoModificaDifesaSpeciale":
+                        E = gson.fromJson(br2, EffettoModificaDifesaSpeciale.class);
+                        
+                        break;
+                        case "EffettoModificaVelocita":
+                        E = gson.fromJson(br2, EffettoModificaVelocita.class);
+                        
+                        break;
+                        case "EffettoStatus":
+                        E = new EffettoStatus(gson.fromJson(br2, EffettoStatus.class));
+                       
+                        break;
+                        case "NoEffetto":
+                        E = gson.fromJson(br2, NoEffetto.class);
+                       
+                        break;
                     }
 
         }
@@ -149,7 +191,7 @@ public class builder {
       Tipo t= builder.CreaTipo("Normale");
       System.out.println(t.getNomeTipo());
       System.out.println(t.getEfficacia("Roccia"));
-      EffettoComposite EM = builder.CreaEffettoComposite("EffettoModificaAttacco_1");
+      EffettoComposite EM = builder.CreaEffettoComposite("EffettoStatus_1");
       EM.ApplicaEffetto(null);
        //aaaaaaa
       //prova
