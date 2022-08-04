@@ -25,8 +25,9 @@ public class EffettoStatus implements EffettoComposite {
     }
     @Override
     public void ApplicaEffetto(Personaggio p1) {
-       p1.setStatus(this.statusApplicato);
+      p1.setStatus(this.statusApplicato);
        System.out.println(p1.getNomePersonaggio()+this.msg);
+      
        
     }
 

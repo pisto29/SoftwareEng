@@ -36,6 +36,27 @@ public class builder {
        
     }
 
+    public static Abilità CreaAbilità(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/abilita/"+id+".json"));
+        String nome = id.split("_")[0];
+        Abilità a=null;
+        switch(nome){
+            case "Multiuso":
+             a= new AbilitàMultiuso(gson.fromJson(br, AbilitàMultiuso.class));
+             break;
+             case "Monouso":
+             a= new AbilitàMonouso(gson.fromJson(br, AbilitàMonouso.class));
+             break;
+        }
+        
+        
+        return a;
+       
+    }
+
+
     public static Tipo CreaTipo(String id) throws FileNotFoundException{
         Gson gson = new Gson();
        
@@ -187,6 +208,7 @@ public class builder {
       System.out.println(t.getEfficacia("Roccia"));
       EffettoComposite EM = builder.CreaEffettoComposite("EffettoStatus_1");
       EM.ApplicaEffetto(null); */
+      /* 
       Mossa m= builder.CreaMossa("Tuononda");
       System.out.println(m.getDanno());
       System.out.println(m.getNomeMossa());
@@ -195,8 +217,10 @@ public class builder {
       System.out.println(m.getPercentualeAttivazzioneEffetto());
       System.out.println(m.getPercentualeCritico());
       System.out.println(m.getPp());
-      System.out.println(m.getPrecisione());
-
+      System.out.println(m.getPrecisione());*/
+        Abilità a=builder.CreaAbilità("Multiuso_statico");
+        //System.out.println(a.toString());
+        a.Attivazione(null, null);
       
     }
 }

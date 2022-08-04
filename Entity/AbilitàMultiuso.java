@@ -3,50 +3,9 @@ package Entity;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
-public class AbilitàMonouso implements Abilità{
+public class AbilitàMultiuso implements Abilità {
 
-    private boolean attivata;
-    public boolean isAttivata() {
-        return attivata;
-       
-    }
-
-
-    public void setAttivata(boolean attivata) {
-        this.attivata = attivata;
-    }
-
-
-    public EffettoComposite getEffetti_self() {
-        return effetti_self;
-    }
-
-
-    public void setEffetti_self(EffettoComposite effetti_self) {
-        this.effetti_self = effetti_self;
-    }
-
-
-    public EffettoComposite getEffetti() {
-        return effetti;
-    }
-
-
-    public void setEffetti(EffettoComposite effetti) {
-        this.effetti = effetti;
-    }
-
-
-    public Fase getFase_attivazione() {
-        return fase_attivazione;
-    }
-
-
-    public void setFase_attivazione(Fase fase_attivazione) {
-        this.fase_attivazione = fase_attivazione;
-    }
-
-
+    private String id;
     private EffettoComposite effetti_self;
     private EffettoComposite effetti;
     private Fase fase_attivazione;
@@ -55,14 +14,13 @@ public class AbilitàMonouso implements Abilità{
     private int PercentualeAttivazione;
     private String id_effetti;
     private String id_effetti_self;
-    private String id;
+
   
 
-    public AbilitàMonouso(boolean attivata, EffettoComposite effetti_self, EffettoComposite effetti,
-            Fase fase_attivazione, String implementator_type, AbilitàImplementator implementator,
-            int percentualeAttivazione, String id_effetti, String id_effetti_self,String id) {
+    public AbilitàMultiuso(EffettoComposite effetti_self, EffettoComposite effetti, Fase fase_attivazione,
+            String implementator_type, AbilitàImplementator implementator, int percentualeAttivazione,
+            String id_effetti, String id_effetti_self, String id) {
                 this.id=id;
-        this.attivata = attivata;
         this.effetti_self = effetti_self;
         this.effetti = effetti;
         this.fase_attivazione = fase_attivazione;
@@ -74,17 +32,15 @@ public class AbilitàMonouso implements Abilità{
     }
 
 
-    public AbilitàMonouso(AbilitàMonouso a){
-        this.id=a.getId();
-        this.attivata = a.isAttivata();
+    public AbilitàMultiuso(AbilitàMultiuso a){
+        
         this.effetti_self = a.getEffetti_self();
-       
+        this.id=a.getId();
         this.fase_attivazione = a.getFase_attivazione();
-        this.implementator_type=a.getImplementator_type();
         this.PercentualeAttivazione=a.getPercentualeAttivazione();
         this.id_effetti=a.getId_effetti();
         this.id_effetti_self=a.getId_effetti_self();
-
+        this.implementator_type=a.getImplementator_type();
         switch(this.implementator_type){
             case "attacco":
             this.implementator=AbilitàAttaccoBridge.getIstanza();
@@ -109,33 +65,46 @@ public class AbilitàMonouso implements Abilità{
         }
     }
 
+
     @Override
     public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio) {
-        if(!this.attivata){
-            if(new Random().nextInt(100)<=this.PercentualeAttivazione){
+        // TODO Auto-generated method stub
+       if(new Random().nextInt(100)<=this.PercentualeAttivazione)
         this.implementator.ApplicaEffetto(utilizzatore, bersaglio);
-        this.attivata=true;}}
+       
+       
+        
         
     }
-
-
-    public String getImplementator_type() {
-        return implementator_type;
+    public EffettoComposite getEffetti_self() {
+        return effetti_self;
     }
-
-
-    public void setImplementator_type(String implementator_type) {
-        this.implementator_type = implementator_type;
+    public void setEffetti_self(EffettoComposite effetti_self) {
+        this.effetti_self = effetti_self;
     }
-
-
+    public EffettoComposite getEffetti() {
+        return effetti;
+    }
+    public void setEffetti(EffettoComposite effetti) {
+        this.effetti = effetti;
+    }
+    public Fase getFase_attivazione() {
+        return fase_attivazione;
+    }
+    public void setFase_attivazione(Fase fase_attivazione) {
+        this.fase_attivazione = fase_attivazione;
+    }
     public AbilitàImplementator getImplementator() {
         return implementator;
     }
-
-
     public void setImplementator(AbilitàImplementator implementator) {
         this.implementator = implementator;
+    }
+    public String getImplementator_type() {
+        return implementator_type;
+    }
+    public void setImplementator_type(String implementator_type) {
+        this.implementator_type = implementator_type;
     }
 
 
@@ -181,11 +150,11 @@ public class AbilitàMonouso implements Abilità{
 
     @Override
     public String toString() {
-        return "AbilitàMonouso [PercentualeAttivazione=" + PercentualeAttivazione + ", attivata=" + attivata
-                + ", effetti=" + effetti + ", effetti_self=" + effetti_self + ", fase_attivazione=" + fase_attivazione
-                + ", id=" + id + ", id_effetti=" + id_effetti + ", id_effetti_self=" + id_effetti_self
-                + ", implementator=" + implementator + ", implementator_type=" + implementator_type + "]";
+        return "AbilitàMultiuso [PercentualeAttivazione=" + PercentualeAttivazione + ", effetti=" + effetti
+                + ", effetti_self=" + effetti_self + ", fase_attivazione=" + fase_attivazione + ", id=" + id
+                + ", id_effetti=" + id_effetti + ", id_effetti_self=" + id_effetti_self + ", implementator="
+                + implementator + ", implementator_type=" + implementator_type + "]";
     }
-    
+   
     
 }
