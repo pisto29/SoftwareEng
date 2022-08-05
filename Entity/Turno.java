@@ -119,11 +119,11 @@ public class Turno {
 
 
     public boolean checkVelocità(){
-       if(p1.getVelocitàPersonaggio()>p2.getVelocitàPersonaggio()){
+       if(p1.getvelocitaPersonaggio()>p2.getvelocitaPersonaggio()){
           return true;
        }
        else {
-           if(p1.getVelocitàPersonaggio()==p2.getVelocitàPersonaggio()){
+           if(p1.getvelocitaPersonaggio()==p2.getvelocitaPersonaggio()){
                Random r=new Random();
                if(r.nextInt(100)<50){
                 return true;

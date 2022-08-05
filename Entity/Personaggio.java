@@ -1,6 +1,10 @@
 package Entity;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
+import Foundation.builder;
 
 public class Personaggio {
 
@@ -10,13 +14,15 @@ public class Personaggio {
     private int difesaPersonaggio;
     private int attaccoSpecialePersonaggio;
     private int difesaSpecialePersonaggio;
-    private int velocitàPersonaggio;
-    
+    private int velocitaPersonaggio;
     private RuoloState ruolo;
-    private Mossa[] mossas;
-    private Tipo[] tipos;
+    private String[] id_mosse;
+    private String id_abilita;
+    private ArrayList<Mossa> mossas;
+    private ArrayList<Tipo> tipos;
     private StatusStrategy status;
     private Abilità abilità;
+    private String[] id_tipo;
     
     
 
@@ -24,6 +30,60 @@ public class Personaggio {
   
 
 
+    public Personaggio(String nomePersonaggio, int pS, int attaccoPersonaggio, int difesaPersonaggio,
+            int attaccoSpecialePersonaggio, int difesaSpecialePersonaggio, int velocitaPersonaggio, RuoloState ruolo,
+            String[] id_mosse, String id_abilita, Mossa[] mossas, Tipo[] tipos, StatusStrategy status,
+            Abilità abilità) {
+        this.nomePersonaggio = nomePersonaggio;
+        this.pS = pS;
+        this.attaccoPersonaggio = attaccoPersonaggio;
+        this.difesaPersonaggio = difesaPersonaggio;
+        this.attaccoSpecialePersonaggio = attaccoSpecialePersonaggio;
+        this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
+        this.velocitaPersonaggio = velocitaPersonaggio;
+        this.ruolo = ruolo;
+        this.id_mosse = id_mosse;
+        this.id_abilita = id_abilita;
+       
+        this.status = status;
+        this.abilità = abilità;
+    }
+
+    public Personaggio(Personaggio p) throws FileNotFoundException{
+        p.setRuolo(PersonaggioPanchinaSingleton.getIstanza());
+        this.nomePersonaggio = p.getNomePersonaggio();
+        this.pS = p.getpS();
+        this.attaccoPersonaggio = p.getAttaccoPersonaggio();
+        this.difesaPersonaggio = p.getDifesaPersonaggio();
+        this.attaccoSpecialePersonaggio = p.getAttaccoSpecialePersonaggio();
+        this.difesaSpecialePersonaggio = p.getDifesaSpecialePersonaggio();
+        this.velocitaPersonaggio = p.getvelocitaPersonaggio();
+        System.out.println(this.velocitaPersonaggio+" e la speed");
+        this.ruolo = PersonaggioPanchinaSingleton.getIstanza();
+        
+        this.id_mosse = p.getId_mosse();
+        this.id_abilita = p.getId_abilita();
+        this.id_tipo=p.getId_tipo();
+        
+        this.mossas=new ArrayList<>();
+        this.tipos=new ArrayList<>();
+        for(String st: this.id_mosse){
+            
+            this.mossas.add(builder.CreaMossa(st));
+        }
+        for(String st: this.id_tipo){
+            
+            this.tipos.add(TipoFactorySingleton.getIstanza().Create(st));
+        }
+        this.abilità=builder.CreaAbilità(this.id_abilita);
+        this.status = null;
+        
+        
+
+    }
+
+
+    
     public Abilità getAbilità() {
         return abilità;
     }
@@ -36,23 +96,8 @@ public class Personaggio {
 
 
 
-    public Personaggio(String nomePersonaggio, int pS, int attaccoPersonaggio, int difesaPersonaggio,
-            int attaccoSpecialePersonaggio, int difesaSpecialePersonaggio, int velocitàPersonaggio,
-            RuoloState ruolo, Mossa[] mossas, Tipo[] tipos, Abilità abilità) {
-        this.nomePersonaggio = nomePersonaggio;
-        this.pS = pS;
-        this.attaccoPersonaggio = attaccoPersonaggio;
-        this.difesaPersonaggio = difesaPersonaggio;
-        this.attaccoSpecialePersonaggio = attaccoSpecialePersonaggio;
-        this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
-        this.velocitàPersonaggio = velocitàPersonaggio;
-        this.ruolo = ruolo;
-        this.mossas = mossas;
-        this.tipos = tipos;
-        this.status=null;
-        this.abilità=abilità;
-    }
-
+   
+        
 
 
     public String getNomePersonaggio() {
@@ -158,17 +203,17 @@ public class Personaggio {
 
 
 
-    public int getVelocitàPersonaggio() {
-
-        return (int) this.ruolo.getVelocita(this.velocitàPersonaggio);
+    public int getvelocitaPersonaggio() {
+         
+        return (int) this.ruolo.getVelocita(this.velocitaPersonaggio);
     }
 
 
 
 
-    public void setVelocitàPersonaggio(int velocitàPersonaggio) {
+    public void setvelocitaPersonaggio(int velocitaPersonaggio) {
 
-        this.velocitàPersonaggio = velocitàPersonaggio;
+        this.velocitaPersonaggio = velocitaPersonaggio;
     }
 
 
@@ -191,7 +236,7 @@ public class Personaggio {
 
 
 
-    public Mossa[] getMossas() {
+    public ArrayList<Mossa> getMossas() {
 
         return mossas;
     }
@@ -199,7 +244,7 @@ public class Personaggio {
 
 
 
-    public void setMossas(Mossa[] mossas) {
+    public void setMossas(ArrayList<Mossa> mossas) {
 
         this.mossas = mossas;
     }
@@ -207,7 +252,7 @@ public class Personaggio {
 
 
 
-    public Tipo[] getTipos() {
+    public ArrayList<Tipo> getTipos() {
 
         return tipos;
     }
@@ -215,7 +260,7 @@ public class Personaggio {
 
 
 
-    public void setTipos(Tipo[] tipos) {
+    public void setTipos(ArrayList<Tipo> tipos) {
 
         this.tipos = tipos;
     }
@@ -231,7 +276,7 @@ public class Personaggio {
             
             i++;
         }
-      return  this.ruolo.Attacca(this,mossas[i]);
+      return  this.ruolo.Attacca(this,this.mossas.get(i));
     }
 
     public void Difendi(float danno, Mossa m){
@@ -312,5 +357,47 @@ public class Personaggio {
 
     public void setPriorità(int p){
         this.ruolo.setPriorità(p);
+    }
+
+
+
+    public String[] getId_mosse() {
+        return id_mosse;
+    }
+
+
+
+    public void setId_mosse(String[] id_mosse) {
+        this.id_mosse = id_mosse;
+    }
+
+
+
+    public String getId_abilita() {
+        return id_abilita;
+    }
+
+
+
+    public void setId_abilita(String id_abilita) {
+        this.id_abilita = id_abilita;
+    }
+
+    public String[] getId_tipo() {
+        return id_tipo;
+    }
+
+    public void setId_tipo(String[] id_tipo) {
+        this.id_tipo = id_tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Personaggio [abilità=" + abilità + ", attaccoPersonaggio=" + attaccoPersonaggio
+                + ", attaccoSpecialePersonaggio=" + attaccoSpecialePersonaggio + ", difesaPersonaggio="
+                + difesaPersonaggio + ", difesaSpecialePersonaggio=" + difesaSpecialePersonaggio + ", id_abilita="
+                + id_abilita + ", id_mosse=" + Arrays.toString(id_mosse) + ", id_tipo=" + Arrays.toString(id_tipo)
+                + ", mossas=" + mossas + ", nomePersonaggio=" + nomePersonaggio + ", pS=" + pS + ", ruolo=" + ruolo
+                + ", status=" + status + ", tipos=" + tipos + ", velocitaPersonaggio=" + velocitaPersonaggio + "]";
     }
 }

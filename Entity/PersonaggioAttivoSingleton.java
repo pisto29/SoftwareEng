@@ -50,7 +50,7 @@ private static PersonaggioAttivoSingleton istanza;
     private boolean IsStab(Mossa m, Personaggio p1){
         boolean stab = false;
         for(int i = 0 ; i < 2 ; i++){
-            if(m.getTipo() == p1.getTipos()[i])
+            if(m.getTipo() == p1.getTipos().get(i))
              stab = true; 
         }
   

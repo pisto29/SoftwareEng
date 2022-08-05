@@ -5,7 +5,7 @@
     "percentualeCritico":"33",
     "precisione":"90",
     "percentualeAttivazioneEffetto":"0",
-    "IdTipo":"Normale",
+    "idTipo":"Normale",
     "tipologia":"Fisico",
     "idEffettiSelf":"NoEffetto",
     "idEffetti":"NoEffetto"

@@ -33,7 +33,7 @@ public static PersonaggioPanchinaSingleton getIstanza() {
     @Override
     public float getAttacco(int attaccoOriginale) {
         // TODO Auto-generated method stub
-        return 0;
+        return attaccoOriginale;
     }
 
 
@@ -41,7 +41,7 @@ public static PersonaggioPanchinaSingleton getIstanza() {
     @Override
     public float getAttaccoSpecile(int attaccospecialeOriginale) {
         // TODO Auto-generated method stub
-        return 0;
+        return attaccospecialeOriginale;
     }
 
 
@@ -49,7 +49,7 @@ public static PersonaggioPanchinaSingleton getIstanza() {
     @Override
     public float getDifesa(int difesaOriginale) {
         // TODO Auto-generated method stub
-        return 0;
+        return difesaOriginale;
     }
 
 
@@ -57,7 +57,7 @@ public static PersonaggioPanchinaSingleton getIstanza() {
     @Override
     public float getDifesaSpeciale(int difesaspecialeOriginale) {
         // TODO Auto-generated method stub
-        return 0;
+        return difesaspecialeOriginale;
     }
 
 
@@ -65,7 +65,8 @@ public static PersonaggioPanchinaSingleton getIstanza() {
     @Override
     public float getVelocita(int velocitaOriginale) {
         // TODO Auto-generated method stub
-        return 0;
+        System.out.println(velocitaOriginale+ " qua");
+        return velocitaOriginale;
     }
 
 

@@ -36,6 +36,32 @@ public class builder {
        
     }
 
+    public static Personaggio CreaPersonaggio(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/personaggio/"+id+".json"));
+        
+        Personaggio p=gson.fromJson(br, Personaggio.class);
+        
+        return p;
+       
+    }
+
+    public static Squadra creaSquadra(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/squadra/"+id+".json"));
+        
+        Squadra s= gson.fromJson(br, Squadra.class);
+        BufferedReader br2 = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/squadra/mapsquadra/S"+id+".json"));
+        Type type =new TypeToken<HashMap<String, String[]>>(){}.getType();        
+        HashMap<String, String[]> map = gson.fromJson(br2, type);
+        s.setId(map);
+        Squadra s2= new Squadra(s);
+        return s2;
+       
+    }
+
     public static Abilità CreaAbilità(String id) throws FileNotFoundException{
         Gson gson = new Gson();
         
@@ -218,9 +244,14 @@ public class builder {
       System.out.println(m.getPercentualeCritico());
       System.out.println(m.getPp());
       System.out.println(m.getPrecisione());*/
-        Abilità a=builder.CreaAbilità("Multiuso_statico");
+       // Abilità a=builder.CreaAbilità("Multiuso_statico");
         //System.out.println(a.toString());
-        a.Attivazione(null, null);
+       // a.Attivazione(null, null);
+       Squadra s= builder.creaSquadra("squadra1");
+      for(Personaggio p: s.getPersonaggios()){
+        System.out.println(p.toString());
+      }
       
     }
 }
+
