@@ -19,24 +19,25 @@ G11: inserimento costruttori delle classi effetto, inserimento variabile istanza
 G12: inserimento fasi enum, classe abilità monouso e multiuso, FARE IL PATTERN STRATEGY PER TURNO
 G13: inserimento iterfaccia turno creazione classi Mossa_Cambio, Cambio_Cambio, Mossa_MOssa, Mossa_Strumento, Strumento_Strumento, Cambio_strumento, spostamento metodi privati da Turno a PersongaggioAttivo
 G13: implementazione pattern strategy per esecuzioneTurno con strategy complete del tipo MossaMossa, che corrispondono ad azione g1 e azione g2
-testare creazione di classi tramite nome
+     testare creazione di classi tramite nome
 G14: Utilizzo di Collections per lo swipe degli elementi, realizzazione chekc velocità,
 G15: esecuzione MossaMossa.
 G16: Negli status è stata inserita la fase di attivazione, modifica dei metodi attivaabilità in turno, aggiunto il numero massimo di attivazioni
-per turno per le abilità multiuso
+     per turno per le abilità multiuso
 G17: aggiunta di bridge a personaggio attivo con attaccante e difensore, aggiungere bridge ad abilità e 
 G18: rimosso numero esecuzioni massime per turno ad abilità, implementato abilità bridge, implmentata la possibilità di modificare
-l implementazione del personaggio attivo, attaccanteBridge e difensoreBridge sono singleton juicy
-G19:eliminato array personaggi attivi e ineriti singoli attributi perchè e una combinazione che funge solo quando attaccanto entrambi
-l ordine ora si può definire direttamente controllando le velocità, la classe MossaMossa è stata aggiustata,
-IL CONCETTO DI PRIORITà è SUPERFLUO E VA TOLTO IN G20  CONTINUARE Mossacambio
+     l implementazione del personaggio attivo, attaccanteBridge e difensoreBridge sono singleton juicy
+G19: eliminato array personaggi attivi e ineriti singoli attributi perchè e una combinazione che funge solo quando attaccanto entrambi
+     l ordine ora si può definire direttamente controllando le velocità, la classe MossaMossa è stata aggiustata,
+     IL CONCETTO DI PRIORITà è SUPERFLUO E VA TOLTO IN G20  CONTINUARE Mossacambio
 G20: MossaMossa fatta, MossaCambio fatta, CambioMossa fatta, CambioCambio fatta.
 G21: strumento revitalizzante, rimozione status, aggiunte abilità alle mosse, si possono aggiungere ps a quelli totali non esiste piu un limite superiore, termitane classi combinazioni turno che contengono gli strumenti
 G22: partita, aggiungere messaggio output a mosse effetti status, fare il main, fare i file
 G23: aggiunti messaggi output a effetti abilità,status,strumenti juicy
 G24: MAIN, View, CambioPerKo
-G25:builder, json, creaStrumento, creaEffettoStrumento
-G26:Mossa le percentuali float cambiate in int ed è stato eliminato attributo bersaglio perché non necessario, vanno cambiate tipologie degli id effetti, finire Builder per Abilità
-G27:effettoComposite aggiunto metodo getId() necessario per la factory, gli status sono creati all interno di effettostatus,
-    la factory che crea gli effetti ha ora un singolo metodo, ultimato crazione mossa con annesso creazione tipi ed effetti, aggiustate factory di effetti e tipo  
+G25: builder, json, creaStrumento, creaEffettoStrumento
+G26: Mossa le percentuali float cambiate in int ed è stato eliminato attributo bersaglio perché non necessario, vanno cambiate tipologie degli id effetti, finire Builder per Abilità
+G27: effettoComposite aggiunto metodo getId() necessario per la factory, gli status sono creati all interno di effettostatus,
+     la factory che crea gli effetti ha ora un singolo metodo, ultimato crazione mossa con annesso creazione tipi ed effetti, aggiustate factory di effetti e tipo  
     fatto metodo di build per le abilità
+ 

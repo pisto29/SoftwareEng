@@ -1,23 +1,31 @@
 package Entity;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import Foundation.builder;
 
 public class Giocatore {
     private String nome;
     private int punteggio;
     private Squadra squadra;
-    private Strumento[] strumentos;
     private Matchmaking matchmaking;
-
-    public Giocatore(String nome, int punteggio, Squadra squadra, Strumento[] strumentos, Matchmaking matchmaking) {
+    private String idSquadra;
+    
+    public Giocatore(String nome, int punteggio, Squadra squadra, Matchmaking matchmaking) {
         this.nome = nome;
         this.punteggio = punteggio;
         this.squadra = squadra;
-        this.strumentos = strumentos;
         this.matchmaking = matchmaking;
     }
 
-    public Giocatore(){
+    public Giocatore( Giocatore g) throws FileNotFoundException{
+        this.nome = g.getNome();
+        this.punteggio = g.getPunteggio();
+        this.idSquadra = g.getIdSquadra();
+        this.squadra = builder.creaSquadra(this.idSquadra);
+        
 
+        
     }
 
     public String getNome() {
@@ -44,13 +52,6 @@ public class Giocatore {
         this.squadra = squadra;
     }
 
-    public Strumento[] getStrumentos() {
-        return strumentos;
-    }
-
-    public void setStrumentos(Strumento[] strumentos) {
-        this.strumentos = strumentos;
-    }
 
     public Matchmaking getMatchmaking() {
         return matchmaking;
@@ -58,6 +59,20 @@ public class Giocatore {
 
     public void setMatchmaking(Matchmaking matchmaking) {
         this.matchmaking = matchmaking;
+    }
+
+    public String getIdSquadra() {
+        return idSquadra;
+    }
+
+    public void setIdSquadra(String idSquadra) {
+        this.idSquadra = idSquadra;
+    }
+
+    @Override
+    public String toString() {
+        return "Giocatore [idSquadra=" + idSquadra + ", matchmaking=" + matchmaking + ", nome=" + nome + ", punteggio="
+                + punteggio + ", squadra=" + squadra + "]";
     }
     
     
