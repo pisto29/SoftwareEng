@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class main {
 
     public static void main(String[] args) {
+        //aa
         int i=1;
         int azione1;
         int azione2;
@@ -66,7 +67,7 @@ public class main {
                         i++;
                     }
                     int Mossa1 = v.ScegliMossa();
-                    MossaG1 = p.getT().getP1().getMossas()[Mossa1-1].getNomeMossa();
+                    MossaG1 = p.getT().getP1().getMossas().get(Mossa1-1).getNomeMossa();
                     StrumentoG1 = null;
                     SostituzioneG1 = null;
                     break;
@@ -115,7 +116,7 @@ public class main {
                                 i++;
                             }
                             int Mossa2 = v.ScegliMossa();
-                            MossaG2 = p.getT().getP2().getMossas()[Mossa2-1].getNomeMossa();
+                            MossaG2 = p.getT().getP2().getMossas().get(Mossa2-1).getNomeMossa();
                             StrumentoG2 = null;
                             SostituzioneG2 = null;
                             break;
