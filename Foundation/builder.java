@@ -227,6 +227,17 @@ public class builder {
 
     }
 
+    public static Giocatore CreaGiocatore(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/giocatore/"+id+".json"));
+        
+        Giocatore g= new Giocatore(gson.fromJson(br, Giocatore.class));
+
+
+        return g;
+
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
       /* Mossa a= builder.CreaMossa("azione");
       Tipo t= builder.CreaTipo("Normale");
@@ -247,10 +258,12 @@ public class builder {
        // Abilità a=builder.CreaAbilità("Multiuso_statico");
         //System.out.println(a.toString());
        // a.Attivazione(null, null);
-       Squadra s= builder.creaSquadra("squadra1");
-      for(Personaggio p: s.getPersonaggios()){
+       //Squadra s= builder.creaSquadra("squadra1");
+       Giocatore g = builder.CreaGiocatore("G1");
+       System.out.println(g.toString());
+      /*for(Personaggio p: s.getPersonaggios()){
         System.out.println(p.toString());
-      }
+      }*/
       
     }
 }
