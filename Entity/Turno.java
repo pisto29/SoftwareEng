@@ -18,6 +18,9 @@ public class Turno {
     public Turno(int numturno, Fase fase) {
         this.numturno = numturno;
         this.fase = fase;
+        this.mosse = new ArrayList<>();
+        this.strumenti = new ArrayList<>();
+        this.sostituzioni = new ArrayList<>();
     }
 
   

@@ -1,13 +1,13 @@
 package Entity;
 
 public class Partita {
-    Giocatore player1;
-    Giocatore player2;
+    private Giocatore player1;
+    private Giocatore player2;
     private Turno t;
     public Partita(Giocatore player1, Giocatore player2) {
     this.player1 = player1;
     this.player2 = player2;
-    Turno t= new Turno(0, Fase.Inizio_turno);
+    this.t = new Turno(0, Fase.Inizio_turno);
 }
 
 
@@ -93,7 +93,7 @@ else{
  
  public boolean WinG1(){
     boolean vittoria=true;
-    if(this.player1.getSquadra().checkKOSquadra()){
+    if(!this.player2.getSquadra().checkKOSquadra()){
         vittoria = false;
     }
     return vittoria;
@@ -102,7 +102,7 @@ else{
  
  public boolean WinG2(){
     boolean vittoria=true;
-    if(this.player2.getSquadra().checkKOSquadra()){
+    if(!this.player1.getSquadra().checkKOSquadra()){
         vittoria = false;
     }
     
@@ -111,8 +111,9 @@ else{
  }
 
  private void avanzaturno(){
-    Turno t= new Turno(this.t.getNumturno()+1, Fase.Inizio_turno);
-    this.t=t;
+   /*  Turno t= new Turno(this.t.getNumturno()+1, Fase.Inizio_turno);
+    this.t=t;*/
+    this.t.setNumturno(this.t.getNumturno()+1);
  }
 
 
@@ -168,6 +169,8 @@ public void CambioPerKoP2(Personaggio P){
     t.sostituiscip2();
    
 }
+
+
 }
 
 

@@ -40,6 +40,6 @@ G26:Mossa le percentuali float cambiate in int ed è stato eliminato attributo b
 G27:effettoComposite aggiunto metodo getId() necessario per la factory, gli status sono creati all interno di effettostatus,
     la factory che crea gli effetti ha ora un singolo metodo, ultimato crazione mossa con annesso creazione tipi ed effetti, aggiustate factory di effetti e tipo  
     fatto metodo di build per le abilità
-G28:Realizzato creazione squadra e personaggio nel builder, i tipi e le mosse sono state rese arraylist, la squadra ha il riferimento
-    alle mosse del pokemon dato che in due squadre due pokemon possono avere mosse diverse.
-    G29:prova
+G28: Realizzato creazione squadra e personaggio nel builder, i tipi e le mosse sono state rese arraylist, la squadra ha il riferimento
+     alle mosse del pokemon dato che in due squadre due pokemon possono avere mosse diverse.
+G29: creaione giocatore builder, completare il main, implementazione di turno va modificato l accesso ad implementatorManager come fatto in MossaMossa

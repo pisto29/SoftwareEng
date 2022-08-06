@@ -1,13 +1,17 @@
 package Entity;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 public class View {
 
-    public int ScegliMossa(){
+    public int ScegliMossa() throws IOException{
         int scelta;
         do{
             System.out.println("Scegli una mossa");
-            Scanner scanner = new Scanner(System.in);
-            scelta = scanner.nextInt();
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+            scelta = Integer.parseInt(s);
         }
         while(scelta<1 || scelta>4);
         return scelta;
@@ -15,38 +19,39 @@ public class View {
 
     }
 
-    public int ScegliStrumento(int i){
+    public int ScegliStrumento(int i) throws IOException{
         int scelta;
         do{
             System.out.println("Scegli uno strumento da utilizzare");
-            Scanner scanner = new Scanner(System.in);
-            scelta = scanner.nextInt();
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+            scelta = Integer.parseInt(s);
         }
         while(scelta<1 || scelta>i);
         return scelta;
     }
 
-    public int ScegliCambio(int i){
+    public int ScegliCambio(int i) throws IOException{
         int scelta;
         do{
             System.out.println("Scegli il Pokemon da mandare in campo");
-            Scanner scanner = new Scanner(System.in);
-            scelta = scanner.nextInt();
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+            scelta = Integer.parseInt(s);
         }
         while(scelta<1 || scelta>i);
         return scelta;
     }
 
-    public int ScegliAzione(){
+    public int ScegliAzione() throws IOException{
         
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Scegli un'azione:");
         System.out.println("1) ATTACCA");
         System.out.println("2) SOSTITUZIONE");
         System.out.println("3) STRUMENTO");
-        int scelta = scanner.nextInt();
-        scanner.close();
-        
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        int scelta = Integer.parseInt(s);
         return scelta;
 
     }

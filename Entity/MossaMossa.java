@@ -3,7 +3,7 @@ package Entity;
 
 
 public class MossaMossa implements EsecuzioneTurno {
-    public ImplementatorManagerSingleton implementatorManager;
+   // public ImplementatorManagerSingleton implementatorManager;
     public void esecuzione(Turno t){
        if( t.checkVelocità())this.P1(t);
        else this.P2(t);
@@ -56,8 +56,8 @@ public class MossaMossa implements EsecuzioneTurno {
 
 }
 private void P1(Turno t){
-this.implementatorManager.setattaccante(t.getP1());
-this.implementatorManager.setDifensore(t.getP2());
+ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP1());
+ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP2());
 t.EseguiAbilitàP1();
 t.EseguiAbilitàP2();
 t.FineTurnoKo();
@@ -102,8 +102,8 @@ if(!t.checkKoP2())t.checkStatusP2();
 
 
 private void P2(Turno t){
-    this.implementatorManager.setattaccante(t.getP2());
-    this.implementatorManager.setDifensore(t.getP1());
+    ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
+    ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP1());
     t.EseguiAbilitàP2();
     t.EseguiAbilitàP1();
     t.FineTurnoKo();

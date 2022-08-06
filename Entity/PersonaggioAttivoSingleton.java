@@ -1,7 +1,10 @@
 package Entity;
 
 public class PersonaggioAttivoSingleton implements RuoloState {
-private static PersonaggioAttivoSingleton istanza;
+private static PersonaggioAttivoSingleton istanza1;
+private static PersonaggioAttivoSingleton istanza2;
+private static String LastReturned;
+
 
     private float moltiplicatoreAttacco;
     private float moltiplicatoreDifesa;
@@ -12,10 +15,23 @@ private static PersonaggioAttivoSingleton istanza;
     private int priorità;
     private PersonaggioAttivoImplementator implementator;
     public static PersonaggioAttivoSingleton getIstanza() {
-        if(istanza==null){
-            istanza=new PersonaggioAttivoSingleton(1,1,1,1,1,true);
+        if(istanza1==null){
+           istanza1=new PersonaggioAttivoSingleton(1,1,1,1,1,true);
+           LastReturned = "istanza1";
+           return istanza1;    
         }
-     return istanza;
+        if(istanza2==null){
+            istanza2=new PersonaggioAttivoSingleton(1,1,1,1,1,true);
+            LastReturned = "istanza2";
+            return istanza2;  
+         }
+        if(LastReturned.equals("istanza1")){
+            LastReturned = "istanza2";
+            return istanza2;
+        }
+        LastReturned = "istanza1";
+        return istanza1;
+        
     }
     
     public PersonaggioAttivoSingleton(float moltiplicatoreAttacco, float moltiplicatoreDifesa,

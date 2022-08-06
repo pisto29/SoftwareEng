@@ -26,8 +26,15 @@ public class difensoreBridge implements PersonaggioAttivoImplementator  {
    
 
     private float efficacia(Personaggio p1, Mossa m){
-          float efficacia = m.getTipo().getEfficacia(p1.getTipos().get(0).getNomeTipo()) ;
-          if (p1.getTipos().get(1)!=null) efficacia=efficacia* m.getTipo().getEfficacia(p1.getTipos().get(1).getNomeTipo()) ;
+          /*float efficacia = m.getTipo().getEfficacia(p1.getTipos().get(0).getNomeTipo()) ;
+          if (p1.getTipos().get(1)!=null) 
+          efficacia=efficacia* m.getTipo().getEfficacia(p1.getTipos().get(1).getNomeTipo());*/
+          float efficacia = 1;
+          for(Tipo t: p1.getTipos()){
+            efficacia = efficacia*m.getTipo().getEfficacia(t.getNomeTipo());
+           
+            }
+        
           return efficacia;
           //a
     }

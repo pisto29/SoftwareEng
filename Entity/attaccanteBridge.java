@@ -20,9 +20,14 @@ public class attaccanteBridge implements PersonaggioAttivoImplementator {
    
     private boolean IsStab(Mossa m, Personaggio p1){
         boolean stab = false;
-        for(int i = 0 ; i < 2 ; i++){
+       /*  for(int i = 0 ; i < 2 ; i++){
             if(m.getTipo() == p1.getTipos().get(i))
              stab = true; 
+        }*/
+        for(Tipo t: p1.getTipos()){
+            if(m.getTipo().getNomeTipo().equals(t.getNomeTipo())){
+                stab = true;
+            }
         }
   
         return stab;

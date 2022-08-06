@@ -1,9 +1,13 @@
 package Entity;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+
+import Foundation.builder;
 public class main {
 
-    public static void main(String[] args) {
-        //aa
+    public static void main(String[] args) throws IOException {
+        
         int i=1;
         int azione1;
         int azione2;
@@ -14,16 +18,23 @@ public class main {
         Strumento StrumentoG2=null;
         Personaggio SostituzioneG2=null;
         View v = new View();
-        Partita p = new Partita(null, null);
+        Giocatore g1 = builder.CreaGiocatore("G1");
+        Giocatore g2 = builder.CreaGiocatore("G2");
+        Partita p = new Partita(g1, g2);
+        System.out.println("il turno è"+p.getT());
+        System.out.println(p.WinG1()+"qui");
+        if(p.getT().getNumturno()==0){
+            p.getPlayer1().getSquadra().getPersonaggios().get(0).Sostituzione();
+            p.getT().setP1( p.getPlayer1().getSquadra().getPersonaggios().get(0));
+            p.getPlayer2().getSquadra().getPersonaggios().get(0).Sostituzione();
+            p.getT().setP2( p.getPlayer2().getSquadra().getPersonaggios().get(0));
+        }
         while(!p.WinG1()&&!p.WinG2()){
-            if(p.getT().getNumturno()==0){
-                p.player1.getSquadra().getPersonaggios().get(0).Sostituzione();
-                p.player2.getSquadra().getPersonaggios().get(0).Sostituzione();;
-            }
+            
 
             if(p.getT().checkKoP1()){
                 System.out.println("Pokemon KO, scegli un Pokemon da mandare in campo");
-                for ( Personaggio pers : p.player1.getSquadra().getPersonaggios()){
+                for ( Personaggio pers : p.getPlayer1().getSquadra().getPersonaggios()){
                     if(pers.getpS()>0){
                     System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
                     }
@@ -38,7 +49,7 @@ public class main {
 
             if(p.getT().checkKoP2()){
                 System.out.println("Pokemon KO, scegli un Pokemon da mandare in campo");
-                for ( Personaggio pers : p.player2.getSquadra().getPersonaggios()){
+                for ( Personaggio pers : p.getPlayer2().getSquadra().getPersonaggios()){
                     if(pers.getpS()>0){
                     System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
                     }
@@ -55,7 +66,7 @@ public class main {
             do{azione1 = v.ScegliAzione();}
             while(azione1<1 || azione1>3);
             
-            
+            i= 1;
             switch(azione1){
 
                 case 1: 
@@ -75,7 +86,7 @@ public class main {
                 case 2:
                     System.out.println("Scegli il Pokemon da mettere in campo");
 
-                    for ( Personaggio pers : p.player1.getSquadra().getPersonaggios()){
+                    for ( Personaggio pers : p.getPlayer1().getSquadra().getPersonaggios()){
                         if(pers.getpS()>0){
                         System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
                         }
@@ -90,7 +101,7 @@ public class main {
                 case 3:
                     System.out.println("Scegli lo strumento da utilizzare");
 
-                    for (Strumento s : p.player1.getSquadra().getStrumentos()){
+                    for (Strumento s : p.getPlayer1().getSquadra().getStrumentos()){
                         System.out.println(i+") "+s.getNomeStrumento());
                         i++;
                         }
@@ -124,7 +135,7 @@ public class main {
                         case 2:
                             System.out.println("Scegli il Pokemon da mettere in campo");
         
-                            for ( Personaggio pers : p.player2.getSquadra().getPersonaggios()){
+                            for ( Personaggio pers : p.getPlayer2().getSquadra().getPersonaggios()){
                                 if(pers.getpS()>0){
                                 System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
                                 }
@@ -139,7 +150,7 @@ public class main {
                         case 3:
                             System.out.println("Scegli lo strumento da utilizzare");
         
-                            for (Strumento s : p.player2.getSquadra().getStrumentos()){
+                            for (Strumento s : p.getPlayer2().getSquadra().getStrumentos()){
                                 System.out.println(i+") "+s.getNomeStrumento());
                                 i++;
                                 }
