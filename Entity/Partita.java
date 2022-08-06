@@ -40,6 +40,7 @@ public boolean gioca(String m1, String m2, Personaggio p1, Personaggio p2, Strum
         strat=strat.concat("Strumento");
     }
 t.setEsecuzione(this.FindStrategy(strat));
+System.out.println("turno n "+t.getNumturno()+" di tip "+strat);
 t.esecuzione();
 if(this.WinG1()||this.WinG2())return false;
 else{
@@ -114,6 +115,7 @@ else{
    /*  Turno t= new Turno(this.t.getNumturno()+1, Fase.Inizio_turno);
     this.t=t;*/
     this.t.setNumturno(this.t.getNumturno()+1);
+    t.setFase(Fase.Inizio_turno);
  }
 
 

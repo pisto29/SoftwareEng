@@ -13,7 +13,7 @@ public class Strumento {
         this.nomeStrumento=s.nomeStrumento;
         this.idEffetto=s.idEffetto;
         try {
-            System.out.println("crea effetto");
+     
             this.effetto=builder.CreaEffettoStrumento(s.idEffetto);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -22,7 +22,7 @@ public class Strumento {
     }
 
     public Strumento(String nomeStrumento, String idEffetto) {
-        System.out.println(idEffetto);
+        
         this.nomeStrumento = nomeStrumento;
         this.idEffetto = idEffetto;
     }

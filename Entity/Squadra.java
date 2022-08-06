@@ -64,8 +64,7 @@ public class Squadra {
     public boolean checkKOSquadra(){
 
         for(Personaggio p:  this.personaggios){
-            System.out.println(p.getRuolo().getClass().getSimpleName());
-            System.out.println(p.getRuolo().getClass().getSimpleName().equals("KoSingleton"));
+          
             if(!p.getRuolo().getClass().getSimpleName().equals("KoSingleton"))
             return false;
             

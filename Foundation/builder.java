@@ -104,11 +104,11 @@ public class builder {
         Gson gson = new Gson();
         //String filePath = new File("").getAbsolutePath();
         //filePath.concat("path to the property file");
-        System.out.println("Print1");
+       
         BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effettoStrumento/"+id+".json"));
-        System.out.println("PRINT2");
+        
         String effetto = id.split("_")[0];
-        System.out.println(effetto);
+        
         EffettoStrumento E = null;
         switch(effetto){
             case "effettoCura" :

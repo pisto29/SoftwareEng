@@ -21,13 +21,15 @@ public class main {
         Giocatore g1 = builder.CreaGiocatore("G1");
         Giocatore g2 = builder.CreaGiocatore("G2");
         Partita p = new Partita(g1, g2);
-        System.out.println("il turno è"+p.getT());
-        System.out.println(p.WinG1()+"qui");
+     
         if(p.getT().getNumturno()==0){
+            System.out.println("La partita è iniziata");
             p.getPlayer1().getSquadra().getPersonaggios().get(0).Sostituzione();
             p.getT().setP1( p.getPlayer1().getSquadra().getPersonaggios().get(0));
+            System.out.println("Giocatore uno manda in campo "+p.getT().getP1().getNomePersonaggio());
             p.getPlayer2().getSquadra().getPersonaggios().get(0).Sostituzione();
             p.getT().setP2( p.getPlayer2().getSquadra().getPersonaggios().get(0));
+            System.out.println("Giocatore due manda in campo "+p.getT().getP2().getNomePersonaggio());
         }
         while(!p.WinG1()&&!p.WinG2()){
             
@@ -61,9 +63,9 @@ public class main {
                 SostituzioneG2 = p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2-1);
                 p.CambioPerKoP1(SostituzioneG2);
             }
-            
-            
-            do{azione1 = v.ScegliAzione();}
+            System.out.println(p.getT().getP1().getNomePersonaggio()+" di "+p.getPlayer1().getNome()+" ha "+p.getT().getP1().getpS()+" ps");
+            System.out.println(p.getT().getP2().getNomePersonaggio()+" di "+p.getPlayer2().getNome()+" ha "+p.getT().getP2().getpS()+" ps");
+            do{azione1 = v.ScegliAzione(p.getPlayer1());}
             while(azione1<1 || azione1>3);
             
             i= 1;
@@ -113,7 +115,7 @@ public class main {
                     }
 
             
-                    do{azione2= v.ScegliAzione();}
+                    do{azione2= v.ScegliAzione(p.getPlayer2());}
                     while(azione2<1 || azione1>3);
                     i=1;
                     switch(azione2){

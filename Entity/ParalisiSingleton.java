@@ -19,10 +19,10 @@ public class ParalisiSingleton implements StatusStrategy {
     @Override
     public void Attivazione(Personaggio P1, Fase f) {
         // TODO Auto-generated method stub
-        System.out.println(P1.getNomePersonaggio()+" è stato paralizzato, forse non riuscirà ad attaccare");
-        if(this.checkAttivazione()&&f.equals(Fase.Pre_azione))
+      System.out.println(f);
+        if(this.checkAttivazione()&&f.equals(Fase.Pre_azione)){
         P1.DisabiltaAttacco();
-        System.out.println(P1.getNomePersonaggio()+" è paralizzato, non può attaccare");
+        System.out.println(P1.getNomePersonaggio()+" è paralizzato, non può attaccare");}
     }
 
     @Override

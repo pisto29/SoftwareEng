@@ -50,6 +50,7 @@ public class difensoreBridge implements PersonaggioAttivoImplementator  {
         danno=danno/difesa;
         if(this.miss(m))danno=0f;
         int d= (int) danno;
+        System.out.println(p1.getNomePersonaggio()+" perde "+danno+" ps");
         p1.setpS(p1.getpS()-d);
         if(p1.getpS()<0)p1.setpS(0);
 

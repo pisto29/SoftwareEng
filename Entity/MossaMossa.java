@@ -56,6 +56,7 @@ public class MossaMossa implements EsecuzioneTurno {
 
 }
 private void P1(Turno t){
+    System.out.println("si sta eseguendo p1 di mossamossa");
 ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP1());
 ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP2());
 t.EseguiAbilitàP1();
@@ -102,6 +103,7 @@ if(!t.checkKoP2())t.checkStatusP2();
 
 
 private void P2(Turno t){
+    System.out.println("si sta eseguendo p2 di mossamossa");
     ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
     ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP1());
     t.EseguiAbilitàP2();

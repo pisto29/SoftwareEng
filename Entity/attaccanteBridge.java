@@ -11,9 +11,12 @@ public class attaccanteBridge implements PersonaggioAttivoImplementator {
         float attacco=0;
        if(m.getTipologia().equals(Tipologia.Fisico)) attacco=p1.getAttaccoPersonaggio();
        else attacco=p1.getAttaccoSpecialePersonaggio();
+       System.out.println("in attaccante bridge l'attacco del pokemon e "+attacco);
+       System.out.println("in attaccante bridge il danno della mossa e"+m.getDanno());
        float danno=22*m.getDanno()*attacco;
        danno= danno* this.CalcoloModificatore(m, p1);
-       return  danno;
+       System.out.println("in attaccante bridge il danno e "+danno);
+       return  danno; 
     }
 
     

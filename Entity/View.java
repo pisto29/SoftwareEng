@@ -43,9 +43,9 @@ public class View {
         return scelta;
     }
 
-    public int ScegliAzione() throws IOException{
+    public int ScegliAzione(Giocatore g) throws IOException{
         
-        System.out.println("Scegli un'azione:");
+        System.out.println(g.getNome()+" Scegli un'azione:");
         System.out.println("1) ATTACCA");
         System.out.println("2) SOSTITUZIONE");
         System.out.println("3) STRUMENTO");

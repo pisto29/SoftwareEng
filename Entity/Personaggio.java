@@ -58,7 +58,7 @@ public class Personaggio {
         this.attaccoSpecialePersonaggio = p.getAttaccoSpecialePersonaggio();
         this.difesaSpecialePersonaggio = p.getDifesaSpecialePersonaggio();
         this.velocitaPersonaggio = p.getvelocitaPersonaggio();
-        System.out.println(this.velocitaPersonaggio+" e la speed");
+        
         this.ruolo = PersonaggioPanchinaSingleton.getIstanza();
         
         this.id_mosse = p.getId_mosse();
@@ -273,7 +273,7 @@ public class Personaggio {
         int i=0;
         for (Mossa mossa : mossas) {
             if (mossa.getNomeMossa()==IDmossa)
-            
+            break;
             i++;
         }
       return  this.ruolo.Attacca(this,this.mossas.get(i));

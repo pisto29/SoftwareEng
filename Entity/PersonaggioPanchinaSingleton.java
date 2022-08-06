@@ -65,7 +65,7 @@ public static PersonaggioPanchinaSingleton getIstanza() {
     @Override
     public float getVelocita(int velocitaOriginale) {
         // TODO Auto-generated method stub
-        System.out.println(velocitaOriginale+ " qua");
+        
         return velocitaOriginale;
     }
 

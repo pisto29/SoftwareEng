@@ -99,17 +99,21 @@ public class Turno {
 
     public void esecuzione(){this.esecuzione.esecuzione(this);}
     public void EseguiAttaccoP1(){
+        
+        System.out.println("attacca p1 "+p1.getNomePersonaggio()+" usa "+this.mosse.get(0));
        float danno=this.p1.Attacca(this.mosse.get(0));
        Mossa m1=null;
        for (Mossa m : this.p1.getMossas()) {
            if(m.getNomeMossa().equals(this.getMosse().get(0)))
            m1=m;
        }
+       System.out.println("il danno da infliggere è"+ danno);
         p2.Difendi(danno, m1);
         if(m1.CheckEffetto())m1.ApplicaEffettoMossa(this.p1,this.p2);
     }
 
     public void EseguiAttaccoP2(){
+        System.out.println("attacca p2 "+p2.getNomePersonaggio()+" usa "+this.mosse.get(1));
         float danno=this.p2.Attacca(this.mosse.get(1));
         Mossa m1=null;
         for (Mossa m : this.p1.getMossas()) {
@@ -179,7 +183,9 @@ public class Turno {
     }
 
     public void FineTurnoKo(){
-        if( this.checkKoP1()||this.checkKoP2())this.setFase(Fase.Fine_Turno);
+        if( this.checkKoP1()||this.checkKoP2()){this.setFase(Fase.Fine_Turno);
+        System.out.println("fine turno ko ");
+        }
         }
 
     public void sostituiscip1(){
