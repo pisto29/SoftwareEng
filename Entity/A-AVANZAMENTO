@@ -43,3 +43,6 @@ G27:effettoComposite aggiunto metodo getId() necessario per la factory, gli stat
 G28: Realizzato creazione squadra e personaggio nel builder, i tipi e le mosse sono state rese arraylist, la squadra ha il riferimento
      alle mosse del pokemon dato che in due squadre due pokemon possono avere mosse diverse.
 G29: creaione giocatore builder, completare il main, implementazione di turno va modificato l accesso ad implementatorManager come fatto in MossaMossa
+N29: aggiustati errori sul uso delle mosse in generale, ora fanno danno , gestire l abilitazione all attacco di un pokemon
+     ora un pokemon paralizzato attacca anche se non dovrebbe, danni troppo elevati aggiustare.
+     ssssss
