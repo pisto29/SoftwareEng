@@ -21,6 +21,12 @@ public class KoSingleton implements RuoloState {
     }
 
 
+    @Override
+public boolean isAbilitato() {
+    // TODO Auto-generated method stub
+    return false;
+}
+
 
     @Override
     public float getAttacco(int attaccoOriginale) {
@@ -109,8 +115,9 @@ public class KoSingleton implements RuoloState {
     }
 
     @Override
-    public void Difendi(Personaggio P1, Mossa mossa, float danno) {
+    public boolean Difendi(Personaggio P1, Mossa mossa, float danno) {
         // TODO Auto-generated method stub
+        return false;
         
     }
 

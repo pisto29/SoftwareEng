@@ -99,6 +99,8 @@ public class Turno {
 
     public void esecuzione(){this.esecuzione.esecuzione(this);}
     public void EseguiAttaccoP1(){
+
+        if(this.p1.puoattaccare()){
         
         System.out.println("attacca p1 "+p1.getNomePersonaggio()+" usa "+this.mosse.get(0));
        float danno=this.p1.Attacca(this.mosse.get(0));
@@ -107,21 +109,23 @@ public class Turno {
            if(m.getNomeMossa().equals(this.getMosse().get(0)))
            m1=m;
        }
-       System.out.println("il danno da infliggere è"+ danno);
-        p2.Difendi(danno, m1);
-        if(m1.CheckEffetto())m1.ApplicaEffettoMossa(this.p1,this.p2);
+       //print da levare poi
+       
+        boolean colpito=p2.Difendi(danno, m1);
+        if(colpito&&m1.CheckEffetto())m1.ApplicaEffettoMossa(this.p1,this.p2);}
     }
 
     public void EseguiAttaccoP2(){
+       if(this.p2.puoattaccare()) {
         System.out.println("attacca p2 "+p2.getNomePersonaggio()+" usa "+this.mosse.get(1));
         float danno=this.p2.Attacca(this.mosse.get(1));
         Mossa m1=null;
-        for (Mossa m : this.p1.getMossas()) {
+        for (Mossa m : this.p2.getMossas()) {
             if(m.getNomeMossa().equals(this.getMosse().get(1)))
             m1=m;
         }
-         p1.Difendi(danno, m1);
-         if(m1.CheckEffetto())m1.ApplicaEffettoMossa(this.p2,this.p1);
+        boolean colpito= p1.Difendi(danno, m1);
+         if(colpito&&m1.CheckEffetto())m1.ApplicaEffettoMossa(this.p2,this.p1);}
      }
 
 

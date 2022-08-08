@@ -99,12 +99,13 @@ private static String LastReturned;
     }*/
     @Override 
     public float Attacca(Personaggio p1, Mossa m) {
+        
         return this.implementator.attacca(p1, m);
     }
    
     @Override 
-    public void Difendi(Personaggio p1, Mossa m, float danno) {
-        this.implementator.difendi(danno, m, p1);
+    public boolean Difendi(Personaggio p1, Mossa m, float danno) {
+        return this.implementator.difendi(danno, m, p1);
     }
 
     @Override
@@ -280,6 +281,12 @@ public int getPriorità() {
 
 public void setPriorità(int priorità) {
     this.priorità = priorità;
+}
+
+@Override
+public boolean isAbilitato() {
+    // TODO Auto-generated method stub
+    return this.abilitazioneAttacco;
 }
 
     

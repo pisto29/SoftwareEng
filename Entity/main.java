@@ -23,12 +23,33 @@ public class main {
         Partita p = new Partita(g1, g2);
      
         if(p.getT().getNumturno()==0){
+            System.out.println(p.getPlayer1().getNome()+" scegli un Pokemon da mandare in campo");
+            for ( Personaggio pers : p.getPlayer1().getSquadra().getPersonaggios()){
+                if(pers.getpS()>0){
+                System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
+                }
+                i++;
+            }
+            int Sostituzione1 = v.ScegliCambio(i-1);
+            i=1;
+            System.out.println(p.getPlayer2().getNome()+" scegli un Pokemon da mandare in campo");
+            for ( Personaggio pers : p.getPlayer2().getSquadra().getPersonaggios()){
+                if(pers.getpS()>0){
+                System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
+                }
+                i++;
+            }
+            int Sostituzione2 = v.ScegliCambio(i-1);
+
+
+
+
             System.out.println("La partita è iniziata");
-            p.getPlayer1().getSquadra().getPersonaggios().get(0).Sostituzione();
-            p.getT().setP1( p.getPlayer1().getSquadra().getPersonaggios().get(0));
+            p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1).Sostituzione();
+            p.getT().setP1( p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1));
             System.out.println("Giocatore uno manda in campo "+p.getT().getP1().getNomePersonaggio());
-            p.getPlayer2().getSquadra().getPersonaggios().get(0).Sostituzione();
-            p.getT().setP2( p.getPlayer2().getSquadra().getPersonaggios().get(0));
+            p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2).Sostituzione();
+            p.getT().setP2( p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2));
             System.out.println("Giocatore due manda in campo "+p.getT().getP2().getNomePersonaggio());
         }
         while(!p.WinG1()&&!p.WinG2()){

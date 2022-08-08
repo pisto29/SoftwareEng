@@ -83,8 +83,10 @@ public class Personaggio {
     }
 
 
-    
-    public Abilità getAbilità() {
+    public boolean puoattaccare(){
+        return this.ruolo.isAbilitato();
+    }
+   public Abilità getAbilità() {
         return abilità;
     }
 
@@ -276,11 +278,12 @@ public class Personaggio {
             break;
             i++;
         }
+       
       return  this.ruolo.Attacca(this,this.mossas.get(i));
     }
 
-    public void Difendi(float danno, Mossa m){
-        this.ruolo.Difendi(this, m, danno);
+    public boolean Difendi(float danno, Mossa m){
+        return this.ruolo.Difendi(this, m, danno);
     }
 
     public PersonaggioAttivoImplementator getImplementator(){

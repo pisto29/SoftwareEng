@@ -3,7 +3,7 @@ package Entity;
 public interface RuoloState {
 
     public float Attacca(Personaggio P1, Mossa mossa);
-    public void Difendi(Personaggio P1, Mossa mossa, float danno);
+    public boolean Difendi(Personaggio P1, Mossa mossa, float danno);
     public void Sostituzione(Personaggio P1);
     public float getAttacco(int attaccoOriginale);
     public float getDifesa(int difesaOriginale);
@@ -17,6 +17,7 @@ public interface RuoloState {
     public void aggiungiMoltiplicatoreVelocita(float moltiplicatore);
     public void AbiltaAttacco();
     public void DisabiltaAttacco();
+    public boolean isAbilitato();
     public PersonaggioAttivoImplementator getImplementator();
     public void setImplementator(PersonaggioAttivoImplementator implementator);
     public int getPriorità();

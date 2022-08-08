@@ -21,12 +21,16 @@ public class EffettoStatus implements EffettoComposite {
         this.statusApplicato=AvvelenamentoSingleton.getIstanza();
         if(this.id_status.equals("Sonno"))
         this.statusApplicato= new Sonno();
-        this.msg="è ora affetto da"+this.statusApplicato.getNome();
+        this.msg=" è ora affetto da "+this.statusApplicato.getNome();
     }
     @Override
     public void ApplicaEffetto(Personaggio p1) {
+        if(p1.getStatus()!=null){
+            System.out.println(p1.getNomePersonaggio()+" è già affetta da "+p1.getStatus().getNome());
+        }
+        else{
       p1.setStatus(this.statusApplicato);
-       System.out.println(p1.getNomePersonaggio()+this.msg);
+       System.out.println(p1.getNomePersonaggio()+this.msg);}
       
        
     }

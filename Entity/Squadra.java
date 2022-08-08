@@ -34,6 +34,7 @@ public class Squadra {
             } 
         }
         for(String st: this.id.keySet()){
+           
             Personaggio p= builder.CreaPersonaggio(st);
            
             p.setId_mosse(this.id.get(st));

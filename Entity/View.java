@@ -40,7 +40,7 @@ public class View {
             scelta = Integer.parseInt(s);
         }
         while(scelta<1 || scelta>i);
-        return scelta;
+        return scelta-1;
     }
 
     public int ScegliAzione(Giocatore g) throws IOException{

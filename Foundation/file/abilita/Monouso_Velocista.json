@@ -1,0 +1,8 @@
+{
+    "id":"Monouso_Velocista",
+    "fase_attivazione":"Inizio_turno",
+    "implementator_type":"neutro",
+    "PercentualeAttivazione":"100",
+    "id_effetti_self":"EffettoModificaVelocita_1",
+    "id_effetti":"NoEffetto"
+}

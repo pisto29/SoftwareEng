@@ -1,0 +1,11 @@
+{
+    "pS":"142",
+    "nomePersonaggio":"sentret",
+    "attaccoPersonaggio":"107",
+    "difesaPersonaggio":"94",
+    "attaccoSpecialePersonaggio":"95",
+    "difesaSpecialePersonaggio":"106",
+    "velocitaPersonaggio":"156",
+    "id_abilita":"Monouso_Velocista",
+    "id_tipo":["Normale"]
+}

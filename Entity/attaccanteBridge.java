@@ -8,14 +8,15 @@ public class attaccanteBridge implements PersonaggioAttivoImplementator {
  }
     @Override
     public float attacca(Personaggio p1, Mossa m) {
+       // System.out.println(m.getNomeMossa()+"da usare");
         float attacco=0;
        if(m.getTipologia().equals(Tipologia.Fisico)) attacco=p1.getAttaccoPersonaggio();
        else attacco=p1.getAttaccoSpecialePersonaggio();
-       System.out.println("in attaccante bridge l'attacco del pokemon e "+attacco);
-       System.out.println("in attaccante bridge il danno della mossa e"+m.getDanno());
-       float danno=22*m.getDanno()*attacco;
+      /*  System.out.println("in attaccante bridge l'attacco del pokemon e "+attacco);
+       System.out.println("in attaccante bridge il danno della mossa e"+m.getDanno());*/
+       float danno=m.getDanno()*attacco;
        danno= danno* this.CalcoloModificatore(m, p1);
-       System.out.println("in attaccante bridge il danno e "+danno);
+       //System.out.println("in attaccante bridge il danno e "+danno);
        return  danno; 
     }
 
@@ -40,8 +41,10 @@ public class attaccanteBridge implements PersonaggioAttivoImplementator {
 
         float modificatore = 1;
         
-        if(m.CheckCritico()) 
+        if(m.CheckCritico()){
             modificatore = modificatore * 2f;
+        System.out.println("Brutto colpo effettuato");
+        }
         
         if(IsStab(m, p1))
             modificatore = modificatore * 1.33f;
@@ -54,8 +57,9 @@ public class attaccanteBridge implements PersonaggioAttivoImplementator {
 
 
     @Override
-    public void difendi(float danno, Mossa m, Personaggio p1) {
+    public boolean difendi(float danno, Mossa m, Personaggio p1) {
         // TODO Auto-generated method stub
+        return false;
         
     }
 

@@ -57,6 +57,7 @@ public class builder {
         Type type =new TypeToken<HashMap<String, String[]>>(){}.getType();        
         HashMap<String, String[]> map = gson.fromJson(br2, type);
         s.setId(map);
+        //System.out.println(map.entrySet());
         Squadra s2= new Squadra(s);
         return s2;
        

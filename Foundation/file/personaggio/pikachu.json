@@ -1,11 +1,11 @@
 {
-    "pS":"100",
+    "pS":"142",
     "nomePersonaggio":"Pikachu",
-    "attaccoPersonaggio":"50",
-    "difesaPersonaggio":"50",
-    "attaccoSpecialePersonaggio":"100",
-    "difesaSpecialePersonaggio":"60",
-    "velocitaPersonaggio":"22",
+    "attaccoPersonaggio":"117",
+    "difesaPersonaggio":"101",
+    "attaccoSpecialePersonaggio":"112",
+    "difesaSpecialePersonaggio":"112",
+    "velocitaPersonaggio":"156",
     "id_abilita":"Multiuso_statico",
     "id_tipo":["Elettro"]
 }
