@@ -2,12 +2,12 @@ package Entity;
 
 public class MossaStrumento implements EsecuzioneTurno {
 
-    private ImplementatorManagerSingleton implementatorManager;
+    //private ImplementatorManagerSingleton implementatorManagerSingleton;
 
     public void esecuzione(Turno t) {
         t.utilizzaStrumentoP2();
-        this.implementatorManager.setattaccante(t.getP1());
-        this.implementatorManager.setDifensore(t.getP2());
+        ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP1());
+        ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP2());
        if(t.checkVelocità()) this.p1(t);
         else this.p2(t);
     } 

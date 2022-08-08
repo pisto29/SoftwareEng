@@ -78,8 +78,8 @@ if(!t.getFase().equals(Fase.Fine_Turno)){
     t.checkStatusP1();
     t.checkStatusP2();
     t.FineTurnoKo();
-     ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
-ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP1());
+    ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
+    ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP1());
 }
 if(!t.getFase().equals(Fase.Fine_Turno)){
     t.setFase(Fase.Pre_azione); 
@@ -129,7 +129,7 @@ private void P2(Turno t){
         t.checkStatusP1();
         t.FineTurnoKo();
         ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP1());
-ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP2());
+        ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP2());
     }
     if(!t.getFase().equals(Fase.Fine_Turno)){
         t.setFase(Fase.Pre_azione); 

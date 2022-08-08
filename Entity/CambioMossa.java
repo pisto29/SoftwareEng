@@ -1,11 +1,11 @@
 package Entity;
 
 public class CambioMossa implements EsecuzioneTurno{
-    public ImplementatorManagerSingleton implementatorManager;
+    //public ImplementatorManagerSingleton implementatorManager;
     public void esecuzione(Turno t) {
         t.sostituiscip1();
-        this.implementatorManager.setattaccante(t.getP2());
-      this.implementatorManager.setDifensore(t.getP1());
+        ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
+        ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP1());
   
   t.EseguiAbilitàP2();
   t.EseguiAbilitàP1();

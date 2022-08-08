@@ -1,12 +1,12 @@
 package Entity;
 
 public class MossaCambio implements EsecuzioneTurno {
-    public ImplementatorManagerSingleton implementatorManager;
+    //public ImplementatorManagerSingleton implementatorManager;
     @Override
     public void esecuzione(Turno t) {
       t.sostituiscip2();
-      this.implementatorManager.setattaccante(t.getP1());
-    this.implementatorManager.setDifensore(t.getP2());
+      ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP1());
+      ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP2());
 
     t.EseguiAbilitàP1();
     t.EseguiAbilitàP2();

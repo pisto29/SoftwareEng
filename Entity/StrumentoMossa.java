@@ -1,12 +1,12 @@
 package Entity;
 
 public class StrumentoMossa implements EsecuzioneTurno {
-    private ImplementatorManagerSingleton implementatorManager;
+    //private ImplementatorManagerSingleton implementatorManager;
 
     public void esecuzione(Turno t) {
         t.utilizzaStrumentoP1();
-        this.implementatorManager.setattaccante(t.getP2());
-        this.implementatorManager.setDifensore(t.getP1());
+        ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
+        ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP1());
        if(t.checkVelocità()) this.p1(t);
         else this.p2(t);
     } 
