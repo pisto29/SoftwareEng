@@ -45,4 +45,4 @@ G28: Realizzato creazione squadra e personaggio nel builder, i tipi e le mosse s
 G29: creaione giocatore builder, completare il main, implementazione di turno va modificato l accesso ad implementatorManager come fatto in MossaMossa
 N29: aggiustati errori sul uso delle mosse in generale, ora fanno danno , gestire l abilitazione all attacco di un pokemon
      ora un pokemon paralizzato attacca anche se non dovrebbe, danni troppo elevati aggiustare.
-     ssssss
+     
