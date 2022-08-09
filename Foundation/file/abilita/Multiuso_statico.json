@@ -4,5 +4,6 @@
     "implementator_type":"difesa",
     "PercentualeAttivazione":"100",
     "id_effetti_self":"NoEffetto",
-    "id_effetti":"EffettoStatus_paralisi"
+    "id_effetti":"EffettoStatus_paralisi",
+    "nome": "statico"
 }

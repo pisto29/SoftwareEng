@@ -28,7 +28,10 @@ public class Turno {
         this.mosse.add(0, m);
     }
     public void setMossaG2(String m){
+        //if(this.mosse.isEmpty())
+           // this.mosse.add(0,null);
         this.mosse.add(1, m);
+        
     }
     public void setSostituzioneg1(Personaggio p){
         this.sostituzioni.add(0, p);
@@ -104,6 +107,9 @@ public class Turno {
         
         System.out.println("attacca p1 "+p1.getNomePersonaggio()+" usa "+this.mosse.get(0));
        float danno=this.p1.Attacca(this.mosse.get(0));
+       System.out.println(this.mosse.get(0)+" mossa");
+       System.out.println(danno+"qui");
+
        Mossa m1=null;
        for (Mossa m : this.p1.getMossas()) {
            if(m.getNomeMossa().equals(this.getMosse().get(0)))
@@ -193,12 +199,16 @@ public class Turno {
         }
 
     public void sostituiscip1(){
+        //if(this.p1 != this.sostituzioni.get(0)){
+        System.out.println(p1.getNomePersonaggio()+" viene sostituito da "+ this.sostituzioni.get(0).getNomePersonaggio());
         p1.Sostituzione();
         this.p1=this.sostituzioni.get(0);
         this.p1.Sostituzione();
+       // }
     }
 
     public void sostituiscip2(){
+        System.out.println(p2.getNomePersonaggio()+" viene sostituito da "+ this.sostituzioni.get(1).getNomePersonaggio());
         p2.Sostituzione();
         this.p2=this.sostituzioni.get(1);
         this.p2.Sostituzione();
@@ -311,7 +321,7 @@ public class Turno {
     }
 
     public void utilizzaStrumentoP2(){
-        this.getStrumenti().get(0).UtilizzaStrumento(this.p2);
+        this.getStrumenti().get(1).UtilizzaStrumento(this.p2);
     }
 
 }

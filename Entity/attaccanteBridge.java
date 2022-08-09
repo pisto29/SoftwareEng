@@ -10,6 +10,7 @@ public class attaccanteBridge implements PersonaggioAttivoImplementator {
     public float attacca(Personaggio p1, Mossa m) {
        // System.out.println(m.getNomeMossa()+"da usare");
         float attacco=0;
+        m.setPp(m.getPp()-1);
        if(m.getTipologia().equals(Tipologia.Fisico)) attacco=p1.getAttaccoPersonaggio();
        else attacco=p1.getAttaccoSpecialePersonaggio();
       /*  System.out.println("in attaccante bridge l'attacco del pokemon e "+attacco);

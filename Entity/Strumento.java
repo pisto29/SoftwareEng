@@ -9,9 +9,12 @@ public class Strumento {
     private String nomeStrumento;
     private EffettoStrumento effetto;
     private String idEffetto;
+    private Boolean utilizzato;
+
     public Strumento(Strumento s) {
         this.nomeStrumento=s.nomeStrumento;
         this.idEffetto=s.idEffetto;
+        this.utilizzato = false;
         try {
      
             this.effetto=builder.CreaEffettoStrumento(s.idEffetto);
@@ -25,10 +28,12 @@ public class Strumento {
         
         this.nomeStrumento = nomeStrumento;
         this.idEffetto = idEffetto;
+        this.utilizzato = false;
     }
 
     public void UtilizzaStrumento(Personaggio P){
         this.effetto.ApplicaEffettoStrumento(P);
+        this.utilizzato = true;
     }
 
     public String getNomeStrumento() {
@@ -45,6 +50,22 @@ public class Strumento {
 
     public void setEffetto(EffettoStrumento E) {
         this.effetto=E;
+    }
+
+    public String getIdEffetto() {
+        return idEffetto;
+    }
+
+    public void setIdEffetto(String idEffetto) {
+        this.idEffetto = idEffetto;
+    }
+
+    public Boolean getUtilizzato() {
+        return utilizzato;
+    }
+
+    public void setUtilizzato(Boolean utilizzato) {
+        this.utilizzato = utilizzato;
     } 
     
 }

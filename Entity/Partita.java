@@ -16,17 +16,21 @@ public class Partita {
 public boolean gioca(String m1, String m2, Personaggio p1, Personaggio p2, Strumento s1, Strumento s2){
     String strat="";
     if(m1!=null){
+        
         t.setMossaG1(m1);
         strat="Mossa";
     }
+    else t.setMossaG1(null);
     if(p1!=null){
         t.setSostituzioneg1(p1);
         strat="Cambio";
     }
+    else t.setSostituzioneg1(null);
     if(s1!=null){
         t.setStrumentoG1(s1);
         strat="Strumento";
     }
+    else t.setStrumentoG1(null);
     if(m2!=null){
         t.setMossaG2(m2);
         strat=strat.concat("Mossa");
@@ -36,7 +40,7 @@ public boolean gioca(String m1, String m2, Personaggio p1, Personaggio p2, Strum
         strat=strat.concat("Cambio");
     }
     if(s2!=null){
-        t.setStrumentoG1(s2);
+        t.setStrumentoG2(s2);
         strat=strat.concat("Strumento");
     }
 t.setEsecuzione(this.FindStrategy(strat));
@@ -162,13 +166,18 @@ public void setT(Turno t) {
 
 public void CambioPerKoP1(Personaggio P){
     t.setSostituzioneg1(P);
+    System.out.println(t.getSostituzioni().get(0));
     t.sostituiscip1();
 
 }
 
 public void CambioPerKoP2(Personaggio P){
+   // t.setSostituzioneg1(P);
     t.setSostituzioneg2(P);
+    System.out.println(t.getSostituzioni().get(0));
+    System.out.println(t.getSostituzioni().get(1));
     t.sostituiscip2();
+   // t.setSostituzioneg1(null);
    
 }
 

@@ -56,6 +56,7 @@ public class AbilitàMonouso implements Abilità{
     private String id_effetti;
     private String id_effetti_self;
     private String id;
+    private String nome;
   
 
     public AbilitàMonouso(boolean attivata, EffettoComposite effetti_self, EffettoComposite effetti,
@@ -84,6 +85,7 @@ public class AbilitàMonouso implements Abilità{
         this.PercentualeAttivazione=a.getPercentualeAttivazione();
         this.id_effetti=a.getId_effetti();
         this.id_effetti_self=a.getId_effetti_self();
+        this.nome = a.getNome();
 
         switch(this.implementator_type){
             case "attacco":
@@ -113,8 +115,11 @@ public class AbilitàMonouso implements Abilità{
     public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio) {
         if(!this.attivata){
             if(new Random().nextInt(100)<=this.PercentualeAttivazione){
+                //System.out.println("Si attiva l'abilità "+ this.nome +" di "+ utilizzatore.getNomePersonaggio());
         this.implementator.ApplicaEffetto(utilizzatore, bersaglio);
-        this.attivata=true;}}
+        this.attivata=true;
+    }
+    }
         
     }
 
@@ -185,6 +190,16 @@ public class AbilitàMonouso implements Abilità{
                 + ", effetti=" + effetti + ", effetti_self=" + effetti_self + ", fase_attivazione=" + fase_attivazione
                 + ", id=" + id + ", id_effetti=" + id_effetti + ", id_effetti_self=" + id_effetti_self
                 + ", implementator=" + implementator + ", implementator_type=" + implementator_type + "]";
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     
     

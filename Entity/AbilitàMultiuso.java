@@ -14,13 +14,14 @@ public class AbilitàMultiuso implements Abilità {
     private int PercentualeAttivazione;
     private String id_effetti;
     private String id_effetti_self;
+    private String nome;
 
   
 
     public AbilitàMultiuso(EffettoComposite effetti_self, EffettoComposite effetti, Fase fase_attivazione,
             String implementator_type, AbilitàImplementator implementator, int percentualeAttivazione,
             String id_effetti, String id_effetti_self, String id) {
-                this.id=id;
+        this.id=id;
         this.effetti_self = effetti_self;
         this.effetti = effetti;
         this.fase_attivazione = fase_attivazione;
@@ -40,6 +41,7 @@ public class AbilitàMultiuso implements Abilità {
         this.PercentualeAttivazione=a.getPercentualeAttivazione();
         this.id_effetti=a.getId_effetti();
         this.id_effetti_self=a.getId_effetti_self();
+        this.nome = a.getNome();
         this.implementator_type=a.getImplementator_type();
         switch(this.implementator_type){
             case "attacco":
@@ -69,10 +71,11 @@ public class AbilitàMultiuso implements Abilità {
     @Override
     public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio) {
         // TODO Auto-generated method stub
-       if(new Random().nextInt(100)<=this.PercentualeAttivazione)
+       if(new Random().nextInt(100)<=this.PercentualeAttivazione){
+        //System.out.println("Si attiva l'abilità "+ this.nome +" di "+ utilizzatore.getNomePersonaggio());
         this.implementator.ApplicaEffetto(utilizzatore, bersaglio);
        
-       
+       }
         
         
     }
@@ -154,6 +157,16 @@ public class AbilitàMultiuso implements Abilità {
                 + ", effetti_self=" + effetti_self + ", fase_attivazione=" + fase_attivazione + ", id=" + id
                 + ", id_effetti=" + id_effetti + ", id_effetti_self=" + id_effetti_self + ", implementator="
                 + implementator + ", implementator_type=" + implementator_type + "]";
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
    
     

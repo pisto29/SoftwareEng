@@ -13,6 +13,7 @@ public interface Abilità {
     public EffettoComposite getEffetti();
     public EffettoComposite getEffetti_self();
     public String toString();
+    public String getNome();
    
     
 }
