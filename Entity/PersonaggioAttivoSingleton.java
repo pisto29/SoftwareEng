@@ -3,7 +3,7 @@ package Entity;
 public class PersonaggioAttivoSingleton implements RuoloState {
 private static PersonaggioAttivoSingleton istanza1;
 private static PersonaggioAttivoSingleton istanza2;
-private static String LastReturned;
+private static String topass="istanza1";
 
 
     private float moltiplicatoreAttacco;
@@ -15,25 +15,27 @@ private static String LastReturned;
     private int priorità;
     private PersonaggioAttivoImplementator implementator;
     public static PersonaggioAttivoSingleton getIstanza() {
+        if(topass.equals("istanza1")){
         if(istanza1==null){
            istanza1=new PersonaggioAttivoSingleton(1,1,1,1,1,true);
-           LastReturned = "istanza1";
+           //LastReturned = "istanza1";
            return istanza1;    
         }
+    else return istanza1;
+    }
+    else{
         if(istanza2==null){
             istanza2=new PersonaggioAttivoSingleton(1,1,1,1,1,true);
-            LastReturned = "istanza2";
+           // LastReturned = "istanza2";
             return istanza2;  
          }
-        if(LastReturned.equals("istanza1")){
-            LastReturned = "istanza2";
-            return istanza2;
+         return istanza2;
         }
-        LastReturned = "istanza1";
-        return istanza1;
         
     }
-    
+    public static void setpass(String pass){
+        topass=pass;
+    }
     public PersonaggioAttivoSingleton(float moltiplicatoreAttacco, float moltiplicatoreDifesa,
             float moltiplicatoreAttSpec, float moltiplicatoreDifSpec, float moltiplicatoreVelocita, boolean abilitazioneAttacco) {
         this.moltiplicatoreAttacco = moltiplicatoreAttacco;

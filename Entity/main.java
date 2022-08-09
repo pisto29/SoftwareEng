@@ -21,7 +21,7 @@ public class main {
         Giocatore g1 = builder.CreaGiocatore("G1");
         Giocatore g2 = builder.CreaGiocatore("G2");
         Partita p = new Partita(g1, g2);
-        Boolean KO = false;
+       // Boolean KO = false;
      
         if(p.getT().getNumturno()==0){
             System.out.println(p.getPlayer1().getNome()+" scegli un Pokemon da mandare in campo");
@@ -47,6 +47,7 @@ public class main {
             p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1).Sostituzione();
             p.getT().setP1( p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1));
             System.out.println("Giocatore uno manda in campo "+p.getT().getP1().getNomePersonaggio());
+            PersonaggioAttivoSingleton.setpass("istanza2");
             p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2).Sostituzione();
             p.getT().setP2( p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2));
             System.out.println("Giocatore due manda in campo "+p.getT().getP2().getNomePersonaggio());
@@ -72,7 +73,7 @@ public class main {
 
             if(p.getT().checkKoP2()){
                 i= 1;
-                KO = true;
+               // KO = true;
                 System.out.println("Pokemon KO, scegli un Pokemon da mandare in campo");
                 for ( Personaggio pers : p.getPlayer2().getSquadra().getPersonaggios()){
                     if(pers.getpS()>0){
@@ -84,13 +85,12 @@ public class main {
                 int Sostituzione2 = v.ScegliCambio(i-1);
                 MossaG2=null;
                 StrumentoG2=null;
-                MossaG1 = null;
-                StrumentoG1 = null;
+                
                 SostituzioneG2 = p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2);
-                SostituzioneG1 = p.getT().getP1();
-                //p.CambioPerKoP2(SostituzioneG2);
+                //SostituzioneG1 = p.getT().getP1();
+                p.CambioPerKoP2(SostituzioneG2);
             }
-            if(!KO){
+            
             System.out.println(p.getT().getP1().getNomePersonaggio()+" di "+p.getPlayer1().getNome()+" ha "+p.getT().getP1().getpS()+" ps");
             System.out.println(p.getT().getP2().getNomePersonaggio()+" di "+p.getPlayer2().getNome()+" ha "+p.getT().getP2().getpS()+" ps");
             do{azione1 = v.ScegliAzione(p.getPlayer1());}
@@ -212,14 +212,10 @@ public class main {
                             }
 
                         
-                        } 
+                        
                         p.gioca(MossaG1, MossaG2, SostituzioneG1, SostituzioneG2, StrumentoG1, StrumentoG2);
                         
-                        if(KO){
-                            p.getT().setNumturno(p.getT().getNumturno()-1);
-                            KO = false;
-                        }
-                        
+                      
 
                     
 

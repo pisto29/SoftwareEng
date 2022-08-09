@@ -200,6 +200,7 @@ public class Turno {
 
     public void sostituiscip1(){
         //if(this.p1 != this.sostituzioni.get(0)){
+        PersonaggioAttivoSingleton.setpass("istanza1");
         System.out.println(p1.getNomePersonaggio()+" viene sostituito da "+ this.sostituzioni.get(0).getNomePersonaggio());
         p1.Sostituzione();
         this.p1=this.sostituzioni.get(0);
@@ -208,10 +209,15 @@ public class Turno {
     }
 
     public void sostituiscip2(){
+        PersonaggioAttivoSingleton.setpass("istanza2");
         System.out.println(p2.getNomePersonaggio()+" viene sostituito da "+ this.sostituzioni.get(1).getNomePersonaggio());
         p2.Sostituzione();
+
         this.p2=this.sostituzioni.get(1);
         this.p2.Sostituzione();
+        System.out.println("personaggi attivi: ");
+        System.out.println("p1 "+this.p1.getRuolo());
+        System.out.println("p2 "+this.p2.getRuolo());
     }
   /*Array eliminati
     private void arraySwap(){
