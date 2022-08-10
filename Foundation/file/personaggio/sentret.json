@@ -5,7 +5,7 @@
     "difesaPersonaggio":"94",
     "attaccoSpecialePersonaggio":"95",
     "difesaSpecialePersonaggio":"106",
-    "velocitaPersonaggio":"130",
+    "velocitaPersonaggio":"155",
     "id_abilita":"Monouso_Velocista",
     "id_tipo":["Normale"]
 }

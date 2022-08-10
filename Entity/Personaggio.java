@@ -123,6 +123,9 @@ public class Personaggio {
 
     public void setStatus(StatusStrategy status) {
         this.status = status;
+        if(this.status!=null){
+            this.status.EffettoApplicazione(this);
+        }
     }
 
 

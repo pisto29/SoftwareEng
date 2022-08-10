@@ -21,8 +21,9 @@ public class main {
         Giocatore g1 = builder.CreaGiocatore("G1");
         Giocatore g2 = builder.CreaGiocatore("G2");
         Partita p = new Partita(g1, g2);
-       // Boolean KO = false;
-     
+       Boolean continua = true;
+     while(continua){
+        
         if(p.getT().getNumturno()==0){
             System.out.println(p.getPlayer1().getNome()+" scegli un Pokemon da mandare in campo");
             for ( Personaggio pers : p.getPlayer1().getSquadra().getPersonaggios()){
@@ -41,8 +42,7 @@ public class main {
                 i++;
             }
             int Sostituzione2 = v.ScegliCambio(i-1);
-            System.out.println(Sostituzione2 +"qui");
-
+          
             System.out.println("La partita è iniziata");
             p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1).Sostituzione();
             p.getT().setP1( p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1));
@@ -52,7 +52,7 @@ public class main {
             p.getT().setP2( p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2));
             System.out.println("Giocatore due manda in campo "+p.getT().getP2().getNomePersonaggio());
         }
-        while(!p.WinG1()&&!p.WinG2()){
+        
             
 
             if(p.getT().checkKoP1()){
@@ -91,8 +91,9 @@ public class main {
                 p.CambioPerKoP2(SostituzioneG2);
             }
             
-            System.out.println(p.getT().getP1().getNomePersonaggio()+" di "+p.getPlayer1().getNome()+" ha "+p.getT().getP1().getpS()+" ps");
+            System.out.println(p.getT().getP1().getNomePersonaggio()+" di "+p.getPlayer1().getNome()+" ha "+p.getT().getP1().getpS()+" ps "+" con attacco "+ p.getT().getP1().getAttaccoPersonaggio());
             System.out.println(p.getT().getP2().getNomePersonaggio()+" di "+p.getPlayer2().getNome()+" ha "+p.getT().getP2().getpS()+" ps");
+            
             do{azione1 = v.ScegliAzione(p.getPlayer1());}
             while(azione1<1 || azione1>3);
             
@@ -213,7 +214,7 @@ public class main {
 
                         
                         
-                        p.gioca(MossaG1, MossaG2, SostituzioneG1, SostituzioneG2, StrumentoG1, StrumentoG2);
+                        continua=p.gioca(MossaG1, MossaG2, SostituzioneG1, SostituzioneG2, StrumentoG1, StrumentoG2);
                         
                       
 

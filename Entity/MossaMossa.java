@@ -6,10 +6,7 @@ public class MossaMossa implements EsecuzioneTurno {
 
    // public ImplementatorManagerSingleton implementatorManager;
     public void esecuzione(Turno t){
-        if(t.getP1()==t.getP2()){System.out.println("sono uguali");}
-        else System.out.println("sono diversi");
-        System.out.println(t.getP1().getNomePersonaggio()+" p1");
-        System.out.println(t.getP2().getNomePersonaggio()+" p2");
+        
        if( t.checkVelocità())this.P1(t);
        else this.P2(t);
     
@@ -63,11 +60,9 @@ public class MossaMossa implements EsecuzioneTurno {
 private void P1(Turno t){
     //System.out.println("si sta eseguendo p1 di mossamossa");
 ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP1());
-System.out.println("ImplementatorManager di p1 "+ t.getP1().getImplementator());
-System.out.println("ImplementatorManager di p2 "+ t.getP2().getImplementator());
+
 ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP2());
-System.out.println("ImplementatorManager di p1 "+ t.getP1().getImplementator());
-System.out.println("ImplementatorManager di p2 "+ t.getP2().getImplementator());
+
 t.EseguiAbilitàP1();
 t.EseguiAbilitàP2();
 t.FineTurnoKo();
@@ -108,7 +103,9 @@ if(!t.getFase().equals(Fase.Fine_Turno)){
 t.setFase(Fase.Fine_Turno);
 if(!t.checkKoP1())t.EseguiAbilitàP1();
 if(!t.checkKoP2())t.EseguiAbilitàP2();
-if(!t.checkKoP1())t.checkStatusP1();
+if(!t.checkKoP1()){t.checkStatusP1();
+   
+}
 if(!t.checkKoP2())t.checkStatusP2();
 
 }
@@ -117,11 +114,9 @@ if(!t.checkKoP2())t.checkStatusP2();
 private void P2(Turno t){
     //System.out.println("si sta eseguendo p2 di mossamossa");
     ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
-    System.out.println("ImplementatorManager di p1 "+ t.getP1().getImplementator());
-    System.out.println("ImplementatorManager di p2 "+ t.getP2().getImplementator());
+   
     ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP1());
-    System.out.println("ImplementatorManager di p1 "+ t.getP1().getImplementator());
-    System.out.println("ImplementatorManager di p2 "+ t.getP2().getImplementator());
+  
     t.EseguiAbilitàP2();
     t.EseguiAbilitàP1();
     t.FineTurnoKo();
@@ -163,7 +158,9 @@ private void P2(Turno t){
     if(!t.checkKoP2())t.EseguiAbilitàP2();
     if(!t.checkKoP1())t.EseguiAbilitàP1();
     if(!t.checkKoP2())t.checkStatusP2();
-    if(!t.checkKoP1())t.checkStatusP1();
+    if(!t.checkKoP1()){
+       
+        t.checkStatusP1();}
     
     
     }

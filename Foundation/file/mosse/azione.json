@@ -1,9 +1,9 @@
 {
     "nomeMossa":"azione",
-    "danno":"300000",
+    "danno":"1",
     "pp":"30",
     "percentualeCritico":"33",
-    "precisione":"90",
+    "precisione":"100",
     "percentualeAttivazioneEffetto":"0",
     "idTipo":"Normale",
     "tipologia":"Fisico",

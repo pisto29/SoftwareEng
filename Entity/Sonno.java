@@ -18,6 +18,7 @@ private String Nome;
         //System.out.println(P1.getNomePersonaggio()+" si è addormentato ");
         if(f.equals(Fase.Pre_azione))
         if(this.checkAttivazione()){
+            P1.DisabiltaAttacco();
             this.durataSonno=+this.durataSonno;
             System.out.println(P1.getNomePersonaggio()+" sta dormendo, non può attaccare");
         } 
@@ -45,6 +46,7 @@ private String Nome;
     public void EffettoApplicazione(Personaggio p1) {
         // TODO Auto-generated method stub
         p1.DisabiltaAttacco();
+        System.out.println(p1.puoattaccare());
         
     }
 

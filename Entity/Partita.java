@@ -44,7 +44,7 @@ public boolean gioca(String m1, String m2, Personaggio p1, Personaggio p2, Strum
         strat=strat.concat("Strumento");
     }
 t.setEsecuzione(this.FindStrategy(strat));
-System.out.println("turno n "+t.getNumturno()+" di tip "+strat);
+//System.out.println("turno n "+t.getNumturno()+" di tip "+strat);
 t.esecuzione();
 if(this.WinG1()||this.WinG2())return false;
 else{
@@ -97,6 +97,7 @@ else{
  }
  
  public boolean WinG1(){
+   
     boolean vittoria=true;
     if(!this.player2.getSquadra().checkKOSquadra()){
         vittoria = false;
@@ -106,6 +107,7 @@ else{
  }
  
  public boolean WinG2(){
+   
     boolean vittoria=true;
     if(!this.player1.getSquadra().checkKOSquadra()){
         vittoria = false;
@@ -166,7 +168,7 @@ public void setT(Turno t) {
 
 public void CambioPerKoP1(Personaggio P){
     t.setSostituzioneg1(P);
-    System.out.println(t.getSostituzioni().get(0));
+   
     t.sostituiscip1();
 
 }
@@ -174,8 +176,7 @@ public void CambioPerKoP1(Personaggio P){
 public void CambioPerKoP2(Personaggio P){
    // t.setSostituzioneg1(P);
     t.setSostituzioneg2(P);
-    System.out.println(t.getSostituzioni().get(0));
-    System.out.println(t.getSostituzioni().get(1));
+    
     t.sostituiscip2();
    // t.setSostituzioneg1(null);
    

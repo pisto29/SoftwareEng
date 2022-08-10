@@ -101,8 +101,7 @@ private static String topass="istanza1";
     }*/
     @Override 
     public float Attacca(Personaggio p1, Mossa m) {
-        System.out.println("personaggioAttivo attacca");
-        System.out.println(this.implementator);
+   
         return this.implementator.attacca(p1, m);
     }
    

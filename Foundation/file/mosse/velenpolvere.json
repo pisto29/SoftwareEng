@@ -1,0 +1,12 @@
+{
+    "nomeMossa":"Velenpolvere",
+    "danno":"0",
+    "pp":"10",
+    "percentualeCritico":"0",
+    "precisione":"90",
+    "percentualeAttivazzioneEffetto":"100",
+    "idTipo":"Veleno",
+    "tipologia":"Speciale",
+    "idEffettiSelf":"NoEffetto",
+    "idEffetti":"EffettoStatus_avvelenamento"
+}

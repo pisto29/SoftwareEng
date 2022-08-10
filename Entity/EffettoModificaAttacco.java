@@ -49,9 +49,11 @@ public class EffettoModificaAttacco implements EffettoComposite {
     @Override
     public void ApplicaEffetto(Personaggio p1) {
         // TODO Auto-generated method stub
-        //p1.aggiungiMoltiplicatoreAttacco(moltiplicatore);
-        //System.out.println(p1.getNomePersonaggio()+", "+this.msg);
-        System.out.println(this.moltiplicatore);
+        System.out.println(p1.getAttaccoPersonaggio());
+    p1.aggiungiMoltiplicatoreAttacco(moltiplicatore);
+    System.out.println(p1.getNomePersonaggio()+", "+this.msg);
+    System.out.println(p1.getAttaccoPersonaggio());
+       
         
     }
 

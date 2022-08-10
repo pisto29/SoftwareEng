@@ -17,9 +17,9 @@ public class AvvelenamentoSingleton implements StatusStrategy {
 
     @Override
     public void Attivazione(Personaggio p1, Fase f) {
-        if(this.checkAttivazione()&& f.equals(Fase.Fine_Turno))
+        if(this.checkAttivazione()&& f.equals(Fase.Fine_Turno)){
         p1.setpS(p1.getpS()-(p1.getpS()/8));
-        System.out.println(p1.getNomePersonaggio()+" perde PS a causa dell'avvelenamento");
+        System.out.println(p1.getNomePersonaggio()+" perde "+p1.getpS()/8+" PS a causa dell'avvelenamento");}
         
     }
     @Override

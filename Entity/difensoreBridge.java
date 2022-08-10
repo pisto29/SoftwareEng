@@ -56,6 +56,7 @@ public class difensoreBridge implements PersonaggioAttivoImplementator  {
         System.out.println(p1.getNomePersonaggio()+" perde "+danno+" ps");
         p1.setpS(p1.getpS()-d);
         if(p1.getpS()<0)p1.setpS(0);
+        if(p1.getpS()==0)p1.Sostituzione();
         return true;
 
         //if(p1.getpS==0)p1.setRuolo(KoSingleton);

@@ -2,6 +2,7 @@ package Entity;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Turno {
@@ -10,7 +11,7 @@ public class Turno {
     private Personaggio p1;
     private Personaggio p2;
     private ArrayList <String> mosse;
-    private ArrayList <Strumento> strumenti;
+    private ArrayList <HashMap<Strumento,Personaggio>> strumenti;
     private ArrayList <Personaggio> sostituzioni;
     private EsecuzioneTurno esecuzione;
 
@@ -39,10 +40,10 @@ public class Turno {
     public void setSostituzioneg2(Personaggio p){
         this.sostituzioni.add(1, p);
     }
-    public void setStrumentoG1(Strumento s){
+    public void setStrumentoG1(HashMap<Strumento,Personaggio> s){
         this.strumenti.add(0, s);
     }
-    public void setStrumentoG2(Strumento s){
+    public void setStrumentoG2(HashMap<Strumento,Personaggio>  s){
         this.strumenti.add(1, s);
     }
 //------------------------------------------------------------------------------------------------------------------------------
@@ -107,8 +108,7 @@ public class Turno {
         
         System.out.println("attacca p1 "+p1.getNomePersonaggio()+" usa "+this.mosse.get(0));
        float danno=this.p1.Attacca(this.mosse.get(0));
-       System.out.println(this.mosse.get(0)+" mossa");
-       System.out.println(danno+"qui");
+      
 
        Mossa m1=null;
        for (Mossa m : this.p1.getMossas()) {
@@ -215,9 +215,7 @@ public class Turno {
 
         this.p2=this.sostituzioni.get(1);
         this.p2.Sostituzione();
-        System.out.println("personaggi attivi: ");
-        System.out.println("p1 "+this.p1.getRuolo());
-        System.out.println("p2 "+this.p2.getRuolo());
+       
     }
   /*Array eliminati
     private void arraySwap(){

@@ -46,4 +46,6 @@ G29: creaione giocatore builder, completare il main, implementazione di turno va
 N29: aggiustati errori sul uso delle mosse in generale, ora fanno danno , gestire l abilitazione all attacco di un pokemon
      ora un pokemon paralizzato attacca anche se non dovrebbe, danni troppo elevati aggiustare.
 G30: abilitazione attacco, abilità monouso, danno attacchi, implementatorManagerSingleton
-    
+G31: utilizzo strumenti fatto, ko fatto, rincontrollare le sostituzioni e vedere la finde della partita   
+G32:Avvelenamento e sonno controllati, tentare l utilizzo di strumenti su altri personaggi inserendo le map in turno, controllare 
+annulla mossa, ultimare gli output

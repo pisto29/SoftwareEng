@@ -2,7 +2,7 @@
     "id":"Multiuso_statico",
     "fase_attivazione":"Post_azione",
     "implementator_type":"difesa",
-    "PercentualeAttivazione":"100",
+    "PercentualeAttivazione":"0",
     "id_effetti_self":"NoEffetto",
     "id_effetti":"EffettoStatus_paralisi",
     "nome": "statico"
