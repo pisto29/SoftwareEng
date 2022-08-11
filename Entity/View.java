@@ -2,6 +2,7 @@ package Entity;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class View {
 
@@ -30,7 +31,22 @@ public class View {
         while(scelta<1 || scelta>i);
         return scelta;
     }
-
+public int PersonaggioStrumento(ArrayList <Personaggio> p) throws IOException{
+    int i=1;
+for(Personaggio per:p){
+if(per!=null)System.out.println(i+" "+per.getNomePersonaggio()+" PS: "+per.getpS());
+i++;
+}
+int scelta;
+do{
+    System.out.println("Scegli su chi utilizzare lo strumento");
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String s = br.readLine();
+    scelta = Integer.parseInt(s);
+}
+while(scelta<1 || scelta>i);
+return scelta;
+}
     public int ScegliCambio(int i) throws IOException{
         int scelta;
         do{

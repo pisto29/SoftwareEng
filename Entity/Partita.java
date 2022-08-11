@@ -1,5 +1,7 @@
 package Entity;
 
+import java.util.HashMap;
+
 public class Partita {
     private Giocatore player1;
     private Giocatore player2;
@@ -13,7 +15,7 @@ public class Partita {
 
 
 
-public boolean gioca(String m1, String m2, Personaggio p1, Personaggio p2, Strumento s1, Strumento s2){
+public boolean gioca(String m1, String m2, Personaggio p1, Personaggio p2, HashMap<Strumento,Personaggio> s1, HashMap<Strumento,Personaggio> s2){
     String strat="";
     if(m1!=null){
         

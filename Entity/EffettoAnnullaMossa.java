@@ -6,11 +6,12 @@ private String messaggio;
 
     public EffettoAnnullaMossa(String id) {
     this.id = id;
-    messaggio=" la mossa avversaria è stata bloccata";
+    messaggio=" non potrà eseguire il prossimo attacco";
 }
     public EffettoAnnullaMossa(EffettoAnnullaMossa effetto){
+    
         this.id = effetto.getId();
-        messaggio=" la mossa avversaria è stata bloccata";
+        messaggio=" non potrà eseguire il prossimo attacco";
     }
 
     public String getId() {
@@ -22,9 +23,9 @@ public void setId(String id) {
 }
 
     public void ApplicaEffetto(Personaggio p1){
-
+    System.out.println(p1.getNomePersonaggio()+" "+this.messaggio);
         p1.DisabiltaAttacco();
-        System.out.println(this.messaggio);
+        
 
     }
 

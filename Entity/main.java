@@ -1,6 +1,7 @@
 package Entity;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import Foundation.builder;
@@ -12,10 +13,10 @@ public class main {
         int azione1;
         int azione2;
         String MossaG1=null;
-        Strumento StrumentoG1=null;
+        HashMap<Strumento,Personaggio> StrumentoG1=null;
         Personaggio SostituzioneG1=null;
         String MossaG2=null;
-        Strumento StrumentoG2=null;
+        HashMap<Strumento,Personaggio> StrumentoG2=null;
         Personaggio SostituzioneG2=null;
         View v = new View();
         Giocatore g1 = builder.CreaGiocatore("G1");
@@ -151,7 +152,11 @@ public class main {
                     int Strumento1 = v.ScegliStrumento(i-1);
                     MossaG1 = null;
                     SostituzioneG1=null;
-                    StrumentoG1 = p.getPlayer1().getSquadra().getStrumentos().get(Strumento1-1);
+                    System.out.println("Strumento utilizzabile su: ");
+                    int sceltapersonaggio=v.PersonaggioStrumento(p.getPlayer1().getSquadra().getStrumentos().get(Strumento1-1).utilizzabile(p.getPlayer1().getSquadra().getPersonaggios()));
+
+                    StrumentoG1 = new HashMap<>();
+                    StrumentoG1.put(p.getPlayer1().getSquadra().getStrumentos().get(Strumento1-1),p.getPlayer1().getSquadra().getPersonaggios().get(sceltapersonaggio-1));
                     break;
                 }
 
@@ -208,7 +213,10 @@ public class main {
                             int Strumento2 = v.ScegliStrumento(i-1);
                             MossaG2 = null;
                             SostituzioneG2=null;
-                            StrumentoG2 = p.getPlayer2().getSquadra().getStrumentos().get(Strumento2-1);
+                            System.out.println("Strumento utilizzabile su: ");
+                            int sceltapersonaggio=v.PersonaggioStrumento(p.getPlayer2().getSquadra().getStrumentos().get(Strumento2-1).utilizzabile(p.getPlayer2().getSquadra().getPersonaggios()));
+                            StrumentoG2 = new HashMap<>();
+                            StrumentoG2.put(p.getPlayer1().getSquadra().getStrumentos().get(Strumento2-1),p.getPlayer2().getSquadra().getPersonaggios().get(sceltapersonaggio-1));
                             break;
                             }
 

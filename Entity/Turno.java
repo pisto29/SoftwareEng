@@ -118,7 +118,16 @@ public class Turno {
        //print da levare poi
        
         boolean colpito=p2.Difendi(danno, m1);
-        if(colpito&&m1.CheckEffetto())m1.ApplicaEffettoMossa(this.p1,this.p2);}
+        
+        if(colpito&&m1.CheckEffetto()){
+            
+            m1.ApplicaEffettoMossa(this.p1,this.p2);}
+           
+    
+    }
+        else{ System.out.println(this.p1.getNomePersonaggio()+" non puo attaccare");
+        p1.AbiltaAttacco();
+    }
     }
 
     public void EseguiAttaccoP2(){
@@ -132,6 +141,8 @@ public class Turno {
         }
         boolean colpito= p1.Difendi(danno, m1);
          if(colpito&&m1.CheckEffetto())m1.ApplicaEffettoMossa(this.p2,this.p1);}
+         else{System.out.println(this.p2.getNomePersonaggio()+" non puo attaccare");
+        this.p2.AbiltaAttacco();}
      }
 
 
@@ -202,6 +213,8 @@ public class Turno {
         //if(this.p1 != this.sostituzioni.get(0)){
         PersonaggioAttivoSingleton.setpass("istanza1");
         System.out.println(p1.getNomePersonaggio()+" viene sostituito da "+ this.sostituzioni.get(0).getNomePersonaggio());
+        if(p1.getpS()>0
+        )
         p1.Sostituzione();
         this.p1=this.sostituzioni.get(0);
         this.p1.Sostituzione();
@@ -211,6 +224,7 @@ public class Turno {
     public void sostituiscip2(){
         PersonaggioAttivoSingleton.setpass("istanza2");
         System.out.println(p2.getNomePersonaggio()+" viene sostituito da "+ this.sostituzioni.get(1).getNomePersonaggio());
+        if(p2.getpS()>0)
         p2.Sostituzione();
 
         this.p2=this.sostituzioni.get(1);
@@ -266,13 +280,13 @@ public class Turno {
 
 
 
-    public ArrayList<Strumento> getStrumenti() {
+    public ArrayList<HashMap<Strumento,Personaggio>> getStrumenti() {
         return strumenti;
     }
 
 
 
-    public void setStrumenti(ArrayList<Strumento> strumenti) {
+    public void setStrumenti(ArrayList<HashMap<Strumento,Personaggio>> strumenti) {
         this.strumenti = strumenti;
     }
 
@@ -321,11 +335,16 @@ public class Turno {
     }
   
     public void utilizzaStrumentoP1(){
-        this.getStrumenti().get(0).UtilizzaStrumento(this.p1);
+       for(Strumento s: this.strumenti.get(0).keySet()){
+        s.UtilizzaStrumento(this.strumenti.get(0).get(s));
+       }
+        //this.getStrumenti().get(0).UtilizzaStrumento(this.p1);
     }
 
     public void utilizzaStrumentoP2(){
-        this.getStrumenti().get(1).UtilizzaStrumento(this.p2);
+        for(Strumento s: this.strumenti.get(1).keySet()){
+            s.UtilizzaStrumento(this.strumenti.get(1).get(s));
+           }
     }
 
 }

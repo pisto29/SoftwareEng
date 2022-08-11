@@ -115,10 +115,10 @@ public class builder {
             case "effettoCura" :
                 E = gson.fromJson(br, EffettoCura.class);
                 break;
-            case "rimozioneStatus" :
-                E = gson.fromJson(br, EffettoRimozioneStatus.class);
+            case "effettoRimozioneStatus" :
+                E =new EffettoRimozioneStatus( gson.fromJson(br, EffettoRimozioneStatus.class));
                 break;
-            case "revitalizzante" :
+            case "effettoRevitalizzante" :
                 E = gson.fromJson(br, EffettoRevitalizzante.class);
                 break;
 

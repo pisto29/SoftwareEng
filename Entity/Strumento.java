@@ -1,6 +1,7 @@
 package Entity;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import Foundation.builder;
 
@@ -32,6 +33,7 @@ public class Strumento {
     }
 
     public void UtilizzaStrumento(Personaggio P){
+        System.out.println("Viene utilizzato "+this.nomeStrumento+" su "+P.getNomePersonaggio());
         this.effetto.ApplicaEffettoStrumento(P);
         this.utilizzato = true;
     }
@@ -67,5 +69,10 @@ public class Strumento {
     public void setUtilizzato(Boolean utilizzato) {
         this.utilizzato = utilizzato;
     } 
+
+    public ArrayList<Personaggio> utilizzabile(ArrayList<Personaggio> p){
+       
+        return this.effetto.Utilizzabile(p);
+    }
     
 }

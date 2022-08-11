@@ -1,5 +1,5 @@
 {
     
-    "Pikachu":["azione","Tuononda"],
-    "Sentret":["azione"]
+    "Pikachu":["azione","Tuononda","blocco","Velenpolvere"],
+    "Sentret":["blocco","azione"]
 }
