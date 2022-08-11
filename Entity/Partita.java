@@ -46,7 +46,7 @@ public boolean gioca(String m1, String m2, Personaggio p1, Personaggio p2, HashM
         strat=strat.concat("Strumento");
     }
 t.setEsecuzione(this.FindStrategy(strat));
-//System.out.println("turno n "+t.getNumturno()+" di tip "+strat);
+System.out.println("turno numero "+t.getNumturno());
 t.esecuzione();
 if(this.WinG1()||this.WinG2())return false;
 else{

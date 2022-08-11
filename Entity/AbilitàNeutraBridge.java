@@ -15,7 +15,6 @@ public class AbilitàNeutraBridge implements AbilitàImplementator {
     public void ApplicaEffetto(Personaggio utilizzatore, Personaggio bersaglio) {
         System.out.println("Si attiva l'abilità "+ utilizzatore.getAbilità().getNome() +" di "+ utilizzatore.getNomePersonaggio());
         utilizzatore.getAbilità().getEffetti_self().ApplicaEffetto(utilizzatore);
-        System.out.println(utilizzatore.getAbilità().getEffetti().getId());
         utilizzatore.getAbilità().getEffetti().ApplicaEffetto(bersaglio);
         
     }

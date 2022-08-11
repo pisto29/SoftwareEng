@@ -34,6 +34,9 @@ public class difensoreBridge implements PersonaggioAttivoImplementator  {
             efficacia = efficacia*m.getTipo().getEfficacia(t.getNomeTipo());
            
             }
+            if(efficacia==0)System.out.println("Non ha effetto su "+p1.getNomePersonaggio());
+            if(efficacia>1)System.out.println("è superefficace");
+            if(efficacia<1&&efficacia>0)System.out.println("non è molto efficace");
         
           return efficacia;
           //a
@@ -53,6 +56,7 @@ public class difensoreBridge implements PersonaggioAttivoImplementator  {
         return false;
         }
         int d= (int) danno;
+        if(danno>0)
         System.out.println(p1.getNomePersonaggio()+" perde "+danno+" ps");
         p1.setpS(p1.getpS()-d);
         if(p1.getpS()<0)p1.setpS(0);
