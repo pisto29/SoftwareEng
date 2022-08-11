@@ -1,0 +1,20 @@
+{
+    "Normale":"0",
+    "Fuoco":"1",
+    "Lotta":"1",
+    "Acqua":"1",
+    "Volante":"1",
+    "Erba":"1",
+    "Veleno":"1",
+    "Elettro":"1",
+    "Terra":"1",
+    "Psico":"2",
+    "Roccia":"1",
+    "Ghiaccio":"1",
+    "Coleottero":"1",
+    "Drago":"1",
+    "Spettro":"2",
+    "Buio":"0.5",
+    "Acciaio":"1",
+    "Folletto":"1"  
+}
