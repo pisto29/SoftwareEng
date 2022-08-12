@@ -144,7 +144,25 @@ public class Turno {
          else{System.out.println(this.p2.getNomePersonaggio()+" non puo attaccare");
         this.p2.AbiltaAttacco();}
      }
+    public void eseguiAttacco(Personaggio p){
+        int index=0;
+        Personaggio difensore=this.p2;
+        if(p.equals(this.p1)){index=0;  difensore=this.p2;}
+        else {index=1; difensore=this.p1;}
+        if(p.puoattaccare()) {
+            System.out.println("attacca  "+p.getNomePersonaggio()+" usa "+this.mosse.get(index));
+            float danno=p.Attacca(this.mosse.get(index));
+            Mossa m1=null;
+            for (Mossa m : p.getMossas()) {
+                if(m.getNomeMossa().equals(this.getMosse().get(index)))
+                m1=m;
+            }
+            boolean colpito= difensore.Difendi(danno, m1);
+             if(colpito&&m1.CheckEffetto())m1.ApplicaEffettoMossa(p,difensore);}
+             else{System.out.println(p.getNomePersonaggio()+" non puo attaccare");
+            p.AbiltaAttacco();}
 
+    }
 
     public boolean checkVelocità(){
        if(p1.getvelocitaPersonaggio()>p2.getvelocitaPersonaggio()){

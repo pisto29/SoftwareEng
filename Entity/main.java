@@ -92,8 +92,8 @@ public class main {
                 p.CambioPerKoP2(SostituzioneG2);
             }
             
-            System.out.println(p.getT().getP1().getNomePersonaggio()+" di "+p.getPlayer1().getNome()+" ha "+p.getT().getP1().getpS()+" ps "+" con attacco "+ p.getT().getP1().getAttaccoPersonaggio());
-            System.out.println(p.getT().getP2().getNomePersonaggio()+" di "+p.getPlayer2().getNome()+" ha "+p.getT().getP2().getpS()+" ps");
+            System.out.println(p.getT().getP1().getNomePersonaggio()+" di "+p.getPlayer1().getNome()+" ha "+p.getT().getP1().getpS()+" ps ");
+            System.out.println(p.getT().getP2().getNomePersonaggio()+" di "+p.getPlayer2().getNome()+" ha "+p.getT().getP2().getpS()+" ps ");
             
             do{azione1 = v.ScegliAzione(p.getPlayer1());}
             while(azione1<1 || azione1>3);

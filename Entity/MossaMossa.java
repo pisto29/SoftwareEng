@@ -71,7 +71,7 @@ if(!t.getFase().equals(Fase.Fine_Turno)){
     t.EseguiAbilitàP1();
     t.EseguiAbilitàP2();
     t.checkStatusP1();
-    t.EseguiAttaccoP1();
+    t.eseguiAttacco(t.getP1());
     t.FineTurnoKo();
    
 }
@@ -90,7 +90,7 @@ if(!t.getFase().equals(Fase.Fine_Turno)){
     t.EseguiAbilitàP1();
     t.EseguiAbilitàP2();
     t.checkStatusP2();
-    t.EseguiAttaccoP2();
+    t.eseguiAttacco(t.getP2());
     t.FineTurnoKo();
 }
 if(!t.getFase().equals(Fase.Fine_Turno)){
@@ -125,7 +125,7 @@ private void P2(Turno t){
         t.EseguiAbilitàP2();
         t.EseguiAbilitàP1();
         t.checkStatusP2();
-        t.EseguiAttaccoP2();
+        t.eseguiAttacco(t.getP2());
         t.FineTurnoKo();
     
     }
@@ -144,7 +144,7 @@ private void P2(Turno t){
         t.EseguiAbilitàP2();
         t.EseguiAbilitàP1();
         t.checkStatusP1();
-        t.EseguiAttaccoP1();
+        t.eseguiAttacco(t.getP1());
         t.FineTurnoKo();
     }
     if(!t.getFase().equals(Fase.Fine_Turno)){

@@ -46,8 +46,12 @@ public class difensoreBridge implements PersonaggioAttivoImplementator  {
 
     @Override
     public boolean difendi(float danno, Mossa m, Personaggio p1) {
-        danno=danno*this.efficacia(p1, m);
+        float eff=this.efficacia(p1, m);
+        danno=danno*eff;
         float difesa=0;
+        if(eff==0){
+            return false;
+            }
         if(m.getTipologia().equals(Tipologia.Fisico)) difesa=p1.getDifesaPersonaggio();
         else difesa=p1.getDifesaSpecialePersonaggio();
         danno=danno/difesa;
@@ -55,6 +59,7 @@ public class difensoreBridge implements PersonaggioAttivoImplementator  {
         System.out.println("l'attacco fallisce");
         return false;
         }
+        
         int d= (int) danno;
         if(danno>0)
         System.out.println(p1.getNomePersonaggio()+" perde "+danno+" ps");
