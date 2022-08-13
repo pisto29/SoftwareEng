@@ -151,6 +151,7 @@ public class Turno {
         else {index=1; difensore=this.p1;}
         if(p.puoattaccare()) {
             System.out.println("attacca  "+p.getNomePersonaggio()+" usa "+this.mosse.get(index));
+            
             float danno=p.Attacca(this.mosse.get(index));
             Mossa m1=null;
             for (Mossa m : p.getMossas()) {
@@ -158,6 +159,7 @@ public class Turno {
                 m1=m;
             }
             boolean colpito= difensore.Difendi(danno, m1);
+            
              if(colpito&&m1.CheckEffetto())m1.ApplicaEffettoMossa(p,difensore);}
              else{System.out.println(p.getNomePersonaggio()+" non puo attaccare");
             p.AbiltaAttacco();}
@@ -181,6 +183,23 @@ public class Turno {
            else{return false;}
        }
     }
+
+    public void EseguiAbilità(Personaggio p){
+        Personaggio bersaglio=this.p2;
+       
+        if(p.equals(this.p1)){
+            
+            bersaglio=p2;
+
+        }
+        if(p.equals(this.p2)){
+            
+            bersaglio=this.p1;
+        }
+        if (this.fase == p.getAbilità().getFase_attivazione())
+        p.getAbilità().Attivazione(p,bersaglio);
+
+    }
     public void EseguiAbilitàP1(){
 
         if (this.fase == this.p1.getAbilità().getFase_attivazione())
@@ -198,13 +217,19 @@ public class Turno {
         
     }
 
+    public void checkstatus(Personaggio p){
+        p.attivastatus(this.fase);
+    }
     public void checkStatusP1(){
         this.p1.attivastatus(this.fase);
     }
     public void checkStatusP2(){
         this.p2.attivastatus(this.fase);
     }
-
+    public boolean checkKo(Personaggio p){
+        if(p.getpS()==0)return true;
+        else return false;
+    }
     public Boolean checkKoP1(){
         
         if (p1.getpS() == 0)
@@ -227,6 +252,36 @@ public class Turno {
         }
         }
 
+
+
+    public void sostituisci(Personaggio p){
+        String istanza="istanza1";
+        int index=0;
+        if(this.p1.equals(p)){
+            
+            istanza="istanza1";
+            PersonaggioAttivoSingleton.setpass(istanza);
+            index=0;
+           this.p1=this.sostituzioni.get(index);
+            this.p1.Sostituzione();
+        }
+        if(this.p2.equals(p)){
+        
+            istanza="istanza2";
+            PersonaggioAttivoSingleton.setpass(istanza);
+            index=1;
+            this.p2=this.sostituzioni.get(index);
+            this.p2.Sostituzione();
+        }
+
+        System.out.println(p.getNomePersonaggio()+" viene sostituito da "+ this.sostituzioni.get(index).getNomePersonaggio());
+        if(p.getpS()>0
+        )
+        p.Sostituzione();
+        
+
+
+    }
     public void sostituiscip1(){
         //if(this.p1 != this.sostituzioni.get(0)){
         PersonaggioAttivoSingleton.setpass("istanza1");
@@ -351,7 +406,14 @@ public class Turno {
     public void setP2(Personaggio p2) {
         this.p2 = p2;
     }
-  
+    public void utilizzaStrumento(Personaggio p){
+        int index=0;
+        if(this.p1.equals(p)){ index=0;}
+        if(this.p2.equals(p)){index=1;}
+        for(Strumento s: this.strumenti.get(index).keySet()){
+            s.UtilizzaStrumento(this.strumenti.get(index).get(s));
+           }
+    }
     public void utilizzaStrumentoP1(){
        for(Strumento s: this.strumenti.get(0).keySet()){
         s.UtilizzaStrumento(this.strumenti.get(0).get(s));

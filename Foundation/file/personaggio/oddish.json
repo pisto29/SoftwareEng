@@ -1,5 +1,5 @@
 {
-    "pS":"152",
+    "pS":"1",
     "nomePersonaggio":"Oddish",
     "attaccoPersonaggio":"112",
     "difesaPersonaggio":"117",
@@ -7,5 +7,5 @@
     "difesaSpecialePersonaggio":"128",
     "velocitaPersonaggio":"90",
     "id_abilita":"Monouso_azzardo",
-    "id_tipo":["Spettro","Veleno"]
+    "id_tipo":["Erba","Veleno"]
 }

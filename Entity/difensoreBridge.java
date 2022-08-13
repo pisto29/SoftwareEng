@@ -46,6 +46,7 @@ public class difensoreBridge implements PersonaggioAttivoImplementator  {
 
     @Override
     public boolean difendi(float danno, Mossa m, Personaggio p1) {
+        
         float eff=this.efficacia(p1, m);
         danno=danno*eff;
         float difesa=0;
