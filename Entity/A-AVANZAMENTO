@@ -51,4 +51,6 @@ G32:Avvelenamento e sonno controllati, tentare l utilizzo di strumenti su altri 
 annulla mossa, ultimare gli output
 G33:
 G34: fatto metodo attacco singolo in turno, fare lo stesso per abilità e strumento
-G35: utilizzo nuovi metodi in turno testati per: MossaMossa,MossaCambio,CambioMossa,CambioCambio,
+G35: utilizzo nuovi metodi in turno testati per: MossaMossa,MossaCambio,CambioMossa,CambioCambio
+G36: MossaStrumento(?),StrumentoStrumento, CambioStrumento,StrumentoCambio
+G37: MossaMossa, MossaCambio, CambioMossa, MossaStrumento, CambioCambio, StrumentoMossa, StrumentoStrumento, StrumentoCambio, CambioStrumento

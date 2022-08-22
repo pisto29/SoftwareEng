@@ -215,34 +215,46 @@ public void setMoltiplicatoreVelocita(float moltiplicatoreVelocita) {
 @Override
 public void aggiungiMoltiplicatoreAttacco(float moltiplicatore) {
     // TODO Auto-generated method stub
-    this.moltiplicatoreAttacco = this.moltiplicatoreAttacco * moltiplicatore;
+    if(this.moltiplicatoreAttacco<6||this.moltiplicatoreAttacco>0.015)this.moltiplicatoreAttacco = this.moltiplicatoreAttacco * moltiplicatore;
+    if(this.moltiplicatoreAttacco==6) System.out.println("l'attacco non può aumentare ulteriormente");
+    if(this.moltiplicatoreAttacco==0.015) System.out.println("l'attacco non può diminuire ulteriormente");
+
+    
     
 }
 
 @Override
 public void aggiungiMoltiplicatoreAttaccoSpeciale(float moltiplicatore) {
     // TODO Auto-generated method stub
-    this.moltiplicatoreAttSpec = this.moltiplicatoreAttSpec * moltiplicatore;
+    if(this.moltiplicatoreAttSpec<6||this.moltiplicatoreAttSpec>0.015)this.moltiplicatoreAttSpec = this.moltiplicatoreAttSpec * moltiplicatore;
+    if(this.moltiplicatoreAttSpec==6) System.out.println("l'attacco speciale non può aumentare ulteriormente");
+    if(this.moltiplicatoreAttSpec==0.015) System.out.println("l'attacco speciale non può diminuire ulteriormente");
     
 }
 
 @Override
 public void aggiungiMoltiplicatoreDifesa(float moltiplicatore) {
     // TODO Auto-generated method stub
-    this.moltiplicatoreDifesa = this.moltiplicatoreDifesa * moltiplicatore;
+    if(this.moltiplicatoreDifesa<6||this.moltiplicatoreDifesa>0.015)this.moltiplicatoreDifesa = this.moltiplicatoreDifesa * moltiplicatore;
+    if(this.moltiplicatoreDifesa==6) System.out.println("la difesa non può aumentare ulteriormente");
+    if(this.moltiplicatoreDifesa==0.015) System.out.println("la difesa non può diminuire ulteriormente");
     
 }
 
 @Override
 public void aggiungiMoltiplicatoreDifesaSpeciale(float moltiplicatore) {
     // TODO Auto-generated method stub
-    this.moltiplicatoreDifSpec = this.moltiplicatoreDifSpec * moltiplicatore;
+    if(this.moltiplicatoreDifSpec<6||this.moltiplicatoreDifSpec>0.015)this.moltiplicatoreDifSpec = this.moltiplicatoreDifSpec * moltiplicatore;
+    if(this.moltiplicatoreDifSpec==6) System.out.println("la difesa Speciale non può aumentare ulteriormente");
+    if(this.moltiplicatoreDifSpec==0.015) System.out.println("la non difesa Speciale può diminuire ulteriormente");
 }
 
 @Override
 public void aggiungiMoltiplicatoreVelocita(float moltiplicatore) {
     // TODO Auto-generated method stub
-    this.moltiplicatoreVelocita = this.moltiplicatoreVelocita * moltiplicatore;
+    if(this.moltiplicatoreVelocita<6||this.moltiplicatoreVelocita>0.015)this.moltiplicatoreVelocita = this.moltiplicatoreVelocita * moltiplicatore;
+    if(this.moltiplicatoreVelocita==6) System.out.println("la velocità non può aumentare ulteriormente");
+    if(this.moltiplicatoreVelocita==0.015) System.out.println("la velocità non può diminuire ulteriormente");
     
 }
 
