@@ -10,8 +10,8 @@ public class TorneoItaliana extends Torneo {
 public HashMap<String,Integer> classifica;
 
 
-    public TorneoItaliana(int numeroPartecipanti, Boolean accessibilita) {
-        super(numeroPartecipanti, accessibilita);
+    public TorneoItaliana(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) {
+        super(numeroPartecipanti, accessibilita, id_regolamento);
         classifica=new HashMap<>();
         
     }

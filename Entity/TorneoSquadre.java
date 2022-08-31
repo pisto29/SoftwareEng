@@ -8,8 +8,8 @@ public class TorneoSquadre extends Torneo{
 public ArrayList<Giocatore> Squadra1;
 public ArrayList<Giocatore>Squadra2;
 public HashMap<String,Integer>Punteggio;
-    public TorneoSquadre(int numeroPartecipanti, Boolean accessibilita) {
-        super(numeroPartecipanti, accessibilita);
+    public TorneoSquadre(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) {
+        super(numeroPartecipanti, accessibilita, id_regolamento);
         Squadra1=new ArrayList<>();
         Squadra2=new ArrayList<>();
         Punteggio=new HashMap<>();

@@ -27,7 +27,7 @@ public class main {
         
         if(p.getT().getNumturno()==0){
             System.out.println(p.getPlayer1().getNome()+" scegli un Pokemon da mandare in campo");
-            for ( Personaggio pers : p.getPlayer1().getSquadra().getPersonaggios()){
+            for ( Personaggio pers : p.getPlayer1().getSquadra().get(index).getPersonaggios()){
                 if(pers.getpS()>0){
                 System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
                 }
@@ -36,7 +36,7 @@ public class main {
             int Sostituzione1 = v.ScegliCambio(i-1);
             i=1;
             System.out.println(p.getPlayer2().getNome()+" scegli un Pokemon da mandare in campo");
-            for ( Personaggio pers : p.getPlayer2().getSquadra().getPersonaggios()){
+            for ( Personaggio pers : p.getPlayer2().getSquadra().get(index).getPersonaggios()){
                 if(pers.getpS()>0){
                 System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
                 }
@@ -45,12 +45,12 @@ public class main {
             int Sostituzione2 = v.ScegliCambio(i-1);
           
             System.out.println("La partita è iniziata");
-            p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1).Sostituzione();
-            p.getT().setP1( p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1));
+            p.getPlayer1().getSquadra().get(index).getPersonaggios().get(Sostituzione1).Sostituzione();
+            p.getT().setP1( p.getPlayer1().getSquadra().get(index).getPersonaggios().get(Sostituzione1));
             System.out.println("Giocatore uno manda in campo "+p.getT().getP1().getNomePersonaggio());
             PersonaggioAttivoSingleton.setpass("istanza2");
-            p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2).Sostituzione();
-            p.getT().setP2( p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2));
+            p.getPlayer2().getSquadra().get(index).getPersonaggios().get(Sostituzione2).Sostituzione();
+            p.getT().setP2( p.getPlayer2().getSquadra().get(index).getPersonaggios().get(Sostituzione2));
             System.out.println("Giocatore due manda in campo "+p.getT().getP2().getNomePersonaggio());
         }
         
@@ -59,7 +59,7 @@ public class main {
             if(p.getT().checkKoP1()){
                 i= 1;
                 System.out.println("Pokemon KO, scegli un Pokemon da mandare in campo");
-                for ( Personaggio pers : p.getPlayer1().getSquadra().getPersonaggios()){
+                for ( Personaggio pers : p.getPlayer1().getSquadra().get(index).getPersonaggios()){
                     if(pers.getpS()>0){
                     System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
                     }
@@ -68,7 +68,7 @@ public class main {
                 int Sostituzione1 = v.ScegliCambio(i-1);
                 MossaG1=null;
                 StrumentoG1=null;
-                SostituzioneG1 = p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1);
+                SostituzioneG1 = p.getPlayer1().getSquadra().get(index).getPersonaggios().get(Sostituzione1);
                 p.CambioPerKoP1(SostituzioneG1);
             }
 
@@ -76,7 +76,7 @@ public class main {
                 i= 1;
                // KO = true;
                 System.out.println("Pokemon KO, scegli un Pokemon da mandare in campo");
-                for ( Personaggio pers : p.getPlayer2().getSquadra().getPersonaggios()){
+                for ( Personaggio pers : p.getPlayer2().getSquadra().get(index).getPersonaggios()){
                     if(pers.getpS()>0){
                     System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
                     
@@ -87,7 +87,7 @@ public class main {
                 MossaG2=null;
                 StrumentoG2=null;
                 
-                SostituzioneG2 = p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2);
+                SostituzioneG2 = p.getPlayer2().getSquadra().get(index).getPersonaggios().get(Sostituzione2);
                 //SostituzioneG1 = p.getT().getP1();
                 p.CambioPerKoP2(SostituzioneG2);
             }
@@ -126,7 +126,7 @@ public class main {
                 case 2:
                     System.out.println("Scegli il Pokemon da mettere in campo");
 
-                    for ( Personaggio pers : p.getPlayer1().getSquadra().getPersonaggios()){
+                    for ( Personaggio pers : p.getPlayer1().getSquadra().get(index).getPersonaggios()){
                         if(pers.getpS()>0 && pers != p.getT().getP1()){
 
                         System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
@@ -136,14 +136,14 @@ public class main {
                     int Sostituzione1 = v.ScegliCambio(i-1);
                     MossaG1=null;
                     StrumentoG1=null;
-                    SostituzioneG1 = p.getPlayer1().getSquadra().getPersonaggios().get(Sostituzione1);
+                    SostituzioneG1 = p.getPlayer1().getSquadra().get(index).getPersonaggios().get(Sostituzione1);
                     System.out.println(SostituzioneG1.getNomePersonaggio()+" dovrebbe entrare");
                     break;
                 
                 case 3:
                     System.out.println("Scegli lo strumento da utilizzare");
 
-                    for (Strumento s : p.getPlayer1().getSquadra().getStrumentos()){
+                    for (Strumento s : p.getPlayer1().getSquadra().get(index).getStrumentos()){
                         if(s.getUtilizzato()== false){
                             System.out.println(i+") "+s.getNomeStrumento());
                          }
@@ -153,10 +153,10 @@ public class main {
                     MossaG1 = null;
                     SostituzioneG1=null;
                     System.out.println("Strumento utilizzabile su: ");
-                    int sceltapersonaggio=v.PersonaggioStrumento(p.getPlayer1().getSquadra().getStrumentos().get(Strumento1-1).utilizzabile(p.getPlayer1().getSquadra().getPersonaggios()));
+                    int sceltapersonaggio=v.PersonaggioStrumento(p.getPlayer1().getSquadra().get(index).getStrumentos().get(Strumento1-1).utilizzabile(p.getPlayer1().getSquadra().get(index).getPersonaggios()));
 
                     StrumentoG1 = new HashMap<>();
-                    StrumentoG1.put(p.getPlayer1().getSquadra().getStrumentos().get(Strumento1-1),p.getPlayer1().getSquadra().getPersonaggios().get(sceltapersonaggio-1));
+                    StrumentoG1.put(p.getPlayer1().getSquadra().get(index).getStrumentos().get(Strumento1-1),p.getPlayer1().getSquadra().get(index).getPersonaggios().get(sceltapersonaggio-1));
                     break;
                 }
 
@@ -191,7 +191,7 @@ public class main {
                         case 2:
                             System.out.println("Scegli il Pokemon da mettere in campo");
         
-                            for ( Personaggio pers : p.getPlayer2().getSquadra().getPersonaggios()){
+                            for ( Personaggio pers : p.getPlayer2().getSquadra().get(index).getPersonaggios()){
                                 if(pers.getpS()>0 && pers != p.getT().getP2()){
                                 System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
                                 }
@@ -200,13 +200,13 @@ public class main {
                             int Sostituzione2 = v.ScegliCambio(i-1);
                             MossaG2=null;
                             StrumentoG2=null;
-                            SostituzioneG2 = p.getPlayer2().getSquadra().getPersonaggios().get(Sostituzione2);
+                            SostituzioneG2 = p.getPlayer2().getSquadra().get(index).getPersonaggios().get(Sostituzione2);
                             break;
                         
                         case 3:
                             System.out.println("Scegli lo strumento da utilizzare");
         
-                            for (Strumento s : p.getPlayer2().getSquadra().getStrumentos()){
+                            for (Strumento s : p.getPlayer2().getSquadra().get(index).getStrumentos()){
                                 System.out.println(i+") "+s.getNomeStrumento());
                                 i++;
                                 }
@@ -214,9 +214,9 @@ public class main {
                             MossaG2 = null;
                             SostituzioneG2=null;
                             System.out.println("Strumento utilizzabile su: ");
-                            int sceltapersonaggio=v.PersonaggioStrumento(p.getPlayer2().getSquadra().getStrumentos().get(Strumento2-1).utilizzabile(p.getPlayer2().getSquadra().getPersonaggios()));
+                            int sceltapersonaggio=v.PersonaggioStrumento(p.getPlayer2().getSquadra().get(index).getStrumentos().get(Strumento2-1).utilizzabile(p.getPlayer2().getSquadra().get(index).getPersonaggios()));
                             StrumentoG2 = new HashMap<>();
-                            StrumentoG2.put(p.getPlayer1().getSquadra().getStrumentos().get(Strumento2-1),p.getPlayer2().getSquadra().getPersonaggios().get(sceltapersonaggio-1));
+                            StrumentoG2.put(p.getPlayer1().getSquadra().get(index).getStrumentos().get(Strumento2-1),p.getPlayer2().getSquadra().get(index).getPersonaggios().get(sceltapersonaggio-1));
                             break;
                             }
 

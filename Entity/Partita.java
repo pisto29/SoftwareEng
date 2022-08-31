@@ -6,6 +6,8 @@ public class Partita {
     private Giocatore player1;
     private Giocatore player2;
     private Turno t;
+    private RegolamentoComponent regolamento;
+    private String id_regolamento;
     public Partita(Giocatore player1, Giocatore player2) {
     this.player1 = player1;
     this.player2 = player2;
@@ -101,7 +103,7 @@ else{
  public boolean WinG1(){
    
     boolean vittoria=true;
-    if(!this.player2.getSquadra().checkKOSquadra()){
+    if(!this.player2.getSquadra().get(this.player2.getSquadraSelezionata()).checkKOSquadra()){
         vittoria = false;
     }
     return vittoria;
@@ -111,7 +113,7 @@ else{
  public boolean WinG2(){
    
     boolean vittoria=true;
-    if(!this.player1.getSquadra().checkKOSquadra()){
+    if(!this.player1.getSquadra().get(this.player1.getSquadraSelezionata()).checkKOSquadra()){
         vittoria = false;
     }
     

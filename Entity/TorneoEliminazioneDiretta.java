@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class TorneoEliminazioneDiretta extends Torneo {
 
-    public TorneoEliminazioneDiretta(int numeroPartecipanti, Boolean accessibilita) {
-        super(numeroPartecipanti, accessibilita);
+    public TorneoEliminazioneDiretta(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) {
+        super(numeroPartecipanti, accessibilita, id_regolamento);
     }
     public void GestisciPartecipanti(){
         for(Giocatore g: this.Partecipanti){
@@ -31,7 +31,7 @@ public class TorneoEliminazioneDiretta extends Torneo {
         
     }
 public static void main(String[] args) {
- TorneoEliminazioneDiretta e=new TorneoEliminazioneDiretta(8, true)  ;
+ //TorneoEliminazioneDiretta e=new TorneoEliminazioneDiretta(8, true)  ;
  e.GeneraAccoppiamenti(); 
 }
     @Override
