@@ -1,5 +1,6 @@
 package Entity;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class Partita {
@@ -129,7 +130,67 @@ else{
  }
 
 
+public Giocatore EseguiPartita(){
+        int i=1;
+        int azione1=0;
+        int azione2=0;
+        String MossaG1=null;
+        HashMap<Strumento,Personaggio> StrumentoG1=null;
+        Personaggio SostituzioneG1=null;
+        String MossaG2=null;
+        HashMap<Strumento,Personaggio> StrumentoG2=null;
+        Personaggio SostituzioneG2=null;
+        View v = new View();
+        Boolean continua = true;
+        v.Messaggi("inizio");
+        while(continua){
+            //turno 0
+            if(this.t.getNumturno()==0){
+                this.t.setP1(v.SceltaPersonaggioCampo(this.player1, this.player1.getSquadra().get(this.player1.getSquadraSelezionata())));
+                this.t.getP1().Sostituzione();
+                this.t.setP2(v.SceltaPersonaggioCampo(this.player2, this.player2.getSquadra().get(this.player2.getSquadraSelezionata())));
+                this.t.getP2().Sostituzione();
+            }
+            if(this.t.checkKoP1()){
+                v.Messaggi("ko");
+                MossaG1=null;
+                StrumentoG1=null;
+                SostituzioneG1 =  v.SceltaPersonaggioCampo(this.player1, this.player1.getSquadra().get(this.player1.getSquadraSelezionata()));
+                this.CambioPerKoP1(SostituzioneG1);
+            }
+            if(this.t.checkKoP2()){
+                v.Messaggi("ko");
+                MossaG2=null;
+                StrumentoG2=null;
+                SostituzioneG2 =  v.SceltaPersonaggioCampo(this.player2, this.player2.getSquadra().get(this.player2.getSquadraSelezionata()));
+                this.CambioPerKoP2(SostituzioneG2);
+            }
 
+            do{try {
+                azione1 = v.ScegliAzione(this.getPlayer1());
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }}
+            while(azione1<1 || azione1>3);
+            switch(azione1){
+                case 1:
+                    try {
+                        MossaG1 = v.SelezionaMossa(t.getP1());
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                StrumentoG1 = null;
+                SostituzioneG1 = null;
+                break;
+                ///////////////////////////////////////////
+            }
+
+
+        }
+
+}
 
 public Giocatore getPlayer1() {
     return player1;

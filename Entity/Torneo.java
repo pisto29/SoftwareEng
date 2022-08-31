@@ -8,11 +8,11 @@ public abstract class Torneo {
     protected boolean Accessibilita;
     protected String codice;
     protected Round round;
-    protected HashMap<String,Squadra> squadre;
+    
     protected ArrayList<Giocatore>Partecipanti;
     protected String id_regolamento;
     public Torneo(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) {
-        squadre=new HashMap<>();
+        
         this.id_regolamento=id_regolamento;
         Partecipanti=new ArrayList<>();
         round=new Round(0);

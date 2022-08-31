@@ -73,7 +73,7 @@ public void aggiornaPunteggio(){
         // TODO Auto-generated method stub
         if(this.Partecipanti.size()<this.NumeroPartecipanti){
             
-            this.squadre.put(u.getNome(), s);
+            //this.squadre.put(u.getNome(), s);
             this.Partecipanti.add(u);
             if(this.Partecipanti.size()<=this.NumeroPartecipanti/2){
                 Squadra1.add(u);

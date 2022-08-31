@@ -45,7 +45,7 @@ public static void main(String[] args) {
         // TODO Auto-generated method stub
         if(this.Partecipanti.size()<this.NumeroPartecipanti){
            // this.classifica.put(u.getNome(), 0);
-            this.squadre.put(u.getNome(), s);
+            
             this.Partecipanti.add(u);
         }
     }

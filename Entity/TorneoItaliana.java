@@ -18,7 +18,7 @@ public HashMap<String,Integer> classifica;
 
     
     public void GiocaRound() {
-        this.round.AvviaPartite(Partecipanti,squadre);
+       // this.round.AvviaPartite(Partecipanti,squadre);
         
         
     }
@@ -83,7 +83,7 @@ public static void main(String[] args) {
     public void Partecipa(Giocatore u, Squadra s) {
         if(this.Partecipanti.size()<this.NumeroPartecipanti){
             this.classifica.put(u.getNome(), 0);
-            this.squadre.put(u.getNome(), s);
+           // this.squadre.put(u.getNome(), s);
             this.Partecipanti.add(u);
         }
         
