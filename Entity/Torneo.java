@@ -1,12 +1,19 @@
 package Entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class Torneo {
-    private int NumeroPartecipanti;
-    private boolean Accessibilita;
-    private String codice;
+    protected int NumeroPartecipanti;
+    protected boolean Accessibilita;
+    protected String codice;
+    protected Round round;
+    protected HashMap<String,Squadra> squadre;
+    protected ArrayList<Giocatore>Partecipanti;
     public Torneo(int numeroPartecipanti, Boolean accessibilita) {
+        squadre=new HashMap<>();
+        Partecipanti=new ArrayList<>();
+        round=new Round(0);
         NumeroPartecipanti = numeroPartecipanti;
         Accessibilita = accessibilita;
         if(accessibilita){}
