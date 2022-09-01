@@ -68,4 +68,19 @@ this.codice=sb.toString();
     public abstract void Partecipa(Giocatore u, Squadra s);
     public abstract void AvviaPartite();
     public abstract void GeneraAccoppiamenti();
+
+public void Avanza(){
+
+this.round = new Round(this.round.getNumero()+1);
+
 }
+
+
+
+}
+
+
+
+
+
+

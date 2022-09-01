@@ -50,4 +50,21 @@ public static void main(String[] args) {
         }
     }
     
+    public void esecuzione(){
+
+        while(this.NumeroPartecipanti> 1) {
+            this.GeneraAccoppiamenti();
+            this.AvviaPartite();
+            this.GestisciPartecipanti();
+            this.Avanza();
+        }
+        
+        System.out.println(" il vincitore è ");
+         for (Giocatore g : this.Partecipanti) {
+            System.out.println(g.getNome()); 
+         }
+    
+       }
+      
+
 }

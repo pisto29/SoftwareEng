@@ -84,5 +84,21 @@ public void aggiornaPunteggio(){
         }
         
     }
+
+    public void esecuzione(){
+
+        while(this.Punteggio.get("Squadra1")< 2 && this.Punteggio.get("Squadra2")< 2) {
+            this.GeneraAccoppiamenti();
+            this.AvviaPartite();
+            this.aggiornaPunteggio();
+            this.Avanza();
+        }
+
+        if(this.Punteggio.get("Squadra1") == 2)
+         System.out.println("vince squadra 1");
+        else  
+         System.out.println("vince squadra 2");
+        
+    }
     
 }

@@ -1,5 +1,6 @@
 package Entity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -14,7 +15,7 @@ public class Round {
         this.numero = numero;
     }
 
-    public void AvviaPartite(ArrayList<Giocatore>Partecipanti,HashMap<String,Squadra>squadre){
+    public void AvviaPartite(ArrayList<Giocatore>Partecipanti,HashMap<String,Squadra>squadre) throws IOException{
         for(String s: Accoppiamenti.keySet()){
             Giocatore g1=null;
             Giocatore g2=null;
@@ -31,7 +32,8 @@ public class Round {
             }
            }
            //crea la partita
-  // Partite.add(new Partita(Partecipanti, player2))
+            //Partite.add(new Partita(g1, g2));
+            Risultati.add(new Partita(g1,g2).EseguiPartita().getNome());
   //gioca o simula partita e memorizza il risultato classe partita da modificare
            }
 

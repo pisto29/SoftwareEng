@@ -69,8 +69,8 @@ public static void main(String[] args) {
     nomi=i.rotate(nomi);
     for(String s: nomi)
     System.out.println(s+"\n");*/
-     TorneoItaliana i= new TorneoItaliana(4, true);
-     i.GeneraAccoppiamenti();
+     ///TorneoItaliana i= new TorneoItaliana(4, true);
+     //i.GeneraAccoppiamenti();
 }
     @Override
     public void InvitaPartecipanti(ArrayList<String> nominativi) {
@@ -96,8 +96,36 @@ public static void main(String[] args) {
         
     }
 
-   
+    public void Avanza(){
+        this.round = new Round(this.round.getNumero()+1);
+    }
+
+   public void esecuzione(){
+
+    while(this.round.getNumero()<this.NumeroPartecipanti-1) {
+        this.GeneraAccoppiamenti();
+        this.AvviaPartite();
+        this.AggiornaClassifica();
+        this.Avanza();
+    }
+
+    System.out.println(this.ris() + "  " + this.classifica.get(this.ris()));
+
+   }
   
+   private String ris(){
+    int max = 0;
+    String nome = "";
+    for(Map.Entry<String,Integer> entry : this.classifica.entrySet()){
+       
+        if(entry.getValue()> max){
+        max = entry.getValue();
+        nome = entry.getKey();
+       }      
     
+    }
+
+    return nome;
+   }
 
 }

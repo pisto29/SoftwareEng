@@ -3,6 +3,7 @@ package Entity;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Random;
 
 import Foundation.builder;
 
@@ -312,6 +313,16 @@ public static void main(String[] args) throws IOException {
      Partita p=new Partita(g1, g2);
      p.EseguiPartita();
     
+}
+
+public Giocatore simula(){
+    int v = new Random().nextInt(2);
+   
+    if(v == 0)
+        return this.player1;
+    else 
+        return this.player2;
+
 }
 
 }
