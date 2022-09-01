@@ -1,5 +1,6 @@
 package Entity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -33,47 +34,48 @@ public abstract class Torneo {
 
 // create StringBuffer size of AlphaNumericString
 
-StringBuilder sb = new StringBuilder(5);
+        StringBuilder sb = new StringBuilder(5);
 
 
 
-for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
 
 
 
-// generate a random number between
+        // generate a random number between
 
-// 0 to AlphaNumericString variable length
+        // 0 to AlphaNumericString variable length
 
-int index
-
-= (int)(AlphaNumericString.length()
-
-* Math.random());
+        int index = (int)(AlphaNumericString.length()* Math.random());
 
 
 
-// add Character one by one in end of sb
+        // add Character one by one in end of sb
 
-sb.append(AlphaNumericString.charAt(index));
+        sb.append(AlphaNumericString.charAt(index));
 
 }
 
 
-this.codice=sb.toString();
-//return sb.toString();
+        this.codice=sb.toString();
+        //return sb.toString();
         }
     }
     public abstract void InvitaPartecipanti(ArrayList<String> nominativi);
-    public abstract void Partecipa(Giocatore u, Squadra s);
-    public abstract void AvviaPartite();
+    public abstract void Partecipa(Giocatore u);
+    public abstract void AvviaPartite() throws IOException;
     public abstract void GeneraAccoppiamenti();
 
-public void Avanza(){
+    public void Avanza(){
 
-this.round = new Round(this.round.getNumero()+1);
+        this.round = new Round(this.round.getNumero()+1);
 
-}
+    }
+
+    public void esecuzione() throws IOException{
+
+        
+    }
 
 
 

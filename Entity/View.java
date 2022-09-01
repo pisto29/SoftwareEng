@@ -161,5 +161,71 @@ return scelta;
         return scelta;
 
     }
+
+    public String CreazioneTorneo() throws IOException{
+        System.out.println("Scegli il tipo di torneo:");
+        System.out.println("1) Torneo all'Italiana");
+        System.out.println("2) Torneo ad eliminazione diretta");
+        System.out.println("3) Torneo a Squadre");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s;
+        
+        do{
+             s = br.readLine();
+
+        }while(Integer.parseInt(s)<1 && Integer.parseInt(s)>3);
+
+        switch(Integer.parseInt(s)){
+            case 1 : 
+                return "Italiana";
+            case 2 :
+                return "Eliminazione";
+            case 3 :
+                return "Squadre";
+            default:
+                return "Koopmeiners";
+
+
+        }
+    }
+
+    public int NumeroPartecipanti() throws IOException{
+        System.out.println("Inserisci il numero di Partecipanti:");
+        System.out.println("4");
+        System.out.println("8");
+        System.out.println("16");
+        System.out.println("32");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s;
+
+        do{
+            s = br.readLine();
+
+       }while(Integer.parseInt(s)!=4 && Integer.parseInt(s)!=8 && Integer.parseInt(s)!=16 && Integer.parseInt(s)!=32);
+
+       return Integer.parseInt(s);
+
+    }
+
+    public boolean AccessibilitàTorneo() throws IOException{
+        
+        System.out.println("1) Torneo Pubblico");
+        System.out.println("2) Torneo Privato");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s;
+
+        do{
+            s = br.readLine();
+
+       }while(Integer.parseInt(s)!=1 && Integer.parseInt(s)!=2);
+
+       if(Integer.parseInt(s)==1){
+        return true;
+       }
+       else{
+        return false;
+       }
+
+    }
     
 }

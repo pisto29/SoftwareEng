@@ -13,27 +13,38 @@ public class Round {
     public Round( int numero) {
         Partite = new ArrayList<>();
         this.numero = numero;
+        Accoppiamenti = new HashMap<>();
+        Risultati = new ArrayList<>();
     }
 
-    public void AvviaPartite(ArrayList<Giocatore>Partecipanti,HashMap<String,Squadra>squadre) throws IOException{
+    public void AvviaPartite(ArrayList<Giocatore>Partecipanti) throws IOException{
         for(String s: Accoppiamenti.keySet()){
+            //System.out.println("STAMPO S ACCOPPIAMENTI");
+            //System.out.println(s);
             Giocatore g1=null;
             Giocatore g2=null;
             Squadra s1=null;
             Squadra s2=null;
            for(Giocatore g: Partecipanti){
+            //System.out.println("NOMI GIOCATORI: ");
             if(g.getNome().equals(s)){
                 g1=g;
-                s1=squadre.get(s);
+                //s1=squadre.get(s);
+                //System.out.println(g1.getNome());
             }
             if(g.getNome().equals(Accoppiamenti.get(s))){
                 g2=g;
-                s2=squadre.get(Accoppiamenti.get(s));
+                //s2=squadre.get(Accoppiamenti.get(s));
+                //System.out.println(g2.getNome());
             }
            }
            //crea la partita
             //Partite.add(new Partita(g1, g2));
-            Risultati.add(new Partita(g1,g2).EseguiPartita().getNome());
+            //Risultati.add(new Partita(g1,g2).EseguiPartita().getNome());
+            String c = new Partita(g1,g2).simula().getNome();
+            System.out.println("Vincitore:");
+            System.out.println(c);
+            Risultati.add(c);
   //gioca o simula partita e memorizza il risultato classe partita da modificare
            }
 

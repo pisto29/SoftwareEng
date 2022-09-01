@@ -69,7 +69,7 @@ public void aggiornaPunteggio(){
     }
 
     @Override
-    public void Partecipa(Giocatore u, Squadra s) {
+    public void Partecipa(Giocatore u) {
         // TODO Auto-generated method stub
         if(this.Partecipanti.size()<this.NumeroPartecipanti){
             
