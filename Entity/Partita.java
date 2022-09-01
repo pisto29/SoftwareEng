@@ -1,7 +1,10 @@
 package Entity;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+
+import Foundation.builder;
 
 public class Partita {
     private Giocatore player1;
@@ -130,7 +133,7 @@ else{
  }
 
 
-public Giocatore EseguiPartita(){
+public Giocatore EseguiPartita() throws IOException{
         int i=1;
         int azione1=0;
         int azione2=0;
@@ -146,26 +149,27 @@ public Giocatore EseguiPartita(){
         while(continua){
             //turno 0
             if(this.t.getNumturno()==0){
-                this.t.setP1(v.SceltaPersonaggioCampo(this.player1, this.player1.getSquadra().get(this.player1.getSquadraSelezionata())));
+                this.t.setP1(v.SceltaPersonaggioCampo(this.player1, this.player1.getSquadra().get(this.player1.getSquadraSelezionata()),null));
                 this.t.getP1().Sostituzione();
-                this.t.setP2(v.SceltaPersonaggioCampo(this.player2, this.player2.getSquadra().get(this.player2.getSquadraSelezionata())));
+                PersonaggioAttivoSingleton.setpass("istanza2");
+                this.t.setP2(v.SceltaPersonaggioCampo(this.player2, this.player2.getSquadra().get(this.player2.getSquadraSelezionata()),null));
                 this.t.getP2().Sostituzione();
             }
             if(this.t.checkKoP1()){
                 v.Messaggi("ko");
                 MossaG1=null;
                 StrumentoG1=null;
-                SostituzioneG1 =  v.SceltaPersonaggioCampo(this.player1, this.player1.getSquadra().get(this.player1.getSquadraSelezionata()));
+                SostituzioneG1 =  v.SceltaPersonaggioCampo(this.player1, this.player1.getSquadra().get(this.player1.getSquadraSelezionata()),null);
                 this.CambioPerKoP1(SostituzioneG1);
             }
             if(this.t.checkKoP2()){
                 v.Messaggi("ko");
                 MossaG2=null;
                 StrumentoG2=null;
-                SostituzioneG2 =  v.SceltaPersonaggioCampo(this.player2, this.player2.getSquadra().get(this.player2.getSquadraSelezionata()));
+                SostituzioneG2 =  v.SceltaPersonaggioCampo(this.player2, this.player2.getSquadra().get(this.player2.getSquadraSelezionata()),null);
                 this.CambioPerKoP2(SostituzioneG2);
             }
-
+            v.ResoConto(this);
             do{try {
                 azione1 = v.ScegliAzione(this.getPlayer1());
             } catch (IOException e) {
@@ -177,6 +181,7 @@ public Giocatore EseguiPartita(){
                 case 1:
                     try {
                         MossaG1 = v.SelezionaMossa(t.getP1());
+                        System.out.println("mossa 1 e "+MossaG1);
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -185,9 +190,64 @@ public Giocatore EseguiPartita(){
                 SostituzioneG1 = null;
                 break;
                 ///////////////////////////////////////////
-            }
+            
+            case 2:
+            MossaG1=null;
+            StrumentoG1=null;
+            SostituzioneG1 =  v.SceltaPersonaggioCampo(this.player1, this.player1.getSquadra().get(this.player1.getSquadraSelezionata()),this.getT().getP1());
+            break;
 
+            case 3:
+            MossaG1=null;
+            SostituzioneG1=null;
+            StrumentoG1=v.ScegliStrumento(this.player1.getSquadra().get(this.player1.getSquadraSelezionata()));
+            break;
+        
+        }
+        ///g2
+        do{try {
+            azione2 = v.ScegliAzione(this.getPlayer2());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }}
+        while(azione2<1 || azione2>3);
+        switch(azione2){
+            case 1:
+                try {
+                    MossaG2 = v.SelezionaMossa(t.getP2());
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            StrumentoG2 = null;
+            SostituzioneG2 = null;
+            break;
+            ///////////////////////////////////////////
+        
+        case 2:
+        MossaG2=null;
+        StrumentoG2=null;
+        SostituzioneG2 =  v.SceltaPersonaggioCampo(this.player2, this.player2.getSquadra().get(this.player2.getSquadraSelezionata()),this.getT().getP2());
+        break;
 
+        case 3:
+        MossaG2=null;
+        SostituzioneG2=null;
+        StrumentoG2=v.ScegliStrumento(this.player2.getSquadra().get(this.player2.getSquadraSelezionata()));
+        break;
+    
+    }
+    continua=this.gioca(MossaG1, MossaG2, SostituzioneG1, SostituzioneG2, StrumentoG1, StrumentoG2);
+        }
+        if(this.WinG1()==true){
+            
+            System.out.println("IL GIOCATORE1 HA VINTO");
+            return this.player1;
+        }
+        else{
+            System.out.println("IL GIOCATORE2 HA VINTO");
+            return this.player2;
         }
 
 }
@@ -246,7 +306,13 @@ public void CambioPerKoP2(Personaggio P){
    // t.setSostituzioneg1(null);
    
 }
-
+public static void main(String[] args) throws IOException {
+    Giocatore g1 = builder.CreaGiocatore("G1");
+     Giocatore g2 = builder.CreaGiocatore("G2");
+     Partita p=new Partita(g1, g2);
+     p.EseguiPartita();
+    
+}
 
 }
 

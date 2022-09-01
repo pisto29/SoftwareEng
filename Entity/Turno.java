@@ -145,13 +145,14 @@ public class Turno {
         this.p2.AbiltaAttacco();}
      }
     public void eseguiAttacco(Personaggio p){
+        System.out.println("ESEGUI ATTACCO QUI");
         int index=0;
         Personaggio difensore=this.p2;
         if(p.equals(this.p1)){index=0;  difensore=this.p2;}
         else {index=1; difensore=this.p1;}
         if(p.puoattaccare()) {
             System.out.println("attacca  "+p.getNomePersonaggio()+" usa "+this.mosse.get(index));
-            
+            System.out.println("ruolo attaccante"+p.getImplementator());
             float danno=p.Attacca(this.mosse.get(index));
             Mossa m1=null;
             for (Mossa m : p.getMossas()) {

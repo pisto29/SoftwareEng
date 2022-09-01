@@ -3,25 +3,57 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 public class View {
 
-public Personaggio SceltaPersonaggioCampo(Giocatore g,Squadra s){
+public Personaggio SceltaPersonaggioCampo(Giocatore g,Squadra s,Personaggio p) throws IOException{
     int scelta=0;
     do{
     System.out.println(g.getNome()+" scegli un Pokemon da mandare in campo");
     int i=1;
     for ( Personaggio pers : s.getPersonaggios()){
-        if(pers.getpS()>0){
+        if(pers.getpS()>0&&!pers.equals(p)){
         System.out.println(i+") "+pers.getNomePersonaggio()+" PS:"+pers.getpS());
         }
         i++;
-    }}
-    while(scelta>=1&&scelta<=s.getPersonaggios().size());
-    System.out.println(g.getNome()+"manda in campo "+s.getPersonaggios().get(scelta).getNomePersonaggio());
-    return s.getPersonaggios().get(scelta);
+    }BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String st = br.readLine();
+    scelta = Integer.parseInt(st);}
+    while(!(scelta>=1&&scelta<=s.getPersonaggios().size()));
+    System.out.println(g.getNome()+" manda in campo "+s.getPersonaggios().get(scelta-1).getNomePersonaggio());
+    return s.getPersonaggios().get(scelta-1);
 }
-
+public HashMap<Strumento,Personaggio> ScegliStrumento(Squadra s) throws IOException{
+    int scelta=0;
+    do{
+        System.out.println("Scegli lo strumento da utilizzare");
+        int i=1;
+        for(Strumento st: s.getStrumentos()){
+            if(st.getUtilizzato()!=true){
+        System.out.println(i+" "+st.getNomeStrumento());
+        i++;
+    }}
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String st = br.readLine();
+    scelta = Integer.parseInt(st);
+    }while(!(scelta>=1&&scelta<=s.getStrumentos().size()));
+    int scelta2=0;
+    do{
+        System.out.println("Scegli il pokemon su cui usare lo strumento");
+        int i=1;
+        for(Personaggio p: s.getStrumentos().get(scelta-1).utilizzabile(s.getPersonaggios())){
+            System.out.println(i+" "+p.getNomePersonaggio());
+            i++;
+        }
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String st = br.readLine();
+        scelta2 = Integer.parseInt(st);
+    }while(!(scelta2>=1&&scelta<=s.getStrumentos().get(scelta-1).utilizzabile(s.getPersonaggios()).size()));
+    HashMap<Strumento,Personaggio> map= new HashMap<>();
+    map.put( s.getStrumentos().get(scelta-1),s.getPersonaggios().get(scelta2-1));
+    return map;
+}
 public void Messaggi(String messaggi){
     switch(messaggi){
         case "inizio":
