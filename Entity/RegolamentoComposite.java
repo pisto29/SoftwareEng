@@ -23,4 +23,28 @@ public class RegolamentoComposite implements RegolamentoComponent {
         // TODO Auto-generated method stub
         return this.regole.get(a);
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public ArrayList<RegolamentoComponent> getRegole() {
+        return regole;
+    }
+
+    public void setRegole(ArrayList<RegolamentoComponent> regole) {
+        this.regole = regole;
+    }
+
+    public String[] getIdRegole() {
+        return idRegole;
+    }
+
+    public void setIdRegole(String[] idRegole) {
+        this.idRegole = idRegole;
+    }
 }

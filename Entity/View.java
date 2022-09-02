@@ -231,7 +231,7 @@ return scelta;
     }
 
 
-    public void SceltaRegolamento(){
+    public String SceltaRegolamento() throws IOException{
         System.out.println("Seleziona un Regolamento: ");
         ArrayList<String> results = new ArrayList<String>();
 
@@ -243,12 +243,23 @@ return scelta;
 
         for (File file : files) {
             if (file.isFile()) {
-                results.add(file.getName());
+                results.add(file.getName().replaceAll(".txt", ""));
             }   
         }
+        int i=1;
         for(String r:results){
-            System.out.println(r);
+            System.out.println(i+" "+r);
         }
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String st;
+
+        do{
+            st = br.readLine();
+
+       }while(Integer.parseInt(s)<1 && Integer.parseInt(s)>results.size());
+       int a=Integer.parseInt(s);
+       return results.get(a).concat(".json");
+
     }
 
     public static void main(String[] args) {

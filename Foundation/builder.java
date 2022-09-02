@@ -238,7 +238,75 @@ public class builder {
         return g;
 
     }
+    public static RegolamentoComponent creaRegolamentoComposite(String idRegolamento) throws FileNotFoundException {
+        Gson gson = new Gson();
+        RegolamentoComponent E=null;
+        if(idRegolamento.contains("Multiplo")){
+                ArrayList <EffettoComposite> effetti = new ArrayList<>();
+            
+                BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+idRegolamento+".json"));
+                RegolamentoComposite A = gson.fromJson(br, RegolamentoComposite.class);
+                ArrayList<RegolamentoComponent> regole=new ArrayList<>();
+                A.setRegole(regole);
+                for (String nomeEffetto : A.getIdRegole()) {
+                    BufferedReader br2 = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+nomeEffetto+".json"));
+                    String effetto = nomeEffetto.split("_")[0];
+                    switch(effetto){
+                        case "RegolaLimitazioneNPersonaggi":
+                        E = new RegolaLimitazioneNPersonaggi( gson.fromJson(br2, RegolaLimitazioneNPersonaggi.class));
+                        A.Add(E);
+                        break;
 
+                        case "RegolaLimitazioneNStrumento":
+                        E = new RegolaLimitazioneNStrumento(gson.fromJson(br2, RegolaLimitazioneNStrumento.class));
+                        A.Add(E);
+                        break;
+
+                        case "RegolaLimitazioneTipo":
+                        E = new RegolaLimitazioneTipo(gson.fromJson(br2, RegolaLimitazioneTipo.class));
+                        A.Add(E);
+                        break;
+
+                    
+                        case "NoEffetto":
+                        E = gson.fromJson(br2, NoEffetto.class);
+                        A.Add(E);
+                        break;
+                    }
+                    
+                }
+             E = A;
+        }
+        else{
+            BufferedReader br2 = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+idRegolamento+".json"));
+            String effetto = idRegolamento.split("_")[0];
+                    switch(effetto){
+                        case "RegolaLimitazioneNPersonaggi":
+                        E = new RegolaLimitazioneNPersonaggi( gson.fromJson(br2, RegolaLimitazioneNPersonaggi.class));
+                       
+                        break;
+
+                        case "RegolaLimitazioneNStrumento":
+                        E = new RegolaLimitazioneNStrumento(gson.fromJson(br2, RegolaLimitazioneNStrumento.class));
+                        
+                        break;
+
+                        case "RegolaLimitazioneTipo":
+                        E = new RegolaLimitazioneTipo(gson.fromJson(br2, RegolaLimitazioneTipo.class));
+                        
+                        break;
+
+
+                        case "NoEffetto":
+                        E = gson.fromJson(br2, NoEffetto.class);
+                       
+                        break;
+                    }
+
+        }
+        return E;
+
+    }
     public static void main(String[] args) throws FileNotFoundException {
       /* Mossa a= builder.CreaMossa("azione");
       Tipo t= builder.CreaTipo("Normale");
