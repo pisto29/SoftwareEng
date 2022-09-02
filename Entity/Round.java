@@ -41,6 +41,7 @@ public class Round {
            //crea la partita
             //Partite.add(new Partita(g1, g2));
             //Risultati.add(new Partita(g1,g2).EseguiPartita().getNome());
+            System.out.println("Inizo Partita:"+ " "+ g1.getNome()+" - "+g2.getNome());
             String c = new Partita(g1,g2).simula().getNome();
             System.out.println("Vincitore:");
             System.out.println(c);

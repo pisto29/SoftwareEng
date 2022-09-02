@@ -61,7 +61,7 @@ public void Messaggi(String messaggi){
         break;
         case "ko":
         System.out.println("pokemon ko");
-        default: System.out.println("Cicerone gay");
+        default: System.out.println("");
     }
 }
 

@@ -52,10 +52,12 @@ public class Server {
         Giocatore G2 = builder.CreaGiocatore("G2");
         Giocatore G3 = builder.CreaGiocatore("G3");
         Giocatore G4 = builder.CreaGiocatore("G4");
-        t.Partecipa(G1);
-        t.Partecipa(G2);
-        t.Partecipa(G3);
-        t.Partecipa(G4);
+        Giocatore G5 = builder.CreaGiocatore("G5");
+
+        t.Partecipa(G1);//mattia
+        t.Partecipa(G3);//alessandro
+        t.Partecipa(G2);//riccardo
+        t.Partecipa(G5);//dino
         t.esecuzione();
     
     }
