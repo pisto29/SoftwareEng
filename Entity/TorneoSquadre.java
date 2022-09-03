@@ -1,5 +1,6 @@
 package Entity;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ public class TorneoSquadre extends Torneo{
 public ArrayList<Giocatore> Squadra1;
 public ArrayList<Giocatore>Squadra2;
 public HashMap<String,Integer>Punteggio;
-    public TorneoSquadre(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) {
+    public TorneoSquadre(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) throws FileNotFoundException {
         super(numeroPartecipanti, accessibilita, id_regolamento);
         Squadra1=new ArrayList<>();
         Squadra2=new ArrayList<>();
@@ -101,21 +102,41 @@ public void aggiornaPunteggio(){
     public void Partecipa(Giocatore u) {
         // TODO Auto-generated method stub
         if(this.Partecipanti.size()<this.NumeroPartecipanti){
-            
-            //this.squadre.put(u.getNome(), s);
-            this.Partecipanti.add(u);
+            // this.classifica.put(u.getNome(), 0);
+            ArrayList<Squadra> Utilizzabile=new ArrayList<>();
+             int utilizzabili=0;
+             for(Squadra s:u.getSquadra()){
+                 if(this.Regolamento.VerificaRegolamento(s)){
+                 Utilizzabile.add(s);
+                     utilizzabili++;
+             }
+                 else
+                 Utilizzabile.add(null);
+ 
+             }
+             if(utilizzabili>0){
+             try {
+                 u.setSquadraSelezionata(new View().ScegliSquadra(Utilizzabile));
+             } catch (IOException e) {
+                 // TODO Auto-generated catch block
+                 e.printStackTrace();
+             }
+             this.Partecipanti.add(u);
             if(this.Partecipanti.size()<=this.NumeroPartecipanti/2){
                 Squadra1.add(u);
             }
             else{
                 Squadra2.add(u);
             }
-        }
-        
+             }
+             else{new View().Messaggi("NoSquadre");}
+     }
+
     }
 
     public void esecuzione() throws IOException{
-
+        
+        if(!(this.round.getNumero()==0&&this.Partecipanti.size()!=this.NumeroPartecipanti)){
         while(this.Punteggio.get("Squadra1")< 2 && this.Punteggio.get("Squadra2")< 2) {
             //System.out.print("WHILE");
             this.GeneraAccoppiamenti();
@@ -129,6 +150,7 @@ public void aggiornaPunteggio(){
         else  
          System.out.println("vince squadra 2");
         
+        }
     }
 
 
