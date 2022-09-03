@@ -53,7 +53,7 @@ public class TorneoEliminazioneDiretta extends Torneo {
     @Override
     public void AvviaPartite() throws IOException {
         // TODO Auto-generated method stub
-        this.round.AvviaPartite(this.Partecipanti);
+        this.round.AvviaPartite(this.Partecipanti,this.id_regolamento);
         
     }
 

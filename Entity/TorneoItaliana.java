@@ -134,7 +134,7 @@ public static void main(String[] args) {
     @Override
     public void AvviaPartite() throws IOException {
         // TODO Auto-generated method stub
-        this.round.AvviaPartite(this.Partecipanti);
+        this.round.AvviaPartite(this.Partecipanti,this.id_regolamento);
         
     }
 

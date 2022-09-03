@@ -17,7 +17,7 @@ public class Round {
         Risultati = new ArrayList<>();
     }
 
-    public void AvviaPartite(ArrayList<Giocatore>Partecipanti) throws IOException{
+    public void AvviaPartite(ArrayList<Giocatore>Partecipanti,String id_regolamento) throws IOException{
         for(String s: Accoppiamenti.keySet()){
             //System.out.println("STAMPO S ACCOPPIAMENTI");
             //System.out.println(s);
@@ -42,7 +42,7 @@ public class Round {
             //Partite.add(new Partita(g1, g2));
             //Risultati.add(new Partita(g1,g2).EseguiPartita().getNome());
             System.out.println("Inizo Partita:"+ " "+ g1.getNome()+" - "+g2.getNome());
-            String c = new Partita(g1,g2).simula().getNome();
+            String c = new Partita(g1,g2,id_regolamento).simula().getNome();
             System.out.println("Vincitore:");
             System.out.println(c);
             Risultati.add(c);

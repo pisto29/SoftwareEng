@@ -2,6 +2,7 @@ package Entity;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -11,15 +12,80 @@ public class Partita {
     private Giocatore player1;
     private Giocatore player2;
     private Turno t;
+    private boolean giocabile;
     private RegolamentoComponent regolamento;
     private String id_regolamento;
-    public Partita(Giocatore player1, Giocatore player2) {
+    public Partita(Giocatore player1, Giocatore player2,String id_regolamento) throws FileNotFoundException {
     this.player1 = player1;
     this.player2 = player2;
+    this.id_regolamento=id_regolamento;
+   
+    this.regolamento=RegolamentoFactorySingleton.getIstanza().CreaRegolamento(id_regolamento);
+    this.giocabile=this.checksquadre();
     this.t = new Turno(0, Fase.Inizio_turno);
 }
 
+private boolean checksquadre(){
+    boolean rit=false;
+    if(!regolamento.VerificaRegolamento(player1.getSquadra().get(this.player1.getSquadraSelezionata()))){
+        ArrayList<Squadra> Utilizzabile=new ArrayList<>();
+        int utilizzabili=0;
+        for(Squadra s:this.player1.getSquadra()){
+            if(this.regolamento.VerificaRegolamento(s)){
+            Utilizzabile.add(s);
+                utilizzabili++;
+        }
+            else
+            Utilizzabile.add(null);
 
+        }
+        if(utilizzabili>0){
+        try {
+            this.player1.setSquadraSelezionata(new View().ScegliSquadra(Utilizzabile));
+            rit=true;
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    else{
+        new View().Messaggi("NoSquadre");
+        rit=false;
+        
+    }
+
+}
+else{rit=true;}
+if(!regolamento.VerificaRegolamento(player2.getSquadra().get(this.player2.getSquadraSelezionata()))){
+    ArrayList<Squadra> Utilizzabile=new ArrayList<>();
+    int utilizzabili=0;
+    for(Squadra s:this.player2.getSquadra()){
+        if(this.regolamento.VerificaRegolamento(s)){
+        Utilizzabile.add(s);
+            utilizzabili++;
+    }
+        else
+        Utilizzabile.add(null);
+
+    }
+    if(utilizzabili>0){
+    try {
+        this.player1.setSquadraSelezionata(new View().ScegliSquadra(Utilizzabile));
+        rit=true;
+    } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+}
+else{
+    new View().Messaggi("NoSquadre");
+    rit=false;
+    
+}
+
+}
+return rit;
+}
 
 
 public boolean gioca(String m1, String m2, Personaggio p1, Personaggio p2, HashMap<Strumento,Personaggio> s1, HashMap<Strumento,Personaggio> s2){
@@ -135,6 +201,10 @@ else{
 
 
 public Giocatore EseguiPartita() throws IOException{
+    if(!this.giocabile){
+        new View().Messaggi("non giocabile");
+        return null;
+    }
         int i=1;
         int azione1=0;
         int azione2=0;
@@ -310,12 +380,13 @@ public void CambioPerKoP2(Personaggio P){
 public static void main(String[] args) throws IOException {
     Giocatore g1 = builder.CreaGiocatore("G1");
      Giocatore g2 = builder.CreaGiocatore("G2");
-     Partita p=new Partita(g1, g2);
+     Partita p=new Partita(g1, g2,"RegolaLimitazioneNPersonaggi_3");
      p.EseguiPartita();
     
 }
 
 public Giocatore simula(){
+
     int v = new Random().nextInt(2);
    
     if(v == 0)

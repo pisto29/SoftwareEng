@@ -68,6 +68,9 @@ public void Messaggi(String messaggi){
         break;
         case "PartecipantiInsufficienti":
         System.out.println("Il torneo non può partire non ci sono abbastanza partecipanti");
+        break;
+        case "non giocabile":
+        System.out.println("La partita non può essere giocata perchè uno dei due giocatori non ha alcuna squadra conforme");
         default: 
     }
 }

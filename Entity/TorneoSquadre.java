@@ -23,7 +23,7 @@ public HashMap<String,Integer>Punteggio;
     @Override
     public void AvviaPartite() throws IOException {
         // TODO Auto-generated method stub
-        this.round.AvviaPartite(this.Partecipanti);
+        this.round.AvviaPartite(this.Partecipanti,this.id_regolamento);
         
     }
 
@@ -38,6 +38,9 @@ public HashMap<String,Integer>Punteggio;
             int n1= new Random().nextInt((NumeroPartecipanti/2));
             //int n2= new Random().nextInt(NumeroPartecipanti-1);
             int n2 = new Random().nextInt(NumeroPartecipanti/2, NumeroPartecipanti);
+            
+            
+            
             //System.out.println("NUM PARTECIPANTI: ");
             //System.out.println((NumeroPartecipanti/2));
             while(picked1.contains(n1)){
