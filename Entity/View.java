@@ -63,7 +63,12 @@ public void Messaggi(String messaggi){
         break;
         case "ko":
         System.out.println("pokemon ko");
-        default: System.out.println("");
+        break;
+        case "NoSquadre":System.out.println("Non hai squadre adatte a partecipare");
+        break;
+        case "PartecipantiInsufficienti":
+        System.out.println("Il torneo non può partire non ci sono abbastanza partecipanti");
+        default: 
     }
 }
 
@@ -243,12 +248,13 @@ return scelta;
 
         for (File file : files) {
             if (file.isFile()) {
-                results.add(file.getName().replaceAll(".txt", ""));
+                results.add(file.getName().replaceAll(".json", ""));
             }   
         }
         int i=1;
         for(String r:results){
             System.out.println(i+" "+r);
+            i++;
         }
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String st;
@@ -256,13 +262,29 @@ return scelta;
         do{
             st = br.readLine();
 
-       }while(Integer.parseInt(s)<1 && Integer.parseInt(s)>results.size());
-       int a=Integer.parseInt(s);
-       return results.get(a).concat(".json");
+       }while(Integer.parseInt(st)<1 && Integer.parseInt(st)>results.size());
+       int a=Integer.parseInt(st);
+       return results.get(a-1);
 
     }
+public Integer ScegliSquadra(ArrayList<Squadra>squadre) throws IOException{
+    System.out.println("Scegli quale squadra utilizzare");
+    int i=1;
+    for(Squadra s: squadre){
+    if(s!=null)
+    System.out.println(i+" "+s.getNomeSquadra());
+    i++;}
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String st;
 
-    public static void main(String[] args) {
+        do{
+            st = br.readLine();
+
+       }while(Integer.parseInt(st)<1 && Integer.parseInt(st)>squadre.size());
+       return Integer.parseInt(st);
+
+}
+    public static void main(String[] args) throws IOException {
         View v = new View();
         v.SceltaRegolamento();
     }

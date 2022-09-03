@@ -3,6 +3,7 @@ package Entity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.*;
 import java.security.KeyStore.Entry;
@@ -11,7 +12,7 @@ public class TorneoItaliana extends Torneo {
 public HashMap<String,Integer> classifica;
 
 
-    public TorneoItaliana(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) {
+    public TorneoItaliana(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) throws FileNotFoundException {
         super(numeroPartecipanti, accessibilita, id_regolamento);
         classifica=new HashMap<>();
         
@@ -102,10 +103,30 @@ public static void main(String[] args) {
     @Override
     public void Partecipa(Giocatore u) {
         if(this.Partecipanti.size()<this.NumeroPartecipanti){
+            ArrayList<Squadra> Utilizzabile=new ArrayList<>();
+            int utilizzabili=0;
+            for(Squadra s:u.getSquadra()){
+                if(this.Regolamento.VerificaRegolamento(s)){
+                Utilizzabile.add(s);
+                    utilizzabili++;
+            }
+                else
+                Utilizzabile.add(null);
+
+            }
+            if(utilizzabili>0){
+            try {
+                u.setSquadraSelezionata(new View().ScegliSquadra(Utilizzabile));
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
             this.classifica.put(u.getNome(), 0);
            // this.squadre.put(u.getNome(), s);
             this.Partecipanti.add(u);
-        }
+        }else{new View().Messaggi("NoSquadre");}}
+        
         
     }
 
@@ -122,7 +143,8 @@ public static void main(String[] args) {
     }
 
    public void esecuzione() throws IOException{
-
+    //System.out.println("Partecipanti:");
+    if(!(this.round.getNumero()==0&&this.Partecipanti.size()!=this.NumeroPartecipanti)){
     while(this.round.getNumero()<this.NumeroPartecipanti-1) {
         System.out.println("ROUND NUMERO: "+ this.round.getNumero());
         this.GeneraAccoppiamenti();
@@ -132,7 +154,8 @@ public static void main(String[] args) {
     }
     System.out.println("RISULTATO:");
 
-    System.out.println(this.ris() + "  " + this.classifica.get(this.ris()));
+    System.out.println(this.ris() + "  " + this.classifica.get(this.ris()));}
+    else{new View().Messaggi("PartecipantiInsufficienti");}
 
    }
   

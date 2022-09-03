@@ -17,19 +17,21 @@ public class Server {
         String id_torneo;
         Torneo t;
         boolean accessibilita;
+        String id_regolamento;
         n = this.v.NumeroPartecipanti();
         id_torneo = this.v.CreazioneTorneo();
         accessibilita = this.v.AccessibilitàTorneo();
+        id_regolamento=this.v.SceltaRegolamento();
 
         switch(id_torneo){
             case "Italiana":
-                t = new TorneoItaliana(n,accessibilita,null);
+                t = new TorneoItaliana(n,accessibilita,id_regolamento);
                 break;
             case "Eliminazione":
-                t = new TorneoEliminazioneDiretta(n,accessibilita,null);
+                t = new TorneoEliminazioneDiretta(n,accessibilita,id_regolamento);
                 break;
             case "Squadre":
-                t = new TorneoSquadre(n, accessibilita, null);
+                t = new TorneoSquadre(n, accessibilita, id_regolamento);
                 break;
             default : t = null;
 

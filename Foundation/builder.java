@@ -241,7 +241,7 @@ public class builder {
     public static RegolamentoComponent creaRegolamentoComposite(String idRegolamento) throws FileNotFoundException {
         Gson gson = new Gson();
         RegolamentoComponent E=null;
-        if(idRegolamento.contains("Multiplo")){
+        if(idRegolamento.contains("Multipla")){
                 ArrayList <EffettoComposite> effetti = new ArrayList<>();
             
                 BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+idRegolamento+".json"));
@@ -249,7 +249,7 @@ public class builder {
                 ArrayList<RegolamentoComponent> regole=new ArrayList<>();
                 A.setRegole(regole);
                 for (String nomeEffetto : A.getIdRegole()) {
-                    BufferedReader br2 = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+nomeEffetto+".json"));
+                    BufferedReader br2 = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/Regolamento/"+nomeEffetto+".json"));
                     String effetto = nomeEffetto.split("_")[0];
                     switch(effetto){
                         case "RegolaLimitazioneNPersonaggi":
@@ -268,8 +268,8 @@ public class builder {
                         break;
 
                     
-                        case "NoEffetto":
-                        E = gson.fromJson(br2, NoEffetto.class);
+                        case "NoRegole":
+                        E = gson.fromJson(br2, NoRegole.class);
                         A.Add(E);
                         break;
                     }
@@ -278,7 +278,7 @@ public class builder {
              E = A;
         }
         else{
-            BufferedReader br2 = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+idRegolamento+".json"));
+            BufferedReader br2 = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/Regolamento/"+idRegolamento+".json"));
             String effetto = idRegolamento.split("_")[0];
                     switch(effetto){
                         case "RegolaLimitazioneNPersonaggi":
@@ -297,8 +297,9 @@ public class builder {
                         break;
 
 
-                        case "NoEffetto":
-                        E = gson.fromJson(br2, NoEffetto.class);
+                        case "NoRegole":
+                        //E = gson.fromJson(br2, NoRegole.class);
+                        E= new NoRegole();
                        
                         break;
                     }
@@ -328,12 +329,13 @@ public class builder {
         //System.out.println(a.toString());
        // a.Attivazione(null, null);
        //Squadra s= builder.creaSquadra("squadra1");
-       Giocatore g = builder.CreaGiocatore("G1");
-       System.out.println(g.toString());
+       //Giocatore g = builder.CreaGiocatore("G1");
+       //System.out.println(g.toString());
       /*for(Personaggio p: s.getPersonaggios()){
         System.out.println(p.toString());
       }*/
-      
+      RegolamentoComponent r=builder.creaRegolamentoComposite("RegolaLimitazioneNPersonaggi_3");
+      System.out.println(r.toString());
     }
 }
 

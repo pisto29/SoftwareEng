@@ -1,20 +1,26 @@
 package Entity;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import Foundation.builder;
 
 public abstract class Torneo {
     protected int NumeroPartecipanti;
     protected boolean Accessibilita;
     protected String codice;
     protected Round round;
-    
+    protected RegolamentoComponent Regolamento;
     protected ArrayList<Giocatore>Partecipanti;
     protected String id_regolamento;
-    public Torneo(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) {
+    public Torneo(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) throws FileNotFoundException {
         
         this.id_regolamento=id_regolamento;
+        System.out.println("creo regolamento "+this.id_regolamento);
+        this.Regolamento=builder.creaRegolamentoComposite(id_regolamento);
+        System.out.println(this.Regolamento.toString());
         Partecipanti=new ArrayList<>();
         round=new Round(0);
         NumeroPartecipanti = numeroPartecipanti;
