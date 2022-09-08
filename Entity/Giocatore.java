@@ -3,6 +3,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
+
 import Foundation.builder;
 
 public class Giocatore {
@@ -20,7 +23,7 @@ public class Giocatore {
         this.matchmaking = matchmaking;
     }
 
-    public Giocatore( Giocatore g) throws FileNotFoundException{
+    public Giocatore( Giocatore g) throws FileNotFoundException, JsonSyntaxException, JsonIOException, ClassNotFoundException{
         this.squadra=new ArrayList<>();
         this.idSquadra=new ArrayList<>();
         this.nome = g.getNome();

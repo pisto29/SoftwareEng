@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class EffettoCura implements EffettoStrumento {
 
     private int PS;
+    public EffettoCura(int pS) {
+        PS = pS;
+    }
     @Override
     public void ApplicaEffettoStrumento(Personaggio P) {
         // TODO Auto-generated method stub

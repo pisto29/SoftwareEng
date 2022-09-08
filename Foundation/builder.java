@@ -9,12 +9,120 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.lang.reflect.Type;
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 import Entity.*;
+import Entity.EffettoCura;
 
 public class builder {
-    public static Strumento CreaStrumento(String id) throws FileNotFoundException{
+    //EFFETTI MOSSE
+    public static EffettoAnnullaMossa creaEffettoAnnullaMossa(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+id+".json"));
+        
+        EffettoAnnullaMossa e = new EffettoAnnullaMossa(gson.fromJson(br, EffettoAnnullaMossa.class)); 
+        
+        return e;
+
+    }
+    public static EffettoModificaAttacco creaEffettoModificaAttacco(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+id+".json"));
+        
+        EffettoModificaAttacco e = new EffettoModificaAttacco(gson.fromJson(br, EffettoModificaAttacco.class)); 
+        
+        return e;
+
+    }
+    public static EffettoModificaVelocita creaEffettoModificaVelocita(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+id+".json"));
+        
+        EffettoModificaVelocita e = new EffettoModificaVelocita(gson.fromJson(br, EffettoModificaVelocita.class)); 
+        
+        return e;
+
+    }
+    public static EffettoStatus creaEffettoStatus(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+id+".json"));
+        
+        EffettoStatus e = new EffettoStatus(gson.fromJson(br, EffettoStatus.class)); 
+        
+        return e;
+
+    }
+    public static EffettoModificaDifesa creaEffettoModificaDifesa(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+id+".json"));
+        
+        EffettoModificaDifesa e = new EffettoModificaDifesa(gson.fromJson(br, EffettoModificaDifesa.class)); 
+        
+        return e;
+
+    }
+    public static EffettoModificaAttaccoSpeciale creaEffettoModificaAttaccoSpeciale(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+id+".json"));
+        
+        EffettoModificaAttaccoSpeciale e = new EffettoModificaAttaccoSpeciale(gson.fromJson(br, EffettoModificaAttaccoSpeciale.class)); 
+        
+        return e;
+
+    }
+    public static EffettoModificaDifesaSpeciale creaEffettoModificaDifesaSpeciale(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+id+".json"));
+        
+        EffettoModificaDifesaSpeciale e = new EffettoModificaDifesaSpeciale(gson.fromJson(br, EffettoModificaDifesaSpeciale.class)); 
+        
+        return e;
+
+    }
+/////////////fine effetti mosse/////////////////////////
+////////////EFFETTI STRUMENTO//////////////////////////
+public static EffettoCura creaEffettoCura(String id) throws FileNotFoundException{
+    Gson gson = new Gson();
+    
+    BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effettoStrumento/"+id+".json"));
+    
+    EffettoCura e =gson.fromJson(br, EffettoCura.class);
+    
+    return e;
+
+}
+public static EffettoRevitalizzante creaEffettoRevitalizzante(String id) throws FileNotFoundException{
+    Gson gson = new Gson();
+    
+    BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effettoStrumento/"+id+".json"));
+    
+    EffettoRevitalizzante e =gson.fromJson(br, EffettoRevitalizzante.class);
+    
+    return e;
+
+}
+public static EffettoRimozioneStatus creaEffettoRimozioneStatus(String id) throws FileNotFoundException{
+    Gson gson = new Gson();
+    
+    BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effettoStrumento/"+id+".json"));
+    
+    EffettoRimozioneStatus e=new EffettoRimozioneStatus(gson.fromJson(br, EffettoRimozioneStatus.class));
+    
+    return e;
+
+}
+//////// fine strumenti/////
+
+    public static Strumento CreaStrumento(String id) throws FileNotFoundException, JsonSyntaxException, JsonIOException, ClassNotFoundException{
         Gson gson = new Gson();
         //String filePath = new File("").getAbsolutePath();
         //filePath.concat("path to the property file");
@@ -47,7 +155,7 @@ public class builder {
        
     }
 
-    public static Squadra creaSquadra(String id) throws FileNotFoundException{
+    public static Squadra creaSquadra(String id) throws FileNotFoundException, JsonSyntaxException, JsonIOException, ClassNotFoundException{
         Gson gson = new Gson();
         
         BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/squadra/"+id+".json"));
@@ -101,7 +209,7 @@ public class builder {
        
     }
 
-    public static  EffettoStrumento CreaEffettoStrumento(String id) throws FileNotFoundException{
+    public static  EffettoStrumento CreaEffettoStrumento(String id,String classe) throws FileNotFoundException{
         Gson gson = new Gson();
         //String filePath = new File("").getAbsolutePath();
         //filePath.concat("path to the property file");
@@ -111,18 +219,36 @@ public class builder {
         String effetto = id.split("_")[0];
         
         EffettoStrumento E = null;
-        switch(effetto){
-            case "effettoCura" :
+        switch(classe){
+            case "EffettoCura" :
                 E = gson.fromJson(br, EffettoCura.class);
                 break;
-            case "effettoRimozioneStatus" :
+            case "EffettoRimozioneStatus" :
                 E =new EffettoRimozioneStatus( gson.fromJson(br, EffettoRimozioneStatus.class));
                 break;
-            case "effettoRevitalizzante" :
+            case "EffettoRevitalizzante" :
                 E = gson.fromJson(br, EffettoRevitalizzante.class);
                 break;
 
         }
+        
+        return E;
+    }
+
+    public static  EffettoStrumento CreaEffettoStrumento2(String id,Class a) throws FileNotFoundException, JsonSyntaxException, JsonIOException, ClassNotFoundException{
+        Gson gson = new Gson();
+        //String filePath = new File("").getAbsolutePath();
+        //filePath.concat("path to the property file");
+       
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effettoStrumento/"+id+".json"));
+        
+       
+        
+        EffettoStrumento E = null;
+        
+            
+        E = (EffettoStrumento) gson.fromJson(br, a);
+       
         
         return E;
     }
@@ -228,7 +354,7 @@ public class builder {
 
     }
 
-    public static Giocatore CreaGiocatore(String id) throws FileNotFoundException{
+    public static Giocatore CreaGiocatore(String id) throws FileNotFoundException, JsonSyntaxException, JsonIOException, ClassNotFoundException{
         Gson gson = new Gson();
         BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/giocatore/"+id+".json"));
         
@@ -308,6 +434,41 @@ public class builder {
         return E;
 
     }
+    //REGOLE//
+    public static RegolaLimitazioneTipo creaRegolaLimitazioneTipo(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/Regolamento/"+id+".json"));
+        
+        RegolaLimitazioneTipo e = new RegolaLimitazioneTipo(gson.fromJson(br, RegolaLimitazioneTipo.class)); 
+        
+        return e;
+
+    }
+    public static RegolaLimitazioneNPersonaggi creaRegolaLimitazionenLimitazioneNPersonaggi(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/Regolamento/"+id+".json"));
+        
+        RegolaLimitazioneNPersonaggi e = new RegolaLimitazioneNPersonaggi(gson.fromJson(br, RegolaLimitazioneNPersonaggi.class)); 
+        
+        return e;
+
+    }
+
+    public static RegolaLimitazioneNStrumento creaRegolaLimitazionenLimitazioneNStrumento(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/Regolamento/"+id+".json"));
+        
+        RegolaLimitazioneNStrumento e = new RegolaLimitazioneNStrumento(gson.fromJson(br, RegolaLimitazioneNStrumento.class)); 
+        
+        return e;
+
+    }
+
+
+    //FINE REGOLE//
     public static void main(String[] args) throws FileNotFoundException {
       /* Mossa a= builder.CreaMossa("azione");
       Tipo t= builder.CreaTipo("Normale");

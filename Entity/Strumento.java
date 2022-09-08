@@ -3,6 +3,9 @@ package Entity;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
+
 import Foundation.builder;
 
 public class Strumento {
@@ -12,13 +15,15 @@ public class Strumento {
     private String idEffetto;
     private Boolean utilizzato;
 
-    public Strumento(Strumento s) {
+    public Strumento(Strumento s) throws JsonSyntaxException, JsonIOException, ClassNotFoundException {
         this.nomeStrumento=s.nomeStrumento;
         this.idEffetto=s.idEffetto;
         this.utilizzato = false;
         try {
-     
-            this.effetto=builder.CreaEffettoStrumento(s.idEffetto);
+         
+            String classe = s.idEffetto.split("_")[0];
+            this.effetto=builder.CreaEffettoStrumento(s.idEffetto,classe);
+            
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

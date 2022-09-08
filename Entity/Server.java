@@ -2,6 +2,9 @@ package Entity;
 
 import java.io.IOException;
 
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
+
 import Foundation.builder;
 
 public class Server {
@@ -45,7 +48,7 @@ public class Server {
 
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, JsonSyntaxException, JsonIOException, ClassNotFoundException {
         View v = new View();
         Server s = new Server(v);
         Torneo t;

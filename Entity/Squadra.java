@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
+
 import Foundation.builder;
 
 public class Squadra {
@@ -19,7 +22,7 @@ public class Squadra {
         this.personaggios = personaggios;
         this.strumentos = strumentos;
     }
-    public Squadra(Squadra s) throws FileNotFoundException{
+    public Squadra(Squadra s) throws FileNotFoundException, JsonSyntaxException, JsonIOException, ClassNotFoundException{
         this.nomeSquadra=s.getNomeSquadra();
         this.id=s.getId();
         this.id_strumenti=s.getId_strumenti();

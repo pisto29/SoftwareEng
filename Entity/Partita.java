@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
+
 import Foundation.builder;
 
 public class Partita {
@@ -377,7 +380,7 @@ public void CambioPerKoP2(Personaggio P){
    // t.setSostituzioneg1(null);
    
 }
-public static void main(String[] args) throws IOException {
+public static void main(String[] args) throws IOException, JsonSyntaxException, JsonIOException, ClassNotFoundException {
     Giocatore g1 = builder.CreaGiocatore("G1");
      Giocatore g2 = builder.CreaGiocatore("G2");
      Partita p=new Partita(g1, g2,"NoRegole_");
