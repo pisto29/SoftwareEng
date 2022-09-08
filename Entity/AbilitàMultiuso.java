@@ -3,71 +3,23 @@ package Entity;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
-public class AbilitàMultiuso implements Abilità {
+public class AbilitàMultiuso extends Abilità {
 
-    private String id;
-    private EffettoComposite effetti_self;
-    private EffettoComposite effetti;
-    private Fase fase_attivazione;
-    private String implementator_type; 
-    private AbilitàImplementator implementator;
-    private int PercentualeAttivazione;
-    private String id_effetti;
-    private String id_effetti_self;
-    private String nome;
+    
 
   
 
-    public AbilitàMultiuso(EffettoComposite effetti_self, EffettoComposite effetti, Fase fase_attivazione,
-            String implementator_type, AbilitàImplementator implementator, int percentualeAttivazione,
-            String id_effetti, String id_effetti_self, String id) {
-        this.id=id;
-        this.effetti_self = effetti_self;
-        this.effetti = effetti;
-        this.fase_attivazione = fase_attivazione;
-        this.implementator_type = implementator_type;
-        this.implementator = implementator;
-        PercentualeAttivazione = percentualeAttivazione;
-        this.id_effetti = id_effetti;
-        this.id_effetti_self = id_effetti_self;
+    
+
+
+    public AbilitàMultiuso(Fase fase_attivazione, String implementator_type, int percentualeAttivazione,
+            String id_effetti, String id_effetti_self, String id, String nome) {
+        super(fase_attivazione, implementator_type, percentualeAttivazione, id_effetti, id_effetti_self, id, nome);
     }
-
-
-    public AbilitàMultiuso(AbilitàMultiuso a){
-        
-        this.effetti_self = a.getEffetti_self();
-        this.id=a.getId();
-        this.fase_attivazione = a.getFase_attivazione();
-        this.PercentualeAttivazione=a.getPercentualeAttivazione();
-        this.id_effetti=a.getId_effetti();
-        this.id_effetti_self=a.getId_effetti_self();
-        this.nome = a.getNome();
-        this.implementator_type=a.getImplementator_type();
-        switch(this.implementator_type){
-            case "attacco":
-            this.implementator=AbilitàAttaccoBridge.getIstanza();
-            break;
-            case "difesa":
-            this.implementator=AbilitàDifesaBridge.getIstanza();
-            break;
-            default:this.implementator=AbilitàNeutraBridge.getIstanza();
-        }
-        try {
-            this.effetti=FlyweightEffettoFactorySingleton.getIstanza().createEffetto(this.id_effetti);
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        try {
-            this.effetti_self=FlyweightEffettoFactorySingleton.getIstanza().createEffetto(this.id_effetti_self);
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public AbilitàMultiuso(Abilità a) {
+        super( a.getFase_attivazione(), a.getImplementator_type(), a.getPercentualeAttivazione(),
+        a.getId_effetti(), a.getId_effetti_self(), a.getId(), a.getNome());
     }
-
-
     @Override
     public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio) {
         // TODO Auto-generated method stub
@@ -79,7 +31,7 @@ public class AbilitàMultiuso implements Abilità {
         
         
     }
-    public EffettoComposite getEffetti_self() {
+  /*   public EffettoComposite getEffetti_self() {
         return effetti_self;
     }
     public void setEffetti_self(EffettoComposite effetti_self) {
@@ -169,5 +121,5 @@ public class AbilitàMultiuso implements Abilità {
         this.nome = nome;
     }
    
-    
+    */
 }

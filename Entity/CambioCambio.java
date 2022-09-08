@@ -34,6 +34,10 @@ public class CambioCambio implements EsecuzioneTurno{
         if(!t.checkKoP1())t.checkStatusP1();
     }
     private void p(Turno t, Personaggio primo, Personaggio secondo){
+        primo.setAttacca(false);
+  primo.setDifende(false);
+  secondo.setAttacca(false);
+  secondo.setDifende(false);
         t.EseguiAbilità(primo);
         t.EseguiAbilità(secondo);
         t.FineTurnoKo();

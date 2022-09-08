@@ -1,11 +1,14 @@
 package Entity;
 
+import java.util.Random;
+
 public class PersonaggioAttivoSingleton implements RuoloState {
 private static PersonaggioAttivoSingleton istanza1;
 private static PersonaggioAttivoSingleton istanza2;
 private static String topass="istanza1";
 
-
+    private boolean attacca;
+    private boolean difende;
     private float moltiplicatoreAttacco;
     private float moltiplicatoreDifesa;
     private float moltiplicatoreAttSpec;
@@ -44,6 +47,8 @@ private static String topass="istanza1";
         this.moltiplicatoreDifSpec = moltiplicatoreDifSpec;
         this.moltiplicatoreVelocita = moltiplicatoreVelocita;
         this.abilitazioneAttacco = abilitazioneAttacco;
+        this.attacca=false;
+        this.difende=false;
         this.priorità=0;
     }
 
@@ -65,15 +70,6 @@ private static String topass="istanza1";
         return modificatore;
     }*/
 
-    private boolean IsStab(Mossa m, Personaggio p1){
-        boolean stab = false;
-        for(int i = 0 ; i < 2 ; i++){
-            if(m.getTipo() == p1.getTipos().get(i))
-             stab = true; 
-        }
-  
-        return stab;
-    }
 
     
    /* @Override ATTACCA REINDIRIZZATO ALL IMPLEMENTATOR
@@ -102,13 +98,108 @@ private static String topass="istanza1";
     @Override 
     public float Attacca(Personaggio p1, Mossa m) {
    
-        return this.implementator.attacca(p1, m);
+       // return this.implementator.attacca(p1, m);
+       // System.out.println(m.getNomeMossa()+"da usare");
+       float attacco=0;
+       m.setPp(m.getPp()-1);
+      System.out.println("QUI SCALO PP");
+      if(m.getTipologia().equals(Tipologia.Fisico)) attacco=p1.getAttaccoPersonaggio();
+      else attacco=p1.getAttaccoSpecialePersonaggio();
+     /*  System.out.println("in attaccante bridge l'attacco del pokemon e "+attacco);
+      System.out.println("in attaccante bridge il danno della mossa e"+m.getDanno());*/
+      float danno=m.getDanno()*attacco;
+      danno= danno* this.CalcoloModificatore(m, p1);
+      //System.out.println("in attaccante bridge il danno e "+danno);
+      return  danno;
     }
    
     @Override 
     public boolean Difendi(Personaggio p1, Mossa m, float danno) {
-        return this.implementator.difendi(danno, m, p1);
+       // return this.implementator.difendi(danno, m, p1);
+       float eff=this.efficacia(p1, m);
+       danno=danno*eff;
+       float difesa=0;
+       if(eff==0){
+           return false;
+           }
+       if(m.getTipologia().equals(Tipologia.Fisico)) difesa=p1.getDifesaPersonaggio();
+       else difesa=p1.getDifesaSpecialePersonaggio();
+       danno=danno/difesa;
+       if(this.miss(m)){danno=0f;
+       System.out.println("l'attacco fallisce");
+       return false;
+       }
+       
+       int d= (int) danno;
+       if(danno>0)
+       System.out.println(p1.getNomePersonaggio()+" perde "+danno+" ps");
+       p1.setpS(p1.getpS()-d);
+       if(p1.getpS()<0)p1.setpS(0);
+       if(p1.getpS()==0)p1.Sostituzione();
+       return true;
     }
+
+    ///
+    private boolean IsStab(Mossa m, Personaggio p1){
+        boolean stab = false;
+       /*  for(int i = 0 ; i < 2 ; i++){
+            if(m.getTipo() == p1.getTipos().get(i))
+             stab = true; 
+        }*/
+        for(Tipo t: p1.getTipos()){
+            if(m.getTipo().getNomeTipo().equals(t.getNomeTipo())){
+                stab = true;
+            }
+        }
+  
+        return stab;
+    }
+
+    private float CalcoloModificatore(Mossa m, Personaggio p1 ){
+
+        float modificatore = 1;
+        
+        if(m.CheckCritico()){
+            modificatore = modificatore * 2f;
+        System.out.println("Brutto colpo effettuato");
+        }
+        
+        if(IsStab(m, p1))
+            modificatore = modificatore * 1.33f;
+        
+        
+
+        return modificatore;
+    }
+///metodi difesa///
+
+private boolean miss(Mossa m){
+    if(m.getPrecisione()<new Random().nextInt(100)) return true;
+    else return false;
+}
+
+
+
+
+
+private float efficacia(Personaggio p1, Mossa m){
+      /*float efficacia = m.getTipo().getEfficacia(p1.getTipos().get(0).getNomeTipo()) ;
+      if (p1.getTipos().get(1)!=null) 
+      efficacia=efficacia* m.getTipo().getEfficacia(p1.getTipos().get(1).getNomeTipo());*/
+      float efficacia = 1;
+      for(Tipo t: p1.getTipos()){
+        efficacia = efficacia*m.getTipo().getEfficacia(t.getNomeTipo());
+       
+        }
+        if(efficacia==0)System.out.println("Non ha effetto su "+p1.getNomePersonaggio());
+        if(efficacia>1)System.out.println("è superefficace");
+        if(efficacia<1&&efficacia>0)System.out.println("non è molto efficace");
+    
+      return efficacia;
+      //a
+}
+////
+    ///
 
     @Override
     public void Sostituzione(Personaggio P1) {
@@ -301,6 +392,28 @@ public void setPriorità(int priorità) {
 public boolean isAbilitato() {
     // TODO Auto-generated method stub
     return this.abilitazioneAttacco;
+}
+@Override
+public boolean attacca() {
+    // TODO Auto-generated method stub
+    return this.attacca;
+}
+@Override
+public boolean difende() {
+    // TODO Auto-generated method stub
+    return this.difende;
+}
+@Override
+public void setAttacca(boolean a) {
+    // TODO Auto-generated method stub
+    this.attacca=a;
+    
+}
+@Override
+public void setDifende(boolean a) {
+    // TODO Auto-generated method stub
+    this.difende=a;
+    
 }
 
     

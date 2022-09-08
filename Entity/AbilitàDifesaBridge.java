@@ -14,7 +14,9 @@ public class AbilitàDifesaBridge implements AbilitàImplementator {
     @Override
     public void ApplicaEffetto(Personaggio utilizzatore, Personaggio bersaglio) {
         //System.out.println(utilizzatore.getImplementator().getClass().getSimpleName());
-        if(utilizzatore.getImplementator().getClass().getSimpleName().equals("difensoreBridge")){
+      //  if(utilizzatore.getImplementator().getClass().getSimpleName().equals("difensoreBridge"))
+      if(utilizzatore.difendi())
+      {
             //System.out.println(utilizzatore.getImplementator().getClass().getSimpleName());
             System.out.println("Si attiva l'abilità "+ utilizzatore.getAbilità().getNome() +" di "+ utilizzatore.getNomePersonaggio());
             utilizzatore.getAbilità().getEffetti_self().ApplicaEffetto(utilizzatore);

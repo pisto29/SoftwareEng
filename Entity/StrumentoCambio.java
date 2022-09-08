@@ -41,6 +41,10 @@ public class StrumentoCambio implements EsecuzioneTurno{
     }
 
     private void P(Turno t, Personaggio primo, Personaggio secondo){
+        primo.setAttacca(false);
+  primo.setDifende(false);
+  secondo.setAttacca(false);
+  secondo.setDifende(false);
         t.EseguiAbilità(primo);
         t.EseguiAbilità(secondo);
         t.FineTurnoKo();

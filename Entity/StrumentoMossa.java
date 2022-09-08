@@ -6,8 +6,10 @@ public class StrumentoMossa implements EsecuzioneTurno {
     public void esecuzione(Turno t) {
         
         
-        ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
+        //ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
+        t.getP2().setAttacca(true);
         ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP1());
+        t.getP1().setDifende(true);
         t.utilizzaStrumento(t.getP1());
         Personaggio primo;
         Personaggio secondo;
@@ -91,6 +93,10 @@ public class StrumentoMossa implements EsecuzioneTurno {
             t.checkstatus(secondo);
             t.FineTurnoKo();
         }
+        primo.setAttacca(false);
+  primo.setDifende(false);
+  secondo.setAttacca(false);
+  secondo.setDifende(false);
         t.setFase(Fase.Fine_Turno);
         if(!t.checkKo(primo))t.EseguiAbilità(primo);
         if(!t.checkKo(secondo))t.EseguiAbilità(secondo);

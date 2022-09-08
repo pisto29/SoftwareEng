@@ -3,7 +3,7 @@ package Entity;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
-public class AbilitàMonouso implements Abilità{
+public class AbilitàMonouso extends Abilità{
 
     private boolean attivata;
     public boolean isAttivata() {
@@ -17,7 +17,7 @@ public class AbilitàMonouso implements Abilità{
     }
 
 
-    public EffettoComposite getEffetti_self() {
+ /*   public EffettoComposite getEffetti_self() {
         return effetti_self;
     }
 
@@ -44,50 +44,32 @@ public class AbilitàMonouso implements Abilità{
 
     public void setFase_attivazione(Fase fase_attivazione) {
         this.fase_attivazione = fase_attivazione;
-    }
+    }*/
 
 
-    private EffettoComposite effetti_self;
-    private EffettoComposite effetti;
-    private Fase fase_attivazione;
-    private String implementator_type; 
-    private AbilitàImplementator implementator;
-    private int PercentualeAttivazione;
-    private String id_effetti;
-    private String id_effetti_self;
-    private String id;
-    private String nome;
+   
   
 
-    public AbilitàMonouso(boolean attivata, EffettoComposite effetti_self, EffettoComposite effetti,
-            Fase fase_attivazione, String implementator_type, AbilitàImplementator implementator,
-            int percentualeAttivazione, String id_effetti, String id_effetti_self,String id) {
-                this.id=id;
+
+
+    public AbilitàMonouso(EffettoComposite effetti_self, EffettoComposite effetti, Fase fase_attivazione,
+            String implementator_type, AbilitàImplementator implementator, int percentualeAttivazione,
+            String id_effetti, String id_effetti_self, String id, String nome, boolean attivata,
+            EffettoComposite effetti_self2, EffettoComposite effetti2, Fase fase_attivazione2,
+            String implementator_type2, AbilitàImplementator implementator2, int percentualeAttivazione2,
+            String id_effetti2, String id_effetti_self2, String id2, String nome2) {
+        super( fase_attivazione, implementator_type,  percentualeAttivazione,
+                id_effetti, id_effetti_self, id, nome);
         this.attivata = attivata;
-        this.effetti_self = effetti_self;
-        this.effetti = effetti;
-        this.fase_attivazione = fase_attivazione;
-        this.implementator_type = implementator_type;
-        this.implementator = implementator;
-        PercentualeAttivazione = percentualeAttivazione;
-        this.id_effetti = id_effetti;
-        this.id_effetti_self = id_effetti_self;
+        
     }
 
 
     public AbilitàMonouso(AbilitàMonouso a){
-        this.id=a.getId();
-        this.attivata = a.isAttivata();
-        this.effetti_self = a.getEffetti_self();
-       
-        this.fase_attivazione = a.getFase_attivazione();
-        this.implementator_type=a.getImplementator_type();
-        this.PercentualeAttivazione=a.getPercentualeAttivazione();
-        this.id_effetti=a.getId_effetti();
-        this.id_effetti_self=a.getId_effetti_self();
-        this.nome = a.getNome();
-
-        switch(this.implementator_type){
+        super( a.getFase_attivazione(), a.getImplementator_type(), a.getPercentualeAttivazione(),
+        a.getId_effetti(), a.getId_effetti_self(), a.getId(), a.getNome());
+        this.attivata=a.isAttivata();
+       /*  switch(this.implementator_type){
             case "attacco":
             this.implementator=AbilitàAttaccoBridge.getIstanza();
             break;
@@ -108,7 +90,7 @@ public class AbilitàMonouso implements Abilità{
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
@@ -124,7 +106,7 @@ public class AbilitàMonouso implements Abilità{
     }
 
 
-    public String getImplementator_type() {
+  /*  public String getImplementator_type() {
         return implementator_type;
     }
 
@@ -202,5 +184,5 @@ public class AbilitàMonouso implements Abilità{
         this.nome = nome;
     }
     
-    
+    */
 }

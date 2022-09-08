@@ -396,7 +396,18 @@ public class Personaggio {
     public void setId_tipo(String[] id_tipo) {
         this.id_tipo = id_tipo;
     }
-
+    public boolean attacca(){
+        return this.ruolo.attacca();
+    }
+    public boolean difendi(){
+        return this.ruolo.difende();
+    }
+    public void setAttacca(boolean b){
+        this.ruolo.setAttacca(b);
+    }
+    public void setDifende(boolean a){
+        this.ruolo.setDifende(a);
+    }
     @Override
     public String toString() {
         return "Personaggio [abilità=" + abilità + ", attaccoPersonaggio=" + attaccoPersonaggio

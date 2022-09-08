@@ -176,6 +176,34 @@ public boolean isAbilitato() {
     }
 
 
+    @Override
+    public boolean attacca() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+
+    @Override
+    public boolean difende() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+
+    @Override
+    public void setAttacca(boolean a) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    @Override
+    public void setDifende(boolean a) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
 
     
 }

@@ -170,10 +170,12 @@ private void P2(Turno t){
 
     private void P(Turno t,Personaggio primo, Personaggio secondo){
         //System.out.println("si sta eseguendo p1 di mossamossa");
-    ImplementatorManagerSingleton.getIstanza().setattaccante(primo);
-    System.out.println(primo.getNomePersonaggio()+" "+primo.getRuolo().getImplementator());
-    ImplementatorManagerSingleton.getIstanza().setDifensore(secondo);
-    System.out.println(secondo.getNomePersonaggio()+" "+secondo.getRuolo().getImplementator());
+   // ImplementatorManagerSingleton.getIstanza().setattaccante(primo);
+   primo.setAttacca(true);
+    //System.out.println(primo.getNomePersonaggio()+" "+primo.getRuolo().getImplementator());
+    //ImplementatorManagerSingleton.getIstanza().setDifensore(secondo);
+secondo.setDifende(true);
+   // System.out.println(secondo.getNomePersonaggio()+" "+secondo.getRuolo().getImplementator());
     t.EseguiAbilità(primo);
     t.EseguiAbilità(secondo);
     t.FineTurnoKo();
@@ -193,10 +195,16 @@ private void P2(Turno t){
         t.checkstatus(primo);
         t.checkstatus(secondo);
         t.FineTurnoKo();
-        ImplementatorManagerSingleton.getIstanza().setattaccante(secondo);
+       /*  ImplementatorManagerSingleton.getIstanza().setattaccante(secondo);
         System.out.println(secondo.getNomePersonaggio()+" "+secondo.getRuolo().getImplementator());
         ImplementatorManagerSingleton.getIstanza().setDifensore(primo);
-        System.out.println(primo.getNomePersonaggio()+" "+primo.getRuolo().getImplementator());
+        System.out.println(primo.getNomePersonaggio()+" "+primo.getRuolo().getImplementator());*/
+        primo.setAttacca(false);
+        
+        secondo.setDifende(false);
+        secondo.setAttacca(true);
+        
+        primo.setDifende(true);
     }
     if(!t.getFase().equals(Fase.Fine_Turno)){
         t.setFase(Fase.Pre_azione); 

@@ -18,6 +18,10 @@ public interface RuoloState {
     public void AbiltaAttacco();
     public void DisabiltaAttacco();
     public boolean isAbilitato();
+    public boolean attacca();
+    public boolean difende();
+    public void setAttacca(boolean a);
+    public void setDifende(boolean a);
     public PersonaggioAttivoImplementator getImplementator();
     public void setImplementator(PersonaggioAttivoImplementator implementator);
     public int getPriorità();

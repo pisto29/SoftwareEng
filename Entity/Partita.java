@@ -380,7 +380,7 @@ public void CambioPerKoP2(Personaggio P){
 public static void main(String[] args) throws IOException {
     Giocatore g1 = builder.CreaGiocatore("G1");
      Giocatore g2 = builder.CreaGiocatore("G2");
-     Partita p=new Partita(g1, g2,"RegolaLimitazioneNPersonaggi_3");
+     Partita p=new Partita(g1, g2,"NoRegole_");
      p.EseguiPartita();
     
 }

@@ -36,8 +36,9 @@ public class CambioMossa implements EsecuzioneTurno{
       public void esecuzione(Turno t) {
         t.sostituisci(t.getP1());
         ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
-       
+       t.getP2().setAttacca(true);
         ImplementatorManagerSingleton.getIstanza().setDifensore(t.getP1());
+        t.getP1().setDifende(true);
        
         Personaggio primo;
         Personaggio secondo;
@@ -67,6 +68,10 @@ public class CambioMossa implements EsecuzioneTurno{
           t.checkstatus(secondo);
           t.FineTurnoKo();
       }
+      primo.setAttacca(false);
+  primo.setDifende(false);
+  secondo.setAttacca(false);
+  secondo.setDifende(false);
       t.setFase(Fase.Fine_Turno);
       if(!t.checkKo(primo))t.EseguiAbilità(primo);
       if(!t.checkKo(secondo))t.EseguiAbilità(secondo);
