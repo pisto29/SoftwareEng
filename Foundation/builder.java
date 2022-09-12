@@ -18,6 +18,16 @@ import Entity.EffettoCura;
 
 public class builder {
     //EFFETTI MOSSE
+    public static EffettoMultiploComposite creaEffettoMultiploComposite(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+id+".json"));
+        
+        EffettoMultiploComposite e =gson.fromJson(br, EffettoMultiploComposite.class); 
+        
+        return e;
+
+    }
     public static EffettoAnnullaMossa creaEffettoAnnullaMossa(String id) throws FileNotFoundException{
         Gson gson = new Gson();
         
@@ -364,7 +374,7 @@ public static EffettoRimozioneStatus creaEffettoRimozioneStatus(String id) throw
         return g;
 
     }
-    public static RegolamentoComponent creaRegolamentoComposite(String idRegolamento) throws FileNotFoundException {
+    public static RegolamentoComponent creaRegolamentoComposite2(String idRegolamento) throws FileNotFoundException {
         Gson gson = new Gson();
         RegolamentoComponent E=null;
         if(idRegolamento.contains("Multipla")){
@@ -435,6 +445,17 @@ public static EffettoRimozioneStatus creaEffettoRimozioneStatus(String id) throw
 
     }
     //REGOLE//
+     
+    public static RegolamentoComposite creaRegolamentoComposite(String id) throws FileNotFoundException{
+        Gson gson = new Gson();
+        
+        BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/Regolamento/"+id+".json"));
+        
+        RegolamentoComposite e = gson.fromJson(br, RegolamentoComposite.class); 
+        
+        return e;
+
+    }
     public static RegolaLimitazioneTipo creaRegolaLimitazioneTipo(String id) throws FileNotFoundException{
         Gson gson = new Gson();
         

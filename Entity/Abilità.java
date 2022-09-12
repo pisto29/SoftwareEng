@@ -37,14 +37,14 @@ public abstract class Abilità {
             default:this.implementator=AbilitàNeutraBridge.getIstanza();
         }
         try {
-            this.effetti=FlyweightEffettoFactorySingleton.getIstanza().createEffetto(this.id_effetti);
+            this.effetti=EffettoFactorySingleton.getIstanza().CreaEffetto(this.id_effetti);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
         try {
-            this.effetti_self=FlyweightEffettoFactorySingleton.getIstanza().createEffetto(this.id_effetti_self);
+            this.effetti_self=EffettoFactorySingleton.getIstanza().CreaEffetto(this.id_effetti_self);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();}

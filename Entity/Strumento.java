@@ -22,7 +22,21 @@ public class Strumento {
         try {
          
             String classe = s.idEffetto.split("_")[0];
-            this.effetto=builder.CreaEffettoStrumento(s.idEffetto,classe);
+           // String effetto = id.split("_")[0];
+        
+            EffettoStrumento E = null;
+            switch(classe){
+                case "EffettoCura" :
+                    E = builder.creaEffettoCura(s.idEffetto);
+                    break;
+                case "EffettoRimozioneStatus" :
+                    E =builder.creaEffettoRimozioneStatus(s.idEffetto);
+                    break;
+                case "EffettoRevitalizzante" :
+                    E =builder.creaEffettoRevitalizzante(s.idEffetto);
+                    break;
+    
+            }
             
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
