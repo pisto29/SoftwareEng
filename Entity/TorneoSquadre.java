@@ -106,24 +106,7 @@ public void aggiornaPunteggio(){
         // TODO Auto-generated method stub
         if(this.Partecipanti.size()<this.NumeroPartecipanti){
             // this.classifica.put(u.getNome(), 0);
-            ArrayList<Squadra> Utilizzabile=new ArrayList<>();
-             int utilizzabili=0;
-             for(Squadra s:u.getSquadra()){
-                 if(this.Regolamento.VerificaRegolamento(s)){
-                 Utilizzabile.add(s);
-                     utilizzabili++;
-             }
-                 else
-                 Utilizzabile.add(null);
- 
-             }
-             if(utilizzabili>0){
-             try {
-                 u.setSquadraSelezionata(new View().ScegliSquadra(Utilizzabile));
-             } catch (IOException e) {
-                 // TODO Auto-generated catch block
-                 e.printStackTrace();
-             }
+          
              this.Partecipanti.add(u);
             if(this.Partecipanti.size()<=this.NumeroPartecipanti/2){
                 Squadra1.add(u);
@@ -132,8 +115,8 @@ public void aggiornaPunteggio(){
                 Squadra2.add(u);
             }
              }
-             else{new View().Messaggi("NoSquadre");}
-     }
+             else{new View().Messaggi("NoPosti");}
+     
 
     }
 

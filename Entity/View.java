@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 public class View {
-
+public void CompletaTorneo(int n){
+    System.out.println("Mancano ancora "+n+" partecipanti");
+}
 public Personaggio SceltaPersonaggioCampo(Giocatore g,Squadra s,Personaggio p) throws IOException{
     int scelta=0;
     do{
@@ -66,8 +68,12 @@ public void Messaggi(String messaggi){
         break;
         case "NoSquadre":System.out.println("Non hai squadre adatte a partecipare");
         break;
+        case "NoPosti":System.out.println("Posti terminati");
+        break;
         case "PartecipantiInsufficienti":
         System.out.println("Il torneo non può partire non ci sono abbastanza partecipanti");
+        case "TorneoStart":
+        System.out.println("Iscrizioni concluse il torneo ha inizio");
         break;
         case "non giocabile":
         System.out.println("La partita non può essere giocata perchè uno dei due giocatori non ha alcuna squadra conforme");
@@ -237,7 +243,9 @@ return scelta;
        }
 
     }
-
+public void inizioIscrizione(String a){
+    System.out.println("Benvenuto "+a+" iscrizione in corso");
+}
 
     public String SceltaRegolamento() throws IOException{
         System.out.println("Seleziona un Regolamento: ");
@@ -284,7 +292,7 @@ public Integer ScegliSquadra(ArrayList<Squadra>squadre) throws IOException{
             st = br.readLine();
 
        }while(Integer.parseInt(st)<1 && Integer.parseInt(st)>squadre.size());
-       return Integer.parseInt(st);
+       return Integer.parseInt(st)-1;
 
 }
     public static void main(String[] args) throws IOException {

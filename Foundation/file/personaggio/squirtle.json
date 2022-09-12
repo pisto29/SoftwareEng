@@ -1,0 +1,11 @@
+{
+    "pS":"151",
+    "nomePersonaggio":"squirtle",
+    "attaccoPersonaggio":"110",
+    "difesaPersonaggio":"128",
+    "attaccoSpecialePersonaggio":"112",
+    "difesaSpecialePersonaggio":"127",
+    "velocitaPersonaggio":"104",
+    "id_abilita":"Monouso_Guscio",
+    "id_tipo":["Acqua"]
+}

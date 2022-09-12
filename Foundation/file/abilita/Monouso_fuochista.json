@@ -1,0 +1,9 @@
+{
+    "id":"Monouso_fuochista",
+    "fase_attivazione":"Pre_azione",
+    "implementator_type":"attacco",
+    "PercentualeAttivazione":"100",
+    "id_effetti_self":"EffettoModificaAttaccoSpeciale_1",
+    "id_effetti":"NoEffetto",
+    "nome": "Fuochista"
+}

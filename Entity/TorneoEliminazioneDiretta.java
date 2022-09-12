@@ -31,7 +31,7 @@ public class TorneoEliminazioneDiretta extends Torneo {
            // System.out.println(this.Partecipanti.get(i).getNome());
             //System.out.println(this.Partecipanti.get(i));
             if(!this.round.getRisultati().contains(this.Partecipanti.get(i).getNome())){
-                System.out.println("SI RIMUOVE:");
+                System.out.println(" è stato eliminato");
                 System.out.println(this.Partecipanti.get(i).getNome());
                 this.Partecipanti.remove(this.Partecipanti.get(i));
                 this.NumeroPartecipanti=this.NumeroPartecipanti-1;
@@ -39,7 +39,7 @@ public class TorneoEliminazioneDiretta extends Torneo {
             //System.out.println(j);
             //j = j+1;
         }
-        System.out.println("GIOCATORI RIMANENTI:"); 
+        System.out.println("i giocatori rimanenti sono:"); 
 
         for (Giocatore giocatore : Partecipanti) {
             System.out.println(giocatore.getNome());    
@@ -83,29 +83,23 @@ public class TorneoEliminazioneDiretta extends Torneo {
         // TODO Auto-generated method stub
         if(this.Partecipanti.size()<this.NumeroPartecipanti){
            // this.classifica.put(u.getNome(), 0);
-           ArrayList<Squadra> Utilizzabile=new ArrayList<>();
-            int utilizzabili=0;
-            for(Squadra s:u.getSquadra()){
-                if(this.Regolamento.VerificaRegolamento(s)){
-                Utilizzabile.add(s);
-                    utilizzabili++;
-            }
-                else
-                Utilizzabile.add(null);
-
-            }
-            if(utilizzabili>0){
-            try {
-                u.setSquadraSelezionata(new View().ScegliSquadra(Utilizzabile));
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+          
             this.Partecipanti.add(u);
             }
-            else{new View().Messaggi("NoSquadre");}
+            else{new View().Messaggi("NoPosti");}
+            if(this.Partecipanti.size()<this.NumeroPartecipanti){
+                new View().CompletaTorneo(this.NumeroPartecipanti-this.Partecipanti.size());
+            }
+            else{new View().Messaggi("TorneoStart");
+        try {
+            this.esecuzione();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        }
     }
-    }
+    
     
     public void esecuzione() throws IOException{
 

@@ -1,0 +1,11 @@
+{
+    "pS":"152",
+    "nomePersonaggio":"bulbasaur",
+    "attaccoPersonaggio":"111",
+    "difesaPersonaggio":"111",
+    "attaccoSpecialePersonaggio":"128",
+    "difesaSpecialePersonaggio":"128",
+    "velocitaPersonaggio":"106",
+    "id_abilita":"Monouso_sintesi",
+    "id_tipo":["Erba"]
+}

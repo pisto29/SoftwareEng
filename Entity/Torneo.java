@@ -19,7 +19,7 @@ public abstract class Torneo {
         
         this.id_regolamento=id_regolamento;
         System.out.println("creo regolamento "+this.id_regolamento);
-        this.Regolamento=builder.creaRegolamentoComposite(id_regolamento);
+        this.Regolamento=RegolamentoFactorySingleton.getIstanza().CreaRegolamento(id_regolamento);
         System.out.println(this.Regolamento.toString());
         Partecipanti=new ArrayList<>();
         round=new Round(0);
@@ -81,6 +81,48 @@ public abstract class Torneo {
     public void esecuzione() throws IOException{
 
         
+    }
+    public int getNumeroPartecipanti() {
+        return NumeroPartecipanti;
+    }
+    public void setNumeroPartecipanti(int numeroPartecipanti) {
+        NumeroPartecipanti = numeroPartecipanti;
+    }
+    public boolean isAccessibilita() {
+        return Accessibilita;
+    }
+    public void setAccessibilita(boolean accessibilita) {
+        Accessibilita = accessibilita;
+    }
+    public String getCodice() {
+        return codice;
+    }
+    public void setCodice(String codice) {
+        this.codice = codice;
+    }
+    public Round getRound() {
+        return round;
+    }
+    public void setRound(Round round) {
+        this.round = round;
+    }
+    public RegolamentoComponent getRegolamento() {
+        return Regolamento;
+    }
+    public void setRegolamento(RegolamentoComponent regolamento) {
+        Regolamento = regolamento;
+    }
+    public ArrayList<Giocatore> getPartecipanti() {
+        return Partecipanti;
+    }
+    public void setPartecipanti(ArrayList<Giocatore> partecipanti) {
+        Partecipanti = partecipanti;
+    }
+    public String getId_regolamento() {
+        return id_regolamento;
+    }
+    public void setId_regolamento(String id_regolamento) {
+        this.id_regolamento = id_regolamento;
     }
 
 

@@ -1,0 +1,14 @@
+{
+    "nomeMossa":"Foglielama",
+    "danno":"55",
+    "pp":"25",
+    "percentualeCritico":"50",
+    "precisione":"95",
+    "percentualeAttivazioneEffetto":"0",
+    "idTipo":"Erba",
+    "tipologia":"Fisico",
+    "idEffettiSelf":"NoEffetto",
+    "idEffetti":"NoEffetto"
+
+
+}

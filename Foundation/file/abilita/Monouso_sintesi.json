@@ -1,0 +1,9 @@
+{
+    "id":"Monouso_sintesi",
+    "fase_attivazione":"Fine_Turno",
+    "implementator_type":"neutro",
+    "PercentualeAttivazione":"100",
+    "id_effetti_self":"EffettoModificaDifesaSpeciale_1",
+    "id_effetti":"NoEffetto",
+    "nome": "Sintesi"
+}

@@ -172,9 +172,11 @@ private void P2(Turno t){
         //System.out.println("si sta eseguendo p1 di mossamossa");
    // ImplementatorManagerSingleton.getIstanza().setattaccante(primo);
    primo.setAttacca(true);
+   primo.setDifende(false);
     //System.out.println(primo.getNomePersonaggio()+" "+primo.getRuolo().getImplementator());
     //ImplementatorManagerSingleton.getIstanza().setDifensore(secondo);
 secondo.setDifende(true);
+secondo.setAttacca(false);
    // System.out.println(secondo.getNomePersonaggio()+" "+secondo.getRuolo().getImplementator());
     t.EseguiAbilità(primo);
     t.EseguiAbilità(secondo);

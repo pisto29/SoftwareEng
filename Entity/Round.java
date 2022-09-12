@@ -18,6 +18,7 @@ public class Round {
     }
 
     public void AvviaPartite(ArrayList<Giocatore>Partecipanti,String id_regolamento) throws IOException{
+        int u=0;
         for(String s: Accoppiamenti.keySet()){
             //System.out.println("STAMPO S ACCOPPIAMENTI");
             //System.out.println(s);
@@ -41,10 +42,17 @@ public class Round {
            //crea la partita
             //Partite.add(new Partita(g1, g2));
             //Risultati.add(new Partita(g1,g2).EseguiPartita().getNome());
-            System.out.println("Inizo Partita:"+ " "+ g1.getNome()+" - "+g2.getNome());
-            String c = new Partita(g1,g2,id_regolamento).simula().getNome();
-            System.out.println("Vincitore:");
-            System.out.println(c);
+            System.out.println("Inizia la Partita tra :"+ " "+ g1.getNome()+" e "+g2.getNome());
+            
+            String c="";
+            if(this.numero==0&&u==0){
+                 c = new Partita(g1,g2,id_regolamento).EseguiPartita().getNome();
+                u++;
+            }
+            else
+             c = new Partita(g1,g2,id_regolamento).simula().getNome();
+            System.out.println("La partita è stata vinta da: "+c);
+            
             Risultati.add(c);
   //gioca o simula partita e memorizza il risultato classe partita da modificare
            }

@@ -1,12 +1,12 @@
 {
-    "nomeMossa":"azione",
-    "danno":"10000",
+    "nomeMossa":"braciere",
+    "danno":"40",
     "pp":"30",
     "percentualeCritico":"33",
     "precisione":"100",
     "percentualeAttivazioneEffetto":"0",
-    "idTipo":"Normale",
-    "tipologia":"Fisico",
+    "idTipo":"Fuoco",
+    "tipologia":"Speciale",
     "idEffettiSelf":"NoEffetto",
     "idEffetti":"NoEffetto"
 

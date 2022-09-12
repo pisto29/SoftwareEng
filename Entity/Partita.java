@@ -30,6 +30,7 @@ public class Partita {
 
 private boolean checksquadre(){
     boolean rit=false;
+    
     if(!regolamento.VerificaRegolamento(player1.getSquadra().get(this.player1.getSquadraSelezionata()))){
         ArrayList<Squadra> Utilizzabile=new ArrayList<>();
         int utilizzabili=0;
@@ -316,11 +317,11 @@ public Giocatore EseguiPartita() throws IOException{
         }
         if(this.WinG1()==true){
             
-            System.out.println("IL GIOCATORE1 HA VINTO");
+            System.out.println("Vince "+this.player1.getNome());
             return this.player1;
         }
         else{
-            System.out.println("IL GIOCATORE2 HA VINTO");
+            System.out.println("Vince "+this.player1.getNome());
             return this.player2;
         }
 
