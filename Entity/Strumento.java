@@ -27,6 +27,7 @@ public class Strumento {
             EffettoStrumento E = null;
             switch(classe){
                 case "EffettoCura" :
+                
                     E = builder.creaEffettoCura(s.idEffetto);
                     break;
                 case "EffettoRimozioneStatus" :
@@ -37,6 +38,7 @@ public class Strumento {
                     break;
     
             }
+            this.effetto=E;
             
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -90,7 +92,8 @@ public class Strumento {
     } 
 
     public ArrayList<Personaggio> utilizzabile(ArrayList<Personaggio> p){
-       
+       for(Personaggio pt: p)
+       System.out.println(pt.getNomePersonaggio());
         return this.effetto.Utilizzabile(p);
     }
     

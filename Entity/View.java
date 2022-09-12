@@ -41,11 +41,17 @@ public HashMap<Strumento,Personaggio> ScegliStrumento(Squadra s) throws IOExcept
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     String st = br.readLine();
     scelta = Integer.parseInt(st);
-    }while(!(scelta>=1&&scelta<=s.getStrumentos().size()));
+    }
+    
+    
+
+    while(!(scelta>=1&&scelta<=s.getStrumentos().size()));
+    
     int scelta2=0;
     do{
         System.out.println("Scegli il pokemon su cui usare lo strumento");
         int i=1;
+        
         for(Personaggio p: s.getStrumentos().get(scelta-1).utilizzabile(s.getPersonaggios())){
             System.out.println(i+" "+p.getNomePersonaggio());
             i++;

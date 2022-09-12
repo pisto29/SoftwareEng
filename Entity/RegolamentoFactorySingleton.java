@@ -56,12 +56,12 @@ public class RegolamentoFactorySingleton {
             String classe = id.split("_")[0];
                     switch(classe){
                         case "RegolaLimitazioneNPersonaggi":
-                        E = builder.creaRegolaLimitazioneTipo(id);
+                        E = builder.creaRegolaLimitazionenLimitazioneNPersonaggi(id);
                        
                         break;
 
                         case "RegolaLimitazioneNStrumento":
-                        E = builder.creaRegolaLimitazionenLimitazioneNPersonaggi(id);
+                        E = builder.creaRegolaLimitazionenLimitazioneNStrumento(id);
                         
                         break;
 

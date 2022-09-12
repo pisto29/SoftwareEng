@@ -1,5 +1,5 @@
 {
-"Oddish":["Sonnifero","Velenpolvere"],
-"Pikachu":["azione","Tuononda"]
-    
+    "Bulbasaur":["Foglielama","azione","blocco"],
+    "Squirtle":["Pistolacqua","blocco","azione"],
+    "Charmander":["braciere","azione","Velenpolvere"]
 }
