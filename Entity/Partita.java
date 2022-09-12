@@ -231,14 +231,14 @@ public Giocatore EseguiPartita() throws IOException{
                 this.t.getP2().Sostituzione();
             }
             if(this.t.checkKoP1()){
-                v.pokemonko(t.getP1().getNomePersonaggio()+"di"+this.player1.getNome());
+                v.pokemonko(t.getP1().getNomePersonaggio()+" di "+this.player1.getNome());
                 MossaG1=null;
                 StrumentoG1=null;
                 SostituzioneG1 =  v.SceltaPersonaggioCampo(this.player1, this.player1.getSquadra().get(this.player1.getSquadraSelezionata()),null);
                 this.CambioPerKoP1(SostituzioneG1);
             }
             if(this.t.checkKoP2()){
-                v.pokemonko(t.getP2().getNomePersonaggio()+"di"+this.player2.getNome());
+                v.pokemonko(t.getP2().getNomePersonaggio()+" di "+this.player2.getNome());
                 MossaG2=null;
                 StrumentoG2=null;
                 SostituzioneG2 =  v.SceltaPersonaggioCampo(this.player2, this.player2.getSquadra().get(this.player2.getSquadraSelezionata()),null);

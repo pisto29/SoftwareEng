@@ -46,7 +46,6 @@ private String Nome;
     public void EffettoApplicazione(Personaggio p1) {
         // TODO Auto-generated method stub
         p1.DisabiltaAttacco();
-        System.out.println(p1.puoattaccare());
         
     }
 

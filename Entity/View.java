@@ -36,8 +36,9 @@ public HashMap<Strumento,Personaggio> ScegliStrumento(Squadra s) throws IOExcept
         for(Strumento st: s.getStrumentos()){
             if(st.getUtilizzato()!=true){
         System.out.println(i+" "+st.getNomeStrumento());
-        i++;
-    }}
+        
+    }i++;
+}
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     String st = br.readLine();
     scelta = Integer.parseInt(st);
