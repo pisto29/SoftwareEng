@@ -29,7 +29,9 @@ public void setPS(int PS) {
     
         ArrayList<Personaggio> u= new ArrayList<>();
         for(Personaggio p: a){
-         if(p.getpS()==0)u.add(p);
+         if(p.getpS()==0){u.add(p);
+        //System.out.println(p.getNomePersonaggio()+" può essere revitalizzato");
+        }
          else{u.add(null);}
        
         }
