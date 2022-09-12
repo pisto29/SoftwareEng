@@ -92,8 +92,7 @@ public class Strumento {
     } 
 
     public ArrayList<Personaggio> utilizzabile(ArrayList<Personaggio> p){
-       for(Personaggio pt: p)
-       System.out.println(pt.getNomePersonaggio());
+       
         return this.effetto.Utilizzabile(p);
     }
     
