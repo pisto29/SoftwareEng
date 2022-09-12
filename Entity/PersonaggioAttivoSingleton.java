@@ -132,7 +132,7 @@ private static String topass="istanza1";
        
        int d= (int) danno;
        if(danno>0)
-       System.out.println(p1.getNomePersonaggio()+" perde "+danno+" ps");
+       System.out.println(p1.getNomePersonaggio()+" perde "+d+" ps");
        p1.setpS(p1.getpS()-d);
        if(p1.getpS()<0)p1.setpS(0);
        if(p1.getpS()==0)p1.Sostituzione();

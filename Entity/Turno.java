@@ -249,7 +249,7 @@ public class Turno {
 
     public void FineTurnoKo(){
         if( this.checkKoP1()||this.checkKoP2()){this.setFase(Fase.Fine_Turno);
-        System.out.println("fine turno ko ");
+        
         }
         }
 

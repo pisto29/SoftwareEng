@@ -53,6 +53,7 @@ public HashMap<Strumento,Personaggio> ScegliStrumento(Squadra s) throws IOExcept
         int i=1;
         
         for(Personaggio p: s.getStrumentos().get(scelta-1).utilizzabile(s.getPersonaggios())){
+            if(p!=null)
             System.out.println(i+" "+p.getNomePersonaggio());
             i++;
         }
@@ -63,6 +64,9 @@ public HashMap<Strumento,Personaggio> ScegliStrumento(Squadra s) throws IOExcept
     HashMap<Strumento,Personaggio> map= new HashMap<>();
     map.put( s.getStrumentos().get(scelta-1),s.getPersonaggios().get(scelta2-1));
     return map;
+}
+public void pokemonko(String n){
+    System.out.println(n+" è andato ko");
 }
 public void Messaggi(String messaggi){
     switch(messaggi){
