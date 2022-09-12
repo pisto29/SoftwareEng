@@ -102,7 +102,7 @@ private static String topass="istanza1";
        // System.out.println(m.getNomeMossa()+"da usare");
        float attacco=0;
        m.setPp(m.getPp()-1);
-      System.out.println("QUI SCALO PP");
+      
       if(m.getTipologia().equals(Tipologia.Fisico)) attacco=p1.getAttaccoPersonaggio();
       else attacco=p1.getAttaccoSpecialePersonaggio();
      /*  System.out.println("in attaccante bridge l'attacco del pokemon e "+attacco);
