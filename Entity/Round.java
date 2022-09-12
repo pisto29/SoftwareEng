@@ -48,12 +48,17 @@ public class Round {
             if(this.numero==0&&u==0){
                  c = new Partita(g1,g2,id_regolamento).EseguiPartita().getNome();
                 u++;
+                System.out.println("La partita è stata vinta da: "+c);
+            
+                Risultati.add(c);
             }
-            else
+            else{
              c = new Partita(g1,g2,id_regolamento).simula().getNome();
             System.out.println("La partita è stata vinta da: "+c);
             
-            Risultati.add(c);
+            Risultati.add(c);}
+            
+            
   //gioca o simula partita e memorizza il risultato classe partita da modificare
            }
 

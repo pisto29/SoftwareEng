@@ -3,9 +3,9 @@
     "nomePersonaggio":"charmander",
     "attaccoPersonaggio":"114",
     "difesaPersonaggio":"104",
-    "attaccoSpecialePersonaggio":"12300",
+    "attaccoSpecialePersonaggio":"123",
     "difesaSpecialePersonaggio":"112",
-    "velocitaPersonaggio":"12800",
+    "velocitaPersonaggio":"128",
     "id_abilita":"Monouso_fuochista",
     "id_tipo":["Fuoco"]
 }
