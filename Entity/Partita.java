@@ -321,7 +321,7 @@ public Giocatore EseguiPartita() throws IOException{
             return this.player1;
         }
         else{
-            System.out.println("Vince "+this.player1.getNome());
+            System.out.println("Vince "+this.player2.getNome());
             return this.player2;
         }
 
