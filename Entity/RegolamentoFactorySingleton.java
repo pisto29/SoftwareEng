@@ -7,6 +7,8 @@ import Foundation.builder;
 
 public class RegolamentoFactorySingleton {
     private static RegolamentoFactorySingleton istanza;
+    private RegolamentoFactorySingleton() {
+    }
     public static RegolamentoFactorySingleton getIstanza(){
         if(istanza==null){
             istanza=new RegolamentoFactorySingleton();

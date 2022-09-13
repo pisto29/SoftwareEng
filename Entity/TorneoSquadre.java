@@ -95,11 +95,6 @@ public void aggiornaPunteggio(){
         System.out.println("ROUND VINTO DA SQUADRA 2");
     }
 }
-    @Override
-    public void InvitaPartecipanti(ArrayList<String> nominativi) {
-        // TODO Auto-generated method stub
-        
-    }
 
     @Override
     public void Partecipa(Giocatore u) {

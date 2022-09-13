@@ -3,7 +3,7 @@ package Entity;
 public class AvvelenamentoSingleton implements StatusStrategy {
     private static AvvelenamentoSingleton istanza;
     private String Nome;
-    public AvvelenamentoSingleton() {
+    private AvvelenamentoSingleton() {
         this.Nome="Avvelenamento";
     }
     public static AvvelenamentoSingleton getIstanza() {

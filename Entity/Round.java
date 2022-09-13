@@ -24,8 +24,7 @@ public class Round {
             //System.out.println(s);
             Giocatore g1=null;
             Giocatore g2=null;
-            Squadra s1=null;
-            Squadra s2=null;
+            
            for(Giocatore g: Partecipanti){
             //System.out.println("NOMI GIOCATORI: ");
             if(g.getNome().equals(s)){

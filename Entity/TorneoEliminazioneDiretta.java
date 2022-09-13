@@ -26,23 +26,15 @@ public class TorneoEliminazioneDiretta extends Torneo {
 
     public void GestisciPartecipanti(){
         //int j=1;
-        for (String r : this.round.getRisultati()) {
-            //System.out.println("è presente in risultati "+ r);
-            
-        }
         for(int i=0 ; i<this.Partecipanti.size(); i++){
             //System.out.println("Gestisci Partecipanti");
            // System.out.println(this.Partecipanti.get(i).getNome());
             //System.out.println(this.Partecipanti.get(i));
-            
             if(!this.round.getRisultati().contains(this.Partecipanti.get(i).getNome())){
                 System.out.println(" è stato eliminato");
                 System.out.println(this.Partecipanti.get(i).getNome());
                 this.Partecipanti.remove(this.Partecipanti.get(i));
                 this.NumeroPartecipanti=this.NumeroPartecipanti-1;
-        }
-        else{
-            
         }
             //System.out.println(j);
             //j = j+1;
@@ -70,7 +62,7 @@ public class TorneoEliminazioneDiretta extends Torneo {
         
         for(int i=0;i<=this.NumeroPartecipanti-2;i=i+2){
         //System.out.println(i+" e"+(i+1));
-        System.out.println("si scontreranno: ");
+        System.out.println("coppia");
         System.out.println(this.Partecipanti.get(i).getNome()+"  ---  "+this.Partecipanti.get(i+1).getNome());
         this.round.aggiungiAccoppiamento(this.Partecipanti.get(i).getNome(), this.Partecipanti.get(i+1).getNome());
         }
@@ -80,11 +72,6 @@ public class TorneoEliminazioneDiretta extends Torneo {
  //TorneoEliminazioneDiretta e=new TorneoEliminazioneDiretta(8, true)  ;
  e.GeneraAccoppiamenti(); 
 }*/
-    @Override
-    public void InvitaPartecipanti(ArrayList<String> nominativi) {
-        // TODO Auto-generated method stub
-        
-    }
 
     @Override
     public void Partecipa(Giocatore u) {

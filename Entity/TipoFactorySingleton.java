@@ -7,11 +7,11 @@ import Foundation.builder;
 
 
 public class TipoFactorySingleton {
-    private HashMap<String, Tipo > tipi;
+    //private HashMap<String, Tipo > tipi;
     private static TipoFactorySingleton istanza;
     
     private TipoFactorySingleton(){
-        this.tipi = new HashMap<>();
+        //this.tipi = new HashMap<>();
     }
     
     public static TipoFactorySingleton getIstanza() {
@@ -25,14 +25,14 @@ public class TipoFactorySingleton {
     }
      
     public Tipo Create(String tipo) throws FileNotFoundException{
-        if(tipi.containsKey(tipo))
-            return tipi.get(tipo);
-        else{
-            HashMap <Tipo,Float> eff= new HashMap<>();
+        //if(tipi.containsKey(tipo))
+        //    return tipi.get(tipo);
+        //else{
+        //    HashMap <Tipo,Float> eff= new HashMap<>();
             Tipo t= builder.CreaTipo(tipo);
-            tipi.put(tipo, t);
+        //    tipi.put(tipo, t);
             return t;
-        }
+       // }
     }
 
 }

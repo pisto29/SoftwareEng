@@ -65,21 +65,21 @@ public abstract class Torneo {
         //return sb.toString();
         }
     }
-    public abstract void InvitaPartecipanti(ArrayList<String> nominativi);
+    
     public abstract void Partecipa(Giocatore u);
     public abstract void AvviaPartite() throws IOException;
     public abstract void GeneraAccoppiamenti();
-
+   
     public void Avanza(){
 
         this.round = new Round(this.round.getNumero()+1);
 
     }
 
-    public void esecuzione() throws IOException{
+    public abstract void esecuzione() throws IOException;
 
         
-    }
+    
     public int getNumeroPartecipanti() {
         return NumeroPartecipanti;
     }

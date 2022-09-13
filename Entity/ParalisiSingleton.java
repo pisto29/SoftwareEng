@@ -3,7 +3,7 @@ import java.util.*;
 public class ParalisiSingleton implements StatusStrategy {
     private static ParalisiSingleton istanza;
     private String Nome;
-    public ParalisiSingleton() {
+    private ParalisiSingleton() {
         this.Nome="paralisi";
     }
 

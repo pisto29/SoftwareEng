@@ -93,13 +93,7 @@ public static void main(String[] args) {
      ///TorneoItaliana i= new TorneoItaliana(4, true);
      //i.GeneraAccoppiamenti();
 }
-    @Override
-    public void InvitaPartecipanti(ArrayList<String> nominativi) {
-        // TODO Auto-generated method stub
-
-        
-    }
-
+   
     @Override
     public void Partecipa(Giocatore u) {
         if(this.Partecipanti.size()<this.NumeroPartecipanti){

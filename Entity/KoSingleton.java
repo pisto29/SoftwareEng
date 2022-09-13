@@ -3,7 +3,7 @@ package Entity;
 public class KoSingleton implements RuoloState {
     private static KoSingleton istanza;
   
-    public KoSingleton() {
+    private KoSingleton() {
     }
 
   public static KoSingleton getIstanza() {

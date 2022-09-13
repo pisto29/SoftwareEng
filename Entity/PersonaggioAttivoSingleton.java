@@ -39,7 +39,7 @@ private static String topass="istanza1";
     public static void setpass(String pass){
         topass=pass;
     }
-    public PersonaggioAttivoSingleton(float moltiplicatoreAttacco, float moltiplicatoreDifesa,
+    private PersonaggioAttivoSingleton(float moltiplicatoreAttacco, float moltiplicatoreDifesa,
             float moltiplicatoreAttSpec, float moltiplicatoreDifSpec, float moltiplicatoreVelocita, boolean abilitazioneAttacco) {
         this.moltiplicatoreAttacco = moltiplicatoreAttacco;
         this.moltiplicatoreDifesa = moltiplicatoreDifesa;

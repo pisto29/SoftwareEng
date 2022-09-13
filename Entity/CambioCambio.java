@@ -12,27 +12,7 @@ public class CambioCambio implements EsecuzioneTurno{
 
     } 
 
-    private void p1(Turno t){
-        t.EseguiAbilitàP1();
-        t.EseguiAbilitàP2();
-        t.FineTurnoKo();
-        t.setFase(Fase.Fine_Turno);
-        if(!t.checkKoP1())t.EseguiAbilitàP1();
-        if(!t.checkKoP2())t.EseguiAbilitàP2();
-        if(!t.checkKoP1())t.checkStatusP1();
-        if(!t.checkKoP2())t.checkStatusP2();
-    }
-
-    private void P2(Turno t){
-        t.EseguiAbilitàP2();
-        t.EseguiAbilitàP1();
-        t.FineTurnoKo();
-        t.setFase(Fase.Fine_Turno);
-        if(!t.checkKoP2())t.EseguiAbilitàP2();
-        if(!t.checkKoP1())t.EseguiAbilitàP1();
-        if(!t.checkKoP2())t.checkStatusP2();
-        if(!t.checkKoP1())t.checkStatusP1();
-    }
+ 
     private void p(Turno t, Personaggio primo, Personaggio secondo){
         primo.setAttacca(false);
   primo.setDifende(false);

@@ -3,7 +3,7 @@ package Entity;
 public class PersonaggioPanchinaSingleton implements RuoloState {
  private static PersonaggioPanchinaSingleton istanza;
 
-    public PersonaggioPanchinaSingleton() {
+    private PersonaggioPanchinaSingleton() {
 }
 
 

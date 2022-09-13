@@ -50,8 +50,8 @@ public class Mossa {
         this.idTipo = m.getIdTipo();
         this.idEffetti = m.getIdEffetti();
         this.idEffettiSelf = m.getIdEffettiSelf();
-        this.effetti = FlyweightEffettoFactorySingleton.getIstanza().createEffetto(this.idEffetti);
-        this.effetti_self = FlyweightEffettoFactorySingleton.getIstanza().createEffetto(this.idEffettiSelf);
+        this.effetti = EffettoFactorySingleton.getIstanza().CreaEffetto(this.idEffetti);
+        this.effetti_self = EffettoFactorySingleton.getIstanza().CreaEffetto(this.idEffettiSelf);
         this.tipo = TipoFactorySingleton.getIstanza().Create(this.idTipo);
        
     }

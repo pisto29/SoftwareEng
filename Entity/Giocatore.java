@@ -12,15 +12,14 @@ public class Giocatore {
     private String nome;
     private int punteggio;
     private ArrayList<Squadra> squadra;
-    private Matchmaking matchmaking;
     private ArrayList<String> idSquadra;
     private Integer SquadraSelezionata;
     
-    public Giocatore(String nome, int punteggio, Squadra squadra, Matchmaking matchmaking) {
+    public Giocatore(String nome, int punteggio, Squadra squadra) {
         this.nome = nome;
         this.punteggio = punteggio;
        // this.squadra = squadra;
-        this.matchmaking = matchmaking;
+        
     }
 
     public Giocatore( Giocatore g) throws FileNotFoundException, JsonSyntaxException, JsonIOException, ClassNotFoundException{
@@ -56,19 +55,13 @@ public class Giocatore {
    
 
 
-    public Matchmaking getMatchmaking() {
-        return matchmaking;
-    }
-
-    public void setMatchmaking(Matchmaking matchmaking) {
-        this.matchmaking = matchmaking;
-    }
+ 
 
    
 
     @Override
     public String toString() {
-        return "Giocatore [idSquadra=" + idSquadra + ", matchmaking=" + matchmaking + ", nome=" + nome + ", punteggio="
+        return "Giocatore [idSquadra=" + idSquadra + ", nome=" + nome + ", punteggio="
                 + punteggio + ", squadra=" + squadra + "]";
     }
 

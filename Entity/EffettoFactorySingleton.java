@@ -8,7 +8,7 @@ import Foundation.builder;
 public class EffettoFactorySingleton {
     private static EffettoFactorySingleton istanza;
 
-    protected EffettoFactorySingleton() {
+    private EffettoFactorySingleton() {
     }
     public static EffettoFactorySingleton getIstanza(){
         if(istanza==null)
