@@ -102,7 +102,19 @@ public static void main(String[] args) {
             this.classifica.put(u.getNome(), 0);
            // this.squadre.put(u.getNome(), s);
             this.Partecipanti.add(u);
-        }else{new View().Messaggi("NoPosti");}}
+        }else{new View().Messaggi("NoPosti");}
+        if(this.Partecipanti.size()<this.NumeroPartecipanti){
+            new View().CompletaTorneo(this.NumeroPartecipanti-this.Partecipanti.size());
+        }
+        else{new View().Messaggi("TorneoStart");
+    try {
+        this.esecuzione();
+    } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    }
+    }
         
         
     
