@@ -10,7 +10,7 @@ public class MossaMossa implements EsecuzioneTurno {
         Personaggio secondo;
        if( t.checkVelocità()) {primo=t.getP1();secondo=t.getP2();}
        else {primo=t.getP2();secondo=t.getP1();}
-       this.P(t, primo, secondo);
+       this.AvviaEsecuzione(t, primo, secondo);
     
         /*this.implementatorManager.setattaccante(t.getPersonaggi().get(0));
         this.implementatorManager.setDifensore(t.getPersonaggi().get(1));
@@ -118,7 +118,7 @@ if(!t.checkKoP2())t.checkStatusP2();
     //System.out.println("si sta eseguendo p2 di mossamossa");
    
 
-    private void P(Turno t,Personaggio primo, Personaggio secondo){
+    private void AvviaEsecuzione(Turno t,Personaggio primo, Personaggio secondo){
         //System.out.println("si sta eseguendo p1 di mossamossa");
    // ImplementatorManagerSingleton.getIstanza().setattaccante(primo);
    primo.setAttacca(true);
@@ -130,8 +130,8 @@ secondo.setAttacca(false);
    // System.out.println(secondo.getNomePersonaggio()+" "+secondo.getRuolo().getImplementator());
     t.EseguiAbilità(primo);
     t.EseguiAbilità(secondo);
-    t.FineTurnoKo();
-    if(!t.getFase().equals(Fase.Fine_Turno)){
+   
+    if(!t.FineTurnoKo()){
         t.setFase(Fase.Pre_azione); 
         t.EseguiAbilità(primo);
         t.EseguiAbilità(secondo);
@@ -140,7 +140,7 @@ secondo.setAttacca(false);
         t.FineTurnoKo();
        
     }
-    if(!t.getFase().equals(Fase.Fine_Turno)){
+    if(!t.FineTurnoKo()){
         t.setFase(Fase.Post_azione); 
         t.EseguiAbilità(primo);
         t.EseguiAbilità(secondo);
@@ -158,7 +158,7 @@ secondo.setAttacca(false);
         
         primo.setDifende(true);
     }
-    if(!t.getFase().equals(Fase.Fine_Turno)){
+    if(!t.FineTurnoKo()){
         t.setFase(Fase.Pre_azione); 
         t.EseguiAbilità(primo);
         t.EseguiAbilità(secondo);
@@ -166,7 +166,7 @@ secondo.setAttacca(false);
         t.eseguiAttacco(secondo);
         t.FineTurnoKo();
     }
-    if(!t.getFase().equals(Fase.Fine_Turno)){
+    if(!t.FineTurnoKo()){
         t.setFase(Fase.Post_azione); 
         t.EseguiAbilità(primo);
         t.EseguiAbilità(secondo);
@@ -174,10 +174,8 @@ secondo.setAttacca(false);
         t.checkstatus(secondo);
         t.FineTurnoKo();}
     t.setFase(Fase.Fine_Turno);
-    if(!t.checkKo(primo))t.EseguiAbilità(primo);
-    if(!t.checkKo(secondo))t.EseguiAbilità(secondo);
-    if(!t.checkKo(primo)){t.checkstatus(primo);}
-    if(!t.checkKo(secondo))t.checkstatus(secondo);
+    if(!t.checkKo(primo)){t.EseguiAbilità(primo);t.checkstatus(primo);}
+    if(!t.checkKo(secondo)){t.EseguiAbilità(secondo);t.checkstatus(secondo);}
     
     }
 

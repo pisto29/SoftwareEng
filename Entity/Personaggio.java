@@ -57,7 +57,7 @@ public class Personaggio {
         this.difesaPersonaggio = p.getDifesaPersonaggio();
         this.attaccoSpecialePersonaggio = p.getAttaccoSpecialePersonaggio();
         this.difesaSpecialePersonaggio = p.getDifesaSpecialePersonaggio();
-        this.velocitaPersonaggio = p.getvelocitaPersonaggio();
+        this.velocitaPersonaggio = p.getVelocitaPersonaggio();
         
         this.ruolo = PersonaggioPanchinaSingleton.getIstanza();
         
@@ -97,7 +97,9 @@ public class Personaggio {
     }
 
 
-
+public void AttivaAbilità(Personaggio avversario, Fase fase_corrente){
+    this.abilità.Attivazione(this, avversario,fase_corrente);
+}
    
         
 
@@ -146,81 +148,7 @@ public class Personaggio {
 
 
 
-    public int getAttaccoPersonaggio() {
-
-        return (int) this.ruolo.getAttacco(this.attaccoPersonaggio);
-    }
-
-
-
-
-    public void setAttaccoPersonaggio(int attaccoPersonaggio) {
-
-        this.attaccoPersonaggio = attaccoPersonaggio;
-    }
-
-
-
-
-    public int getDifesaPersonaggio() {
-
-        return (int) this.ruolo.getDifesa(this.difesaPersonaggio);
-    }
-
-
-
-
-    public void setDifesaPersonaggio(int difesaPersonaggio) {
-        this.difesaPersonaggio = difesaPersonaggio;
-    }
-
-
-
-
-    public int getAttaccoSpecialePersonaggio() {
-
-        return (int) this.ruolo.getAttaccoSpecile(this.attaccoSpecialePersonaggio);
-    }
-
-
-
-
-    public void setAttaccoSpecialePersonaggio(int attaccoSpecialePersonaggio) {
-        this.attaccoSpecialePersonaggio = attaccoSpecialePersonaggio;
-    }
-
-
-
-
-    public int getDifesaSpecialePersonaggio() {
-
-        return (int) this.ruolo.getDifesaSpeciale(this.difesaSpecialePersonaggio);
-    }
-
-
-
-
-    public void setDifesaSpecialePersonaggio(int difesaSpecialePersonaggio) {
-
-        this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
-    }
-
-
-
-
-    public int getvelocitaPersonaggio() {
-         
-        return (int) this.ruolo.getVelocita(this.velocitaPersonaggio);
-    }
-
-
-
-
-    public void setvelocitaPersonaggio(int velocitaPersonaggio) {
-
-        this.velocitaPersonaggio = velocitaPersonaggio;
-    }
-
+   
 
 
 
@@ -272,7 +200,7 @@ public class Personaggio {
 
     
 
-    public float Attacca(String IDmossa){
+    public float EseguiAttacco(String IDmossa){
         
        
         int i=0;
@@ -282,7 +210,7 @@ public class Personaggio {
             i++;
         }
        
-      return  this.ruolo.Attacca(this,this.mossas.get(i));
+      return  this.ruolo.EseguiAttacco(this,this.mossas.get(i));
     }
 
     public boolean Difendi(float danno, Mossa m){
@@ -353,17 +281,7 @@ public class Personaggio {
         }
     }
 
-    public void setImplementator(PersonaggioAttivoImplementator implementator){
-        this.ruolo.setImplementator(implementator);
-    }
 
-    public int getPriorità(){
-         return this.ruolo.getPriorità();
-    }
-
-    public void setPriorità(int p){
-        this.ruolo.setPriorità(p);
-    }
 
 
 
@@ -416,5 +334,59 @@ public class Personaggio {
                 + id_abilita + ", id_mosse=" + Arrays.toString(id_mosse) + ", id_tipo=" + Arrays.toString(id_tipo)
                 + ", mossas=" + mossas + ", nomePersonaggio=" + nomePersonaggio + ", pS=" + pS + ", ruolo=" + ruolo
                 + ", status=" + status + ", tipos=" + tipos + ", velocitaPersonaggio=" + velocitaPersonaggio + "]";
+    }
+
+    public int getAttaccoPersonaggio() {
+        return attaccoPersonaggio;
+    }
+
+    public void setAttaccoPersonaggio(int attaccoPersonaggio) {
+        this.attaccoPersonaggio = attaccoPersonaggio;
+    }
+
+    public int getDifesaPersonaggio() {
+        return difesaPersonaggio;
+    }
+
+    public void setDifesaPersonaggio(int difesaPersonaggio) {
+        this.difesaPersonaggio = difesaPersonaggio;
+    }
+
+    public int getAttaccoSpecialePersonaggio() {
+        return attaccoSpecialePersonaggio;
+    }
+
+    public void setAttaccoSpecialePersonaggio(int attaccoSpecialePersonaggio) {
+        this.attaccoSpecialePersonaggio = attaccoSpecialePersonaggio;
+    }
+
+    public int getDifesaSpecialePersonaggio() {
+        return difesaSpecialePersonaggio;
+    }
+
+    public void setDifesaSpecialePersonaggio(int difesaSpecialePersonaggio) {
+        this.difesaSpecialePersonaggio = difesaSpecialePersonaggio;
+    }
+
+    public int getVelocitaPersonaggio() {
+        return velocitaPersonaggio;
+    }
+
+    public void setVelocitaPersonaggio(int velocitaPersonaggio) {
+        this.velocitaPersonaggio = velocitaPersonaggio;
+    }
+
+    public float getVelocitaAttuale(){
+        return this.ruolo.getVelocitaAttuale(this);
+    }
+
+    public Mossa GetMossa(String id_mossa){
+        Mossa m=null;
+        for(Mossa m1: mossas){
+            if(m1.getNomeMossa().equals(id_mossa))
+            m=m1;
+        }
+        return m;
+
     }
 }

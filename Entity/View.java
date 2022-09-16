@@ -11,7 +11,7 @@ public class View {
 public void CompletaTorneo(int n){
     System.out.println("Mancano ancora "+n+" partecipanti");
 }
-public Personaggio SceltaPersonaggioCampo(Giocatore g,Squadra s,Personaggio p) throws IOException{
+public int SceltaPersonaggioCampo(Giocatore g,Squadra s,Personaggio p) throws IOException{
     int scelta=0;
     do{
     System.out.println(g.getNome()+" scegli un Pokemon da mandare in campo");
@@ -26,9 +26,10 @@ public Personaggio SceltaPersonaggioCampo(Giocatore g,Squadra s,Personaggio p) t
     scelta = Integer.parseInt(st);}
     while(!(scelta>=1&&scelta<=s.getPersonaggios().size()));
     System.out.println(g.getNome()+" manda in campo "+s.getPersonaggios().get(scelta-1).getNomePersonaggio());
-    return s.getPersonaggios().get(scelta-1);
+    //return s.getPersonaggios().get(scelta-1);
+    return scelta-1;
 }
-public HashMap<Strumento,Personaggio> ScegliStrumento(Squadra s) throws IOException{
+public ArrayList<Integer> ScegliStrumento(Squadra s) throws IOException{
     int scelta=0;
     do{
         System.out.println("Scegli lo strumento da utilizzare");
@@ -62,9 +63,13 @@ public HashMap<Strumento,Personaggio> ScegliStrumento(Squadra s) throws IOExcept
         String st = br.readLine();
         scelta2 = Integer.parseInt(st);
     }while(!(scelta2>=1&&scelta<=s.getStrumentos().get(scelta-1).utilizzabile(s.getPersonaggios()).size()));
-    HashMap<Strumento,Personaggio> map= new HashMap<>();
+   /*  HashMap<Strumento,Personaggio> map= new HashMap<>();
     map.put( s.getStrumentos().get(scelta-1),s.getPersonaggios().get(scelta2-1));
-    return map;
+    return map;*/
+    ArrayList <Integer> arra= new ArrayList<>();
+    arra.add(0, scelta-1);
+    arra.add(1, scelta2-1);
+    return arra;
 }
 public void pokemonko(String n){
     System.out.println(n+" è andato ko");
@@ -92,9 +97,9 @@ public void Messaggi(String messaggi){
     }
 }
 
-public void ResoConto(Partita p){
-    System.out.println(p.getT().getP1().getNomePersonaggio()+" di "+p.getPlayer1().getNome()+" ha "+p.getT().getP1().getpS()+" ps ");
-    System.out.println(p.getT().getP2().getNomePersonaggio()+" di "+p.getPlayer2().getNome()+" ha "+p.getT().getP2().getpS()+" ps ");
+public void ResoConto(Partita2 p){
+    System.out.println(p.getTurno().getP1().getNomePersonaggio()+" di "+p.getPlayer1().getNome()+" ha "+p.getTurno().getP1().getpS()+" ps ");
+    System.out.println(p.getTurno().getP2().getNomePersonaggio()+" di "+p.getPlayer2().getNome()+" ha "+p.getTurno().getP2().getpS()+" ps ");
 }
 
 public String SelezionaMossa(Personaggio p) throws IOException{

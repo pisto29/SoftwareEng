@@ -45,11 +45,11 @@ public class AbilitàMonouso extends Abilità{
     }
 
     @Override
-    public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio) {
-        if(!this.attivata){
+    public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio, Fase Fase_corrente) {
+        if(!this.attivata&&Fase_corrente.equals(this.fase_attivazione)){
             if(new Random().nextInt(100)<=this.PercentualeAttivazione){
                 //System.out.println("Si attiva l'abilità "+ this.nome +" di "+ utilizzatore.getNomePersonaggio());
-        this.implementator.ApplicaEffetto(utilizzatore, bersaglio);
+        this.implementator.ApplicaEffetto(utilizzatore, bersaglio, effetti_self,effetti);
         this.attivata=true;
     }
     }

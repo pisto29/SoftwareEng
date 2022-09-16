@@ -53,7 +53,7 @@ public class Strumento {
         this.utilizzato = false;
     }
 
-    public void UtilizzaStrumento(Personaggio P){
+    public void Utilizza(Personaggio P){
         System.out.println("Viene utilizzato "+this.nomeStrumento+" su "+P.getNomePersonaggio());
         this.effetto.ApplicaEffettoStrumento(P);
         this.utilizzato = true;

@@ -21,11 +21,11 @@ public class AbilitàMultiuso extends Abilità {
         a.getId_effetti(), a.getId_effetti_self(), a.getId(), a.getNome());
     }
     @Override
-    public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio) {
+    public void Attivazione(Personaggio utilizzatore, Personaggio bersaglio, Fase Fase_corrente) {
         // TODO Auto-generated method stub
-       if(new Random().nextInt(100)<=this.PercentualeAttivazione){
+       if(new Random().nextInt(100)<=this.PercentualeAttivazione&&Fase_corrente.equals(this.fase_attivazione)){
         //System.out.println("Si attiva l'abilità "+ this.nome +" di "+ utilizzatore.getNomePersonaggio());
-        this.implementator.ApplicaEffetto(utilizzatore, bersaglio);
+        this.implementator.ApplicaEffetto(utilizzatore, bersaglio, effetti_self,effetti);
        
        }
         

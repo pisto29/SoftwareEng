@@ -5,5 +5,6 @@ public interface StatusStrategy {
     public void Attivazione(Personaggio P1, Fase f);
     public void EffettoApplicazione(Personaggio P1);
     public String getNome();
+    
    
 }

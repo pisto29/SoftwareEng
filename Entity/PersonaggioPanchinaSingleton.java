@@ -62,7 +62,7 @@ public static PersonaggioPanchinaSingleton getIstanza() {
 
 
 
-    @Override
+    
     public float getVelocita(int velocitaOriginale) {
         // TODO Auto-generated method stub
         
@@ -133,7 +133,7 @@ public boolean isAbilitato() {
 
 
     @Override
-    public float Attacca(Personaggio P1, Mossa mossa) {
+    public float EseguiAttacco(Personaggio P1, Mossa mossa) {
         // TODO Auto-generated method stub
         return 0;
         
@@ -201,6 +201,13 @@ public boolean isAbilitato() {
     public void setDifende(boolean a) {
         // TODO Auto-generated method stub
         
+    }
+
+
+    @Override
+    public float getVelocitaAttuale(Personaggio p) {
+        // TODO Auto-generated method stub
+        return p.getVelocitaPersonaggio();
     }
 
 

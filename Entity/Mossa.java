@@ -150,8 +150,9 @@ public class Mossa {
     }
 
     public void ApplicaEffettoMossa(Personaggio utilizzatore, Personaggio bersaglio){
+        if(this.CheckEffetto()){
         this.effetti_self.ApplicaEffetto(utilizzatore);
-        this.effetti.ApplicaEffetto(bersaglio);
+        this.effetti.ApplicaEffetto(bersaglio);}
     }
 
     public boolean CheckEffetto(){
@@ -163,7 +164,14 @@ public class Mossa {
         return false;
     }
 
+    public boolean miss(){
+        int check = new Random().nextInt(100);
 
+        if (check < precisione)
+            return false;
+        else
+        return true;
+    }
     public EffettoComposite getEffetti_self() {
         return effetti_self;
     }

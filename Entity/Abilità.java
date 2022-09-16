@@ -53,7 +53,7 @@ public abstract class Abilità {
 
 
 
-    public abstract void Attivazione(Personaggio utilizzatore,Personaggio bersaglio);
+    public abstract void Attivazione(Personaggio utilizzatore,Personaggio bersaglio, Fase Fase_corrente);
 
     
 

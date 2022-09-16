@@ -153,26 +153,23 @@ public class Turno {
         if(p.puoattaccare()) {
             System.out.println("attacca  "+p.getNomePersonaggio()+" usa "+this.mosse.get(index));
             
-            float danno=p.Attacca(this.mosse.get(index));
-            Mossa m1=null;
-            for (Mossa m : p.getMossas()) {
-                if(m.getNomeMossa().equals(this.getMosse().get(index)))
-                m1=m;
-            }
+            float danno=p.EseguiAttacco(this.mosse.get(index));
+            Mossa m1=p.GetMossa(this.mosse.get(index));
+           
             boolean colpito= difensore.Difendi(danno, m1);
             
-             if(colpito&&m1.CheckEffetto())m1.ApplicaEffettoMossa(p,difensore);}
+             if(colpito)m1.ApplicaEffettoMossa(p,difensore);}
              else{System.out.println(p.getNomePersonaggio()+" non puo attaccare");
             p.AbiltaAttacco();}
 
     }
 
     public boolean checkVelocità(){
-       if(p1.getvelocitaPersonaggio()>p2.getvelocitaPersonaggio()){
+       if(p1.getVelocitaAttuale()>p2.getVelocitaAttuale()){
           return true;
        }
        else {
-           if(p1.getvelocitaPersonaggio()==p2.getvelocitaPersonaggio()){
+           if(p1.getVelocitaAttuale()==p2.getVelocitaAttuale()){
                Random r=new Random();
                if(r.nextInt(100)<50){
                 return true;
@@ -187,18 +184,19 @@ public class Turno {
 
     public void EseguiAbilità(Personaggio p){
         Personaggio bersaglio=this.p2;
-       
+        Personaggio utilizzatore=this.p1;
         if(p.equals(this.p1)){
-            
+            utilizzatore=p1;
             bersaglio=p2;
 
         }
         if(p.equals(this.p2)){
-            
+            utilizzatore=p2;
             bersaglio=this.p1;
         }
-        if (this.fase == p.getAbilità().getFase_attivazione())
-        p.getAbilità().Attivazione(p,bersaglio);
+       /*  if (this.fase == p.getAbilità().getFase_attivazione())
+        p.getAbilità().Attivazione(p,bersaglio);*/
+        utilizzatore.AttivaAbilità(bersaglio, fase);
 
     }
     public void EseguiAbilitàP1(){
@@ -247,10 +245,12 @@ public class Turno {
             return false;
     }
 
-    public void FineTurnoKo(){
-        if( this.checkKoP1()||this.checkKoP2()){this.setFase(Fase.Fine_Turno);
+    public boolean FineTurnoKo(){
+        if( this.checkKoP1()||this.checkKoP2()){
+            return true;
         
         }
+        else return false;
         }
 
 
@@ -412,7 +412,7 @@ public class Turno {
         if(this.p1.equals(p)){ index=0;}
         if(this.p2.equals(p)){index=1;}
         for(Strumento s: this.strumenti.get(index).keySet()){
-            s.UtilizzaStrumento(this.strumenti.get(index).get(s));
+            s.Utilizza(this.strumenti.get(index).get(s));
            }
     }
     public void utilizzaStrumentoP1(){

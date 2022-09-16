@@ -35,7 +35,9 @@ public class Giocatore {
 
         
     }
-
+public Squadra getSquadraAttiva(){
+    return this.squadra.get(this.SquadraSelezionata);
+}
     public String getNome() {
         return nome;
     }

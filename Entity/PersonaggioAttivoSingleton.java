@@ -15,8 +15,6 @@ private static String topass="istanza1";
     private float moltiplicatoreDifSpec;
     private float moltiplicatoreVelocita; 
     private boolean abilitazioneAttacco;
-    private int priorità;
-    private PersonaggioAttivoImplementator implementator;
     public static PersonaggioAttivoSingleton getIstanza() {
         if(topass.equals("istanza1")){
         if(istanza1==null){
@@ -49,7 +47,7 @@ private static String topass="istanza1";
         this.abilitazioneAttacco = abilitazioneAttacco;
         this.attacca=false;
         this.difende=false;
-        this.priorità=0;
+        
     }
 
 
@@ -96,15 +94,15 @@ private static String topass="istanza1";
         //return (int) danno;
     }*/
     @Override 
-    public float Attacca(Personaggio p1, Mossa m) {
+    public float EseguiAttacco(Personaggio p1, Mossa m) {
    
        // return this.implementator.attacca(p1, m);
        // System.out.println(m.getNomeMossa()+"da usare");
        float attacco=0;
        m.setPp(m.getPp()-1);
       
-      if(m.getTipologia().equals(Tipologia.Fisico)) attacco=p1.getAttaccoPersonaggio();
-      else attacco=p1.getAttaccoSpecialePersonaggio();
+      if(m.getTipologia().equals(Tipologia.Fisico)) attacco=p1.getAttaccoPersonaggio()*moltiplicatoreAttacco;
+      else attacco=p1.getAttaccoSpecialePersonaggio()*moltiplicatoreAttSpec;
      /*  System.out.println("in attaccante bridge l'attacco del pokemon e "+attacco);
       System.out.println("in attaccante bridge il danno della mossa e"+m.getDanno());*/
       float danno=m.getDanno()*attacco;
@@ -122,21 +120,21 @@ private static String topass="istanza1";
        if(eff==0){
            return false;
            }
-       if(m.getTipologia().equals(Tipologia.Fisico)) difesa=p1.getDifesaPersonaggio();
-       else difesa=p1.getDifesaSpecialePersonaggio();
+       if(m.getTipologia().equals(Tipologia.Fisico)) difesa=p1.getDifesaPersonaggio()*moltiplicatoreDifesa;
+       else difesa=p1.getDifesaSpecialePersonaggio()*moltiplicatoreDifSpec;
        danno=danno/difesa;
-       if(this.miss(m)){danno=0f;
+       if(m.miss()){
        System.out.println("l'attacco fallisce");
        return false;
        }
-       
+       else{
        int d= (int) danno;
        if(danno>0)
        System.out.println(p1.getNomePersonaggio()+" perde "+d+" ps");
        p1.setpS(p1.getpS()-d);
        if(p1.getpS()<0)p1.setpS(0);
        if(p1.getpS()==0)p1.Sostituzione();
-       return true;
+       return true;}
     }
 
     ///
@@ -248,13 +246,13 @@ private float efficacia(Personaggio p1, Mossa m){
 
 
     @Override
-    public float getVelocita(int velocitaOriginale) {
+    public float getVelocitaAttuale(Personaggio p) {
         
-        return (float) velocitaOriginale * moltiplicatoreVelocita;
+        return (float) p.getVelocitaPersonaggio() * moltiplicatoreVelocita;
     }
 
    
-public void reset(){
+private void reset(){
     
     this.moltiplicatoreAttSpec=1;
     this.moltiplicatoreAttacco=1;

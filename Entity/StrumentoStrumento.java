@@ -12,7 +12,7 @@ public class StrumentoStrumento implements EsecuzioneTurno{
         Personaggio secondo;
         if( t.checkVelocità()) {primo=t.getP1();secondo=t.getP2();}
         else {primo=t.getP2();secondo=t.getP1();}
-        this.P(t, primo, secondo);
+        this.AvviaEsecuzione(t, primo, secondo);
 
 
 
@@ -21,7 +21,7 @@ public class StrumentoStrumento implements EsecuzioneTurno{
 
 
     
-    private void P(Turno t, Personaggio primo, Personaggio secondo){    
+    private void AvviaEsecuzione(Turno t, Personaggio primo, Personaggio secondo){    
         primo.setAttacca(false);
   primo.setDifende(false);
   secondo.setAttacca(false);
@@ -30,10 +30,8 @@ public class StrumentoStrumento implements EsecuzioneTurno{
         t.EseguiAbilità(secondo);
         t.FineTurnoKo();
         t.setFase(Fase.Fine_Turno);
-        if(!t.checkKo(primo))t.EseguiAbilità(primo);
-        if(!t.checkKo(secondo))t.EseguiAbilità(secondo);
-        if(!t.checkKo(primo))t.checkstatus(primo);
-        if(!t.checkKo(secondo))t.checkstatus(secondo);    
+        if(!t.checkKo(primo)){t.EseguiAbilità(primo);t.checkstatus(primo);}
+        if(!t.checkKo(secondo)){t.EseguiAbilità(secondo);t.checkstatus(secondo);}   
     }
     
 }

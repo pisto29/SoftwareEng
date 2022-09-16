@@ -46,6 +46,12 @@ public class Squadra {
             
         }
     }
+    public Strumento getStrumento(int index){
+        return this.strumentos.get(index);
+    }
+    public Personaggio getPersonaggio(int index){
+        return personaggios.get(index);
+    }
     public String getNomeSquadra() {
         return nomeSquadra;
     }

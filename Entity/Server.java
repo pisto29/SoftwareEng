@@ -102,7 +102,7 @@ public class Server {
 
     }
 
-public Partita CreaPartita(String p1, String p2, String id_regolamento) throws JsonSyntaxException, JsonIOException, FileNotFoundException, ClassNotFoundException{
+public Partita2 CreaPartita(String p1, String p2, String id_regolamento) throws JsonSyntaxException, JsonIOException, FileNotFoundException, ClassNotFoundException{
     Giocatore g1=null;
     Giocatore g2=null;
    for(Giocatore g: this.online){
@@ -111,7 +111,7 @@ public Partita CreaPartita(String p1, String p2, String id_regolamento) throws J
    }
    if(g1==null)g1=this.login(p1);
    if(g1==null)g2=this.login(p1);
-   return new Partita(g1, g2, id_regolamento);
+   return new Partita2(g1, g2, id_regolamento);
 }
 
     public static void main(String[] args) throws IOException, JsonSyntaxException, JsonIOException, ClassNotFoundException {
@@ -135,11 +135,11 @@ public Partita CreaPartita(String p1, String p2, String id_regolamento) throws J
         Giocatore g2= s.login("Riccardo");
         Giocatore g3= s.login("Alessandro");
         Giocatore g4= s.login("Luca");
-       // s.CreaPartita("Luca", "Alessandro", "NoRegole_").EseguiPartita();
-         s.inputTorneo(g1);
+       s.CreaPartita("Luca", "Alessandro", "NoRegole_").giocaPartita();
+      /*    s.inputTorneo(g1);
         s.PartecipaTorneo(g2, s.GetTornei(null).get(0));
         s.PartecipaTorneo(g3, s.GetTornei(null).get(0));
-        s.PartecipaTorneo(g4, s.GetTornei(null).get(0));
+        s.PartecipaTorneo(g4, s.GetTornei(null).get(0));*/
 
     
     }

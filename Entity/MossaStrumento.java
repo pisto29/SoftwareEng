@@ -14,12 +14,22 @@ public class MossaStrumento implements EsecuzioneTurno {
         t.getP2().setDifende(true);
         Personaggio primo;
         Personaggio secondo;
-        if( t.checkVelocità()) {primo=t.getP1();secondo=t.getP2();}
+        if( t.checkVelocità()) {primo=t.getP1();secondo=t.getP2();
+       
+        }
         else {primo=t.getP2();secondo=t.getP1();}
-        t.EseguiAbilità(primo); //primo
+        this.AvviaEsecuzione(t, primo, secondo);
+
+       
+
+        
+    } 
+
+ private void AvviaEsecuzione(Turno t, Personaggio primo, Personaggio secondo){
+    t.EseguiAbilità(primo); //primo
         t.EseguiAbilità(secondo); //secondo
-        t.FineTurnoKo();
-        if(!t.getFase().equals(Fase.Fine_Turno)){
+        
+        if(!t.FineTurnoKo()){
             t.setFase(Fase.Pre_azione); 
             t.EseguiAbilità(primo); //primo 
             t.EseguiAbilità(secondo); //secondo
@@ -27,7 +37,7 @@ public class MossaStrumento implements EsecuzioneTurno {
             t.eseguiAttacco(t.getP1());
             t.FineTurnoKo();
         }
-        if(!t.getFase().equals(Fase.Fine_Turno)){
+        if(!t.FineTurnoKo()){
             t.setFase(Fase.Post_azione); 
             t.EseguiAbilità(primo); //primo
             t.EseguiAbilità(secondo); //secondo
@@ -40,16 +50,9 @@ public class MossaStrumento implements EsecuzioneTurno {
         secondo.setAttacca(false);
         secondo.setDifende(false);
         t.setFase(Fase.Fine_Turno); //tutti primo secondo
-        if(!t.checkKo(primo))t.EseguiAbilità(primo);
-        if(!t.checkKo(secondo))t.EseguiAbilità(secondo);
-        if(!t.checkKo(primo))t.checkstatus(primo);
-        if(!t.checkKo(secondo))t.checkstatus(secondo);  
+        if(!t.checkKo(primo)){t.EseguiAbilità(primo);t.checkstatus(primo);}
+    if(!t.checkKo(secondo)){t.EseguiAbilità(secondo);t.checkstatus(secondo);}
 
-       
-
-        
-    } 
-
- 
+ }
     
 }
