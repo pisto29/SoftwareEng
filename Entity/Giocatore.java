@@ -10,14 +10,13 @@ import Foundation.builder;
 
 public class Giocatore {
     private String nome;
-    private int punteggio;
     private ArrayList<Squadra> squadra;
     private ArrayList<String> idSquadra;
     private Integer SquadraSelezionata;
     
-    public Giocatore(String nome, int punteggio, Squadra squadra) {
+    public Giocatore(String nome, Squadra squadra) {
         this.nome = nome;
-        this.punteggio = punteggio;
+        
        // this.squadra = squadra;
         
     }
@@ -26,7 +25,6 @@ public class Giocatore {
         this.squadra=new ArrayList<>();
         this.idSquadra=new ArrayList<>();
         this.nome = g.getNome();
-        this.punteggio = g.getPunteggio();
         this.idSquadra = g.getIdSquadra();
         for(String id: idSquadra)
         this.squadra.add(builder.creaSquadra(id));
@@ -46,14 +44,7 @@ public Squadra getSquadraAttiva(){
         this.nome = nome;
     }
 
-    public int getPunteggio() {
-        return punteggio;
-    }
-
-    public void setPunteggio(int punteggio) {
-        this.punteggio = punteggio;
-    }
-
+    
    
 
 
@@ -63,8 +54,8 @@ public Squadra getSquadraAttiva(){
 
     @Override
     public String toString() {
-        return "Giocatore [idSquadra=" + idSquadra + ", nome=" + nome + ", punteggio="
-                + punteggio + ", squadra=" + squadra + "]";
+        return "Giocatore [idSquadra=" + idSquadra + ", nome=" + nome 
+                 + ", squadra=" + squadra + "]";
     }
 
     public ArrayList<Squadra> getSquadra() {
