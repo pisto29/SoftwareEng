@@ -18,7 +18,7 @@ public class Round {
     }
 
     public void AvviaPartite(String id_regolamento) throws IOException{
-        System.out.println("Round iniziatoooooooooooo");
+        System.out.println("Round iniziato");
         int u=1;
         for(Giocatore g: Accoppiamenti.keySet()){
             //System.out.println("STAMPO S ACCOPPIAMENTI");

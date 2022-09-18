@@ -47,6 +47,9 @@ public class TorneoSquadre2 extends Torneo2 {
             this.Punteggio.replace("Squadra2", this.Punteggio.get("Squadra2"), this.Punteggio.get("Squadra2")+1);
             System.out.println("ROUND VINTO DA SQUADRA 2");
         }
+        if(counter1 == counter2){
+            System.out.println("ROUND TERMINATO IN PARITA");  
+        }
 
     }
     private void setup(){

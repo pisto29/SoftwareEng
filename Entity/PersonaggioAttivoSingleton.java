@@ -227,7 +227,7 @@ private float efficacia(Personaggio p1, Mossa m){
         return (float) attaccospecialeOriginale * moltiplicatoreAttSpec;
     }
 
-
+    
 
     @Override
     public float getDifesa(int difesaOriginale) {
