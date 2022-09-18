@@ -20,7 +20,7 @@ public class Partita2 {
         this.giocabile = giocabile;
         
         this.id_regolamento = id_regolamento;
-        this.regolamento=RegolamentoFactorySingleton.getIstanza().CreaRegolamento(id_regolamento);
+        this.regolamento=CompetitionFactorySingleton.getIstanza().CreaRegolamento(id_regolamento);
     }
 
     public void UsaMossa(String id_mossa,String Nome_giocatore){
@@ -64,11 +64,13 @@ public class Partita2 {
         if(this.player1.getNome().equals(Nome_giocatore)){
             t.setMossaG1(null);
             t.setSostituzioneg1(player1.getSquadraAttiva().getPersonaggio(index_personaggio));
+            
             t.setStrumentoG1(null);
         }
         else{
             t.setMossaG2(null);
             t.setSostituzioneg2(player2.getSquadraAttiva().getPersonaggio(index_personaggio));
+            
             t.setStrumentoG2(null);
         }
        this.VerificaCompletezzaTurno();
@@ -123,7 +125,7 @@ public class Partita2 {
             //metodo view per scegliere il cambio
             t.getP1().Sostituzione();
             PersonaggioAttivoSingleton.setpass("Istanza1");
-            Personaggio p=player1.getSquadraAttiva().getPersonaggio(new View().SceltaPersonaggioCampo(player2, player2.getSquadraAttiva(), t.getP1()));
+            Personaggio p=player1.getSquadraAttiva().getPersonaggio(new View().SceltaPersonaggioCampo(player1, player1.getSquadraAttiva(), t.getP1()));
             p.Sostituzione();
             t.setP1(p);
             
@@ -134,13 +136,21 @@ public class Partita2 {
             PersonaggioAttivoSingleton.setpass("Istanza2");
             Personaggio p=player2.getSquadraAttiva().getPersonaggio(new View().SceltaPersonaggioCampo(player2, player2.getSquadraAttiva(), t.getP2()));
             p.Sostituzione();
-            t.setP1(p);
+            t.setP2(p);
             
         }
     }
     private void avanza(){
         //this.t=this.createTurno(this.t.getNumturno()+1);
-        this.t.setNumturno(this.t.getNumturno()+1);
+       /* this.t.setNumturno(this.t.getNumturno()+1);
+        this.t.setMossaG1(null);
+        this.t.setMossaG2(null);
+        this.t.*/
+        Personaggio p1=t.getP1();
+        Personaggio p2=t.getP2();
+        this.t=this.createTurno(this.t.getNumturno()+1);
+        this.t.setP1(p1);
+        this.t.setP2(p2);
     }
     private Giocatore TrovaVincitore(){
         if(player1.getSquadraAttiva().checkKOSquadra())

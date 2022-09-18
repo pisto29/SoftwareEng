@@ -1,10 +1,43 @@
 package Entity;
-
+//lo strumento viene usato prima della mossa entrambi usano abilità
 public class MossaStrumento implements EsecuzioneTurno {
 
     //private ImplementatorManagerSingleton implementatorManagerSingleton;
+    public void esecuzione(Turno t){
+        t.utilizzaStrumento(t.getP2());
+        t.getP1().setAttacca(true);
+        t.getP2().setDifende(true);
+        Personaggio primo;
+        Personaggio secondo;
+        primo=t.getP1();secondo=t.getP2();
+       
+        
+        
+        t.EseguiAbilità(primo); //primo
+        t.EseguiAbilità(secondo);
+        if(!t.FineTurnoKo()){
+            t.setFase(Fase.Pre_azione); 
+            t.EseguiAbilità(primo); //primo 
+            t.EseguiAbilità(secondo); //secondo
+            t.checkstatus(primo);   //primo
+            t.eseguiAttacco(secondo);
+            
+        }
+        if(!t.FineTurnoKo()){
+            t.setFase(Fase.Post_azione); 
+            t.EseguiAbilità(primo); //primo
+            t.EseguiAbilità(secondo); //secondo
+            t.checkstatus(primo);   //primo
+               
+            
+        }
+        primo.setAttacca(false);
+        secondo.setDifende(false);
+        if(!t.checkKo(primo)){t.EseguiAbilità(primo);t.checkstatus(primo);}
+        if(!t.checkKo(t.getP2())){t.EseguiAbilità(secondo);}
 
-    public void esecuzione(Turno t) {
+    }
+    public void esecuzione2(Turno t) {
         
        
         t.utilizzaStrumento(t.getP2());
@@ -41,8 +74,8 @@ public class MossaStrumento implements EsecuzioneTurno {
             t.setFase(Fase.Post_azione); 
             t.EseguiAbilità(primo); //primo
             t.EseguiAbilità(secondo); //secondo
-            t.checkstatus(primo);   //primo
-            t.checkstatus(secondo);   //secondo
+            t.checkstatus(t.getP1());   //primo
+               
             t.FineTurnoKo();
         }
         primo.setAttacca(false);

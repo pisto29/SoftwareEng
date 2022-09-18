@@ -7,8 +7,8 @@
     "percentualeAttivazioneEffetto":"0",
     "idTipo":"Erba",
     "tipologia":"Fisico",
-    "idEffettiSelf":"NoEffetto",
-    "idEffetti":"NoEffetto"
+    "idEffettiSelf":["NoEffetto"],
+    "idEffetti":["NoEffetto"]
 
 
 }

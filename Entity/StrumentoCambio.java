@@ -1,8 +1,19 @@
 package Entity;
 
 public class StrumentoCambio implements EsecuzioneTurno{
+    public void esecuzione(Turno t){
+        t.utilizzaStrumento(t.getP1());
+        t.sostituisci(t.getP2());
+        Personaggio primo;
+        Personaggio secondo;
+        primo=t.getP1();secondo=t.getP2();
+        t.EseguiAbilità(primo);
+        t.setFase(Fase.Fine_Turno);
+        if(!t.checkKo(primo)){t.EseguiAbilità(primo);}
+        if(!t.checkKo(secondo)){t.checkstatus(secondo);}
+    }
     
-    public void esecuzione(Turno t) {
+    public void esecuzione2(Turno t) {
         
 
 
@@ -20,8 +31,8 @@ public class StrumentoCambio implements EsecuzioneTurno{
 
     private void AvviaEsecuzione(Turno t, Personaggio primo, Personaggio secondo){
         primo.setAttacca(false);
-  primo.setDifende(false);
-  secondo.setAttacca(false);
+     primo.setDifende(false);
+     secondo.setAttacca(false);
   secondo.setDifende(false);
         t.EseguiAbilità(primo);
         t.EseguiAbilità(secondo);

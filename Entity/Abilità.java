@@ -1,23 +1,24 @@
 package Entity;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public abstract class Abilità {
 
-    protected EffettoComposite effetti_self;
-    protected EffettoComposite effetti;
+    protected ArrayList<Effetto> effetti_self;
+    protected ArrayList<Effetto> effetti;
     protected Fase fase_attivazione;
     protected String implementator_type; 
     protected AbilitàImplementator implementator;
     protected int PercentualeAttivazione;
-    protected String id_effetti;
-    protected String id_effetti_self;
+    protected ArrayList<String> id_effetti;
+    protected ArrayList<String> id_effetti_self;
     protected String id;
     protected String nome;
 
     public Abilità(  Fase fase_attivazione,
             String implementator_type,  int percentualeAttivazione,
-            String id_effetti, String id_effetti_self, String id, String nome) {
+            ArrayList<String> id_effetti, ArrayList<String> id_effetti_self, String id, String nome) throws FileNotFoundException {
         
         this.fase_attivazione = fase_attivazione;
         this.implementator_type = implementator_type;
@@ -36,18 +37,12 @@ public abstract class Abilità {
             break;
             default:this.implementator=AbilitàNeutraBridge.getIstanza();
         }
-        try {
-            this.effetti=EffettoFactorySingleton.getIstanza().CreaEffetto(this.id_effetti);
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        try {
-            this.effetti_self=EffettoFactorySingleton.getIstanza().CreaEffetto(this.id_effetti_self);
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();}
+        effetti=new ArrayList<>();
+        for(String s: id_effetti)
+        this.effetti.add(EffettoFactorySingleton.getIstanza().CreaEffetto(s));
+        this.effetti_self=new ArrayList<>();
+        for(String s: id_effetti_self)
+        this.effetti_self.add(EffettoFactorySingleton.getIstanza().CreaEffetto(s));
         
     }
 
@@ -57,13 +52,7 @@ public abstract class Abilità {
 
     
 
-    public void setEffetti_self(EffettoComposite effetti_self) {
-        this.effetti_self = effetti_self;
-    }
-
-    public void setEffetti(EffettoComposite effetti) {
-        this.effetti = effetti;
-    }
+ 
 
     public void setFase_attivazione(Fase fase_attivazione) {
         this.fase_attivazione = fase_attivazione;
@@ -93,21 +82,7 @@ public abstract class Abilità {
         PercentualeAttivazione = percentualeAttivazione;
     }
 
-    public String getId_effetti() {
-        return id_effetti;
-    }
-
-    public void setId_effetti(String id_effetti) {
-        this.id_effetti = id_effetti;
-    }
-
-    public String getId_effetti_self() {
-        return id_effetti_self;
-    }
-
-    public void setId_effetti_self(String id_effetti_self) {
-        this.id_effetti_self = id_effetti_self;
-    }
+  
 
     public String getId() {
         return id;
@@ -123,16 +98,7 @@ public abstract class Abilità {
 
 
 
-    public EffettoComposite getEffetti_self() {
-        return effetti_self;
-    }
-
-
-
-    public EffettoComposite getEffetti() {
-        return effetti;
-    }
-
+   
 
 
     public Fase getFase_attivazione() {
@@ -143,6 +109,54 @@ public abstract class Abilità {
 
     public String getNome() {
         return nome;
+    }
+
+
+
+    public ArrayList<Effetto> getEffetti_self() {
+        return effetti_self;
+    }
+
+
+
+    public void setEffetti_self(ArrayList<Effetto> effetti_self) {
+        this.effetti_self = effetti_self;
+    }
+
+
+
+    public ArrayList<Effetto> getEffetti() {
+        return effetti;
+    }
+
+
+
+    public void setEffetti(ArrayList<Effetto> effetti) {
+        this.effetti = effetti;
+    }
+
+
+
+    public ArrayList<String> getId_effetti() {
+        return id_effetti;
+    }
+
+
+
+    public void setId_effetti(ArrayList<String> id_effetti) {
+        this.id_effetti = id_effetti;
+    }
+
+
+
+    public ArrayList<String> getId_effetti_self() {
+        return id_effetti_self;
+    }
+
+
+
+    public void setId_effetti_self(ArrayList<String> id_effetti_self) {
+        this.id_effetti_self = id_effetti_self;
     }
    
     

@@ -1,6 +1,6 @@
 package Entity;
 
-public class EffettoModificaAttaccoSpeciale implements EffettoComposite{
+public class EffettoModificaAttaccoSpeciale implements Effetto{
     
     private float moltiplicatore;
     private String id;
@@ -51,23 +51,6 @@ public class EffettoModificaAttaccoSpeciale implements EffettoComposite{
         
     }
 
-    @Override
-    public void Add(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void Remove(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public EffettoComposite getChild(int a) {
-        // TODO Auto-generated method stub
-        return this;
-    }
     
     
 }

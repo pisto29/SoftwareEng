@@ -2,15 +2,15 @@ package Entity;
 
 import java.util.*;
 
-public class EffettoMultiploComposite implements EffettoComposite{
+public class EffettoMultiploComposite implements Effetto{
 
     private String id;
-    private ArrayList <EffettoComposite> effetti;
+    private ArrayList <Effetto> effetti;
     private String[] idEffetti;
 
     
 
-    public EffettoMultiploComposite(String id, ArrayList<EffettoComposite> effetti, String[] idEffetti) {
+    public EffettoMultiploComposite(String id, ArrayList<Effetto> effetti, String[] idEffetti) {
         this.id = id;
         this.effetti = effetti;
         this.idEffetti = idEffetti;
@@ -20,7 +20,7 @@ public class EffettoMultiploComposite implements EffettoComposite{
     public void ApplicaEffetto(Personaggio p1) {
         // TODO Auto-generated method stub
         int i = 0;
-        Iterator <EffettoComposite> iter = this.effetti.iterator();
+        Iterator <Effetto> iter = this.effetti.iterator();
         while(iter.hasNext()){
             iter.next().ApplicaEffetto(p1);
             //iter.next();
@@ -30,24 +30,8 @@ public class EffettoMultiploComposite implements EffettoComposite{
         
     }
 
-    @Override
-    public void Add(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        this.effetti.add(e);
-    }
 
-    @Override
-    public void Remove(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        //non necessario al momento
-    }
-
-    @Override
-    public EffettoComposite getChild(int a) {
-        // TODO Auto-generated method stub
-        return this.effetti.get(a);
-    }
-
+    
     public String getId() {
         return id;
     }
@@ -56,11 +40,11 @@ public class EffettoMultiploComposite implements EffettoComposite{
         this.id = id;
     }
 
-    public ArrayList<EffettoComposite> getEffetti() {
+    public ArrayList<Effetto> getEffetti() {
         return effetti;
     }
 
-    public void setEffetti(ArrayList<EffettoComposite> effetti) {
+    public void setEffetti(ArrayList<Effetto> effetti) {
         this.effetti = effetti;
     }
 

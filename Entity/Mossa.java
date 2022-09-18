@@ -14,30 +14,33 @@ public class Mossa {
     private String idTipo;
     private Tipo tipo;
     private Tipologia tipologia;
-    private String idEffettiSelf;
-    private EffettoComposite effetti_self;
-    private String idEffetti;
-    private EffettoComposite effetti;
+    private ArrayList<String> idEffettiSelf;
+    private ArrayList<Effetto> effetti_self;
+    private ArrayList<String> idEffetti;
+    private ArrayList<Effetto> effetti;
+    
+
     
 
     public Mossa(String nomeMossa, int danno, int pp, int percentualeCritico, int precisione,
-             int percentualeAttivazzioneEffetto, Tipo tipo, Tipologia tipologia,
-            EffettoComposite effetti_self,EffettoComposite effetti, String idTipo, String idEffetti, String idEffettiSelf) {
+            int percentualeAttivazzioneEffetto, String idTipo, Tipo tipo, Tipologia tipologia,
+            ArrayList<String> idEffettiSelf, ArrayList<Effetto> effetti_self, ArrayList<String> idEffetti,
+            ArrayList<Effetto> effetti) {
         this.nomeMossa = nomeMossa;
         this.danno = danno;
         this.pp = pp;
         this.percentualeCritico = percentualeCritico;
         this.precisione = precisione;
         this.percentualeAttivazzioneEffetto = percentualeAttivazzioneEffetto;
+        this.idTipo = idTipo;
         this.tipo = tipo;
         this.tipologia = tipologia;
-        this.effetti_self= effetti_self;
-        this.effetti= effetti;
-        this.idTipo = idTipo;
-        this.idEffetti = idEffetti;
         this.idEffettiSelf = idEffettiSelf;
-         
+        this.effetti_self = effetti_self;
+        this.idEffetti = idEffetti;
+        this.effetti = effetti;
     }
+
 
     public Mossa(Mossa m) throws FileNotFoundException {
         this.nomeMossa = m.getNomeMossa();
@@ -50,8 +53,12 @@ public class Mossa {
         this.idTipo = m.getIdTipo();
         this.idEffetti = m.getIdEffetti();
         this.idEffettiSelf = m.getIdEffettiSelf();
-        this.effetti = EffettoFactorySingleton.getIstanza().CreaEffetto(this.idEffetti);
-        this.effetti_self = EffettoFactorySingleton.getIstanza().CreaEffetto(this.idEffettiSelf);
+        this.effetti=new ArrayList<>();
+        for(String s: idEffetti)
+        this.effetti.add(EffettoFactorySingleton.getIstanza().CreaEffetto(s));
+        this.effetti_self=new ArrayList<>();
+        for(String s: idEffettiSelf)
+        this.effetti_self.add(EffettoFactorySingleton.getIstanza().CreaEffetto(s));
         this.tipo = TipoFactorySingleton.getIstanza().Create(this.idTipo);
        
     }
@@ -151,8 +158,14 @@ public class Mossa {
 
     public void ApplicaEffettoMossa(Personaggio utilizzatore, Personaggio bersaglio){
         if(this.CheckEffetto()){
-        this.effetti_self.ApplicaEffetto(utilizzatore);
-        this.effetti.ApplicaEffetto(bersaglio);}
+            for (Effetto effetto : effetti_self) {
+                effetto.ApplicaEffetto(utilizzatore);
+            }
+            for (Effetto effetto : effetti) {
+                effetto.ApplicaEffetto(bersaglio);
+            }
+        
+        }
     }
 
     public boolean CheckEffetto(){
@@ -172,24 +185,7 @@ public class Mossa {
         else
         return true;
     }
-    public EffettoComposite getEffetti_self() {
-        return effetti_self;
-    }
-
-
-    public void setEffetti_self(EffettoComposite effetti_self) {
-        this.effetti_self = effetti_self;
-    }
-
-
-    public EffettoComposite getEffetti() {
-        return effetti;
-    }
-
-
-    public void setEffetti(EffettoComposite effetti) {
-        this.effetti = effetti;
-    }
+  
 
     public String getIdTipo() {
         return idTipo;
@@ -199,21 +195,47 @@ public class Mossa {
         this.idTipo = idTipo;
     }
 
-    public String getIdEffettiSelf() {
+
+    public ArrayList<String> getIdEffettiSelf() {
         return idEffettiSelf;
     }
 
-    public void setIdEffettiSelf(String idEffettiSelf) {
+
+    public void setIdEffettiSelf(ArrayList<String> idEffettiSelf) {
         this.idEffettiSelf = idEffettiSelf;
     }
 
-    public String getIdEffetti() {
+
+    public ArrayList<Effetto> getEffetti_self() {
+        return effetti_self;
+    }
+
+
+    public void setEffetti_self(ArrayList<Effetto> effetti_self) {
+        this.effetti_self = effetti_self;
+    }
+
+
+    public ArrayList<String> getIdEffetti() {
         return idEffetti;
     }
 
-    public void setIdEffetti(String idEffetti) {
+
+    public void setIdEffetti(ArrayList<String> idEffetti) {
         this.idEffetti = idEffetti;
     }
+
+
+    public ArrayList<Effetto> getEffetti() {
+        return effetti;
+    }
+
+
+    public void setEffetti(ArrayList<Effetto> effetti) {
+        this.effetti = effetti;
+    }
+
+  
     
 
 

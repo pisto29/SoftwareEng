@@ -7,8 +7,8 @@
     "percentualeAttivazioneEffetto":"0",
     "idTipo":"Acqua",
     "tipologia":"Speciale",
-    "idEffettiSelf":"NoEffetto",
-    "idEffetti":"NoEffetto"
+    "idEffettiSelf":["NoEffetto"],
+    "idEffetti":["NoEffetto"]
 
 
 }

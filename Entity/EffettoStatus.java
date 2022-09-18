@@ -1,6 +1,6 @@
 package Entity;
 
-public class EffettoStatus implements EffettoComposite {
+public class EffettoStatus implements Effetto {
 
     
     private String id;
@@ -35,23 +35,7 @@ public class EffettoStatus implements EffettoComposite {
        
     }
 
-    @Override
-    public void Add(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void Remove(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public EffettoComposite getChild(int a) {
-        // TODO Auto-generated method stub
-        return this;
-    }
+  
 
     public String getId() {
         return id;

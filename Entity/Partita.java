@@ -23,7 +23,7 @@ public class Partita {
     this.player2 = player2;
     this.id_regolamento=id_regolamento;
    
-    this.regolamento=RegolamentoFactorySingleton.getIstanza().CreaRegolamento(id_regolamento);
+    this.regolamento=CompetitionFactorySingleton.getIstanza().CreaRegolamento(id_regolamento);
     this.giocabile=this.checksquadre();
     this.t = new Turno(0, Fase.Inizio_turno);
 }

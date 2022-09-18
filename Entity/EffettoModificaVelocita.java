@@ -1,6 +1,6 @@
 package Entity;
 
-public class EffettoModificaVelocita implements EffettoComposite{
+public class EffettoModificaVelocita implements Effetto{
     
     private float moltiplicatore;
     private String id;
@@ -43,23 +43,7 @@ public class EffettoModificaVelocita implements EffettoComposite{
         System.out.println(p1.getNomePersonaggio()+", "+this.msg);
     }
 
-    @Override
-    public void Add(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        
-    }
 
-    @Override
-    public void Remove(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public EffettoComposite getChild(int a) {
-        // TODO Auto-generated method stub
-        return this;
-    }
 
     public String getId() {
         return id;

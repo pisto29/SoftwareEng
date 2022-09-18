@@ -263,12 +263,16 @@ public void inizioIscrizione(String a){
     System.out.println("Benvenuto "+a+" iscrizione in corso");
 }
 
-    public String SceltaRegolamento() throws IOException{
-        System.out.println("Seleziona un Regolamento: ");
+    public ArrayList<String> SceltaRegolamento() throws IOException{
+        boolean fine=false;
+        boolean NP=false;
+        boolean NS=false;
+        boolean TP=false;
+       
         ArrayList<String> results = new ArrayList<String>();
 
         String s = new File(".").getAbsolutePath()+"/Foundation/file/Regolamento/";
-
+        ArrayList<String> scelte=new ArrayList<>();
  
         File[] files = new File(s).listFiles();
         //If this pathname does not denote a directory, then listFiles() returns null. 
@@ -277,9 +281,15 @@ public void inizioIscrizione(String a){
             if (file.isFile()) {
                 results.add(file.getName().replaceAll(".json", ""));
             }   
-        }
+        } while(!fine){
+        System.out.println("Seleziona le regole: Puoi scegliere al massimo una regola per categoria: ");
+        System.out.println("Limitazioni Numero Personaggi");
+        System.out.println("Limitazioni Numero Strumenti");
+        System.out.println("Limitazioni tipo Personaggi");
+        System.out.println("scrivi fine per terminare prima l'inserimento");
         int i=1;
         for(String r:results){
+            if(!(r.contains("RegolaLimitazioneNPersonaggi")&&NP)&&!(r.contains("RegolaLimitazioneNstrumento")&&NS)&&!(r.contains("RegolaLimitazioneTipo")&&TP))
             System.out.println(i+" "+r);
             i++;
         }
@@ -289,9 +299,20 @@ public void inizioIscrizione(String a){
         do{
             st = br.readLine();
 
-       }while(Integer.parseInt(st)<1 && Integer.parseInt(st)>results.size());
+       }while(!st.equals("fine")&&(Integer.parseInt(st)<1 && Integer.parseInt(st)>results.size()));
+       if(st.equals("fine")){fine=true;
+        if(!NP&&!NS&&!TP)scelte.add("NoRegole_");
+    
+    }
+       else{
        int a=Integer.parseInt(st);
-       return results.get(a-1);
+       if(results.get(a-1).contains("RegolaLimitazioneNPersonaggi"))NP=true;
+       if(results.get(a-1).contains("RegolaLimitazioneNstrumento"))NS=true;
+       if(results.get(a-1).contains("RegolaLimitazioneTipo"))TP=true;
+       if((NP&&NS&&TP)||results.get(a-1).contains("NoRegole_"))fine=true;
+       scelte.add(results.get(a-1));}}
+       return scelte;
+       
 
     }
 public Integer ScegliSquadra(ArrayList<Squadra>squadre) throws IOException{

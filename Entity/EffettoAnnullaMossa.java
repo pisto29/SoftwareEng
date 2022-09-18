@@ -1,6 +1,6 @@
 package Entity;
 
-public class EffettoAnnullaMossa implements EffettoComposite {
+public class EffettoAnnullaMossa implements Effetto {
 private String id;
 private String messaggio;
 
@@ -29,23 +29,7 @@ public void setId(String id) {
 
     }
 
-    @Override
-    public void Add(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void Remove(EffettoComposite e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public EffettoComposite getChild(int a) {
-        // TODO Auto-generated method stub
-        return this;
-    }
+   
 
     
     

@@ -1,7 +1,7 @@
 package Entity;
 
 public class EsecuzioneTurnoStrategyFactorySingleton {
-public static EsecuzioneTurnoStrategyFactorySingleton istanza;
+private static EsecuzioneTurnoStrategyFactorySingleton istanza;
     private EsecuzioneTurnoStrategyFactorySingleton() {
     }
 

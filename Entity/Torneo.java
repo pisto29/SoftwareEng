@@ -18,7 +18,7 @@ public abstract class Torneo {
     public Torneo(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) throws FileNotFoundException {
         
         this.id_regolamento=id_regolamento;
-        this.Regolamento=RegolamentoFactorySingleton.getIstanza().CreaRegolamento(id_regolamento);
+        this.Regolamento=CompetitionFactorySingleton.getIstanza().CreaRegolamento(id_regolamento);
         Partecipanti=new ArrayList<>();
         round=new Round(0);
         NumeroPartecipanti = numeroPartecipanti;

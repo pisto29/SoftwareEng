@@ -1,8 +1,21 @@
 package Entity;
 
 public class StrumentoStrumento implements EsecuzioneTurno{
+public void esecuzione(Turno t){
+t.utilizzaStrumento(t.getP1());
+t.utilizzaStrumento(t.getP2());
+Personaggio primo;
+Personaggio secondo;
+if( t.checkVelocità()) {primo=t.getP1();secondo=t.getP2();}
+else {primo=t.getP2();secondo=t.getP1();}
+t.EseguiAbilità(primo);
+t.EseguiAbilità(secondo);
+t.setFase(Fase.Fine_Turno);
+if(!t.checkKo(primo)){t.EseguiAbilità(primo);}
+if(!t.checkKo(secondo)){t.EseguiAbilità(secondo);}
 
-    public void esecuzione(Turno t) {
+}
+    public void esecuzione2(Turno t) {
         
         
         

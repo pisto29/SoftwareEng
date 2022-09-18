@@ -187,7 +187,9 @@ public static EffettoRimozioneStatus creaEffettoRimozioneStatus(String id) throw
         BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/abilita/"+id+".json"));
         String nome = id.split("_")[0];
         Abilità a=null;
+        
         switch(nome){
+            
             case "Multiuso":
              a= new AbilitàMultiuso(gson.fromJson(br, AbilitàMultiuso.class));
              break;
@@ -264,11 +266,11 @@ public static EffettoRimozioneStatus creaEffettoRimozioneStatus(String id) throw
     }
 
 
-    public static EffettoComposite CreaEffettoComposite(String idEffettoMossa) throws FileNotFoundException {
+    public static Effetto CreaEffettoComposite(String idEffettoMossa) throws FileNotFoundException {
         Gson gson = new Gson();
-        EffettoComposite E=null;
+        Effetto E=null;
         if(idEffettoMossa.contains("Multiplo")){
-                ArrayList <EffettoComposite> effetti = new ArrayList<>();
+                ArrayList <Effetto> effetti = new ArrayList<>();
             
                 BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+idEffettoMossa+".json"));
                 EffettoMultiploComposite A = gson.fromJson(br, EffettoMultiploComposite.class);
@@ -378,7 +380,7 @@ public static EffettoRimozioneStatus creaEffettoRimozioneStatus(String id) throw
         Gson gson = new Gson();
         RegolamentoComponent E=null;
         if(idRegolamento.contains("Multipla")){
-                ArrayList <EffettoComposite> effetti = new ArrayList<>();
+                ArrayList <Effetto> effetti = new ArrayList<>();
             
                 BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+idRegolamento+".json"));
                 RegolamentoComposite A = gson.fromJson(br, RegolamentoComposite.class);

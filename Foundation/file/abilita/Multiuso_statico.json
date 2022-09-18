@@ -3,7 +3,7 @@
     "fase_attivazione":"Post_azione",
     "implementator_type":"difesa",
     "PercentualeAttivazione":"70",
-    "id_effetti_self":"NoEffetto",
-    "id_effetti":"EffettoStatus_paralisi",
+    "id_effetti_self":["NoEffetto"],
+    "id_effetti":["EffettoStatus_paralisi"],
     "nome": "statico"
 }

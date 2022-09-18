@@ -5,20 +5,38 @@ import java.util.ArrayList;
 
 import Foundation.builder;
 
-public class RegolamentoFactorySingleton {
-    private static RegolamentoFactorySingleton istanza;
-    private RegolamentoFactorySingleton() {
+public class CompetitionFactorySingleton {
+    private static CompetitionFactorySingleton istanza;
+    private CompetitionFactorySingleton() {
     }
-    public static RegolamentoFactorySingleton getIstanza(){
+    public static CompetitionFactorySingleton getIstanza(){
         if(istanza==null){
-            istanza=new RegolamentoFactorySingleton();
+            istanza=new CompetitionFactorySingleton();
         }
         return istanza;
+    }
+
+    public Torneo creaTorneo(String formato_torneo, int numeroPartecipanti, boolean accessibilita,String id_regolamento) throws FileNotFoundException{
+        Torneo t;
+        switch(formato_torneo){
+            case "Italiana":
+                t = new TorneoItaliana(numeroPartecipanti,accessibilita,id_regolamento);
+                break;
+            case "Eliminazione":
+                t = new TorneoEliminazioneDiretta(numeroPartecipanti,accessibilita,id_regolamento);
+                break;
+            case "Squadre":
+                t = new TorneoSquadre(numeroPartecipanti, accessibilita, id_regolamento);
+                break;
+            default : t = null;
+
+        }
+        return t;
     }
     public  RegolamentoComponent CreaRegolamento(String id) throws FileNotFoundException{
         RegolamentoComponent E=null;
         if(id.contains("Multipla")){
-                ArrayList <EffettoComposite> effetti = new ArrayList<>();
+                ArrayList <Effetto> effetti = new ArrayList<>();
             
               
                 RegolamentoComposite A = builder.creaRegolamentoComposite(id);

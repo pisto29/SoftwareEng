@@ -1,11 +1,11 @@
 package Entity;
 
-public class NoEffetto implements EffettoComposite{
+public class NoEffetto implements Effetto{
 
     private String Id;
 
     @Override
-    public void Add(EffettoComposite e) {
+    public void Add(Effetto e) {
         // TODO Auto-generated method stub
         
     }
@@ -17,13 +17,13 @@ public class NoEffetto implements EffettoComposite{
     }
 
     @Override
-    public void Remove(EffettoComposite e) {
+    public void Remove(Effetto e) {
         // TODO Auto-generated method stub
         
     }
 
     @Override
-    public EffettoComposite getChild(int a) {
+    public Effetto getChild(int a) {
         // TODO Auto-generated method stub
         return null;
     }

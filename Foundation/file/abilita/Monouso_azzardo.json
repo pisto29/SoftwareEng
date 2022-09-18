@@ -1,9 +1,9 @@
 {
-    "id":"Monouso_Velocista",
+    "id":"Monouso_azzardo",
     "fase_attivazione":"Inizio_turno",
     "implementator_type":"neutro",
     "PercentualeAttivazione":"100",
-    "id_effetti_self":"EffettoModificaAttaccoSpeciale_1",
-    "id_effetti":"EffettoModificaAttacco_1",
+    "id_effetti_self":["EffettoModificaAttaccoSpeciale_1"],
+    "id_effetti":["EffettoModificaAttacco_1"],
     "nome": "Azzardo"
 }

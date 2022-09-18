@@ -3,7 +3,7 @@
     "fase_attivazione":"Post_azione",
     "implementator_type":"difesa",
     "PercentualeAttivazione":"100",
-    "id_effetti_self":"EffettoModificaDifesa_1",
-    "id_effetti":"NoEffetto",
+    "id_effetti_self":["EffettoModificaDifesa_1"],
+    "id_effetti":["NoEffetto"],
     "nome": "Guscio"
 }

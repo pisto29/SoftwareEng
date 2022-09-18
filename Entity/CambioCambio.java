@@ -1,7 +1,17 @@
 package Entity;
-
+// A seguito di un cambio le abilità non vengono attivate per il resto del turno ma viene solo verificata la presenza di status
 public class CambioCambio implements EsecuzioneTurno{
-    public void esecuzione(Turno t) {
+    public void esecuzione (Turno t){
+        t.sostituisci(t.getP1());
+        t.sostituisci(t.getP2());
+        Personaggio primo;
+        Personaggio secondo;
+        t.setFase(Fase.Fine_Turno);
+        primo=t.getP1();secondo=t.getP2();
+        t.checkstatus(primo);
+        t.checkstatus(secondo);
+    }
+    public void esecuzione2(Turno t) {
         t.sostituisci(t.getP1());
         t.sostituisci(t.getP2());
         Personaggio primo;

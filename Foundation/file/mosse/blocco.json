@@ -7,6 +7,6 @@
     "percentualeAttivazzioneEffetto":"100",
     "idTipo":"Normale",
     "tipologia":"Fisico",
-    "idEffettiSelf":"NoEffetto",
-    "idEffetti":"EffettoAnnullaMossa"
+    "idEffettiSelf":["NoEffetto"],
+    "idEffetti":["EffettoAnnullaMossa"]
 }

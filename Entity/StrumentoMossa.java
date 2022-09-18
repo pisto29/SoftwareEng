@@ -2,8 +2,39 @@ package Entity;
 
 public class StrumentoMossa implements EsecuzioneTurno {
     //private ImplementatorManagerSingleton implementatorManager;
+public void esecuzione(Turno t){
+    Personaggio P1;
+    Personaggio P2;
+    P1=t.getP1();P2=t.getP2();
+    t.utilizzaStrumento(P1);
+   P2.setAttacca(true);
+   P1.setDifende(true);
+   t.EseguiAbilità(P2);
+    t.EseguiAbilità(P1);
+    if(!t.FineTurnoKo()){
+        t.setFase(Fase.Pre_azione);
+        t.EseguiAbilità(P2);
+        t.EseguiAbilità(P1);
+        t.checkstatus(P2);
+        t.eseguiAttacco(P2);
+    }
+    if(!t.FineTurnoKo()){
+        t.setFase(Fase.Post_azione); 
+        t.EseguiAbilità(P2);
+        t.EseguiAbilità(P1);
+        t.checkstatus(P2);
+    }
+    P2.setAttacca(false);
+    P1.setDifende(false);
 
-    public void esecuzione(Turno t) {
+if(!t.checkKo(P2)){t.EseguiAbilità(P2);t.checkstatus(P2);}
+    if(!t.checkKo(P1)){t.EseguiAbilità(P1);}
+
+   
+
+
+}
+    public void esecuzione2(Turno t) {
         
         
         //ImplementatorManagerSingleton.getIstanza().setattaccante(t.getP2());
