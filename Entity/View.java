@@ -8,6 +8,54 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 public class View {
+
+public String getCodiceTorneo() throws IOException{
+    System.out.println("Vuoi visualizzare tornei pubblici o cercare un torneo privato?");
+    String st =null;
+    do{
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+     st = br.readLine();
+    if(!st.equals("pubblici")&&!st.equals("privato"))
+    System.out.println("Inserisci pubblici o privato");
+    }
+    while(!st.equals("pubblici")&&!st.equals("privato"));
+    if(st.equals("pubblici")){
+        System.out.println("Hai selezionato pubblici");
+        return null;
+    }
+    else{
+        System.out.println("Hai selezionato privato inserisci il codice del torneo desiderato");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+     st = br.readLine();
+     System.out.println("Codice acquisito");
+     return st;
+    }
+
+}
+public Integer recuperaIndiceTorneo(ArrayList<Torneo> t) throws IOException{
+if(t.size()==0){
+    System.out.println("Spiacente non sono disponibili tornei");
+    return null;
+}
+else{
+    System.out.println("Scegli il torneo a cui iscriverti");
+    int i=1;
+    for(Torneo tt: t){
+        System.out.println(i+") "+tt.StringForView());
+        i++;
+    }String st=null;
+    Integer st2=null;
+    do{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        st = br.readLine();
+        st2=Integer.parseInt(st);
+        if(st2<1&&st2>t.size())
+        System.out.println("Scelta fatta non valida");
+    }
+    while(st2<1&&st2>t.size());
+    return st2-1;
+}
+}
 public void CompletaTorneo(int n){
     System.out.println("Mancano ancora "+n+" partecipanti");
 }

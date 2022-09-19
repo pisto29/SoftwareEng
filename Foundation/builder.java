@@ -376,15 +376,15 @@ public static EffettoRimozioneStatus creaEffettoRimozioneStatus(String id) throw
         return g;
 
     }
-    public static RegolamentoComponent creaRegolamentoComposite2(String idRegolamento) throws FileNotFoundException {
+    public static Regolamento creaRegolamentoComposite2(String idRegolamento) throws FileNotFoundException {
         Gson gson = new Gson();
-        RegolamentoComponent E=null;
+        Regolamento E=null;
         if(idRegolamento.contains("Multipla")){
                 ArrayList <Effetto> effetti = new ArrayList<>();
             
                 BufferedReader br = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/effetto/"+idRegolamento+".json"));
                 RegolamentoComposite A = gson.fromJson(br, RegolamentoComposite.class);
-                ArrayList<RegolamentoComponent> regole=new ArrayList<>();
+                ArrayList<Regolamento> regole=new ArrayList<>();
                 A.setRegole(regole);
                 for (String nomeEffetto : A.getIdRegole()) {
                     BufferedReader br2 = new BufferedReader(new FileReader(new File(".").getAbsolutePath()+"/Foundation/file/Regolamento/"+nomeEffetto+".json"));
@@ -518,7 +518,7 @@ public static EffettoRimozioneStatus creaEffettoRimozioneStatus(String id) throw
       /*for(Personaggio p: s.getPersonaggios()){
         System.out.println(p.toString());
       }*/
-      RegolamentoComponent r=builder.creaRegolamentoComposite("RegolaLimitazioneNPersonaggi_3");
+      Regolamento r=builder.creaRegolamentoComposite("RegolaLimitazioneNPersonaggi_3");
       System.out.println(r.toString());
     }
 }

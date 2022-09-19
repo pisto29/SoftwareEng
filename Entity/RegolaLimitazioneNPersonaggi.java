@@ -1,6 +1,6 @@
 package Entity;
 
-public class RegolaLimitazioneNPersonaggi implements RegolamentoComponent {
+public class RegolaLimitazioneNPersonaggi implements Regolamento {
 private int  NumeroPersonaggi;
 private String id;
     public RegolaLimitazioneNPersonaggi(RegolaLimitazioneNPersonaggi R) {

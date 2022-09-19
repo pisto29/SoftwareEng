@@ -16,7 +16,7 @@ public class Partita {
     private Giocatore player2;
     private Turno t;
     private boolean giocabile;
-    private RegolamentoComponent regolamento;
+    private Regolamento regolamento;
     private String id_regolamento;
     public Partita(Giocatore player1, Giocatore player2,String id_regolamento) throws FileNotFoundException {
     this.player1 = player1;

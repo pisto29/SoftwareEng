@@ -1,69 +1,89 @@
 package Entity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.*;
-import java.security.KeyStore.Entry;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-public class TorneoItaliana extends Torneo {
-public HashMap<String,Integer> classifica;
-
-
-    public TorneoItaliana(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) throws FileNotFoundException {
+public class TorneoItaliana extends Torneo{
+    public HashMap<String,Integer> classifica;
+    public TorneoItaliana(int numeroPartecipanti, Boolean accessibilita, ArrayList<String> id_regolamento)
+            throws FileNotFoundException {
         super(numeroPartecipanti, accessibilita, id_regolamento);
         classifica=new HashMap<>();
+    }
+
+    @Override
+    public void AggiornaRisultati() {
+        // TODO Auto-generated method stub
+        System.out.println("Aggiornamento CLASSIFICA");
+        for(String s:this.round.getRisultati()){
+            this.classifica.replace(s, this.classifica.get(s), this.classifica.get(s)+1);
+           
+        }
+        System.out.println("CLASSIFICA PARZIALE:");
+        for(String k:this.classifica.keySet()){
+            System.out.println(k+"  Punteggio:"+this.classifica.get(k));
+        }
+    }
+private void setup(){
+    for (Giocatore g : Partecipanti) {
+        this.classifica.put(g.getNome(), 0);
+    }
+}
+    @Override
+    public ArrayList<Giocatore> AvviaTorneo() throws IOException {
+        this.setup();
+        // TODO Auto-generated method stub
+        while(this.round.getNumero()<this.NumeroPartecipanti-1) {
+            System.out.println("ROUND NUMERO: "+ this.round.getNumero());
+            this.GeneraAccoppiamenti();
+            this.AvviaPartite();
+            this.AggiornaRisultati();
+            this.avanza();
+        }
+        
+        return this.TrovaVincitore();
+    }
+
+    @Override
+    public void GeneraAccoppiamenti() {
+        String nomi[]=new String[this.NumeroPartecipanti];
+        int i=0;
+        for(String s: this.classifica.keySet()){
+         nomi[i]=s;
+         i++;
+         //System.out.println(s);
+        }
+        //
+        //String[] nomi={"1","2","3","4","5","6","7","8"};
+        for(int c=0;c<=this.round.getNumero();c++){
+         nomi=this.rotate(nomi);
+        }
+        //System.out.println("INIZIO");
+        for (String n : nomi) {
+            // System.out.println(n);
+        }
+        //System.out.println("FINE");
+        int z=nomi.length-1;
+         for(int h=0; h<=nomi.length/2-1;h++){
+            Giocatore g1=null;
+            Giocatore g2=null;
+            for(Giocatore g: Partecipanti){
+                if(g.getNome().equals(nomi[h]))
+                g1=g;
+                if(g.getNome().equals(nomi[z]))
+                g2=g;
+            }
+            this.round.aggiungiAccoppiamento(g1, g2);
+            //
+            System.out.println("coppia"+nomi[h]+nomi[z]);
+             z--;
+         
+         }
         
     }
 
-    
-    public void GiocaRound() {
-       // this.round.AvviaPartite(Partecipanti,squadre);
-        
-        
-    }
-public void AggiornaClassifica(){
-    System.out.println("Aggiornamento CLASSIFICA");
-    for(String s:this.round.getRisultati()){
-        this.classifica.replace(s, this.classifica.get(s), this.classifica.get(s)+1);
-        System.out.println(s);
-    }
-    System.out.println("CLASSIFICA PARZIALE:");
-    for(String k:this.classifica.keySet()){
-        System.out.println(k+"  Punteggio:"+this.classifica.get(k));
-    }
-    
-}
-    @Override
-    public void GeneraAccoppiamenti() {
-    String nomi[]=new String[this.NumeroPartecipanti];
-       int i=0;
-       for(String s: this.classifica.keySet()){
-        nomi[i]=s;
-        i++;
-        //System.out.println(s);
-       }
-       //
-       //String[] nomi={"1","2","3","4","5","6","7","8"};
-       for(int c=0;c<=this.round.getNumero();c++){
-        nomi=this.rotate(nomi);
-       }
-       //System.out.println("INIZIO");
-       for (String n : nomi) {
-           // System.out.println(n);
-       }
-       //System.out.println("FINE");
-       int z=nomi.length-1;
-        for(int h=0; h<=nomi.length/2-1;h++){
-           this.round.aggiungiAccoppiamento(nomi[h], nomi[z]);
-           //
-           System.out.println("coppia"+nomi[h]+nomi[z]);
-            z--;
-        
-        }
-    }
     private String[] rotate(String[] nomi){
         String appoggio="";
         String[] temp=new String[nomi.length];
@@ -83,91 +103,24 @@ public void AggiornaClassifica(){
         nomi[1]=temp[temp.length-1];
         return nomi;
     }
-public static void main(String[] args) {
-   /*  String[] nomi={"1","2","3","4","5","6","7","8"};
-   
-    nomi=i.rotate(nomi);
-    nomi=i.rotate(nomi);
-    for(String s: nomi)
-    System.out.println(s+"\n");*/
-     ///TorneoItaliana i= new TorneoItaliana(4, true);
-     //i.GeneraAccoppiamenti();
-}
-   
-    @Override
-    public void Partecipa(Giocatore u) {
-        if(this.Partecipanti.size()<this.NumeroPartecipanti){
-      
-
-            this.classifica.put(u.getNome(), 0);
-           // this.squadre.put(u.getNome(), s);
-            this.Partecipanti.add(u);
-        }else{new View().Messaggi("NoPosti");}
-        if(this.Partecipanti.size()<this.NumeroPartecipanti){
-            new View().CompletaTorneo(this.NumeroPartecipanti-this.Partecipanti.size());
-        }
-        else{new View().Messaggi("TorneoStart");
-    try {
-        this.esecuzione();
-    } catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-    }
-    }
-    }
-        
-        
-    
-
 
     @Override
-    public void AvviaPartite() throws IOException {
+    public ArrayList<Giocatore> TrovaVincitore() {
         // TODO Auto-generated method stub
-        this.round.AvviaPartite(this.Partecipanti,this.id_regolamento);
-        
-    }
-
-    public void Avanza(){
-        this.round = new Round(this.round.getNumero()+1);
-    }
-
-   public void esecuzione() throws IOException{
-    //System.out.println("Partecipanti:");
-    if(!(this.round.getNumero()==0&&this.Partecipanti.size()!=this.NumeroPartecipanti)){
-    while(this.round.getNumero()<this.NumeroPartecipanti-1) {
-        System.out.println("ROUND NUMERO: "+ this.round.getNumero());
-        this.GeneraAccoppiamenti();
-        this.AvviaPartite();
-        this.AggiornaClassifica();
-        this.Avanza();
-    }
-    System.out.println("RISULTATO:");
-
-    System.out.println(this.ris() + "  " + this.classifica.get(this.ris()));}
-    else{new View().Messaggi("PartecipantiInsufficienti");}
-
-   }
-  
-   private String ris(){
-    int max = 0;
+        int max = 0;
     String nome = "";
     for(String s : this.classifica.keySet()){
         if(this.classifica.get(s)>max){
             max = this.classifica.get(s);
             nome = s;
         }
+
+    }        ArrayList<Giocatore> Vincitore=new ArrayList<>();
+        for(Giocatore g: Partecipanti)
+        if(g.getNome().equals(nome))Vincitore.add(g);
+        System.out.println("Il vincitore è "+nome);
+    return Vincitore;
     }
-    /*for(Map.Entry<String,Integer> entry : this.classifica.entrySet()){
-       
-        if(entry.getValue()> max){
-        max = entry.getValue();
-        nome = entry.getKey();
-       }      
-       System.out.println(nome);
-    
-    }*/
 
-    return nome;
-   }
-
+   
 }

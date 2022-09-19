@@ -1,6 +1,6 @@
 package Entity;
 
-public interface RegolamentoComponent {
+public interface Regolamento {
     public boolean VerificaRegolamento(Squadra s);
     public String toString();
 

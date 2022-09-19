@@ -1,6 +1,6 @@
 package Entity;
 
-public class NoRegole implements RegolamentoComponent {
+public class NoRegole implements Regolamento {
 
     public NoRegole() {
     }

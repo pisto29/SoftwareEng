@@ -16,7 +16,7 @@ public class CompetitionFactorySingleton {
         return istanza;
     }
 
-    public Torneo creaTorneo(String formato_torneo, int numeroPartecipanti, boolean accessibilita,String id_regolamento) throws FileNotFoundException{
+    public Torneo creaTorneo(String formato_torneo, int numeroPartecipanti, boolean accessibilita,ArrayList<String> id_regolamento) throws FileNotFoundException{
         Torneo t;
         switch(formato_torneo){
             case "Italiana":
@@ -33,45 +33,10 @@ public class CompetitionFactorySingleton {
         }
         return t;
     }
-    public  RegolamentoComponent CreaRegolamento(String id) throws FileNotFoundException{
-        RegolamentoComponent E=null;
-        if(id.contains("Multipla")){
-                ArrayList <Effetto> effetti = new ArrayList<>();
-            
-              
-                RegolamentoComposite A = builder.creaRegolamentoComposite(id);
-                ArrayList<RegolamentoComponent> regole=new ArrayList<>();
-                A.setRegole(regole);
-                for (String nomeEffetto : A.getIdRegole()) {
-                    
-                    String effetto = nomeEffetto.split("_")[0];
-                    switch(effetto){
-                        case "RegolaLimitazioneNPersonaggi":
-                        E = builder.creaRegolaLimitazionenLimitazioneNPersonaggi(id);
-                        A.Add(E);
-                        break;
-
-                        case "RegolaLimitazioneNStrumento":
-                        E = builder.creaRegolaLimitazionenLimitazioneNStrumento(id);
-                        A.Add(E);
-                        break;
-
-                        case "RegolaLimitazioneTipo":
-                        E = builder.creaRegolaLimitazioneTipo(id);
-                        A.Add(E);
-                        break;
-
-                    
-                        case "NoRegole":
-                        E = new NoRegole();
-                        A.Add(E);
-                        break;
-                    }
-                    
-                }
-             E = A;
-        }
-        else{
+    public  Regolamento CreaRegolamento(String id) throws FileNotFoundException{
+        Regolamento E=null;
+        
+       
            
             String classe = id.split("_")[0];
                     switch(classe){
@@ -98,7 +63,7 @@ public class CompetitionFactorySingleton {
                         break;
                     }
 
-        }
+        
         return E;
     }
     

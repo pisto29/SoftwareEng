@@ -4,23 +4,22 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Partita2 {
     private Giocatore player1;
     private Giocatore player2;
     private Turno t;
-    private boolean giocabile;
-    private RegolamentoComponent regolamento;
-    private String id_regolamento;
-    public Partita2(Giocatore player1, Giocatore player2, 
-            String id_regolamento) throws FileNotFoundException {
+    
+    
+   
+    public Partita2(Giocatore player1, Giocatore player2) throws FileNotFoundException {
         this.player1 = player1;
         this.player2 = player2;
         this.t = this.createTurno(0);
-        this.giocabile = giocabile;
+       
         
-        this.id_regolamento = id_regolamento;
-        this.regolamento=CompetitionFactorySingleton.getIstanza().CreaRegolamento(id_regolamento);
+       
     }
 
     public void UsaMossa(String id_mossa,String Nome_giocatore){
@@ -211,27 +210,15 @@ public class Partita2 {
         this.t = t;
     }
 
-    public boolean isGiocabile() {
-        return giocabile;
-    }
+    public Giocatore simula(){
 
-    public void setGiocabile(boolean giocabile) {
-        this.giocabile = giocabile;
+        int v = new Random().nextInt(2);
+       
+        if(v == 0)
+            return this.player1;
+        else 
+            return this.player2;
+    
     }
-
-    public RegolamentoComponent getRegolamento() {
-        return regolamento;
-    }
-
-    public void setRegolamento(RegolamentoComponent regolamento) {
-        this.regolamento = regolamento;
-    }
-
-    public String getId_regolamento() {
-        return id_regolamento;
-    }
-
-    public void setId_regolamento(String id_regolamento) {
-        this.id_regolamento = id_regolamento;
-    }
+ 
 }

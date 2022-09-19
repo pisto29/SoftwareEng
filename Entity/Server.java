@@ -20,17 +20,33 @@ public class Server {
         this.v = new View();
     }
 
-public void OrganizzaTorneo(String Struttura_torneo,int NumeroPartecipanti,Boolean accessibilità,String id_regolamento) throws FileNotFoundException{
+public void OrganizzaTorneo(String Struttura_torneo,int NumeroPartecipanti,Boolean accessibilità,ArrayList<String> id_regolamento) throws FileNotFoundException{
 this.tornei.add(CompetitionFactorySingleton.getIstanza().creaTorneo(Struttura_torneo, NumeroPartecipanti, accessibilità, id_regolamento));
 }
-public void IscrizioneTorneo(String Username, int Index_torneo){}
+public void IscrizioneTorneo(String Username, int Index_torneo) throws IOException{
+    Giocatore DaIscrivere=null;
+    for(Giocatore g: online){
+        if(g.getNome().equals(Username))DaIscrivere=g;
+    }
+    int iscritti=this.tornei.get(Index_torneo).AggiungiPartecipante(DaIscrivere);
+    System.out.println("Iscrizione di "+Username+" mancano "+(this.tornei.get(Index_torneo).getNumeroPartecipanti()-iscritti)+"iscritti");
+    if(iscritti==this.tornei.get(Index_torneo).getNumeroPartecipanti()){
+        System.out.println("Iscrizioni completate il torneo ha inizio");
+        this.tornei.get(Index_torneo).AvviaTorneo();}
+}
 public void SelezionaSquadra(String NomeGiocatore, int SquadraSelezionata){
     for (Giocatore giocatore : online) {
         if(giocatore.getNome().equals(NomeGiocatore))giocatore.setSquadraSelezionata(SquadraSelezionata);
         
     }
 }
-public ArrayList<Squadra>VerificaConformitaSquadre(int index_torneo,String Username){}
+public ArrayList<Squadra>VerificaConformitaSquadre(int index_torneo,String Username){
+    Giocatore g=null;
+    for (Giocatore giocatore : online) {
+        if(giocatore.getNome().equals(Username))g=giocatore;
+    }
+    return this.tornei.get(index_torneo).GetSquadreAbilitate(g);
+}
 
 
 public ArrayList<Torneo> GetTornei(String codice){
@@ -45,6 +61,32 @@ public ArrayList<Torneo> GetTornei(String codice){
                 
             }
         }return t;
+    }
+
+    public void SimulaCreazioneTorneo(Giocatore g) throws IOException{
+        int n;
+        String Struttura;
+        
+        boolean accessibilita;
+        ArrayList<String> id_regolamento;
+        n = this.v.NumeroPartecipanti();
+        Struttura = this.v.CreazioneTorneo();
+        accessibilita = this.v.AccessibilitàTorneo();
+        id_regolamento=this.v.SceltaRegolamento();
+        this.OrganizzaTorneo(Struttura, n, accessibilita, id_regolamento);
+        int index=this.tornei.size()-1;
+       int scelta= new View().ScegliSquadra(this.VerificaConformitaSquadre(index, g.getNome()));
+       this.SelezionaSquadra(g.getNome(), scelta);
+       this.IscrizioneTorneo(g.getNome(), index);
+
+    }
+    public void simulaIscrizione(Giocatore g) throws IOException{
+        String codice=new View().getCodiceTorneo();
+        int index=new View().recuperaIndiceTorneo(this.GetTornei(codice));
+        int scelta= new View().ScegliSquadra(this.VerificaConformitaSquadre(index, g.getNome()));
+        this.SelezionaSquadra(g.getNome(), scelta);
+        this.IscrizioneTorneo(g.getNome(), index);
+
     }
     public void inputTorneo(Giocatore g) throws IOException{
         int n;
@@ -66,57 +108,15 @@ public ArrayList<Torneo> GetTornei(String codice){
         
     }
 
-    private Torneo creaTorneo(int n, String id_torneo,String id_regolamento, boolean accessibilita) throws FileNotFoundException{
-        Torneo t;
-        switch(id_torneo){
-            case "Italiana":
-                t = new TorneoItaliana(n,accessibilita,id_regolamento);
-                break;
-            case "Eliminazione":
-                t = new TorneoEliminazioneDiretta(n,accessibilita,id_regolamento);
-                break;
-            case "Squadre":
-                t = new TorneoSquadre(n, accessibilita, id_regolamento);
-                break;
-            default : t = null;
-
-        }
-        return t;
-    }
+  
     public Giocatore login(String id) throws JsonSyntaxException, JsonIOException, FileNotFoundException, ClassNotFoundException{
         Giocatore g= builder.CreaGiocatore(id);
         this.online.add(g);
         return g;
     }
-    public void  PartecipaTorneo(Giocatore g, Torneo t){
-        this.v.inizioIscrizione(g.getNome());
-            // this.classifica.put(u.getNome(), 0);
-            ArrayList<Squadra> Utilizzabile=new ArrayList<>();
-             int utilizzabili=0;
-             for(Squadra s:g.getSquadra()){
-                 if(t.getRegolamento().VerificaRegolamento(s)){
-                 Utilizzabile.add(s);
-                     utilizzabili++;
-             }
-                 else
-                 Utilizzabile.add(null);
- 
-             }
-             if(utilizzabili>0){
-             try {
-                 g.setSquadraSelezionata(new View().ScegliSquadra(Utilizzabile));
-                 t.Partecipa(g);
-             } catch (IOException e) {
-                 // TODO Auto-generated catch block
-                 e.printStackTrace();
-             }}
-             else{
-                v.Messaggi("NoSquadre");
-             }
+  
 
-    }
-
-public Partita2 CreaPartita(String p1, String p2, String id_regolamento) throws JsonSyntaxException, JsonIOException, FileNotFoundException, ClassNotFoundException{
+public Partita2 CreaPartita(String p1, String p2) throws JsonSyntaxException, JsonIOException, FileNotFoundException, ClassNotFoundException{
     Giocatore g1=null;
     Giocatore g2=null;
    for(Giocatore g: this.online){
@@ -125,7 +125,7 @@ public Partita2 CreaPartita(String p1, String p2, String id_regolamento) throws 
    }
    if(g1==null)g1=this.login(p1);
    if(g1==null)g2=this.login(p1);
-   return new Partita2(g1, g2, id_regolamento);
+   return new Partita2(g1, g2);
 }
 
   /*   public static void main(String[] args) throws IOException, JsonSyntaxException, JsonIOException, ClassNotFoundException {
@@ -158,17 +158,28 @@ public Partita2 CreaPartita(String p1, String p2, String id_regolamento) throws 
     
     }*/
 
-     public static void main(String[] args) throws JsonSyntaxException, JsonIOException, ClassNotFoundException, IOException {
+  /*    public static void main(String[] args) throws JsonSyntaxException, JsonIOException, ClassNotFoundException, IOException {
         Server s=new Server();
         Giocatore g1= s.login("Mattia");
         Giocatore g2= s.login("Riccardo");
         Giocatore g3= s.login("Alessandro");
         Giocatore g4= s.login("Luca");
-        TorneoSquadre2 t= new TorneoSquadre2(4, false, "NoRegole_");
+        TorneoSquadre2 t= new TorneoSquadre(4, false, "NoRegole_");
         t.AggiungiPartecipante(g1);
         t.AggiungiPartecipante(g2);
         t.AggiungiPartecipante(g3);
         t.AggiungiPartecipante(g4);
         t.AvviaTorneo();
+    }*/
+     public static void main(String[] args) throws IOException, JsonSyntaxException, JsonIOException, ClassNotFoundException {
+        Server s= new Server();
+        Giocatore g1= s.login("Mattia");
+        Giocatore g2= s.login("Riccardo");
+        Giocatore g3= s.login("Alessandro");
+        Giocatore g4= s.login("Luca");
+        s.SimulaCreazioneTorneo(g1);
+        s.simulaIscrizione(g2);
+        s.simulaIscrizione(g3);
+        s.simulaIscrizione(g4);
     }
 }

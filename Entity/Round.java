@@ -17,7 +17,7 @@ public class Round {
         Risultati = new ArrayList<>();
     }
 
-    public void AvviaPartite(String id_regolamento) throws IOException{
+    public void AvviaPartite() throws IOException{
         System.out.println("Round iniziato");
         int u=1;
         for(Giocatore g: Accoppiamenti.keySet()){
@@ -48,14 +48,14 @@ public class Round {
             
             String c="";
             if(this.numero==0&&u==0){
-                 c = new Partita2(g1,g2,id_regolamento).giocaPartita().getNome();
+                 c = new Partita2(g1,g2).giocaPartita().getNome();
                 u++;
                 System.out.println("La partita è stata vinta da: "+c);
             
                 Risultati.add(c);
             }
             else{
-             c = new Partita(g1,g2,id_regolamento).simula().getNome();
+             c = new Partita2(g1,g2).simula().getNome();
             System.out.println("La partita è stata vinta da: "+c);
             
             Risultati.add(c);}
@@ -88,20 +88,21 @@ public class Round {
         this.Accoppiamenti.put(p1, p2);
     }
 
-    public HashMap<String, String> getAccoppiamenti() {
-        return Accoppiamenti;
-    }
-
-    public void setAccoppiamenti(HashMap<String, String> accoppiamenti) {
-        Accoppiamenti = accoppiamenti;
-    }
-
+  
     public ArrayList<String> getRisultati() {
         return Risultati;
     }
 
     public void setRisultati(ArrayList<String> risultati) {
         Risultati = risultati;
+    }
+
+    public HashMap<Giocatore, Giocatore> getAccoppiamenti() {
+        return Accoppiamenti;
+    }
+
+    public void setAccoppiamenti(HashMap<Giocatore, Giocatore> accoppiamenti) {
+        Accoppiamenti = accoppiamenti;
     }
     
 }

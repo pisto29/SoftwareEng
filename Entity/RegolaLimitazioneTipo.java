@@ -2,7 +2,7 @@ package Entity;
 
 import java.io.FileNotFoundException;
 
-public class RegolaLimitazioneTipo implements RegolamentoComponent {
+public class RegolaLimitazioneTipo implements Regolamento {
     private String Id_tipo;
     private Tipo tipo;
     private String id;

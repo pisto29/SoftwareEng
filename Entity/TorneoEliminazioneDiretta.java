@@ -6,116 +6,66 @@ import java.util.ArrayList;
 
 public class TorneoEliminazioneDiretta extends Torneo {
 
-    public TorneoEliminazioneDiretta(int numeroPartecipanti, Boolean accessibilita, String id_regolamento) throws FileNotFoundException {
+    public TorneoEliminazioneDiretta(int numeroPartecipanti, Boolean accessibilita, ArrayList<String> id_regolamento)
+            throws FileNotFoundException {
         super(numeroPartecipanti, accessibilita, id_regolamento);
     }
-    /*public void GestisciPartecipanti(){
-        int i=1;
-        for(Giocatore g: this.Partecipanti){
-            System.out.println("Gestisci Partecipanti");
-            //System.out.println(g);
-            if(!this.round.getRisultati().contains(g.getNome())){
-            this.Partecipanti.remove(g);
-            this.NumeroPartecipanti=this.NumeroPartecipanti-1;
-            System.out.println(i);
-            i = i+1;
-        }
-        }
-    }*/
 
-
-    public void GestisciPartecipanti(){
-        //int j=1;
+    @Override
+    public void AggiornaRisultati() {
+      ArrayList<String> Risultati=this.round.getRisultati();
         for(int i=0 ; i<this.Partecipanti.size(); i++){
-            //System.out.println("Gestisci Partecipanti");
-           // System.out.println(this.Partecipanti.get(i).getNome());
-            //System.out.println(this.Partecipanti.get(i));
-            if(!this.round.getRisultati().contains(this.Partecipanti.get(i).getNome())){
+          
+            if(!Risultati.contains(this.Partecipanti.get(i).getNome())){
                 System.out.println(" è stato eliminato");
                 System.out.println(this.Partecipanti.get(i).getNome());
                 this.Partecipanti.remove(this.Partecipanti.get(i));
-                this.NumeroPartecipanti=this.NumeroPartecipanti-1;
+                
         }
-            //System.out.println(j);
-            //j = j+1;
+            
         }
         System.out.println("i giocatori rimanenti sono:"); 
 
         for (Giocatore giocatore : Partecipanti) {
             System.out.println(giocatore.getNome());    
         }
-    }   
 
-
-
-
+        
+    }
 
     @Override
-    public void AvviaPartite() throws IOException {
-        // TODO Auto-generated method stub
-        this.round.AvviaPartite(this.Partecipanti,this.id_regolamento);
+    public ArrayList<Giocatore> AvviaTorneo() throws IOException {
+        while(this.Partecipanti.size()>1) {
+            this.GeneraAccoppiamenti();
+            this.AvviaPartite();
+            this.AggiornaRisultati();
+            this.avanza();
+     }
+     ArrayList<Giocatore>Vincitore= this.TrovaVincitore();
+        System.out.println("il vincitore è ");
+        for (Giocatore g : Vincitore) {
+            System.out.println(g.getNome()); 
+        }
+        return Vincitore;
         
     }
 
     @Override
     public void GeneraAccoppiamenti() {
-        
-        for(int i=0;i<=this.NumeroPartecipanti-2;i=i+2){
-        //System.out.println(i+" e"+(i+1));
-        System.out.println("coppia");
-        System.out.println(this.Partecipanti.get(i).getNome()+"  ---  "+this.Partecipanti.get(i+1).getNome());
-        this.round.aggiungiAccoppiamento(this.Partecipanti.get(i).getNome(), this.Partecipanti.get(i+1).getNome());
-        }
+        for(int i=0;i<=this.Partecipanti.size()-2;i=i+2){
+            
+            System.out.println("coppia");
+            System.out.println(this.Partecipanti.get(i).getNome()+"  ---  "+this.Partecipanti.get(i+1).getNome());
+            this.round.aggiungiAccoppiamento(this.Partecipanti.get(i), this.Partecipanti.get(i+1));
+            }
+       
         
     }
-/*public static void main(String[] args) {
- //TorneoEliminazioneDiretta e=new TorneoEliminazioneDiretta(8, true)  ;
- e.GeneraAccoppiamenti(); 
-}*/
 
     @Override
-    public void Partecipa(Giocatore u) {
+    public ArrayList<Giocatore> TrovaVincitore() {
         // TODO Auto-generated method stub
-        if(this.Partecipanti.size()<this.NumeroPartecipanti){
-           // this.classifica.put(u.getNome(), 0);
-          
-            this.Partecipanti.add(u);
-            }
-            else{new View().Messaggi("NoPosti");}
-            if(this.Partecipanti.size()<this.NumeroPartecipanti){
-                new View().CompletaTorneo(this.NumeroPartecipanti-this.Partecipanti.size());
-            }
-            else{new View().Messaggi("TorneoStart");
-        try {
-            this.esecuzione();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        }
+        return this.Partecipanti;
     }
     
-    
-    public void esecuzione() throws IOException{
-
-        if(!(this.round.getNumero()==0&&this.Partecipanti.size()!=this.NumeroPartecipanti)){
-            while(this.NumeroPartecipanti> 1) {
-                this.GeneraAccoppiamenti();
-                this.AvviaPartite();
-                this.GestisciPartecipanti();
-                this.Avanza();
-         }
-            System.out.println("il vincitore è ");
-            for (Giocatore g : this.Partecipanti) {
-                System.out.println(g.getNome()); 
-            }
-        }
-        else{new View().Messaggi("PartecipantiInsufficienti");}
-
-    
-        
-    
-       }
-      
-
 }
