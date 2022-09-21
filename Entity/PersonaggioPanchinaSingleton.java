@@ -23,43 +23,18 @@ public static PersonaggioPanchinaSingleton getIstanza() {
 
     @Override
     public void Sostituzione(Personaggio P1) {
-        P1.setRuolo(PersonaggioAttivoSingleton.getIstanza());
+        P1.setRuolo(new PersonaggioAttivo());
         // TODO Auto-generated method stub
         
     }
 
 
 
-    @Override
-    public float getAttacco(int attaccoOriginale) {
-        // TODO Auto-generated method stub
-        return attaccoOriginale;
-    }
+    
 
 
 
-    @Override
-    public float getAttaccoSpecile(int attaccospecialeOriginale) {
-        // TODO Auto-generated method stub
-        return attaccospecialeOriginale;
-    }
-
-
-
-    @Override
-    public float getDifesa(int difesaOriginale) {
-        // TODO Auto-generated method stub
-        return difesaOriginale;
-    }
-
-
-
-    @Override
-    public float getDifesaSpeciale(int difesaspecialeOriginale) {
-        // TODO Auto-generated method stub
-        return difesaspecialeOriginale;
-    }
-
+   
 
 
     
@@ -148,32 +123,10 @@ public boolean isAbilitato() {
     }
 
 
-    @Override
-    public PersonaggioAttivoImplementator getImplementator() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+   
 
-
-    @Override
-    public void setImplementator(PersonaggioAttivoImplementator implementator) {
-        // TODO Auto-generated method stub
-        
-    }
-
-
-    @Override
-    public int getPriorità() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-
-    @Override
-    public void setPriorità(int p) {
-        // TODO Auto-generated method stub
-        
-    }
+ 
+   
 
 
     @Override
@@ -208,6 +161,34 @@ public boolean isAbilitato() {
     public float getVelocitaAttuale(Personaggio p) {
         // TODO Auto-generated method stub
         return p.getVelocitaPersonaggio();
+    }
+
+
+    @Override
+    public void VaiInCampo(Personaggio P1) {
+        // TODO Auto-generated method stub
+        P1.setRuolo(new PersonaggioAttivo());
+    }
+
+
+    @Override
+    public void VaiInPanchina(Personaggio P) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    @Override
+    public void VaiKo(Personaggio P) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    @Override
+    public void TornaUtilizzabile(Personaggio P) {
+        // TODO Auto-generated method stub
+        
     }
 
 

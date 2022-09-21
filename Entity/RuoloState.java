@@ -5,6 +5,10 @@ public interface RuoloState {
     public float EseguiAttacco(Personaggio P1, Mossa mossa);
     public boolean Difendi(Personaggio P1, Mossa mossa, float danno);
     public void Sostituzione(Personaggio P1);
+    public void VaiInCampo(Personaggio P1);
+    public void VaiInPanchina(Personaggio P);
+    public void VaiKo(Personaggio P);
+    public void TornaUtilizzabile(Personaggio P);
     public float getVelocitaAttuale(Personaggio p);
     public void aggiungiMoltiplicatoreAttacco(float moltiplicatore);
     public void aggiungiMoltiplicatoreAttaccoSpeciale(float moltiplicatore);

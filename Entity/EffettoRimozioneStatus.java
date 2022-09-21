@@ -22,12 +22,21 @@ public class EffettoRimozioneStatus implements EffettoStrumento {
         this.StatusCura= new Sonno();
     }
     @Override
-    public void ApplicaEffettoStrumento(Personaggio P) {
-        if(P.getStatus().getNome()==this.StatusCura.getNome())
+    public String ApplicaEffettoStrumento(Personaggio P) {
+        if(P.getStatus().getNome()==this.StatusCura.getNome()){
         P.setStatus(null);
-        System.out.println(P.getNomePersonaggio()+" è stato curato da "+this.StatusCura.getNome());
+        return P.getNomePersonaggio()+" è stato curato da "+this.StatusCura.getNome();
         
     }
+    else{
+        P.setpS(P.getpS()+10);
+        P.TornaUtilizzabile();
+        return P.getNomePersonaggio()+" ha recuperato 10 ps";
+    }
+    
+  
+
+}
     @Override
     public ArrayList<Personaggio> Utilizzabile(ArrayList<Personaggio> a) {
         ArrayList<Personaggio> u= new ArrayList<>();

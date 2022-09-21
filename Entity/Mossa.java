@@ -55,14 +55,16 @@ public class Mossa {
         this.idEffettiSelf = m.getIdEffettiSelf();
         this.effetti=new ArrayList<>();
         for(String s: idEffetti)
-        this.effetti.add(EffettoFactorySingleton.getIstanza().CreaEffetto(s));
+        this.effetti.add(EffettiFactorySingleton.getIstanza().CreaEffetto(s));
         this.effetti_self=new ArrayList<>();
         for(String s: idEffettiSelf)
-        this.effetti_self.add(EffettoFactorySingleton.getIstanza().CreaEffetto(s));
+        this.effetti_self.add(EffettiFactorySingleton.getIstanza().CreaEffetto(s));
         this.tipo = TipoFactorySingleton.getIstanza().Create(this.idTipo);
        
     }
-
+public void RiportaUtilizzo(){
+    this.pp--;
+}
     
     public String getNomeMossa() {
         return nomeMossa;

@@ -39,10 +39,10 @@ public abstract class Abilità {
         }
         effetti=new ArrayList<>();
         for(String s: id_effetti)
-        this.effetti.add(EffettoFactorySingleton.getIstanza().CreaEffetto(s));
+        this.effetti.add(EffettiFactorySingleton.getIstanza().CreaEffetto(s));
         this.effetti_self=new ArrayList<>();
         for(String s: id_effetti_self)
-        this.effetti_self.add(EffettoFactorySingleton.getIstanza().CreaEffetto(s));
+        this.effetti_self.add(EffettiFactorySingleton.getIstanza().CreaEffetto(s));
         
     }
 

@@ -67,7 +67,9 @@ public abstract class Torneo {
             //return sb.toString();
             }
         }
-
+public void AddRegolamento(Regolamento r){
+    this.Regolamento.add(r);
+}
         public int AggiungiPartecipante(Giocatore g){
             this.Partecipanti.add(g);
             return this.Partecipanti.size();

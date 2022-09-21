@@ -6,18 +6,17 @@ public class MossaMossa implements EsecuzioneTurno {
 
  
     public void esecuzione(Turno t){
-        Personaggio primo;
-        Personaggio secondo;
-       if( t.checkVelocità()) {primo=t.getP1();secondo=t.getP2();}
-       else {primo=t.getP2();secondo=t.getP1();}
+
+        String primo;
+        String secondo;
+       if( t.checkVelocità()) {primo="g1";secondo="g2";}
+       else {primo="g2";secondo="g1";}
       
     
- 
+ t.setAttacca(primo,true);
+ t.setDifende(secondo,true);
 
-   primo.setAttacca(true);
-   
- 
-secondo.setDifende(true);
+
 
 
     t.EseguiAbilità(primo);
@@ -40,13 +39,11 @@ secondo.setDifende(true);
         t.checkstatus(secondo);
        
       
-        primo.setAttacca(false);
-        
-        secondo.setDifende(false);
-        secondo.setAttacca(true);
-        
-        primo.setDifende(true);
     }
+    t.setAttacca(primo,false);
+    t.setDifende(secondo,false);
+    t.setAttacca(secondo,true);
+    t.setDifende(primo,true);
     if(!t.FineTurnoKo()){
         t.setFase(Fase.Pre_azione); 
         t.EseguiAbilità(primo);
@@ -62,8 +59,8 @@ secondo.setDifende(true);
         t.checkstatus(primo);
         t.checkstatus(secondo);
         }
-        secondo.setAttacca(false);
-        primo.setDifende(false);
+    t.setAttacca(secondo,false);
+    t.setDifende(primo,false);
     t.setFase(Fase.Fine_Turno);
     if(!t.checkKo(primo)){t.EseguiAbilità(primo);t.checkstatus(primo);}
     if(!t.checkKo(secondo)){t.EseguiAbilità(secondo);t.checkstatus(secondo);}

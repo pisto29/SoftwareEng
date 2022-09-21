@@ -1,15 +1,19 @@
 package Entity;
 import java.util.*;
-public class Sonno implements StatusStrategy {
+public class Sonno extends StatusStrategy {
 private int durataSonno;
 private int durataMassima;
 private String Nome;
    
 
+   
+    
+
+
     public Sonno() {
-    this.durataSonno = 0;
+    super("Sonno", Fase.Pre_azione);this.durataSonno = 0;
     this.durataMassima = 3;
-    this.Nome="sonno";
+   
 }
 
     @Override

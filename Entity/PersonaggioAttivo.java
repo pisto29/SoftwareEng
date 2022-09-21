@@ -2,10 +2,8 @@ package Entity;
 
 import java.util.Random;
 
-public class PersonaggioAttivoSingleton implements RuoloState {
-private static PersonaggioAttivoSingleton istanza1;
-private static PersonaggioAttivoSingleton istanza2;
-private static String topass="istanza1";
+public class PersonaggioAttivo implements RuoloState {
+
 
     private boolean attacca;
     private boolean difende;
@@ -15,36 +13,14 @@ private static String topass="istanza1";
     private float moltiplicatoreDifSpec;
     private float moltiplicatoreVelocita; 
     private boolean abilitazioneAttacco;
-    public static PersonaggioAttivoSingleton getIstanza() {
-        if(topass.equals("istanza1")){
-        if(istanza1==null){
-           istanza1=new PersonaggioAttivoSingleton(1,1,1,1,1,true);
-           //LastReturned = "istanza1";
-           return istanza1;    
-        }
-    else return istanza1;
-    }
-    else{
-        if(istanza2==null){
-            istanza2=new PersonaggioAttivoSingleton(1,1,1,1,1,true);
-           // LastReturned = "istanza2";
-            return istanza2;  
-         }
-         return istanza2;
-        }
-        
-    }
-    public static void setpass(String pass){
-        topass=pass;
-    }
-    private PersonaggioAttivoSingleton(float moltiplicatoreAttacco, float moltiplicatoreDifesa,
-            float moltiplicatoreAttSpec, float moltiplicatoreDifSpec, float moltiplicatoreVelocita, boolean abilitazioneAttacco) {
-        this.moltiplicatoreAttacco = moltiplicatoreAttacco;
-        this.moltiplicatoreDifesa = moltiplicatoreDifesa;
-        this.moltiplicatoreAttSpec = moltiplicatoreAttSpec;
-        this.moltiplicatoreDifSpec = moltiplicatoreDifSpec;
-        this.moltiplicatoreVelocita = moltiplicatoreVelocita;
-        this.abilitazioneAttacco = abilitazioneAttacco;
+   
+    public PersonaggioAttivo() {
+        this.moltiplicatoreAttacco = 1;
+        this.moltiplicatoreDifesa = 1;
+        this.moltiplicatoreAttSpec = 1;
+        this.moltiplicatoreDifSpec =1;
+        this.moltiplicatoreVelocita =1;
+        this.abilitazioneAttacco = true;
         this.attacca=false;
         this.difende=false;
         
@@ -99,7 +75,7 @@ private static String topass="istanza1";
        // return this.implementator.attacca(p1, m);
        // System.out.println(m.getNomeMossa()+"da usare");
        float attacco=0;
-       m.setPp(m.getPp()-1);
+       m.RiportaUtilizzo();
       
       if(m.getTipologia().equals(Tipologia.Fisico)) attacco=p1.getAttaccoPersonaggio()*moltiplicatoreAttacco;
       else attacco=p1.getAttaccoSpecialePersonaggio()*moltiplicatoreAttSpec;
@@ -213,35 +189,10 @@ private float efficacia(Personaggio p1, Mossa m){
 
 
 
-    @Override
-    public float getAttacco(int attaccoOriginale) {
-        
-        return (float) attaccoOriginale * moltiplicatoreAttacco;
-    }
+  
 
 
 
-    @Override
-    public float getAttaccoSpecile(int attaccospecialeOriginale) {
-        
-        return (float) attaccospecialeOriginale * moltiplicatoreAttSpec;
-    }
-
-    
-
-    @Override
-    public float getDifesa(int difesaOriginale) {
-        
-        return (float) difesaOriginale * moltiplicatoreDifesa;
-    }
-
-
-
-    @Override
-    public float getDifesaSpeciale(int difesaspecialeOriginale) {
-        
-        return (float) difesaspecialeOriginale * moltiplicatoreDifSpec;
-    }
 
 
 
@@ -367,24 +318,8 @@ public void DisabiltaAttacco() {
     abilitazioneAttacco = false;
 }
 
-@Override
-public PersonaggioAttivoImplementator getImplementator() {
-    // TODO Auto-generated method stub
-    return this.implementator;
-}
 
-@Override
-public void setImplementator(PersonaggioAttivoImplementator implementator) {
-    this.implementator=implementator;
-}
 
-public int getPriorità() {
-    return priorità;
-}
-
-public void setPriorità(int priorità) {
-    this.priorità = priorità;
-}
 
 @Override
 public boolean isAbilitato() {
@@ -411,6 +346,39 @@ public void setAttacca(boolean a) {
 public void setDifende(boolean a) {
     // TODO Auto-generated method stub
     this.difende=a;
+    
+}
+
+
+
+@Override
+public void VaiInCampo(Personaggio P1) {
+    // TODO Auto-generated method stub
+    
+}
+
+
+
+@Override
+public void VaiInPanchina(Personaggio P) {
+    // TODO Auto-generated method stub
+    P.setRuolo(PersonaggioPanchinaSingleton.getIstanza());
+}
+
+
+
+@Override
+public void VaiKo(Personaggio P) {
+    // TODO Auto-generated method stub
+    if(P.getpS()==0)
+    P.setRuolo(KoSingleton.getIstanza());
+}
+
+
+
+@Override
+public void TornaUtilizzabile(Personaggio P) {
+    // TODO Auto-generated method stub
     
 }
 

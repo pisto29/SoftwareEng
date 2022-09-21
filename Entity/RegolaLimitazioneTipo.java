@@ -2,12 +2,12 @@ package Entity;
 
 import java.io.FileNotFoundException;
 
-public class RegolaLimitazioneTipo implements Regolamento {
+public class RegolaLimitazioneTipo extends Regolamento {
     private String Id_tipo;
     private Tipo tipo;
-    private String id;
+   
     public RegolaLimitazioneTipo(RegolaLimitazioneTipo R) throws FileNotFoundException {
-        this.id=R.getId();
+        super(R.getId());
         this.Id_tipo=R.getId_tipo();
         this.tipo=TipoFactorySingleton.getIstanza().Create(this.Id_tipo);
     }

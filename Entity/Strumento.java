@@ -14,36 +14,14 @@ public class Strumento {
     private EffettoStrumento effetto;
     private String idEffetto;
     private Boolean utilizzato;
+    ;
 
     public Strumento(Strumento s) throws JsonSyntaxException, JsonIOException, ClassNotFoundException {
         this.nomeStrumento=s.nomeStrumento;
         this.idEffetto=s.idEffetto;
         this.utilizzato = false;
-        try {
-         
-            String classe = s.idEffetto.split("_")[0];
-           // String effetto = id.split("_")[0];
         
-            EffettoStrumento E = null;
-            switch(classe){
-                case "EffettoCura" :
-                
-                    E = builder.creaEffettoCura(s.idEffetto);
-                    break;
-                case "EffettoRimozioneStatus" :
-                    E =builder.creaEffettoRimozioneStatus(s.idEffetto);
-                    break;
-                case "EffettoRevitalizzante" :
-                    E =builder.creaEffettoRevitalizzante(s.idEffetto);
-                    break;
-    
-            }
-            this.effetto=E;
-            
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+       this.effetto=EffettiFactorySingleton.getIstanza().creEffettoStrumento(this.idEffetto);
     }
 
     public Strumento(String nomeStrumento, String idEffetto) {
@@ -53,10 +31,10 @@ public class Strumento {
         this.utilizzato = false;
     }
 
-    public void Utilizza(Personaggio P){
-        System.out.println("Viene utilizzato "+this.nomeStrumento+" su "+P.getNomePersonaggio());
-        this.effetto.ApplicaEffettoStrumento(P);
-        this.utilizzato = true;
+    public String Utilizza(Personaggio p){this.utilizzato = true;
+        return "Viene utilizzato "+this.nomeStrumento+" su "+p.getNomePersonaggio()+" ".concat(this.effetto.ApplicaEffettoStrumento(p));
+        
+        
     }
 
     public String getNomeStrumento() {
@@ -95,5 +73,6 @@ public class Strumento {
        
         return this.effetto.Utilizzabile(p);
     }
-    
+
+   
 }

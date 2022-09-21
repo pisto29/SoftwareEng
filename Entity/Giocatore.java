@@ -30,9 +30,16 @@ public class Giocatore {
         this.squadra.add(builder.creaSquadra(id));
         this.SquadraSelezionata=0;
         
+        
 
         
     }
+public Personaggio MandaProssimo(){
+    return this.squadra.get(SquadraSelezionata).getPrimoDisponibile();
+}
+boolean SquadraKo(){
+    return this.getSquadraAttiva().checkKOSquadra();
+}
 public Squadra getSquadraAttiva(){
     return this.squadra.get(this.SquadraSelezionata);
 }
@@ -44,8 +51,14 @@ public Squadra getSquadraAttiva(){
         this.nome = nome;
     }
 
-    
-   
+
+public Strumento GetStrumentoFromSquadra(int index_strumento){
+    return this.getSquadraAttiva().getStrumento(index_strumento);
+}
+
+public Personaggio getPersonaggioFromSquadra(int index_personaggio){
+    return this.getSquadraAttiva().getPersonaggio(index_personaggio);
+}
 
 
  
@@ -81,6 +94,8 @@ public Squadra getSquadraAttiva(){
     public void setSquadraSelezionata(Integer squadraSelezionata) {
         SquadraSelezionata = squadraSelezionata;
     }
+
+    
     
   
 

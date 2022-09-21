@@ -5,15 +5,43 @@ import java.util.ArrayList;
 
 import Foundation.builder;
 
-public class EffettoFactorySingleton {
-    private static EffettoFactorySingleton istanza;
+public class EffettiFactorySingleton {
+    private static EffettiFactorySingleton istanza;
 
-    private EffettoFactorySingleton() {
+    private EffettiFactorySingleton() {
     }
-    public static EffettoFactorySingleton getIstanza(){
+    public static EffettiFactorySingleton getIstanza(){
         if(istanza==null)
-        istanza=new EffettoFactorySingleton();
+        istanza=new EffettiFactorySingleton();
         return istanza;
+    }
+    public EffettoStrumento creEffettoStrumento(String id){
+       EffettoStrumento E = null;
+        try {
+         
+            String classe = id.split("_")[0];
+           // String effetto = id.split("_")[0];
+        
+            
+            switch(classe){
+                case "EffettoCura" :
+                
+                    E = builder.creaEffettoCura(id);
+                    break;
+                case "EffettoRimozioneStatus" :
+                    E =builder.creaEffettoRimozioneStatus(id);
+                    break;
+                case "EffettoRevitalizzante" :
+                    E =builder.creaEffettoRevitalizzante(id);
+                    break;
+    
+            }
+          
+            
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }  return E;
     }
     public Effetto CreaEffetto(String id) throws FileNotFoundException {
         Effetto E=null;

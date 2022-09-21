@@ -217,9 +217,7 @@ public void AttivaAbilità(Personaggio avversario, Fase fase_corrente){
         return this.ruolo.Difendi(this, m, danno);
     }
 
-    public PersonaggioAttivoImplementator getImplementator(){
-        return this.ruolo.getImplementator();
-    }
+   
 
     public void Sostituzione(){
         this.ruolo.Sostituzione(this);
@@ -389,4 +387,9 @@ public void AttivaAbilità(Personaggio avversario, Fase fase_corrente){
         return m;
 
     }
+
+    public void VaiInCampo(){this.ruolo.VaiInCampo(this);}
+    public void VaiInPanchina(){this.ruolo.VaiInPanchina(this);}
+    public void VaiKo(){this.ruolo.VaiKo(this);}
+    public void TornaUtilizzabile(){this.ruolo.TornaUtilizzabile(this);}
 }

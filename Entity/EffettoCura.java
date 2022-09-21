@@ -9,10 +9,11 @@ public class EffettoCura implements EffettoStrumento {
         PS = pS;
     }
     @Override
-    public void ApplicaEffettoStrumento(Personaggio P) {
+    public String ApplicaEffettoStrumento(Personaggio P) {
         // TODO Auto-generated method stub
         P.setpS(P.getpS()+this.PS);
-        System.out.println(P.getNomePersonaggio()+" ha recuperato "+this.PS+" PS");
+        P.TornaUtilizzabile();
+        return P.getNomePersonaggio()+" ha recuperato "+this.PS+" PS";
       
         
         

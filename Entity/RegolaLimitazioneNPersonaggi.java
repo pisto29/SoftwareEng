@@ -1,11 +1,13 @@
 package Entity;
 
-public class RegolaLimitazioneNPersonaggi implements Regolamento {
+public class RegolaLimitazioneNPersonaggi extends Regolamento {
 private int  NumeroPersonaggi;
-private String id;
+
+ 
     public RegolaLimitazioneNPersonaggi(RegolaLimitazioneNPersonaggi R) {
+        super(R.getId());
         this.NumeroPersonaggi=R.getNumeroPersonaggi();
-        this.id=R.getId();
+       
 }
     @Override
     public boolean VerificaRegolamento(Squadra s) {

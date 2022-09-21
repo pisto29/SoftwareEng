@@ -17,6 +17,23 @@ import Entity.*;
 import Entity.EffettoCura;
 
 public class builder {
+    public static ArrayList<String> Id_Regolamenti(){
+        ArrayList<String> results = new ArrayList<String>();
+    
+        String s = new File(".").getAbsolutePath()+"/Foundation/file/Regolamento/";
+        
+    
+        File[] files = new File(s).listFiles();
+        //If this pathname does not denote a directory, then listFiles() returns null. 
+    
+        for (File file : files) {
+            if (file.isFile()) {
+                results.add(file.getName().replaceAll(".json", ""));
+            } 
+            
+    }
+    return results;
+    }
     //EFFETTI MOSSE
     public static EffettoMultiploComposite creaEffettoMultiploComposite(String id) throws FileNotFoundException{
         Gson gson = new Gson();

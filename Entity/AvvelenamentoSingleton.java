@@ -1,16 +1,18 @@
 package Entity;
 
-public class AvvelenamentoSingleton implements StatusStrategy {
+public class AvvelenamentoSingleton extends StatusStrategy {
     private static AvvelenamentoSingleton istanza;
-    private String Nome;
-    private AvvelenamentoSingleton() {
-        this.Nome="Avvelenamento";
+    
+    
+    public AvvelenamentoSingleton(String nome, Fase faseAttivazione) {
+        super(nome, faseAttivazione);
     }
+
     public static AvvelenamentoSingleton getIstanza() {
         
         if(istanza==null){
 
-            istanza=new AvvelenamentoSingleton();
+            istanza=new AvvelenamentoSingleton("Avvelenamento",Fase.Fine_Turno);
         }
      return istanza;
     }

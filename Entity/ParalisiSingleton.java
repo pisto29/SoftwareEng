@@ -1,17 +1,19 @@
 package Entity;
 import java.util.*;
-public class ParalisiSingleton implements StatusStrategy {
+public class ParalisiSingleton extends StatusStrategy {
     private static ParalisiSingleton istanza;
-    private String Nome;
-    private ParalisiSingleton() {
-        this.Nome="paralisi";
+   
+    private ParalisiSingleton(String nome, Fase faseAttivazione) {
+        super(nome, faseAttivazione);
     }
+
+   
 
     public static ParalisiSingleton getIstanza() {
 
         if(istanza==null) {
 
-            istanza=new ParalisiSingleton();
+            istanza=new ParalisiSingleton("Paralisi",Fase.Pre_azione);
         }
      return istanza;
     }

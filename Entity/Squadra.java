@@ -46,6 +46,20 @@ public class Squadra {
             
         }
     }
+    public Personaggio getPrimoDisponibile(){
+        Personaggio prossimo=null;
+        boolean found=false;
+        for (Personaggio p : this.personaggios) {
+            if(p.getRuolo().equals(PersonaggioPanchinaSingleton.getIstanza())){
+                found=true;
+                prossimo=p;
+            }
+        }
+        return prossimo;
+    }
+    public String UtilizzaStrumento(int index_strumento, int index_personaggio){
+       return this.strumentos.get(index_strumento).Utilizza(this.personaggios.get(index_personaggio));
+    }
     public Strumento getStrumento(int index){
         return this.strumentos.get(index);
     }
@@ -75,8 +89,9 @@ public class Squadra {
 
         for(Personaggio p:  this.personaggios){
        
-            if(!p.getRuolo().getClass().getSimpleName().equals("KoSingleton"))
+            if(!p.getRuolo().equals(KoSingleton.getIstanza()))
             return false;
+            
             
           }
         return true;

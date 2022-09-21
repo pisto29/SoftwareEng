@@ -145,7 +145,7 @@ public void Messaggi(String messaggi){
     }
 }
 
-public void ResoConto(Partita2 p){
+public void ResoConto(Partita p){
     System.out.println(p.getTurno().getP1().getNomePersonaggio()+" di "+p.getPlayer1().getNome()+" ha "+p.getTurno().getP1().getpS()+" ps ");
     System.out.println(p.getTurno().getP2().getNomePersonaggio()+" di "+p.getPlayer2().getNome()+" ha "+p.getTurno().getP2().getpS()+" ps ");
 }

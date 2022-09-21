@@ -1,5 +1,6 @@
 package Entity;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,10 +17,31 @@ public class Round {
         Accoppiamenti = new HashMap<>();
         Risultati = new ArrayList<>();
     }
+public void AvviaPartite() throws IOException{
+    this.PreparaPartite();
+    System.out.println("Round iniziato");
+        int u=0;
+        for(Partita p: this.Partite){
+            System.out.println("Inizia la Partita tra :"+ " "+ p.getPlayer1().getNome()+" e "+p.getPlayer2().getNome());
+            String c="";
+            if(this.numero==0&&u==0){
+                c = p.giocaPartita().getNome();
+               u++;
+               System.out.println("La partita è stata vinta da: "+c);
+           
+               Risultati.add(c);
+           }
+           else{
+            c = p.simula().getNome();
+           System.out.println("La partita è stata vinta da: "+c);
+           
+           Risultati.add(c);
 
-    public void AvviaPartite() throws IOException{
+        }
+}}
+    public void AvviaPartite2() throws IOException{
         System.out.println("Round iniziato");
-        int u=1;
+        int u=0;
         for(Giocatore g: Accoppiamenti.keySet()){
             //System.out.println("STAMPO S ACCOPPIAMENTI");
             //System.out.println(s);
@@ -48,14 +70,14 @@ public class Round {
             
             String c="";
             if(this.numero==0&&u==0){
-                 c = new Partita2(g1,g2).giocaPartita().getNome();
+                 c = new Partita(g1,g2).giocaPartita().getNome();
                 u++;
                 System.out.println("La partita è stata vinta da: "+c);
             
                 Risultati.add(c);
             }
             else{
-             c = new Partita2(g1,g2).simula().getNome();
+             c = new Partita(g1,g2).simula().getNome();
             System.out.println("La partita è stata vinta da: "+c);
             
             Risultati.add(c);}
@@ -67,7 +89,16 @@ public class Round {
          
         }
     
+    private void PreparaPartite() throws FileNotFoundException{
+        for(Giocatore g: Accoppiamenti.keySet()){
+           
+            Giocatore g1=null;
+            Giocatore g2=null;
+            g1=g;
+            g2=Accoppiamenti.get(g1);
+            this.Partite.add(new Partita(g1, g2));}
 
+    }
     public ArrayList<Partita> getPartite() {
         return Partite;
     }
@@ -86,6 +117,8 @@ public class Round {
 
     public void aggiungiAccoppiamento(Giocatore p1,Giocatore p2){
         this.Accoppiamenti.put(p1, p2);
+        
+
     }
 
   
